@@ -5,6 +5,25 @@
 @theme {
   --font-sans: 'Switzer', sans-serif;
 
+  /** COLORS **/
+  --color-*: initial;
+  --color-pumpkin: #F5690F;
+  --color-night-blue: #F690F;
+  --color-dark-blue: #172780;
+  --color-light-blue: #DAE6FF;
+  --color-sky-blue: #EEF4FF;
+  --color-blue: #70A0FF;
+
+  --color-neutral-10: #181D29;
+  --color-neutral-40: #525766;
+  --color-neutral-60: #828899;
+  --color-neutral-80: #B8BDCC;
+  --color-neutral-95: #EBEDF2;
+  --color-neutral-100: #FFFFFF;
+
+  --color-white: #FFFFFF;
+  --color-black: #000000;
+
   /*** HEADINGS ***/
   /* text-k-h1: Font Size: 64px | Line height: 100% | Letter spacing: -2% */
   --text-k-h1: 4rem; /* 64px */
@@ -86,4 +105,10 @@
   --text-k-xs: 0.75rem; /* 12px */
   --text-k-xs-line-height: 1.5rem; /* 24px */
   --text-k-xs-letter-spacing: 0%;
+}
+
+@layer components {
+  .site-container {
+    @apply mx-auto max-w-[1440px] px-6 sm:px-8 xl:px-20;
+  }
 }

@@ -1,37 +1,32 @@
 ---
 import Logotype from "@/components/navigation/Logotype.astro";
 import ArrowIcon from "@/components/navigation/ArrowIcon.astro";
+
+const menuOptions = [
+	{ label: "How it works", href: "#" },
+	{ label: "Pricing", href: "#" },
+	{ label: "Why us", href: "#" },
+	{ label: "Testimonials", href: "#" },
+	{ label: "Samples", href: "#" },
+	{ label: "Case studies", href: "#" },
+];
 ---
 
-<nav class="flex w-full text-gray-900">
-	<div class="flex items-center">
+<nav class="site-container text-neutral-10 flex w-full py-6">
+	<a href="/" class="flex items-center">
 		<Logotype />
-	</div>
-	<div class="flex grow gap-x-7 gap-y-4 text-right">
-		<div class="flex items-center justify-end py-1 pl-[18px] text-right">
-			<div>How it works</div>
-		</div>
-		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
-			<div>Pricing</div>
-		</div>
-		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
-			<div>Why us</div>
-		</div>
-		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
-			<div>Testimonials</div>
-		</div>
-		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
-			<div>Samples</div>
-		</div>
-		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
-			<div>Case studies</div>
-		</div>
+	</a>
+	<div class="flex grow items-center justify-center gap-x-7">
+		{menuOptions.map((menuOption) => <a href={menuOption.href}>{menuOption.label}</a>)}
 	</div>
 	<div class="flex items-center gap-4 font-medium">
-		<div>Login</div>
-		<div class="flex items-center gap-2 overflow-clip rounded-[100px] bg-gray-900 px-5 py-3">
-			<div class="text-white">Start free trial</div>
+		<a href="https://kapa99.com/login">Login</a>
+		<a
+			href="https://kapa99.com/register"
+			class="bg-neutral-10 flex items-center gap-2 rounded-[100px] px-5 py-3"
+		>
+			<span class="text-white">Start free trial</span>
 			<ArrowIcon />
-		</div>
+		</a>
 	</div>
 </nav>
