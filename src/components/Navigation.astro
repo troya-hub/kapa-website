@@ -1,18 +1,37 @@
 ---
-
+import Logotype from "@/components/navigation/Logotype.astro";
+import ArrowIcon from "@/components/navigation/ArrowIcon.astro";
 ---
 
-<nav class="flex items-center justify-between bg-gray-800 p-4">
-	<div class="text-lg font-bold text-white">My Blog</div>
-	<ul class="flex space-x-4">
-		<li>
-			<a href="/" class="text-white hover:text-gray-400"> Home </a>
-		</li>
-		<li>
-			<a href="/about" class="text-white hover:text-gray-400"> About </a>
-		</li>
-		<li>
-			<a href="/blog" class="text-white hover:text-gray-400"> Blog </a>
-		</li>
-	</ul>
+<nav class="flex w-full text-gray-900">
+	<div class="flex items-center">
+		<Logotype />
+	</div>
+	<div class="flex grow gap-x-7 gap-y-4 text-right">
+		<div class="flex items-center justify-end py-1 pl-[18px] text-right">
+			<div>How it works</div>
+		</div>
+		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
+			<div>Pricing</div>
+		</div>
+		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
+			<div>Why us</div>
+		</div>
+		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
+			<div>Testimonials</div>
+		</div>
+		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
+			<div>Samples</div>
+		</div>
+		<div class="flex items-center justify-end overflow-clip py-1 pl-[18px] text-right">
+			<div>Case studies</div>
+		</div>
+	</div>
+	<div class="flex items-center gap-4 font-medium">
+		<div>Login</div>
+		<div class="flex items-center gap-2 overflow-clip rounded-[100px] bg-gray-900 px-5 py-3">
+			<div class="text-white">Start free trial</div>
+			<ArrowIcon />
+		</div>
+	</div>
 </nav>

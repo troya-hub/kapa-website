@@ -1,187 +1,89 @@
+@import './fonts.css';
 @import "tailwindcss";
 
-/** Fonts **/
-@font-face {
-  font-family: 'Switzer-Thin';
-  src: url('/fonts/Switzer-Thin.woff2') format('woff2'),
-  url('/fonts/Switzer-Thin.woff') format('woff'),
-  url('/fonts/Switzer-Thin.ttf') format('truetype');
-  font-weight: 100;
-  font-display: swap;
-  font-style: normal;
-}
+/* https://tailwindcss.com/docs/theme */
+@theme {
+  --font-sans: 'Switzer', sans-serif;
 
-@font-face {
-  font-family: 'Switzer-ThinItalic';
-  src: url('/fonts/Switzer-ThinItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-ThinItalic.woff') format('woff'),
-  url('/fonts/Switzer-ThinItalic.ttf') format('truetype');
-  font-weight: 100;
-  font-display: swap;
-  font-style: italic;
-}
+  /*** HEADINGS ***/
+  /* text-k-h1: Font Size: 64px | Line height: 100% | Letter spacing: -2% */
+  --text-k-h1: 4rem; /* 64px */
+  --text-k-h1-line-height: 4rem; /* 64px */
+  --text-k-h1-letter-spacing: -2%;
 
-@font-face {
-  font-family: 'Switzer-Extralight';
-  src: url('/fonts/Switzer-Extralight.woff2') format('woff2'),
-  url('/fonts/Switzer-Extralight.woff') format('woff'),
-  url('/fonts/Switzer-Extralight.ttf') format('truetype');
-  font-weight: 200;
-  font-display: swap;
-  font-style: normal;
-}
+  /* Mobile text-k-h1: Font Size: 44px | Line height: 116% | Letter spacing: -1.5% */
+  --text-k-h1-mobile: 3rem; /* 48px */
+  --text-k-h1-mobile-line-height: 3rem; /* 48px */
+  --text-k-h1-mobile-letter-spacing: -2%;
 
-@font-face {
-  font-family: 'Switzer-ExtralightItalic';
-  src: url('/fonts/Switzer-ExtralightItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-ExtralightItalic.woff') format('woff'),
-  url('/fonts/Switzer-ExtralightItalic.ttf') format('truetype');
-  font-weight: 200;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-h2: Font Size: 56px | Line height: 116%  | Letter spacing: -1.5% */
+  --text-k-h2: 3.5rem; /* 56px */
+  --text-k-h2-line-height: 4rem; /* 64px */
+  --text-k-h2-letter-spacing: -1.5%;
 
-@font-face {
-  font-family: 'Switzer-Light';
-  src: url('/fonts/Switzer-Light.woff2') format('woff2'),
-  url('/fonts/Switzer-Light.woff') format('woff'),
-  url('/fonts/Switzer-Light.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: normal;
-}
+  /* Mobile text-k-h2: Font Size: 40px | Line height: 120% | Letter spacing: -1.2% */
+  --text-k-h2-mobile: 2.5rem; /* 40px */
+  --text-k-h2-mobile-line-height: 3rem; /* 48px */
+  --text-k-h2-mobile-letter-spacing: -1.5%;
 
-@font-face {
-  font-family: 'Switzer-LightItalic';
-  src: url('/fonts/Switzer-LightItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-LightItalic.woff') format('woff'),
-  url('/fonts/Switzer-LightItalic.ttf') format('truetype');
-  font-weight: 300;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-h3: Font Size: 48px | Line height: 116% | Letter spacing: -1.5% */
+  --text-k-h3: 3rem; /* 48px */
+  --text-k-h3-line-height: 4rem; /* 64px */
+  --text-k-h3-letter-spacing: -1.5%;
 
-@font-face {
-  font-family: 'Switzer-Regular';
-  src: url('/fonts/Switzer-Regular.woff2') format('woff2'),
-  url('/fonts/Switzer-Regular.woff') format('woff'),
-  url('/fonts/Switzer-Regular.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: normal;
-}
+  /* Mobile text-k-h3: Font Size: 32px | Line height: 125% | Letter spacing: -1% */
+  --text-k-h3-mobile: 2rem; /* 32px */
+  --text-k-h3-mobile-line-height: 2.5rem; /* 40px */
+  --text-k-h3-mobile-letter-spacing: -1%;
 
-@font-face {
-  font-family: 'Switzer-Italic';
-  src: url('/fonts/Switzer-Italic.woff2') format('woff2'),
-  url('/fonts/Switzer-Italic.woff') format('woff'),
-  url('/fonts/Switzer-Italic.ttf') format('truetype');
-  font-weight: 400;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-h4: Font Size: 40px | Line height: 120% | Letter spacing: -1.2% */
+  --text-k-h4: 2.5rem; /* 40px */
+  --text-k-h4-line-height: 3rem; /* 48px */
+  --text-k-h4-letter-spacing: -1.2%;
 
-@font-face {
-  font-family: 'Switzer-Medium';
-  src: url('/fonts/Switzer-Medium.woff2') format('woff2'),
-  url('/fonts/Switzer-Medium.woff') format('woff'),
-  url('/fonts/Switzer-Medium.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: normal;
-}
+  /* Mobile text-k-h4: Font Size: 24px | Line height: 135% | Letter spacing: -1% */
+  --text-k-h4-mobile: 1.5rem; /* 24px */
+  --text-k-h4-mobile-line-height: 2rem; /* 32px */
+  --text-k-h4-mobile-letter-spacing: -1%;
 
-@font-face {
-  font-family: 'Switzer-MediumItalic';
-  src: url('/fonts/Switzer-MediumItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-MediumItalic.woff') format('woff'),
-  url('/fonts/Switzer-MediumItalic.ttf') format('truetype');
-  font-weight: 500;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-h5: Font Size: 32px | Line height: 125% | Letter spacing: -1% */
+  --text-k-h5: 2rem; /* 32px */
+  --text-k-h5-line-height: 2.5rem; /* 40px */
+  --text-k-h5-letter-spacing: -1%;
 
-@font-face {
-  font-family: 'Switzer-Semibold';
-  src: url('/fonts/Switzer-Semibold.woff2') format('woff2'),
-  url('/fonts/Switzer-Semibold.woff') format('woff'),
-  url('/fonts/Switzer-Semibold.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: normal;
-}
+  /* Mobile text-k-h5: Font Size: 20px | Line height: 150% | Letter spacing: -0.5% */
+  --text-k-h5-mobile: 1.25rem; /* 20px */
+  --text-k-h5-mobile-line-height: 1.5rem; /* 24px */
+  --text-k-h5-mobile-letter-spacing: -0.5%;
 
-@font-face {
-  font-family: 'Switzer-SemiboldItalic';
-  src: url('/fonts/Switzer-SemiboldItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-SemiboldItalic.woff') format('woff'),
-  url('/fonts/Switzer-SemiboldItalic.ttf') format('truetype');
-  font-weight: 600;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-h6: Font Size: 24px | Line height: 135% | Letter spacing: -1% */
+  --text-k-h6: 1.5rem; /* 24px */
+  --text-k-h6-line-height: 2rem; /* 32px */
+  --text-k-h6-letter-spacing: -1%;
 
-@font-face {
-  font-family: 'Switzer-Bold';
-  src: url('/fonts/Switzer-Bold.woff2') format('woff2'),
-  url('/fonts/Switzer-Bold.woff') format('woff'),
-  url('/fonts/Switzer-Bold.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: normal;
-}
+  /*** TEXT SIZES ***/
+  /* text-k-xl: Font Size: 20px | Line height: 150% | Letter spacing: -0.5% */
+  --text-k-xl: 1.25rem; /* 20px */
+  --text-k-xl-line-height: 1.5rem; /* 24px */
+  --text-k-xl-letter-spacing: -0.5%;
 
-@font-face {
-  font-family: 'Switzer-BoldItalic';
-  src: url('/fonts/Switzer-BoldItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-BoldItalic.woff') format('woff'),
-  url('/fonts/Switzer-BoldItalic.ttf') format('truetype');
-  font-weight: 700;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-lg: Font Size: 18px | Line height: 150% | Letter spacing: -0.5% */
+  --text-k-lg: 1.125rem; /* 18px */
+  --text-k-lg-line-height: 1.5rem; /* 24px */
+  --text-k-lg-letter-spacing: -0.5%;
 
-@font-face {
-  font-family: 'Switzer-Extrabold';
-  src: url('/fonts/Switzer-Extrabold.woff2') format('woff2'),
-  url('/fonts/Switzer-Extrabold.woff') format('woff'),
-  url('/fonts/Switzer-Extrabold.ttf') format('truetype');
-  font-weight: 800;
-  font-display: swap;
-  font-style: normal;
-}
+  /* text-k-md: Font Size: 16px | Line height: 150% | Letter spacing: -0.2% */
+  --text-k-md: 1rem; /* 16px */
+  --text-k-md-line-height: 1.5rem; /* 24px */
+  --text-k-md-letter-spacing: -0.2%;
 
-@font-face {
-  font-family: 'Switzer-ExtraboldItalic';
-  src: url('/fonts/Switzer-ExtraboldItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-ExtraboldItalic.woff') format('woff'),
-  url('/fonts/Switzer-ExtraboldItalic.ttf') format('truetype');
-  font-weight: 800;
-  font-display: swap;
-  font-style: italic;
-}
+  /* text-k-sm: Font Size: 14px | Line height: 150% | Letter spacing: 0% */
+  --text-k-sm: 0.875rem; /* 14px */
+  --text-k-sm-line-height: 1.5rem; /* 24px */
+  --text-k-sm-letter-spacing: 0%;
 
-@font-face {
-  font-family: 'Switzer-Black';
-  src: url('/fonts/Switzer-Black.woff2') format('woff2'),
-  url('/fonts/Switzer-Black.woff') format('woff'),
-  url('/fonts/Switzer-Black.ttf') format('truetype');
-  font-weight: 900;
-  font-display: swap;
-  font-style: normal;
-}
-
-@font-face {
-  font-family: 'Switzer-BlackItalic';
-  src: url('/fonts/Switzer-BlackItalic.woff2') format('woff2'),
-  url('/fonts/Switzer-BlackItalic.woff') format('woff'),
-  url('/fonts/Switzer-BlackItalic.ttf') format('truetype');
-  font-weight: 900;
-  font-display: swap;
-  font-style: italic;
-}
-
-html,
-body {
-  font-family: 'Switzer', sans-serif;
+  /* text-k-xs: Font Size: 12px | Line height: 150% | Letter spacing: 0% */
+  --text-k-xs: 0.75rem; /* 12px */
+  --text-k-xs-line-height: 1.5rem; /* 24px */
+  --text-k-xs-letter-spacing: 0%;
 }
