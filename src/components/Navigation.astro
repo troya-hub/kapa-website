@@ -1,6 +1,6 @@
 ---
-import Logotype from "@/components/navigation/Logotype.astro";
-import ArrowIcon from "@/components/navigation/ArrowIcon.astro";
+import Logo from "@/assets/icons/logo.svg";
+import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 
 const menuOptions = [
 	{ label: "How it works", href: "#" },
@@ -14,7 +14,7 @@ const menuOptions = [
 
 <nav class="site-container text-neutral-10 flex w-full py-6">
 	<a href="/" class="flex items-center">
-		<Logotype />
+		<Logo class="h-7" />
 	</a>
 	<div class="flex grow items-center justify-center gap-x-7">
 		{menuOptions.map((menuOption) => <a href={menuOption.href}>{menuOption.label}</a>)}

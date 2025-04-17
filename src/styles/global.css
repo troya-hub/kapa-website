@@ -27,84 +27,84 @@
   /*** HEADINGS ***/
   /* text-k-h1: Font Size: 64px | Line height: 100% | Letter spacing: -2% */
   --text-k-h1: 4rem; /* 64px */
-  --text-k-h1-line-height: 4rem; /* 64px */
-  --text-k-h1-letter-spacing: -2%;
+  --text-k-h1--line-height: 4rem; /* 64px */
+  --text-k-h1--letter-spacing: -2%;
 
   /* Mobile text-k-h1: Font Size: 44px | Line height: 116% | Letter spacing: -1.5% */
   --text-k-h1-mobile: 3rem; /* 48px */
-  --text-k-h1-mobile-line-height: 3rem; /* 48px */
-  --text-k-h1-mobile-letter-spacing: -2%;
+  --text-k-h1-mobile--line-height: 3rem; /* 48px */
+  --text-k-h1-mobile--letter-spacing: -2%;
 
   /* text-k-h2: Font Size: 56px | Line height: 116%  | Letter spacing: -1.5% */
   --text-k-h2: 3.5rem; /* 56px */
-  --text-k-h2-line-height: 4rem; /* 64px */
-  --text-k-h2-letter-spacing: -1.5%;
+  --text-k-h2--line-height: 4rem; /* 64px */
+  --text-k-h2--letter-spacing: -1.5%;
 
   /* Mobile text-k-h2: Font Size: 40px | Line height: 120% | Letter spacing: -1.2% */
   --text-k-h2-mobile: 2.5rem; /* 40px */
-  --text-k-h2-mobile-line-height: 3rem; /* 48px */
-  --text-k-h2-mobile-letter-spacing: -1.5%;
+  --text-k-h2-mobile--line-height: 3rem; /* 48px */
+  --text-k-h2-mobile--letter-spacing: -1.5%;
 
   /* text-k-h3: Font Size: 48px | Line height: 116% | Letter spacing: -1.5% */
   --text-k-h3: 3rem; /* 48px */
-  --text-k-h3-line-height: 4rem; /* 64px */
-  --text-k-h3-letter-spacing: -1.5%;
+  --text-k-h3--line-height: 4rem; /* 64px */
+  --text-k-h3--letter-spacing: -1.5%;
 
   /* Mobile text-k-h3: Font Size: 32px | Line height: 125% | Letter spacing: -1% */
   --text-k-h3-mobile: 2rem; /* 32px */
-  --text-k-h3-mobile-line-height: 2.5rem; /* 40px */
-  --text-k-h3-mobile-letter-spacing: -1%;
+  --text-k-h3-mobile--line-height: 2.5rem; /* 40px */
+  --text-k-h3-mobile--letter-spacing: -1%;
 
   /* text-k-h4: Font Size: 40px | Line height: 120% | Letter spacing: -1.2% */
   --text-k-h4: 2.5rem; /* 40px */
-  --text-k-h4-line-height: 3rem; /* 48px */
-  --text-k-h4-letter-spacing: -1.2%;
+  --text-k-h4--line-height: 3rem; /* 48px */
+  --text-k-h4--letter-spacing: -1.2%;
 
   /* Mobile text-k-h4: Font Size: 24px | Line height: 135% | Letter spacing: -1% */
   --text-k-h4-mobile: 1.5rem; /* 24px */
-  --text-k-h4-mobile-line-height: 2rem; /* 32px */
-  --text-k-h4-mobile-letter-spacing: -1%;
+  --text-k-h4-mobile--line-height: 2rem; /* 32px */
+  --text-k-h4-mobile--letter-spacing: -1%;
 
   /* text-k-h5: Font Size: 32px | Line height: 125% | Letter spacing: -1% */
   --text-k-h5: 2rem; /* 32px */
-  --text-k-h5-line-height: 2.5rem; /* 40px */
-  --text-k-h5-letter-spacing: -1%;
+  --text-k-h5--line-height: 2.5rem; /* 40px */
+  --text-k-h5--letter-spacing: -1%;
 
   /* Mobile text-k-h5: Font Size: 20px | Line height: 150% | Letter spacing: -0.5% */
   --text-k-h5-mobile: 1.25rem; /* 20px */
-  --text-k-h5-mobile-line-height: 1.5rem; /* 24px */
-  --text-k-h5-mobile-letter-spacing: -0.5%;
+  --text-k-h5-mobile--line-height: 1.5rem; /* 24px */
+  --text-k-h5-mobile--letter-spacing: -0.5%;
 
   /* text-k-h6: Font Size: 24px | Line height: 135% | Letter spacing: -1% */
   --text-k-h6: 1.5rem; /* 24px */
-  --text-k-h6-line-height: 2rem; /* 32px */
-  --text-k-h6-letter-spacing: -1%;
+  --text-k-h6--line-height: 2rem; /* 32px */
+  --text-k-h6--letter-spacing: -1%;
 
   /*** TEXT SIZES ***/
   /* text-k-xl: Font Size: 20px | Line height: 150% | Letter spacing: -0.5% */
   --text-k-xl: 1.25rem; /* 20px */
-  --text-k-xl-line-height: 1.5rem; /* 24px */
-  --text-k-xl-letter-spacing: -0.5%;
+  --text-k-xl--line-height: 1.5rem; /* 24px */
+  --text-k-xl--letter-spacing: -0.5%;
 
   /* text-k-lg: Font Size: 18px | Line height: 150% | Letter spacing: -0.5% */
   --text-k-lg: 1.125rem; /* 18px */
-  --text-k-lg-line-height: 1.5rem; /* 24px */
-  --text-k-lg-letter-spacing: -0.5%;
+  --text-k-lg--line-height: 1.5rem; /* 24px */
+  --text-k-lg--letter-spacing: -0.5%;
 
   /* text-k-md: Font Size: 16px | Line height: 150% | Letter spacing: -0.2% */
   --text-k-md: 1rem; /* 16px */
-  --text-k-md-line-height: 1.5rem; /* 24px */
-  --text-k-md-letter-spacing: -0.2%;
+  --text-k-md--line-height: 1.5rem; /* 24px */
+  --text-k-md--letter-spacing: -0.2%;
 
   /* text-k-sm: Font Size: 14px | Line height: 150% | Letter spacing: 0% */
   --text-k-sm: 0.875rem; /* 14px */
-  --text-k-sm-line-height: 1.5rem; /* 24px */
-  --text-k-sm-letter-spacing: 0%;
+  --text-k-sm--line-height: 1.5rem; /* 24px */
+  --text-k-sm--letter-spacing: 0%;
 
   /* text-k-xs: Font Size: 12px | Line height: 150% | Letter spacing: 0% */
   --text-k-xs: 0.75rem; /* 12px */
-  --text-k-xs-line-height: 1.5rem; /* 24px */
-  --text-k-xs-letter-spacing: 0%;
+  --text-k-xs--line-height: 1.5rem; /* 24px */
+  --text-k-xs--letter-spacing: 0%;
 }
 
 @layer components {

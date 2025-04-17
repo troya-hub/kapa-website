@@ -1,0 +1,20 @@
+<svg
+  class="h-3 w-3"
+  width="100%"
+  height="100%"
+  preserveAspectRatio="none"
+  viewBox="0 0 12 12"
+  fill="none"
+  xmlns="http://www.w3.org/2000/svg"
+>
+  <g clip-path="url(#clip0_3001_6432)">
+    <path
+      d="M6.00039 0.400024L5.01339 1.38702L8.91939 5.30002H0.400391V6.70002H8.91939L5.01339 10.613L6.00039 11.6L11.6004 6.00002L6.00039 0.400024Z"
+      fill="white"/>
+  </g>
+  <defs>
+    <clipPath id="clip0_3001_6432">
+      <rect width="12" height="12" fill="white"/>
+    </clipPath>
+  </defs>
+</svg>
