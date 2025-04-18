@@ -7,6 +7,7 @@
 
   /** COLORS **/
   --color-*: initial;
+  --color-darker-pumpkin: #d64700;
   --color-dark-pumpkin: #e7550f;
   --color-light-pumpkin: #fdd5ab;
   --color-pumpkin: #f5690f;
@@ -109,7 +110,7 @@
   --text-k-xs--letter-spacing: 0%;
 
   /** SHADOWS **/
-  --inset-shadow-primary: 0px 2px 3px 0px #FDD5AB inset;
+  --inset-shadow-primary: 0px 2px 3px 0px #fdd5ab inset;
 }
 
 @layer components {
@@ -118,12 +119,14 @@
   }
 
   .button-primary {
-    @apply bg-pumpkin border-dark-pumpkin inset-shadow-primary rounded-[100px] border px-6 py-3 text-neutral-100;
+    @apply bg-pumpkin border-dark-pumpkin hover:bg-dark-pumpkin hover:border-darker-pumpkin inset-shadow-primary rounded-[100px] border px-6 py-3 text-neutral-100 duration-[400ms] ease-in-out;
   }
 
   .button-secondary {
+    @apply bg-neutral-10 rounded-[100px] px-5 py-3 text-neutral-100 hover:bg-neutral-100;
   }
 
   .button-link {
+    @apply h-10 text-k-lg
   }
 }
