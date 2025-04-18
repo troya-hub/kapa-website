@@ -1,5 +1,33 @@
 ---
 import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
+import Hays from "@/assets/icons/hero/hays.svg?url";
+import SweetFish from "@/assets/icons/hero/sweet-fish.svg?url";
+import CurrencyCloud from "@/assets/icons/hero/currency-cloud.svg?url";
+import Eofire from "@/assets/icons/hero/eofire.svg?url";
+import Five9 from "@/assets/icons/hero/five9.svg?url";
+
+const companies = [
+	{
+		name: "Hays",
+		logo: Hays,
+	},
+	{
+		name: "Sweet Fish",
+		logo: SweetFish,
+	},
+	{
+		name: "Currency Cloud",
+		logo: CurrencyCloud,
+	},
+	{
+		name: "Eofire",
+		logo: Eofire,
+	},
+	{
+		name: "Five9",
+		logo: Five9,
+	},
+];
 ---
 
 <section class="site-container text-neutral-10 mt-16">
@@ -15,13 +43,27 @@ import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
 				A dedicated design team for your business without the big price tag
 			</h1>
 
-			<div class="text-k-lg text-neutral-40">
+			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">
 				Get instant access to a team of professional designers—no hiring or contracts required for a
 				flat monthly fee starting at $349/month.
 			</div>
 
 			<div class="mt-6 flex justify-center">
 				<a class="button-primary" href="#">Start with a free 15 day trial</a>
+			</div>
+		</div>
+
+		<div class="mt-16">
+			<div class="mb-8">We've helped over 4,000+ clients</div>
+
+			<div class="mx-auto grid max-w-[80%] grid-cols-5 place-content-center">
+				{
+					companies.map((company) => (
+						<div class="flex items-center justify-center">
+							<img src={company.logo} alt={company.logo} class="h-8 w-auto max-w-[60px]" />
+						</div>
+					))
+				}
 			</div>
 		</div>
 	</div>
