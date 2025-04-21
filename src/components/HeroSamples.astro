@@ -1,0 +1,27 @@
+---
+import Sample1 from "@/assets/icons/hero/samples/sample-1.png?url";
+import Sample2 from "@/assets/icons/hero/samples/sample-2.png?url";
+import Sample3 from "@/assets/icons/hero/samples/sample-3.png?url";
+import Sample4 from "@/assets/icons/hero/samples/sample-4.png?url";
+import Sample5 from "@/assets/icons/hero/samples/sample-5.png?url";
+import Sample6 from "@/assets/icons/hero/samples/sample-6.png?url";
+import Sample7 from "@/assets/icons/hero/samples/sample-7.png?url";
+
+const samples = [
+	{ image: Sample1, alt: "Sample 1" },
+	{ image: Sample2, alt: "Sample 2" },
+	{ image: Sample3, alt: "Sample 3" },
+	{ image: Sample4, alt: "Sample 4" },
+	{ image: Sample5, alt: "Sample 5" },
+	{ image: Sample6, alt: "Sample 6" },
+	{ image: Sample7, alt: "Sample 7" },
+];
+---
+
+<div class="mt-16 grid grid-cols-7">
+	{
+		samples.map((sample, index) => (
+			<img src={sample.image} alt={sample.alt} class="object-contain" />
+		))
+	}
+</div>
