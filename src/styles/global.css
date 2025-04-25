@@ -111,6 +111,9 @@
 
   /** SHADOWS **/
   --inset-shadow-primary: 0px 2px 3px 0px #fdd5ab inset;
+
+  /** SPACING **/
+  --spacing-120: 7.5rem; /* 120px */
 }
 
 @layer components {
@@ -127,6 +130,6 @@
   }
 
   .button-link {
-    @apply h-10 text-k-lg
+    @apply text-k-lg h-10;
   }
 }

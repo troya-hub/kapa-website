@@ -11,14 +11,14 @@ const samples = [
 	{ image: Sample1, alt: "Sample 1" },
 	{ image: Sample2, alt: "Sample 2" },
 	{ image: Sample3, alt: "Sample 3" },
-	{ image: Sample4, alt: "Sample 4" },
-	{ image: Sample5, alt: "Sample 5" },
-	{ image: Sample6, alt: "Sample 6" },
-	{ image: Sample7, alt: "Sample 7" },
+	{ image: Sample1, alt: "Sample 4" },
+	{ image: Sample2, alt: "Sample 5" },
+	{ image: Sample3, alt: "Sample 6" },
+	{ image: Sample1, alt: "Sample 7" },
 ];
 ---
 
-<div class="mt-16 grid grid-cols-7">
+<div class="mt-16 grid grid-cols-7 gap-x-4">
 	{
 		samples.map((sample, index) => (
 			<img src={sample.image} alt={sample.alt} class="object-contain" />

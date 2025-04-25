@@ -1,0 +1,6 @@
+---
+const { size = "medium" } = Astro.props;
+const dividerSize = size === "large" ? "h-30" : "h-16";
+---
+
+<div class={`${dividerSize} w-full`}></div>
