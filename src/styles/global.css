@@ -1,6 +1,8 @@
 @import "./fonts.css";
 @import "tailwindcss";
 
+@source "src/data/*";
+
 /* https://tailwindcss.com/docs/theme */
 @theme {
   --font-sans: "Switzer", sans-serif;
