@@ -164,4 +164,4 @@ const secondRow: Array<IServiceItem> = [
 // 	},
 // ];
 
-export const services = [...firstRow, ...secondRow];
+export const services = [...firstRow, ...secondRow, ...firstRow, ...secondRow];
