@@ -1,0 +1,23 @@
+---
+type Props = {
+	designer: {
+		name: string;
+		role: string;
+		image: string;
+	};
+};
+
+const { designer } = Astro.props;
+---
+
+<div
+	class="border-neutral-95 flex w-[160px] flex-col items-center rounded-2xl bg-neutral-100 p-6 shadow-[24px_24px_24px_0px_rgba(24,29,41,0.16)]"
+>
+	<div>
+		<img src={designer.image} class="w-[96px]" alt="Jason Smith" />
+	</div>
+	<div class="text-neutral-10 mt-2 text-xl font-medium text-nowrap">
+		{designer.name}
+	</div>
+	<div class="text-neutral-60 text-nowrap">{designer.role}</div>
+</div>

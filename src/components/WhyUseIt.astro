@@ -1,0 +1,126 @@
+---
+import BentoCard from "@/components/why-use-it/BentoCard.astro";
+import DesignerCard from "@/components/why-use-it/DesignerCard.astro";
+
+import JasonSmithImage from "@/assets/images/why-use-it/jason-smith.png?url";
+import KimberlyDoeImage from "@/assets/images/why-use-it/kimberly-doe.png?url";
+import NickJonasImage from "@/assets/images/why-use-it/nick-jonas.png?url";
+import MatewLeeImage from "@/assets/images/why-use-it/matew-lee.png?url";
+import JohnMontgomery from "@/assets/images/why-use-it/john-montgomery.png?url";
+import GeorgiaMonroe from "@/assets/images/why-use-it/georgia-monroe.png?url";
+import MikeTowsen from "@/assets/images/why-use-it/mike-towsend.png?url";
+
+import EnvelopeIcon from "@/assets/icons/why-use-it/envelope.svg";
+import ChevronBottomIcon from "@/assets/icons/why-use-it/chevron-bottom.svg";
+import ArrowDownIcon from "@/assets/icons/why-use-it/arrow-down.svg";
+import AddIcon from "@/assets/icons/why-use-it/add.svg";
+import CheckSelectedIcon from "@/assets/icons/why-use-it/check-selected.svg";
+
+const designers = [
+	{
+		name: "Jason Smith",
+		role: "Art Director",
+		image: JasonSmithImage,
+	},
+	{
+		name: "Kimberly Doe",
+		role: "Illustrator",
+		image: KimberlyDoeImage,
+	},
+	{
+		name: "Nick Jonas",
+		role: "Project Manager",
+		image: NickJonasImage,
+	},
+	{
+		name: "Matew Lee",
+		role: "Designer",
+		image: MatewLeeImage,
+	},
+];
+---
+
+<div class="site-container">
+	<h2 class="lg:text-k-h1 text-k-h1-mobile mb-20 font-semibold">What makes us different?</h2>
+
+	<div class="grid grid-cols-2 gap-x-10">
+		<BentoCard>
+			<div
+				slot="images"
+				class="flex w-[120%] items-center justify-center gap-x-[10px] py-[70px] pl-10"
+			>
+				{designers.map((designer) => <DesignerCard designer={designer} />)}
+			</div>
+			<span slot="title">A design team for a fraction of the cost</span>
+			<span slot="description">
+				Each project is handled by a true expert—logos go to brand specialists, illustrations to
+				illustrators, ensuring top-quality results every time.
+			</span>
+		</BentoCard>
+
+		<BentoCard>
+			<div slot="images">
+				<div class="mx-auto flex max-w-[380px] flex-col items-center pt-10 pb-6">
+					<div
+						class="border-neutral-95 mx-auto flex gap-x-2 rounded-lg bg-neutral-100 px-5 py-[10px] shadow-[0px_1px_2px_0px_rgba(24,29,41,0.28)]"
+					>
+						<div class="flex items-center">
+							<EnvelopeIcon />
+						</div>
+						<div class="text-neutral-60 grow text-xs">
+							I need an illustrator to design a stunning book cover
+						</div>
+						<div class="flex items-center">
+							<ChevronBottomIcon />
+						</div>
+					</div>
+
+					<ArrowDownIcon class="mt-3" />
+
+					<div class="mt-2 flex w-full flex-col gap-y-1">
+						<!-- Card #1 -->
+						<div
+							class="border-neutral-95 relative z-10 flex items-center rounded-lg border-2 bg-neutral-100 px-6 py-3"
+						>
+							<img src={JohnMontgomery} alt="John Montgomery" class="h-10 w-10" />
+							<div class="ml-5 flex grow flex-col justify-center">
+								<span class="text-k-sm text-neutral-10 font-medium">Logo Designer</span>
+								<span class="text-k-xs text-neutral-60">John Montgomery</span>
+							</div>
+							<AddIcon />
+						</div>
+
+						<!-- Card #2 -->
+						<div
+							class="flex -rotate-[3deg] transform items-center rounded-lg border-2 border-[#12B288] bg-neutral-100 px-6 py-3"
+						>
+							<img src={GeorgiaMonroe} alt="Georgia Monroe" class="h-10 w-10" />
+							<div class="ml-5 flex grow flex-col">
+								<span class="text-k-sm text-neutral-10 font-medium">Illustrator</span>
+								<span class="text-k-xs text-neutral-60">Georgia Monroe</span>
+							</div>
+							<CheckSelectedIcon />
+						</div>
+
+						<!-- Card #3-->
+						<div
+							class="border-neutral-95 flex items-center rounded-lg border-2 bg-neutral-100 px-6 py-3"
+						>
+							<img src={MikeTowsen} alt="Mike Townsen" class="h-10 w-10" />
+							<div class="ml-5 flex grow flex-col">
+								<span class="text-k-sm text-neutral-10 font-medium">Logo Designer</span>
+								<span class="text-k-xs text-neutral-60">Mike Towsend</span>
+							</div>
+							<AddIcon />
+						</div>
+					</div>
+				</div>
+			</div>
+			<span slot="title">We'll get your designs right every time</span>
+			<span slot="description">
+				Finding the right designer is hard—we’ve been there. With our service, you’ll spend less
+				time searching and more time getting high-quality designs, on demand.
+			</span>
+		</BentoCard>
+	</div>
+</div>

@@ -1,0 +1,22 @@
+---
+import PatternImage from "@/assets/images/why-use-it/pattern.svg?url";
+---
+
+<div class="bg-sky-blue flex flex-col rounded-3xl">
+	<div
+		class="min-h-[385px] overflow-x-hidden bg-center bg-repeat"
+		style={`background-image: url(${PatternImage})`}
+	>
+		<slot name="images" />
+	</div>
+
+	<div class="mx-10 mt-8 mb-10">
+		<h3 class="text-k-h6 text-neutral-10 font-semibold">
+			<slot name="title" />
+		</h3>
+
+		<div class="text-k-lg text-neutral-40 mt-4">
+			<slot name="description" />
+		</div>
+	</div>
+</div>
