@@ -1,9 +1,14 @@
 ---
+import StarIcon from "@/assets/icons/why-use-it/star.svg";
+
 type Props = {
 	designer: {
 		name: string;
 		role: string;
 		image: string;
+		score: string;
+		scoreBackground: string;
+		scoreTextColor: string;
 	};
 };
 
@@ -13,7 +18,13 @@ const { designer } = Astro.props;
 <div
 	class="border-neutral-95 flex w-[160px] flex-col items-center rounded-2xl bg-neutral-100 p-6 shadow-[24px_24px_24px_0px_rgba(24,29,41,0.16)]"
 >
-	<div>
+	<div class="relative">
+		<span
+			class={`absolute -right-5 flex items-center px-[10px] py-[2px] rounded-3xl ${designer.scoreBackground}`}
+		>
+			<span class={`text-k-xs ${designer.scoreTextColor}`}>{designer.score}</span>
+			<StarIcon class={designer.scoreTextColor} />
+		</span>
 		<img src={designer.image} class="w-[96px]" alt="Jason Smith" />
 	</div>
 	<div class="text-neutral-10 mt-2 text-xl font-medium text-nowrap">

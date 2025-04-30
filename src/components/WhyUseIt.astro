@@ -21,21 +21,33 @@ const designers = [
 		name: "Jason Smith",
 		role: "Art Director",
 		image: JasonSmithImage,
+		score: "4,9",
+		scoreBackground: "bg-[#DAE6FF]",
+		scoreTextColor: "text-[#3C7DFF]",
 	},
 	{
 		name: "Kimberly Doe",
 		role: "Illustrator",
 		image: KimberlyDoeImage,
+		score: "4,5",
+		scoreBackground: "bg-[#FFE6D5]",
+		scoreTextColor: "text-[#F5690F]",
 	},
 	{
 		name: "Nick Jonas",
 		role: "Project Manager",
 		image: NickJonasImage,
+		score: "4,7",
+		scoreBackground: "bg-[#D6FFF4]",
+		scoreTextColor: "text-[#12B288]",
 	},
 	{
 		name: "Matew Lee",
 		role: "Designer",
 		image: MatewLeeImage,
+		score: "4,5",
+		scoreBackground: "bg-[#E7D9FF]",
+		scoreTextColor: "text-[#7D35C9]",
 	},
 ];
 ---
@@ -80,7 +92,7 @@ const designers = [
 					<div class="mt-2 flex w-full flex-col gap-y-1">
 						<!-- Card #1 -->
 						<div
-							class="border-neutral-95 relative z-10 flex items-center rounded-lg border-2 bg-neutral-100 px-6 py-3"
+							class="border-neutral-95 relative z-10 flex items-center rounded-lg border-2 bg-neutral-100 px-6 py-3 shadow-[0px_16px_24px_0px_rgba(24,29,41,0.24)]"
 						>
 							<img src={JohnMontgomery} alt="John Montgomery" class="h-10 w-10" />
 							<div class="ml-5 flex grow flex-col justify-center">
@@ -92,7 +104,7 @@ const designers = [
 
 						<!-- Card #2 -->
 						<div
-							class="flex -rotate-[3deg] transform items-center rounded-lg border-2 border-[#12B288] bg-neutral-100 px-6 py-3"
+							class="flex -rotate-[3deg] transform items-center rounded-lg border-2 border-[#12B288] bg-neutral-100 px-6 py-3 shadow-[0px_16px_24px_0px_rgba(24,29,41,0.24)]"
 						>
 							<img src={GeorgiaMonroe} alt="Georgia Monroe" class="h-10 w-10" />
 							<div class="ml-5 flex grow flex-col">
