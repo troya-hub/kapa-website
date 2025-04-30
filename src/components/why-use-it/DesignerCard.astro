@@ -6,9 +6,11 @@ type Props = {
 		name: string;
 		role: string;
 		image: string;
-		score: string;
-		scoreBackground: string;
-		scoreTextColor: string;
+		score: {
+			value: string;
+			background: string;
+			textColor: string;
+		};
 	};
 };
 
@@ -20,10 +22,10 @@ const { designer } = Astro.props;
 >
 	<div class="relative">
 		<span
-			class={`absolute -right-5 flex items-center px-[10px] py-[2px] rounded-3xl ${designer.scoreBackground}`}
+			class={`absolute -right-5 flex items-center px-[10px] py-[2px] rounded-3xl ${designer.score.background}`}
 		>
-			<span class={`text-k-xs ${designer.scoreTextColor}`}>{designer.score}</span>
-			<StarIcon class={designer.scoreTextColor} />
+			<span class={`text-k-xs ${designer.score.textColor}`}>{designer.score.value}</span>
+			<StarIcon class={designer.score.textColor} />
 		</span>
 		<img src={designer.image} class="w-[96px]" alt="Jason Smith" />
 	</div>
