@@ -1,6 +1,6 @@
 ---
-import BentoCard from "@/components/why-use-it/BentoCard.astro";
-import DesignerCard from "@/components/why-use-it/DesignerCard.astro";
+import BentoCard from "@/components/landing/why-use-it/BentoCard.astro";
+import DesignerCard from "@/components/landing/why-use-it/DesignerCard.astro";
 
 import JasonSmithImage from "@/assets/images/why-use-it/jason-smith.png?url";
 import KimberlyDoeImage from "@/assets/images/why-use-it/kimberly-doe.png?url";
@@ -16,48 +16,7 @@ import ArrowDownIcon from "@/assets/icons/why-use-it/arrow-down.svg";
 import AddIcon from "@/assets/icons/why-use-it/add.svg";
 import CheckSelectedIcon from "@/assets/icons/why-use-it/check-selected.svg";
 
-const designers = [
-	{
-		name: "Jason Smith",
-		role: "Art Director",
-		image: JasonSmithImage,
-		score: {
-			value: "4,9",
-			background: "bg-[#DAE6FF]",
-			textColor: "text-[#3C7DFF]",
-		},
-	},
-	{
-		name: "Kimberly Doe",
-		role: "Illustrator",
-		image: KimberlyDoeImage,
-		score: {
-			value: "4,5",
-			background: "bg-[#FFE6D5]",
-			textColor: "text-[#F5690F]",
-		},
-	},
-	{
-		name: "Nick Jonas",
-		role: "Project Manager",
-		image: NickJonasImage,
-		score: {
-			value: "4,7",
-			background: "bg-[#D6FFF4]",
-			textColor: "text-[#12B288]",
-		},
-	},
-	{
-		name: "Matew Lee",
-		role: "Designer",
-		image: MatewLeeImage,
-		score: {
-			value: "4,5",
-			background: "bg-[#E7D9FF]",
-			textColor: "text-[#7D35C9]",
-		},
-	},
-];
+import { designers } from "@/data/designers.ts";
 ---
 
 <div class="site-container">
