@@ -115,7 +115,8 @@
   --inset-shadow-primary: 0px 2px 3px 0px #fdd5ab inset;
 
   /** SPACING **/
-  --spacing-120: 7.5rem; /* 120px */
+  --spacing-30: 7.5rem; /* 120px */
+  --spacing-50: 12.5rem; /* 200px */
 }
 
 @layer components {

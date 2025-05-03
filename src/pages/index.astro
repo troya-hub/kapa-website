@@ -8,15 +8,24 @@ import Divider from "../components/ui/Divider.astro";
 import FoundersQuotes from "@/components/landing/FoundersQuote.astro";
 import CarouselServices from "@/components/landing/CarouselServices.astro";
 import WhyUseIt from "@/components/landing/WhyUseIt.astro";
+import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
+import Benefits from "@/components/landing/Benefits.astro";
 ---
 
 <BaseLayout>
 	<Navigation />
 	<Hero />
 	<HeroSamples />
+	<Divider size="medium" />
 	<TrustBadgeds />
 	<Divider size="large" />
 	<FoundersQuotes />
+	<Divider size="extra-large" />
 	<CarouselServices />
+	<Divider size="extra-large" />
 	<WhyUseIt />
+	<Divider size="extra-large" />
+	<HowDoWeDoIt />
+	<Divider size="large" />
+	<Benefits />
 </BaseLayout>

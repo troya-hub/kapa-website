@@ -1,0 +1,54 @@
+---
+import Title from "@/components/ui/Title.astro";
+
+import ProjectManagerImage from "@/assets/images/how-do-we-do-it/ProjectManager.webp?url";
+import TalentedDesignersImage from "@/assets/images/how-do-we-do-it/TalentedDesigners.webp?url";
+import QualityAssuranceImage from "@/assets/images/how-do-we-do-it/QualityAssurance.webp?url";
+
+type ISteps = Array<{
+	title: string;
+	description: string;
+	image: string;
+}>;
+
+const steps: ISteps = [
+	{
+		title: "Project manager",
+		description:
+			"You get a prject manager who’s mission is to understand your needs and design preferences, and to deliver high-quality results on time.",
+		image: ProjectManagerImage,
+	},
+	{
+		title: "A talented group designers",
+		description:
+			"Instead of just assigning a generalist, you get access to a full team of experts across multiple disciplines — including logo design, print design, ad design, illustration, packaging, book layouts, and more.",
+		image: TalentedDesignersImage,
+	},
+	{
+		title: "Quality assurance",
+		description:
+			"We trust our team, but a senior group of talented graphic designers verifies their output for common issues like typos before it’s delivered to you.",
+		image: QualityAssuranceImage,
+	},
+];
+---
+
+<section class="site-container">
+	<Title type="h2"> How do we do it? </Title>
+
+	<div>
+		{
+			steps.map((step) => (
+				<div class="grid grid-cols-2 place-items-center gap-x-30">
+					<div>
+						<img src={step.image} class="aspect-square object-contain" alt={step.title} />
+					</div>
+					<div>
+						<Title type="h4">{step.title}</Title>
+						<p class="text-k-lg text-neutral-40 mt-6">{step.description}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>

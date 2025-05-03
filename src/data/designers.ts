@@ -1,3 +1,8 @@
+import JasonSmithImage from "@/assets/images/why-use-it/jason-smith.png?url";
+import KimberlyDoeImage from "@/assets/images/why-use-it/kimberly-doe.png?url";
+import NickJonasImage from "@/assets/images/why-use-it/nick-jonas.png?url";
+import MatewLeeImage from "@/assets/images/why-use-it/matew-lee.png?url";
+
 export const designers = [
 	{
 		name: "Jason Smith",

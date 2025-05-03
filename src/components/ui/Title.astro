@@ -1,0 +1,25 @@
+---
+import { twMerge } from "tailwind-merge";
+
+const { type } = Astro.props;
+
+type ITitle = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
+
+interface Props {
+	type: ITitle;
+	class?: string;
+}
+
+const titles = {
+	h1: "text-k-h1-mobile lg:text-k-h1 text-neutral-10 font-semibold",
+	h2: "text-k-h2-mobile lg:text-k-h2 text-neutral-10 font-semibold",
+	h3: "text-k-h3-mobile lg:text-k-h3 text-neutral-10 font-semibold",
+	h4: "text-k-h4-mobile lg:text-k-h4 text-neutral-10 font-semibold",
+	h5: "text-k-h5-mobile lg:text-k-h5 text-neutral-10 font-semibold",
+	h6: "text-k-h6-mobile lg:text-k-h6 text-neutral-10 font-semibold",
+};
+---
+
+<h1 class={twMerge(titles[type], Astro.props.class)}>
+	<slot />
+</h1>

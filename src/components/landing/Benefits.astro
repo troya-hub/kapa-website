@@ -1,0 +1,86 @@
+---
+import type { AstroComponentFactory } from "astro";
+import TimeIcon from "@/assets/icons/benefits/time.svg";
+import SaveMoneyIcon from "@/assets/icons/benefits/save-money.svg";
+import QualityWorkIcon from "@/assets/icons/benefits/get-quality.svg";
+import RiskFreeIcon from "@/assets/icons/benefits/risk-free.svg";
+import ProfessionalIcon from "@/assets/icons/benefits/professional.svg";
+import CancelAnytimeIcon from "@/assets/icons/benefits/cancel-anytime.svg";
+import UnlimitedEditsIcon from "@/assets/icons/benefits/unlimited.svg";
+import DesignIcon from "@/assets/icons/benefits/design.svg";
+import Title from "@/components/ui/Title.astro";
+import Divider from "../ui/Divider.astro";
+
+type IBenefits = Array<{
+	title: string;
+	description: string;
+	icon: AstroComponentFactory;
+}>;
+
+const benefits: IBenefits = [
+	{
+		title: "Save time",
+		description: "Delegate any design task in 5 minutes and get it back in 12 to 48 hours.",
+		icon: TimeIcon,
+	},
+	{
+		title: "Save money",
+		description: "Our plans starts at $349/m. No more breaking the bank.",
+		icon: SaveMoneyIcon,
+	},
+	{
+		title: "Get Quality Work",
+		description: "Whether you need a simple logo or a complex illustration, we’ll get it done.",
+		icon: QualityWorkIcon,
+	},
+	{
+		title: "Risk-Free",
+		description: "Enjoy a complimentary 15-day trial on us, no strings attached.",
+		icon: RiskFreeIcon,
+	},
+	{
+		title: "Work With Professional",
+		description: "Stop wasting time with freelancers that leave you hanging.",
+		icon: ProfessionalIcon,
+	},
+	{
+		title: "Cancel anytime",
+		description: "No lock-in contracts. Go month-to-month, and cancel whenever you want.",
+		icon: CancelAnytimeIcon,
+	},
+	{
+		title: "Unlimited edits",
+		description: "There's no limit to how many open projects you can have at the same time.",
+		icon: UnlimitedEditsIcon,
+	},
+	{
+		title: "Design for any need",
+		description: "Whatever your niche, we have a graphic designer with the expertise to help.",
+		icon: DesignIcon,
+	},
+];
+---
+
+<section class="site-container">
+	<Title type="h2" class="w-[60%]"> Benefits of your graphic design subscription </Title>
+
+	<Divider size="large" />
+
+	<div class="grid grid-cols-4 gap-x-14 gap-y-20">
+		{
+			benefits.map((benefit) => (
+				<div class=" ">
+					<div class="flex">
+						<span class="bg-light-blue border-blue rounded-md border p-4 shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),12px_12px_16px_0px_rgba(11,15,41,0.08),3px_3px_8px_0px_rgba(11,15,41,0.08)]">
+							<benefit.icon />
+						</span>
+					</div>
+					<div class="mt-6">
+						<Title type="h6">{benefit.title}</Title>
+						<p class="text-k-md text-neutral-40 mt-2">{benefit.description}</p>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</section>

@@ -1,6 +1,25 @@
 ---
+type ISize = "medium" | "large" | "extra-large";
+
+interface Props {
+	size: ISize;
+}
+
 const { size = "medium" } = Astro.props;
-const dividerSize = size === "large" ? "h-30" : "h-16";
+
+const getDividerClasses = (size: string): string => {
+	if (size == "extra-large") {
+		return "h-50"; // 200px
+	}
+
+	if (size == "large") {
+		return "h-30"; // 120px
+	}
+
+	return "h-20"; // 80px
+};
+
+const classes = getDividerClasses(size);
 ---
 
-<div class={`${dividerSize} w-full`}></div>
+<div class={classes}></div>
