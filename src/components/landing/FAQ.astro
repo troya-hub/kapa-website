@@ -1,0 +1,82 @@
+---
+import Title from "../ui/Title.astro";
+
+import MinusIcon from "@/assets/icons/faq/minus.svg";
+import PlusIcon from "@/assets/icons/faq/plus.svg";
+
+const questions = [
+	{
+		question: "Is it unlimited?",
+		answers: [
+			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
+			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
+			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+		],
+	},
+	{
+		question: "Is it unlimited?",
+		answers: [
+			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
+			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
+			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+		],
+	},
+	{
+		question: "Is it unlimited?",
+		answers: [
+			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
+			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
+			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+		],
+	},
+	{
+		question: "Is it unlimited?",
+		answers: [
+			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
+			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
+			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+		],
+	},
+	{
+		question: "Is it unlimited?",
+		answers: [
+			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
+			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
+			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+		],
+	},
+];
+
+const selectedQuestion = questions[0];
+---
+
+<section class="site-container">
+	<div class="grid grid-cols-2">
+		<Title type="h1">
+			Questions? <br /> Answers
+		</Title>
+
+		<div>
+			{
+				questions.map((question, index) => (
+					<div class="border-neutral-95 mt-8 border-b pb-8">
+						<div class="flex items-center justify-between">
+							<Title type="h6">{question.question}</Title>
+
+							{index % 2 === 0 ? (
+								<MinusIcon class="cursor-pointer" />
+							) : (
+								<PlusIcon class="cursor-pointer" />
+							)}
+						</div>
+						<div class="mt-6">
+							{question.answers.map((answer) => (
+								<div class="text-k-lg text-neutral-40 mt-8 leading-[150%]">{answer}</div>
+							))}
+						</div>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</section>
