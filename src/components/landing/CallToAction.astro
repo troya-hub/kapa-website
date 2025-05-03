@@ -4,10 +4,10 @@ import Title from "../ui/Title.astro";
 ---
 
 <section
-	class="bg-night-blue flex h-[520px] w-full items-center justify-center bg-contain bg-center bg-no-repeat"
-	style={`background-image: url(${Background})`}
+	class="bg-night-blue relative flex h-[520px] w-full items-center justify-center bg-contain bg-center bg-no-repeat"
 >
-	<div>
+	<img src={Background} class="h-[520px] w-full object-cover" alt="Background" />
+	<div class="top-50% left-50% absolute z-10">
 		<Title type="h1" class="text-center text-neutral-100">
 			Try it out with <br />
 			15-days free trial

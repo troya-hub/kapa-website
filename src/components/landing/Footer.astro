@@ -1,0 +1,38 @@
+---
+import KapaTexture from "@/assets/images/footer/kapa-texture.webp?url";
+import KapaIcon from "@/assets/icons/footer/kapa.svg";
+import Title from "@/components/ui/Title.astro";
+---
+
+<div class="bg-night-blue border-t border-b border-[rgba(102,153,255,0.20)]">
+	<div class="site-container">
+		<div class="grid grid-cols-2">
+			<div class="flex items-center">
+				<KapaIcon />
+			</div>
+			<div class="flex justify-between border-l border-[rgba(102,153,255,0.20)]">
+				<div class="px-6 py-10">
+					<Title type="h6" class="text-neutral-95">+1 (786) 2203376</Title>
+				</div>
+				<div class="px-6 py-10">
+					<Title type="h6" class="text-neutral-95">help@kapa99.com</Title>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<img src={KapaTexture} class="w-full" alt="Kapa texture" />
+
+<div class="bg-night-blue">
+	<div class="site-container px-20 py-10">
+		<div class="text-k-sm text-neutral-80 flex justify-between">
+			<span>© 2025 Kapa. All rights reserved.</span>
+
+			<div class="flex gap-x-16">
+				<a href="#">Terms and Conditions</a>
+				<a href="#">Privacy Policy</a>
+			</div>
+		</div>
+	</div>
+</div>
