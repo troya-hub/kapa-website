@@ -2,6 +2,34 @@
 import KapaTexture from "@/assets/images/footer/kapa-texture.webp?url";
 import KapaIcon from "@/assets/icons/footer/kapa.svg";
 import Title from "@/components/ui/Title.astro";
+
+const links = [
+	{
+		title: "Solutions",
+		children: [
+			{ title: "How it works", href: "#" },
+			{ title: "Pricing", href: "#" },
+			{ title: "Why us", href: "#" },
+			{ title: "Testimonials", href: "#" },
+			{ title: "Samples", href: "#" },
+			{ title: "Case studies", href: "#" },
+		],
+	},
+	{
+		title: "Company",
+		children: [
+			{ title: "Contact us", href: "#" },
+			{ title: "LinkedIn", href: "#" },
+			{ title: "FAQ's", href: "#" },
+			{ title: "Kapa vs Others", href: "#" },
+			{ title: "Knowledge base", href: "#" },
+			{ title: "Blog", href: "#" },
+		],
+	},
+];
+
+const firstColumn = links[0];
+const secondColumn = links[1];
 ---
 
 <div class="bg-night-blue border-t border-b border-[rgba(102,153,255,0.20)]">
@@ -14,10 +42,36 @@ import Title from "@/components/ui/Title.astro";
 				<div class="px-6 py-10">
 					<Title type="h6" class="text-neutral-95">+1 (786) 2203376</Title>
 				</div>
-				<div class="px-6 py-10">
+				<div class="border-l border-[rgba(102,153,255,0.20)] px-6 py-10">
 					<Title type="h6" class="text-neutral-95">help@kapa99.com</Title>
 				</div>
 			</div>
+		</div>
+	</div>
+</div>
+
+<div class="bg-night-blue grid grid-cols-2">
+	<div></div>
+	<div class="grid grid-cols-2 justify-between">
+		<div class="px-6 py-10">
+			<span class="text-blue mb-4 block">{firstColumn.title}</span>
+			{
+				firstColumn.children.map((link) => (
+					<a class="text-k-md text-neutral-95 mb-3 block" href={link.href}>
+						{link.title}
+					</a>
+				))
+			}
+		</div>
+		<div class="px-6 py-10">
+			<span class="text-blue mb-4 block">{secondColumn.title}</span>
+			{
+				secondColumn.children.map((link) => (
+					<a class="text-k-md text-neutral-95 mb-3 block" href={link.href}>
+						{link.title}
+					</a>
+				))
+			}
 		</div>
 	</div>
 </div>
