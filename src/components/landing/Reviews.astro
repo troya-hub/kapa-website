@@ -1,0 +1,61 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Divider from "../ui/Divider.astro";
+import VideoImage from "@/assets/images/reviews/Video.webp?url";
+
+const customers = [
+	{
+		name: "John Lee Dunas",
+		description:
+			'"Branding is everything, your brand speaks for your business and it can get really expensive to hire an independent designer. That’s why I love Kapa99, for a low and consistent monthly cost you can get the designs that you need."',
+		job: "Founder of Entrepreneur on Fire",
+		image: VideoImage,
+	},
+	{
+		name: "Josh Williams",
+		description: '"Signing up with Kapa99 was one of the best decisions I made."',
+		job: "Founder of Turnkey Sales Systems",
+		image: VideoImage,
+	},
+	{
+		name: "Charlie McKenzie",
+		description:
+			"\"Kapa99 is one of the vendors that we've the longest relationship with, they're great.\"",
+		job: "Podcaster",
+		image: VideoImage,
+	},
+];
+
+const selectedCustomer = customers[0];
+---
+
+<section class="site-container">
+	<div class="flex items-center">
+		<Title type="h1" class="w-[60%]">What customers are saying…</Title>
+
+		<div class="grow text-right">
+			<a href="#" class="button-link text-k-lg">View all testimonials</a>
+		</div>
+	</div>
+
+	<Divider size="almost-large" />
+
+	<div class="grid grid-cols-2 gap-x-14">
+		<div>
+			{
+				customers.map((customer) => (
+					<div class="border-neutral-95 mb-10 border-b-2 py-6">
+						<Title type="h6" class="font-semibold">
+							{customer.name}
+						</Title>
+						<div class="text-k-sm text-neutral-60 mt-2">{customer.job}</div>
+						<div class="text-k-lg text-neutral-40 mt-6">{customer.description}</div>
+					</div>
+				))
+			}
+		</div>
+		<div>
+			<img src={selectedCustomer.image} class="w-full rounded-3xl" alt="Video" />
+		</div>
+	</div>
+</section>

@@ -117,6 +117,7 @@
   /** SPACING **/
   --spacing-30: 7.5rem; /* 120px */
   --spacing-50: 12.5rem; /* 200px */
+  --spacing-60: 15rem; /* 240px */
 }
 
 @layer components {

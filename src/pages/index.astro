@@ -1,15 +1,17 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "../components/ui/Divider.astro";
+
 import Navigation from "@/components/landing/Navigation.astro";
 import Hero from "@/components/landing/Hero.astro";
 import HeroSamples from "@/components/landing/HeroSamples.astro";
 import TrustBadgeds from "@/components/landing/TrustBadgeds.astro";
-import Divider from "../components/ui/Divider.astro";
 import FoundersQuotes from "@/components/landing/FoundersQuote.astro";
 import CarouselServices from "@/components/landing/CarouselServices.astro";
 import WhyUseIt from "@/components/landing/WhyUseIt.astro";
 import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
 import Benefits from "@/components/landing/Benefits.astro";
+import Reviews from "@/components/landing/Reviews.astro";
 ---
 
 <BaseLayout>
@@ -28,4 +30,6 @@ import Benefits from "@/components/landing/Benefits.astro";
 	<HowDoWeDoIt />
 	<Divider size="large" />
 	<Benefits />
+	<Divider size="super-large" />
+	<Reviews />
 </BaseLayout>
