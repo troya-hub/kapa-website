@@ -126,7 +126,7 @@
   }
 
   .button-primary {
-    @apply bg-pumpkin border-dark-pumpkin hover:bg-dark-pumpkin hover:border-darker-pumpkin inset-shadow-primary rounded-[100px] border px-6 py-3 text-neutral-100 duration-[400ms] ease-in-out;
+    @apply inline-block bg-pumpkin border-dark-pumpkin hover:bg-dark-pumpkin hover:border-darker-pumpkin inset-shadow-primary rounded-[100px] border px-6 py-3 text-neutral-100 duration-[400ms] ease-in-out;
   }
 
   .button-secondary {

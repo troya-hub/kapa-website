@@ -1,0 +1,20 @@
+---
+import Background from "@/assets/images/call-to-action/background.webp?url";
+import Title from "../ui/Title.astro";
+---
+
+<section
+	class="bg-night-blue flex h-[520px] w-full items-center justify-center bg-contain bg-center bg-no-repeat"
+	style={`background-image: url(${Background})`}
+>
+	<div>
+		<Title type="h1" class="text-center text-neutral-100">
+			Try it out with <br />
+			15-days free trial
+		</Title>
+
+		<div class="mt-6 text-center">
+			<a href="#" class="button-primary"> Start free trial </a>
+		</div>
+	</div>
+</section>
