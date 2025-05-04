@@ -1,7 +1,7 @@
-import JasonSmithImage from "@/assets/images/why-use-it/jason-smith.png?url";
-import KimberlyDoeImage from "@/assets/images/why-use-it/kimberly-doe.png?url";
-import NickJonasImage from "@/assets/images/why-use-it/nick-jonas.png?url";
-import MatewLeeImage from "@/assets/images/why-use-it/matew-lee.png?url";
+import JasonSmithImage from "@/assets/images/why-use-it/jason-smith.webp?url";
+import KimberlyDoeImage from "@/assets/images/why-use-it/kimberly-doe.webp?url";
+import NickJonasImage from "@/assets/images/why-use-it/nick-jonas.webp?url";
+import MatewLeeImage from "@/assets/images/why-use-it/matew-lee.webp?url";
 
 export const designers = [
 	{
