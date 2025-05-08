@@ -1,4 +1,6 @@
 ---
+import Carousel from "@/components/ui/Carousel.tsx";
+
 import Sample1 from "@/assets/images/hero/samples/sample1.webp?url";
 import Sample2 from "@/assets/images/hero/samples/sample2.webp?url";
 import Sample3 from "@/assets/images/hero/samples/sample3.webp?url";
@@ -16,6 +18,7 @@ const samples = [
 ];
 ---
 
-<div class="mt-16 flex gap-x-4 overflow-x-scroll">
-	{samples.map((sample) => <img src={sample.image} alt={sample.alt} class="w-[360px]" />)}
+<!--<div class="mt-16 flex gap-x-4 overflow-x-scroll">--><!--	{samples.map((sample) => <img src={sample.image} alt={sample.alt} class="w-[360px]" />)}--><!--</div>-->
+<div class="mt-16">
+	<Carousel client:only="preact" data={samples} />
 </div>

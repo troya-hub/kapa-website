@@ -7,18 +7,33 @@ import tailwindcss from "@tailwindcss/vite";
 
 import cloudflare from "@astrojs/cloudflare";
 
+import preact from "@astrojs/preact";
+import svgr from "vite-plugin-svgr";
+
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-      plugins: [tailwindcss()],
-      resolve: {
-          alias: {
-              "@": path.resolve(__dirname, "src"),
-          },
-      },
+	vite: {
+		plugins: [
+			tailwindcss(),
+			svgr({
+				svgrOptions: {
+					jsxRuntime: "classic-preact",
+					plugins: ["@svgr/plugin-jsx"],
+					jsxRuntimeImport: { source: "preact", specifiers: ["h"] },
+					exportType: "named",
+				},
+			}),
+		],
+		resolve: {
+			alias: {
+				"@": path.resolve(__dirname, "src"),
+			},
+		},
 	},
 
-  adapter: cloudflare(),
+	adapter: cloudflare(),
+
+	integrations: [preact()],
 });
