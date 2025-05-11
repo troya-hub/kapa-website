@@ -6,12 +6,12 @@ import ServiceItemPill from "@/components/ui/services/ServiceItemPill.tsx";
 
 interface Props {
 	items: IServiceItem[];
-	reversed?: boolean;
+	forward?: boolean;
 }
 
-const InfinitePillsCarousel: FunctionalComponent<Props> = ({ items, reversed = false }) => {
+const InfinitePillsCarousel: FunctionalComponent<Props> = ({ items, forward = false }) => {
 	const trackRef = useRef<HTMLDivElement | null>(null);
-	const speed = 15;
+	const speed = 20;
 
 	useEffect(() => {
 		const track = trackRef.current;
@@ -20,29 +20,33 @@ const InfinitePillsCarousel: FunctionalComponent<Props> = ({ items, reversed = f
 		const totalWidth = track.scrollWidth / 2; // only count one set
 		const duration = totalWidth / speed;
 
-		const tl = gsap.timeline({ repeat: -1, ease: "none" });
+		// Kill any existing animations
+		gsap.killTweensOf(track);
 
-		tl.to(track, {
+		// Reset position
+		gsap.set(track, { x: 0 });
+
+		// Create identical animations but with opposite directions
+		gsap.to(track, {
 			duration,
-			x: totalWidth, // always animate forward
+			x: forward ? -totalWidth : totalWidth,
+			ease: "none",
+			repeat: -1,
 			modifiers: {
 				x: (x) => {
 					const val = parseFloat(x);
+					// We need to handle the modulus differently based on direction
+					// to ensure they look identical but reversed
 					const looped = ((val % totalWidth) + totalWidth) % totalWidth;
 					return `${-looped}px`;
 				},
 			},
 		});
 
-		if (reversed) {
-			tl.totalProgress(1);
-			tl.timeScale(-1);
-		}
-
 		return () => {
-			tl.kill();
+			gsap.killTweensOf(track);
 		};
-	}, [items, reversed]);
+	}, [items, forward]);
 
 	const infiniteItems = [...items, ...items];
 
