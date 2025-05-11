@@ -2,7 +2,7 @@ import type { AstroComponentFactory } from "astro";
 import { serviceThemes } from "@/data/services.ts";
 
 export type IServiceItem = {
-	icon: AstroComponentFactory;
+	icon: any;
 	title: string;
 	theme: IServiceThemeType;
 };

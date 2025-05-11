@@ -21,13 +21,7 @@ interface Props {
 	autoplay?: boolean;
 }
 
-const SwiperCarousel = ({
-	data,
-	aspectRatio = "aspect-square",
-	refInstance,
-	loop = true,
-	autoplay = false,
-}: Props) => {
+const SwiperCarousel = ({ data, aspectRatio = "aspect-square", refInstance }: Props) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const swiperInstance = useRef<Swiper>();
 
@@ -35,10 +29,22 @@ const SwiperCarousel = ({
 		if (containerRef.current) {
 			swiperInstance.current = new Swiper(containerRef.current, {
 				modules: [Navigation, Pagination],
-				slidesPerView: 4,
+				slidesPerView: 5,
+				breakpoints: {
+					640: {
+						slidesPerView: 3,
+					},
+					768: {
+						slidesPerView: 4,
+					},
+					1024: {
+						slidesPerView: 5,
+					},
+					1550: {
+						slidesPerView: 7,
+					},
+				},
 				spaceBetween: 10,
-				autoplay,
-				loop,
 			});
 
 			if (refInstance) {

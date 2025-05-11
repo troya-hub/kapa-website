@@ -1,30 +1,35 @@
 import type { IServiceItem } from "@/types";
-import BackgroundRemovalIcon from "@/assets/icons/services/background-removal.svg";
-import BlogImagesIcon from "@/assets/icons/services/blog-images.svg";
-import EmailSignatureIcon from "@/assets/icons/services/email-signatures.svg";
-import IllustrationsIcon from "@/assets/icons/services/illustrations.svg";
-import InfographicsIcon from "@/assets/icons/services/infographics.svg";
-import LogoDesignIcon from "@/assets/icons/services/logo-design.svg";
-import PowerpointTemplatesIcon from "@/assets/icons/services/powerpoint-templates.svg";
-import SocialMediaImages from "@/assets/icons/services/social-media-images.svg";
-import WebAdsIcon from "@/assets/icons/services/web-ads.svg";
-import CarWindowDecalsIcon from "@/assets/icons/services/car-window-decals.svg";
-import CarMagnetIcon from "@/assets/icons/services/car-magnet.svg";
-import WindowDecalIcon from "@/assets/icons/services/window-decal.svg";
-import BillboardDesignIcon from "@/assets/icons/services/billboard-design.svg";
-import BookCoversIcon from "@/assets/icons/services/book-covers.svg";
-import BookLayoutsIcon from "@/assets/icons/services/book-layouts.svg";
-import BrochuresIcon from "@/assets/icons/services/brochures.svg";
-import BusinessCardsIcon from "@/assets/icons/services/business-cards.svg";
-import FlyersPostersIcon from "@/assets/icons/services/flyers-and-posters.svg";
-import LabelsIcon from "@/assets/icons/services/labels.svg";
-import PodcastCoversIcon from "@/assets/icons/services/podcast-covers.svg";
-import RestaurantMenus from "@/assets/icons/services/restaurant-menus.svg";
-import SignsBannersIcon from "@/assets/icons/services/signs-and-banners.svg";
-import TShirtDesignIcon from "@/assets/icons/services/t-shirt-design.svg";
-import CarDoorDecalsIcon from "@/assets/icons/services/car-door-decals.svg";
-import GIFIcon from "@/assets/icons/services/gif.svg";
-import PackagingIcon from "@/assets/icons/services/packaging.svg";
+import BackgroundRemovalIcon from "@/assets/icons/services/background-removal.svg?url";
+import BlogImagesIcon from "@/assets/icons/services/blog-images.svg?url";
+import EmailSignatureIcon from "@/assets/icons/services/email-signatures.svg?url";
+import IllustrationsIcon from "@/assets/icons/services/illustrations.svg?url";
+import InfographicsIcon from "@/assets/icons/services/infographics.svg?url";
+import LogoDesignIcon from "@/assets/icons/services/logo-design.svg?url";
+import PowerpointTemplatesIcon from "@/assets/icons/services/powerpoint-templates.svg?url";
+import SocialMediaImages from "@/assets/icons/services/social-media-images.svg?url";
+import WebAdsIcon from "@/assets/icons/services/web-ads.svg?url";
+import CarWindowDecalsIcon from "@/assets/icons/services/car-window-decals.svg?url";
+import CarMagnetIcon from "@/assets/icons/services/car-magnet.svg?url";
+import WindowDecalIcon from "@/assets/icons/services/window-decal.svg?url";
+import BillboardDesignIcon from "@/assets/icons/services/billboard-design.svg?url";
+import BookCoversIcon from "@/assets/icons/services/book-covers.svg?url";
+import BookLayoutsIcon from "@/assets/icons/services/book-layouts.svg?url";
+import BrochuresIcon from "@/assets/icons/services/brochures.svg?url";
+import BusinessCardsIcon from "@/assets/icons/services/business-cards.svg?url";
+import FlyersPostersIcon from "@/assets/icons/services/flyers-and-posters.svg?url";
+import LabelsIcon from "@/assets/icons/services/labels.svg?url";
+import PodcastCoversIcon from "@/assets/icons/services/podcast-covers.svg?url";
+import RestaurantMenus from "@/assets/icons/services/restaurant-menus.svg?url";
+import SignsBannersIcon from "@/assets/icons/services/signs-and-banners.svg?url";
+import TShirtDesignIcon from "@/assets/icons/services/t-shirt-design.svg?url";
+import CarDoorDecalsIcon from "@/assets/icons/services/car-door-decals.svg?url";
+import GIFIcon from "@/assets/icons/services/gif.svg?url";
+import PackagingIcon from "@/assets/icons/services/packaging.svg?url";
+
+import BrandingImage from "@/assets/images/services/branding.webp?url";
+import IllustrationsImage from "@/assets/images/services/illustrations.webp?url";
+import BusinessCardsImage from "@/assets/images/services/business-cards.webp?url";
+import BillBoardsImage from "@/assets/images/services/billboards.webp?url";
 
 export const serviceThemes = {
 	orange: {
@@ -284,3 +289,24 @@ export const secondServicesRow: Array<IServiceItem> = [
 	logoDesign,
 	powerpoint,
 ];
+
+const halfServices = [
+	{
+		alt: "Branding",
+		image: BrandingImage,
+	},
+	{
+		alt: "Illustrations",
+		image: IllustrationsImage,
+	},
+	{
+		alt: "Business Cards",
+		image: BusinessCardsImage,
+	},
+	{
+		alt: "Billboards",
+		image: BillBoardsImage,
+	},
+];
+
+export const services = [...halfServices, ...halfServices];

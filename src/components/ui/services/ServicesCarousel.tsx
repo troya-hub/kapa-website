@@ -3,33 +3,10 @@ import type { ComponentChildren } from "preact";
 import { useRef, useState, useEffect } from "preact/hooks";
 import Carousel, { type SwiperCarouselHandle } from "../Carousel.tsx";
 
+import { services } from "@/data/services.ts";
+
 import LeftArrowIcon from "@/assets/icons/services/left-arrow.svg?url";
 import RightArrowIcon from "@/assets/icons/services/right-arrow.svg?url";
-import BrandingImage from "@/assets/images/services/branding.webp?url";
-import IllustrationsImage from "@/assets/images/services/illustrations.webp?url";
-import BusinessCardsImage from "@/assets/images/services/business-cards.webp?url";
-import BillBoardsImage from "@/assets/images/services/billboards.webp?url";
-
-const halfServices = [
-	{
-		alt: "Branding",
-		image: BrandingImage,
-	},
-	{
-		alt: "Illustrations",
-		image: IllustrationsImage,
-	},
-	{
-		alt: "Business Cards",
-		image: BusinessCardsImage,
-	},
-	{
-		alt: "Billboards",
-		image: BillBoardsImage,
-	},
-];
-
-const services = [...halfServices, ...halfServices];
 
 export default function CarouselWrapper({ children }: { children: ComponentChildren }) {
 	const ref = useRef<SwiperCarouselHandle>(null);
