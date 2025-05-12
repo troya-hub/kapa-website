@@ -10,11 +10,11 @@ const { type: Element, class: extraClass } = Astro.props;
 
 const titles = {
 	h1: "text-k-h1-mobile lg:text-k-h1 text-neutral-10 font-semibold",
-	h2: "lg:text-k-h2 text-k-h2-mobile text-neutral-10 font-semibold",
+	h2: "text-k-h2-mobile lg:text-k-h2 text-neutral-10 font-semibold",
 	h3: "text-k-h3-mobile lg:text-k-h3 text-neutral-10 font-semibold",
 	h4: "text-k-h4-mobile lg:text-k-h4 text-neutral-10 font-semibold",
 	h5: "text-k-h5-mobile lg:text-k-h5 text-neutral-10 font-semibold",
-	h6: "text-k-h6-mobile lg:text-k-h6 text-neutral-10 font-semibold",
+	h6: "text-k-h6 text-neutral-10 font-semibold",
 };
 
 const merged = [titles[Element], extraClass].filter(Boolean).join(" ");
