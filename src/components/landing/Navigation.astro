@@ -12,18 +12,82 @@ const menuOptions = [
 ];
 ---
 
-<nav class="site-container text-neutral-10 flex w-full py-6">
+<nav class="site-container text-neutral-10 relative flex w-full items-center justify-between py-6">
 	<a href="/public" class="flex items-center">
 		<Logo class="h-7" />
 	</a>
-	<div class="flex grow items-center justify-center gap-x-7">
-		{menuOptions.map((menuOption) => <a href={menuOption.href}>{menuOption.label}</a>)}
+
+	<!-- Desktop Menu -->
+	<div class="hidden grow items-center justify-center gap-x-7 lg:flex">
+		{
+			menuOptions.map((menuOption) => (
+				<a href={menuOption.href} class="hover:underline">
+					{menuOption.label}
+				</a>
+			))
+		}
 	</div>
-	<div class="flex items-center gap-4 font-medium">
+
+	<!-- Auth Buttons (Desktop) -->
+	<div class="hidden items-center gap-4 font-medium lg:flex">
 		<a href="https://kapa99.com/login">Login</a>
 		<a href="https://kapa99.com/register" class="button-secondary flex items-center gap-x-2">
 			<span>Start free trial</span>
 			<ArrowIcon />
 		</a>
 	</div>
+
+	<!-- Hamburger (Mobile) -->
+	<button
+		id="menu-toggle"
+		class="flex items-center focus:outline-none lg:hidden"
+		aria-label="Toggle menu"
+	>
+		<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+			<path
+				id="menu-icon"
+				stroke-linecap="round"
+				stroke-linejoin="round"
+				stroke-width="2"
+				d="M4 6h16M4 12h16M4 18h16"></path>
+		</svg>
+	</button>
+
+	<!-- Mobile Menu -->
+	<div
+		id="mobile-menu"
+		class="absolute top-full left-0 z-50 hidden w-full space-y-4 bg-white p-4 text-center shadow-lg lg:hidden"
+	>
+		{
+			menuOptions.map((menuOption) => (
+				<a href={menuOption.href} class="block py-2">
+					{menuOption.label}
+				</a>
+			))
+		}
+		<hr />
+		<a href="https://kapa99.com/login" class="block py-2">Login</a>
+		<a
+			href="https://kapa99.com/register"
+			class="button-secondary inline-flex w-full justify-center gap-x-2 py-2"
+		>
+			<span>Start free trial</span>
+			<ArrowIcon />
+		</a>
+	</div>
+
+	<!-- JS to toggle -->
+	<script>
+		const toggle = document.getElementById("menu-toggle");
+		const menu = document.getElementById("mobile-menu");
+		const icon = document.getElementById("menu-icon");
+
+		toggle?.addEventListener("click", () => {
+			menu?.classList.toggle("hidden");
+
+			// Optional: animate icon (hamburger <-> X)
+			const isOpen = icon?.getAttribute("d")?.includes("M4 6h16");
+			icon?.setAttribute("d", isOpen ? "M6 18L18 6M6 6l12 12" : "M4 6h16M4 12h16M4 18h16");
+		});
+	</script>
 </nav>
