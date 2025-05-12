@@ -1,82 +1,186 @@
 ---
 import Title from "../ui/Title.astro";
-
-import MinusIcon from "@/assets/icons/faq/minus.svg";
 import PlusIcon from "@/assets/icons/faq/plus.svg";
+import MinusIcon from "@/assets/icons/faq/minus.svg";
 
 const questions = [
 	{
 		question: "Is it unlimited?",
 		answers: [
-			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
-			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
-			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+			`<div>
+        At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. <br><br>
+
+        Limiting our service would have been the easy way out. <br><br>
+
+        However, easy is not something that we're after, to align our service with our
+        <a href="https://kapa99.com/why-us" class="text-blue-700 underline">mission</a>, 
+        we're going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution. <br><br>
+
+        To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. <br><br>
+
+        How do we handle your tasks? <br><br>
+
+        First-come, first-served. We create a queue of your tasks, the first tasks that come in are the tasks that we'll deliver first. <br><br>
+
+        Usually, we process 2 – 4 tasks per day, depending on how time intensive they're. <br><br>
+
+        We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we'll do our best to accommodate your urgency
+      </div>`,
 		],
 	},
 	{
-		question: "Is it unlimited?",
+		question: "I need a change on my design",
+		answers: [`We allow for as many changes and revisions as you might have for your design.`],
+	},
+	{
+		question: "Can I resell any work Kapa99 does for me?",
 		answers: [
-			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
-			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
-			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+			`Yes, you can. You own and control the Intellectual Property, you might use it or sell it, anyway at any price you want.`,
 		],
 	},
 	{
-		question: "Is it unlimited?",
+		question: "Where are your designers located?",
 		answers: [
-			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
-			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
-			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+			`<div>
+        All of our designers are exclusive and only work with Kapa99. They're located worldwide and our team is remote. <br><br>
+
+        80% of our designers work in EST times, however, our support team is available 24/7.
+      </div>`,
 		],
 	},
 	{
-		question: "Is it unlimited?",
+		question: "Can I submit more than 1 request at a time?",
 		answers: [
-			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
-			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
-			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+			`Yes, you can submit as many requests as you might have. We'll queue them for you and work on them following our first come first served policy.`,
 		],
 	},
 	{
-		question: "Is it unlimited?",
+		question: "Do I need to sign a contract?",
+		answers: [`No, we don't require any contracts, you can use our service month by month.`],
+	},
+	{
+		question: "What is the typical turnaround time?",
 		answers: [
-			"At Kapa99 we offer unlimited revisions and requests for one flat-rate every month. Limiting our service would have been the easy way out. However, easy is not something that we’re after, to align our service with our mission, we’re going above and beyond to satisfy the needs of our customers, and offering unlimited requests and revisions is the obvious solution.",
-			"To answer the question: yes, our service is unlimited. You can request as many tasks you might have and as many revisions as you might need. How do we handle your tasks? First-come, first-served.",
-			"We create a queue of your tasks, the first tasks that come in are the tasks that we’ll deliver first. Usually, we process 2 – 4 tasks per day, depending on how time intensive they’re. We want to help you meet deadlines whenever possible, if something is time-sensitive let us know, we’ll do our best to accommodate your urgency",
+			`<div>
+        24 hours to 48 hours for most tasks. <br><br>
+
+        If your project is bigger like a magazine layout or a power point presentation with a lot of slides let us know and we'll give you an estimate on how long it should take.
+      </div>`,
 		],
+	},
+	{
+		question: "I'm in a rush! Can I get my design faster?",
+		answers: [
+			`Yes, you can. Communicate with us as soon as possible and be very clear about what it is that you need and when. We'll try to meet your deadline.`,
+		],
+	},
+	{
+		question: "How long will it take to complete my revision?",
+		answers: [`It usually takes 12 to 48 hours.`],
 	},
 ];
-
-const selectedQuestion = questions[0];
 ---
 
-<section class="site-container">
-	<div class="grid grid-cols-1 lg:grid-cols-2">
+<section class="site-container py-12">
+	<div class="grid grid-cols-1 gap-12 lg:grid-cols-2">
 		<Title type="h1">
 			Questions? <br /> Answers
 		</Title>
 
-		<div>
+		<div id="faq-list">
 			{
 				questions.map((question, index) => (
-					<div class="border-neutral-95 mt-8 border-b pb-8">
-						<div class="flex items-center justify-between">
+					<div class="border-neutral-95 mt-8 border-b pb-6" data-index={index}>
+						<button
+							class="flex w-full items-center justify-between text-left transition-colors duration-300 hover:text-blue-700"
+							aria-expanded="false"
+							data-toggle
+							type="button"
+						>
 							<Title type="h6">{question.question}</Title>
+							<span class="faq-icon relative h-5 w-5 transition-transform duration-300">
+								<PlusIcon class="plus-icon absolute inset-0 block transition-opacity duration-300" />
+								<MinusIcon class="minus-icon absolute inset-0 hidden transition-opacity duration-300" />
+							</span>
+						</button>
 
-							{index % 2 === 0 ? (
-								<MinusIcon class="cursor-pointer" />
-							) : (
-								<PlusIcon class="cursor-pointer" />
-							)}
-						</div>
-						<div class="mt-6">
-							{question.answers.map((answer) => (
-								<div class="text-k-lg text-neutral-40 mt-8 leading-[150%]">{answer}</div>
-							))}
+						<div
+							class="faq-answer max-h-0 overflow-hidden transition-all duration-500 ease-in-out"
+							data-answer
+						>
+							<div class="answer-content space-y-4 pt-6 pb-2">
+								{question.answers.map((answer) => (
+									<p class="text-k-lg text-neutral-40 leading-[150%]" set:html={answer} />
+								))}
+							</div>
 						</div>
 					</div>
 				))
 			}
 		</div>
 	</div>
+
+	<style>
+		.faq-icon {
+			transform-origin: center;
+		}
+	</style>
+
+	<script>
+		document.addEventListener("DOMContentLoaded", () => {
+			const toggles = document.querySelectorAll("[data-toggle]");
+
+			toggles.forEach((toggleBtn) => {
+				toggleBtn.addEventListener("click", () => {
+					const container = toggleBtn.closest("[data-index]");
+					const answer = container?.querySelector("[data-answer]") as HTMLElement;
+					const answerContent = container?.querySelector(".answer-content") as HTMLElement;
+					const plusIcon = container?.querySelector(".plus-icon") as HTMLElement;
+					const minusIcon = container?.querySelector(".minus-icon") as HTMLElement;
+					const isExpanded = toggleBtn.getAttribute("aria-expanded") === "true";
+
+					// Close all
+					document.querySelectorAll("[data-toggle]").forEach((el) => {
+						(el as HTMLElement).setAttribute("aria-expanded", "false");
+					});
+
+					document.querySelectorAll(".faq-answer").forEach((el) => {
+						(el as HTMLElement).style.maxHeight = "0px";
+					});
+
+					document.querySelectorAll(".plus-icon").forEach((el) => {
+						const icon = el as HTMLElement;
+						icon.classList.remove("hidden");
+						icon.style.opacity = "1";
+					});
+
+					document.querySelectorAll(".minus-icon").forEach((el) => {
+						const icon = el as HTMLElement;
+						icon.classList.add("hidden");
+						icon.style.opacity = "0";
+					});
+
+					// Toggle current
+					if (!isExpanded) {
+						// Open current
+						toggleBtn.setAttribute("aria-expanded", "true");
+
+						// Get the content height and set it
+						const contentHeight = answerContent?.getBoundingClientRect().height;
+						answer.style.maxHeight = `${contentHeight}px`;
+
+						// Animate icons
+						plusIcon.style.opacity = "0";
+						setTimeout(() => {
+							plusIcon?.classList.add("hidden");
+							minusIcon?.classList.remove("hidden");
+							setTimeout(() => {
+								minusIcon.style.opacity = "1";
+							}, 10);
+						}, 50);
+					}
+				});
+			});
+		});
+	</script>
 </section>
