@@ -32,17 +32,18 @@ const firstColumn = links[0];
 const secondColumn = links[1];
 ---
 
-<div class="bg-night-blue border-t border-b border-[rgba(102,153,255,0.20)]">
+<div class="bg-night-blue border-y border-[rgba(102,153,255,0.20)]">
 	<div class="site-container">
-		<div class="grid grid-cols-2">
-			<div class="flex items-center">
+		<div class="flex grid-cols-2 lg:grid">
+			<div class="flex grow items-center">
 				<KapaIcon />
 			</div>
-			<div class="flex justify-between border-l border-[rgba(102,153,255,0.20)]">
-				<div class="px-6 py-10">
+			<div class="justify-between lg:flex lg:border-l lg:border-[rgba(102,153,255,0.20)]">
+				<div class="space-y-2 px-6 py-10 lg:space-y-0">
 					<Title type="h6" class="text-neutral-95">+1 (786) 2203376</Title>
+					<Title type="h6" class="text-neutral-95 lg:hidden">help@kapa99.com</Title>
 				</div>
-				<div class="border-l border-[rgba(102,153,255,0.20)] px-6 py-10">
+				<div class="hidden px-6 py-10 lg:block lg:border-l lg:border-[rgba(102,153,255,0.20)]">
 					<Title type="h6" class="text-neutral-95">help@kapa99.com</Title>
 				</div>
 			</div>
@@ -50,7 +51,7 @@ const secondColumn = links[1];
 	</div>
 </div>
 
-<div class="bg-night-blue grid grid-cols-2">
+<div class="bg-night-blue grid grid-cols-1 lg:grid-cols-2">
 	<div></div>
 	<div class="grid grid-cols-2 justify-between">
 		<div class="px-6 py-10">
@@ -79,11 +80,11 @@ const secondColumn = links[1];
 <img src={KapaTexture} class="w-full" alt="Kapa texture" />
 
 <div class="bg-night-blue">
-	<div class="site-container px-20 py-10">
-		<div class="text-k-sm text-neutral-80 flex justify-between">
-			<span>© 2025 Kapa. All rights reserved.</span>
+	<div class="site-container py-10 lg:px-20">
+		<div class="text-k-sm text-neutral-80 flex flex-col justify-between lg:flex-row">
+			<span class="text-center">© 2025 Kapa. All rights reserved.</span>
 
-			<div class="flex gap-x-16">
+			<div class="flex justify-center gap-x-16">
 				<a href="#">Terms and Conditions</a>
 				<a href="#">Privacy Policy</a>
 			</div>
