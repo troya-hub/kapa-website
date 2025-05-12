@@ -3,9 +3,10 @@ type ISize = "medium" | "almost-large" | "large" | "extra-large" | "super-large"
 
 interface Props {
 	size: ISize;
+	class?: string;
 }
 
-const { size = "medium" } = Astro.props;
+const { size = "medium", class: extraClasses = "" } = Astro.props;
 
 const getDividerClasses = (size: string): string => {
 	if (size == "super-large") {
@@ -30,4 +31,4 @@ const getDividerClasses = (size: string): string => {
 const classes = getDividerClasses(size);
 ---
 
-<div class={classes}></div>
+<div class={`${classes} ${extraClasses}`}></div>

@@ -36,10 +36,10 @@ const steps: ISteps = [
 <section class="site-container">
 	<Title type="h2"> How do we do it? </Title>
 
-	<div>
+	<div class="space-y-12 lg:space-y-0">
 		{
 			steps.map((step) => (
-				<div class="grid grid-cols-2 place-items-center gap-x-30">
+				<div class="grid grid-cols-1 place-items-center gap-x-30 lg:grid-cols-2">
 					<div>
 						<img src={step.image} class="aspect-square object-contain" alt={step.title} />
 					</div>

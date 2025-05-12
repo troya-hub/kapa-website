@@ -30,18 +30,18 @@ const selectedCustomer = customers[0];
 ---
 
 <section class="site-container">
-	<div class="flex items-center">
-		<Title type="h1" class="w-[60%]">What customers are saying…</Title>
+	<div class="flex flex-col items-start gap-y-8 lg:flex-row lg:items-center lg:gap-y-0">
+		<Title type="h1" class="lg:w-[60%]">What customers are saying…</Title>
 
-		<div class="grow text-right">
+		<div class="grow text-left lg:text-right">
 			<a href="#" class="button-link text-k-lg">View all testimonials</a>
 		</div>
 	</div>
 
 	<Divider size="almost-large" />
 
-	<div class="grid grid-cols-2 gap-x-14">
-		<div>
+	<div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-14">
+		<div class="order-2 lg:order-1">
 			{
 				customers.map((customer) => (
 					<div class="border-neutral-95 mb-10 border-b-2 py-6">
@@ -54,7 +54,7 @@ const selectedCustomer = customers[0];
 				))
 			}
 		</div>
-		<div>
+		<div class="order-1 lg:order-2">
 			<img src={selectedCustomer.image} class="w-full rounded-3xl" alt="Video" />
 		</div>
 	</div>

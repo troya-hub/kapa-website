@@ -3,6 +3,14 @@
 
 @source "src/data/*";
 
+:root {
+  --spacing-divider: 5rem; /* 80px */
+  --spacing-divider--almost-large: 6.25rem; /* 100px */
+  --spacing-divider--large: 7.5rem; /* 120px */
+  --spacing-divider--extra-large: 12.5rem; /* 200px */
+  --spacing-divider--super-large: 15rem; /* 240px */
+}
+
 /* https://tailwindcss.com/docs/theme */
 @theme {
   --font-sans: "Switzer", sans-serif;
@@ -115,9 +123,35 @@
   --inset-shadow-primary: 0px 2px 3px 0px #fdd5ab inset;
 
   /** SPACING **/
+  --spacing-25: 6.25rem; /* 100px */
   --spacing-30: 7.5rem; /* 120px */
   --spacing-50: 12.5rem; /* 200px */
   --spacing-60: 15rem; /* 240px */
+  --spacing-divider: 6.25rem; /* 100px */
+  --spacing-divider--large: 7.5rem; /* 120px */
+  --spacing-divider--extra-large: 12.5rem; /* 200px */
+  --spacing-divider--super-large: 15rem; /* 240px */
+  --spacing-divider--almost-large: 7.5rem; /* 120px */
+}
+
+@utility divider {
+  @apply h-20;
+}
+
+@utility divider--large {
+  @apply h-30;
+}
+
+@utility divider--extra-large {
+  @apply h-50;
+}
+
+@utility divider--super-large {
+  @apply h-60;
+}
+
+@utility divider--almost-large {
+  @apply h-25;
 }
 
 @layer components {

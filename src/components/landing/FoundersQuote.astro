@@ -2,6 +2,7 @@
 import KaImage from "@/assets/images/founders/ka.webp?url";
 import PaolaImage from "@/assets/images/founders/paola.webp?url";
 import Divider from "@/components/ui/Divider.astro";
+import Title from "../ui/Title.astro";
 
 const founders = [
 	{
@@ -18,14 +19,12 @@ const founders = [
 ---
 
 <div class="site-container">
-	<h2
-		class="lg:text-k-h4 text-k-h4-mobile text-neutral-10 mx-auto w-[70%] text-center font-semibold"
-	>
+	<Title type="h2" class="mx-auto text-center lg:w-[70%]">
 		Your business graphic design needs covered,
 		<span class="text-neutral-60">
 			whether it’s marketing assets, presentations, reports, illustrations, gifs, or workbooks.
 		</span>
-	</h2>
+	</Title>
 
 	<Divider size="medium" />
 

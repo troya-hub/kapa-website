@@ -31,6 +31,9 @@ const SwiperCarousel = ({ data, aspectRatio = "aspect-square", refInstance }: Pr
 				modules: [Navigation, Pagination],
 				slidesPerView: 5,
 				breakpoints: {
+					1: {
+						slidesPerView: 1,
+					},
 					640: {
 						slidesPerView: 3,
 					},
