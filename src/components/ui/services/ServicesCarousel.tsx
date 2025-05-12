@@ -32,7 +32,7 @@ export default function CarouselWrapper() {
 	return (
 		<>
 			<div class="site-container flex">
-				<div class="mt-[var(--spacing-divider--large)] mb-[var(--spacing-divider--almost-large)] flex grow flex-col lg:flex-row">
+				<div class="mt-20 mb-25 flex grow flex-col lg:mt-30 lg:flex-row">
 					<div class="grow">
 						<h2 class="text-k-h2-mobile lg:text-k-h2 mb-almost-large font-semibold text-neutral-100">
 							Whatever you need, <br /> we’ve got you covered.

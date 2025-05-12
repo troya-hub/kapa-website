@@ -2,7 +2,7 @@
 type ISize = "medium" | "almost-large" | "large" | "extra-large" | "super-large";
 
 interface Props {
-	size: ISize;
+	size?: ISize;
 	class?: string;
 }
 
@@ -10,22 +10,22 @@ const { size = "medium", class: extraClasses = "" } = Astro.props;
 
 const getDividerClasses = (size: string): string => {
 	if (size == "super-large") {
-		return "h-60"; // 240px
+		return "h-28 lg:h-60"; // 240px
 	}
 
 	if (size == "extra-large") {
-		return "h-50"; // 200px
+		return "h-24 lg:h-50"; // 200px
 	}
 
 	if (size == "large") {
-		return "h-30"; // 120px
+		return "h-20 lg:h-30"; // 120px
 	}
 
 	if (size == "almost-large") {
-		return "h-25"; // 100px
+		return "h-14 lg:h-25"; // 100px
 	}
 
-	return "h-20"; // 80px
+	return "h-10 lg:h-20"; // 80px
 };
 
 const classes = getDividerClasses(size);

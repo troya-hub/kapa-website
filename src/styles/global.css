@@ -44,7 +44,7 @@
   --text-k-h1--letter-spacing: -2%;
 
   /* Mobile text-k-h1: Font Size: 44px | Line height: 116% | Letter spacing: -1.5% */
-  --text-k-h1-mobile: 3rem; /* 48px */
+  --text-k-h1-mobile: 2.75rem; /* 44px */
   --text-k-h1-mobile--line-height: 3rem; /* 48px */
   --text-k-h1-mobile--letter-spacing: -2%;
 
@@ -92,8 +92,6 @@
   --text-k-h6: 1.5rem; /* 24px */
   --text-k-h6--line-height: 2rem; /* 32px */
   --text-k-h6--letter-spacing: -1%;
-
-  
 
   /*** TEXT SIZES ***/
   /* text-k-xl: Font Size: 20px | Line height: 150% | Letter spacing: -0.5% */
@@ -163,6 +161,10 @@
 
   .button-primary {
     @apply inline-block bg-pumpkin border-dark-pumpkin hover:bg-dark-pumpkin hover:border-darker-pumpkin inset-shadow-primary rounded-[100px] border px-6 py-3 text-neutral-100 duration-[400ms] ease-in-out;
+  }
+
+  .button-neutral {
+    @apply inline-block bg-neutral-100 border-neutral-100 hover:bg-neutral-100 hover:border-neutral-100 inset-shadow-primary rounded-[100px] border px-6 py-3 text-neutral-10 duration-[400ms] ease-in-out;
   }
 
   .button-secondary {

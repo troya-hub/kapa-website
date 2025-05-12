@@ -31,7 +31,7 @@ const companies = [
 ];
 ---
 
-<section class="site-container text-neutral-10 mt-16">
+<section class="site-container text-neutral-10 mt-8 lg:mt-16">
 	<div class="mx-auto max-w-[1000px] text-center">
 		<div
 			class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
@@ -53,14 +53,14 @@ const companies = [
 			</div>
 		</div>
 
-		<div class="mt-16">
+		<div class="mt-12 lg:mt-16">
 			<div class="mb-8">We've helped over 4,000+ clients</div>
 
-			<div class="mx-auto grid max-w-[80%] grid-cols-5 place-content-center">
+			<div class="mx-auto flex max-w-[80%] flex-wrap justify-center gap-x-8 gap-y-12 md:gap-y-0">
 				{
 					companies.map((company) => (
-						<div class="flex items-center justify-center">
-							<img src={company.logo} alt={company.logo} class="h-8 w-auto max-w-[60px]" />
+						<div class="flex items-center justify-center lg:w-auto">
+							<img src={company.logo} alt={company.name} class="h-8 w-auto max-w-[60px]" />
 						</div>
 					))
 				}
