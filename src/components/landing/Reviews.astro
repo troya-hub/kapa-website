@@ -7,7 +7,7 @@ const customers = [
 	{
 		name: "John Lee Dunas",
 		description:
-			'"Branding is everything, your brand speaks for your business and it can get really expensive to hire an independent designer. That’s why I love Kapa99, for a low and consistent monthly cost you can get the designs that you need."',
+			'"Branding is everything, your brand speaks for your business and it can get really expensive to hire an independent designer. That\'s why I love Kapa99, for a low and consistent monthly cost you can get the designs that you need."',
 		job: "Founder of Entrepreneur on Fire",
 		image: VideoImage,
 	},
@@ -25,8 +25,6 @@ const customers = [
 		image: VideoImage,
 	},
 ];
-
-const selectedCustomer = customers[0];
 ---
 
 <section class="site-container">
@@ -43,17 +41,132 @@ const selectedCustomer = customers[0];
 	<div class="flex flex-col lg:grid lg:grid-cols-2 lg:gap-x-14">
 		<div class="order-2 mt-6 lg:order-1 lg:mt-0">
 			{
-				customers.map((customer) => (
-					<div class="border-neutral-95 mb-10 border-b-2 py-6">
-						<Title type="h6">{customer.name}</Title>
-						<div class="text-k-sm text-neutral-60 mt-2">{customer.job}</div>
-						<div class="text-k-lg text-neutral-40 mt-6">{customer.description}</div>
+				customers.map((customer, index) => (
+					<div
+						class={`border-neutral-95 testimonial-item cursor-pointer border-b-2 py-6 transition-all duration-300 ease-in-out ${index === 0 ? "active" : ""}`}
+						data-index={index}
+					>
+						<div class="flex items-center justify-between">
+							<Title type="h6">{customer.name}</Title>
+						</div>
+						<div
+							class="testimonial-content overflow-hidden transition-all duration-500 ease-in-out"
+							style={index === 0 ? "max-height: 500px; opacity: 1;" : "max-height: 0; opacity: 0;"}
+						>
+							<div class="text-k-sm text-neutral-60 mt-2">{customer.job}</div>
+							<div class="text-k-lg text-neutral-40 mt-6">{customer.description}</div>
+						</div>
 					</div>
 				))
 			}
 		</div>
-		<div class="order-1 lg:order-2">
-			<img src={selectedCustomer.image} class="w-full rounded-3xl" alt="Video" />
+		<div class="relative order-1 lg:order-2">
+			{
+				customers.map((customer, index) => (
+					<div
+						class={`testimonial-image absolute inset-0 transition-all duration-500 ease-in-out ${index === 0 ? "z-10 opacity-100" : "z-0 opacity-0"}`}
+						data-image-index={index}
+					>
+						<img
+							src={customer.image}
+							class="w-full transform rounded-3xl transition-transform duration-700 ease-out"
+							alt={`${customer.name} testimonial`}
+							style={index === 0 ? "transform: scale(1);" : "transform: scale(0.95);"}
+						/>
+					</div>
+				))
+			}
 		</div>
 	</div>
 </section>
+
+<style>
+	.testimonial-item {
+		position: relative;
+		transition: background-color 0.3s ease;
+	}
+
+	.testimonial-item.active .testimonial-indicator {
+		opacity: 1;
+	}
+
+	/* Ensure the container has proper height for images */
+	.order-1.lg\:order-2 {
+		min-height: 300px;
+	}
+</style>
+
+<script>
+	document.addEventListener("DOMContentLoaded", () => {
+		const testimonialItems = document.querySelectorAll(".testimonial-item");
+		const testimonialImages = document.querySelectorAll(".testimonial-image");
+
+		// Initial setup - ensure the first item is active
+		setActiveTestimonial(0);
+
+		testimonialItems.forEach((item) => {
+			item.addEventListener("click", () => {
+				const index = parseInt(item.getAttribute("data-index")!);
+				setActiveTestimonial(index);
+			});
+		});
+
+		function setActiveTestimonial(activeIndex: number) {
+			// Update UI for testimonial items
+			testimonialItems.forEach((item, index) => {
+				const contentElement = item.querySelector(".testimonial-content") as HTMLElement;
+
+				if (index === activeIndex) {
+					// Activate current item
+					item.classList.add("active");
+					// Calculate height for content
+					const contentHeight = getExpandedHeight(contentElement);
+					contentElement.style.maxHeight = `${contentHeight}px`;
+					contentElement.style.opacity = "1";
+					contentElement.style.marginTop = "8px";
+				} else {
+					// Deactivate other items
+					item.classList.remove("active");
+					contentElement.style.maxHeight = "0";
+					contentElement.style.opacity = "0";
+					contentElement.style.marginTop = "0";
+				}
+			});
+
+			// Update image visibility with staggered animation
+			testimonialImages.forEach((img, index) => {
+				const imgElement = img.querySelector("img");
+
+				if (index === activeIndex) {
+					img.style.opacity = "0";
+					img.style.zIndex = "10";
+
+					// Slight delay for a more natural transition
+					setTimeout(() => {
+						img.style.opacity = "1";
+						imgElement.style.transform = "scale(1)";
+					}, 100);
+				} else {
+					img.style.zIndex = "0";
+					img.style.opacity = "0";
+					imgElement.style.transform = "scale(0.95)";
+				}
+			});
+		}
+
+		function getExpandedHeight(element: Element) {
+			// Clone the element to measure its natural height
+			const clone = element.cloneNode(true) as HTMLElement;
+			clone.style.maxHeight = "none";
+			clone.style.opacity = "0";
+			clone.style.position = "absolute";
+			clone.style.visibility = "hidden";
+
+			document.body.appendChild(clone);
+			const height = clone.offsetHeight;
+			document.body.removeChild(clone);
+
+			return height;
+		}
+	});
+</script>
