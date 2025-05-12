@@ -69,16 +69,15 @@ const menuOptions = [
 
 		{
 			menuOptions.map((item) => (
-				<a href={item.href} class="py-2 text-lg">
+				<a href={item.href} class="border-neutral-95 border-b py-4 text-lg">
 					{item.label}
 				</a>
 			))
 		}
-		<hr class="my-4" />
-		<a href="https://kapa99.com/login" class="py-2 text-lg">Login</a>
+		<a href="https://kapa99.com/login" class="border-neutral-95 border-b py-4 text-lg">Login</a>
 		<a
 			href="https://kapa99.com/register"
-			class="button-secondary inline-flex w-full justify-center gap-x-2 py-2"
+			class="button-secondary mt-4 flex w-full items-center justify-center gap-x-2"
 		>
 			<span>Start free trial</span>
 			<ArrowIcon />
