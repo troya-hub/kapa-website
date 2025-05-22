@@ -1,0 +1,53 @@
+---
+import UnlimitedActiveTasksIcon from "@/assets/icons/pricing/unlimited-active-tasks.svg?url";
+import UnlimitedBrandIcon from "@/assets/icons/pricing/unlimited-brands.svg?url";
+import UnlimitedGraphicDesignsIcon from "@/assets/icons/pricing/unlimited-graphic-designs.svg?url";
+import NativeAdobeFilesIcon from "@/assets/icons/pricing/native-adobe-files.svg?url";
+import CanvaFileDeliveryIcon from "@/assets/icons/pricing/canva-file-delivery.svg?url";
+import UnlimitedTeamMembersIcon from "@/assets/icons/pricing/unlimited-team-members.svg?url";
+
+const benefits = [
+	{
+		title: "Unlimited Active Tasks",
+		icon: UnlimitedActiveTasksIcon,
+	},
+	{
+		title: "Unlimited Brands",
+		icon: UnlimitedBrandIcon,
+	},
+	{
+		title: "Unlimited Graphic Design",
+		icon: UnlimitedGraphicDesignsIcon,
+	},
+	{
+		title: "Native Adobe Files",
+		icon: NativeAdobeFilesIcon,
+	},
+	{
+		title: "Canva File Delivery",
+		icon: CanvaFileDeliveryIcon,
+	},
+	{
+		title: "Unlimited Team Members",
+		icon: UnlimitedTeamMembersIcon,
+	},
+];
+---
+
+<div class="site-container">
+	<div class="mx-auto flex items-start justify-center gap-x-16">
+		{
+			benefits.map((benefits) => (
+				<div class="flex max-w-[120px] flex-col items-center gap-y-6">
+					<div
+						class="bg-light-blue border-blue flex h-14 w-14 items-center justify-center rounded-lg"
+						style="box-shadow: 27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06), 13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08), 3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);"
+					>
+						<img src={benefits.icon} alt={benefits.title} />
+					</div>
+					<span class="text-k-sm text-neutral-10 text-center font-medium">{benefits.title}</span>
+				</div>
+			))
+		}
+	</div>
+</div>

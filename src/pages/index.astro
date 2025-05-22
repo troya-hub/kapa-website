@@ -2,7 +2,6 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Divider from "@/components/ui/Divider.astro";
 
-import Navigation from "@/components/landing/Navigation.astro";
 import Hero from "@/components/landing/Hero.astro";
 import HeroSamples from "@/components/landing/HeroSamples.astro";
 import TrustBadgeds from "@/components/landing/TrustBadgeds.astro";
@@ -15,11 +14,9 @@ import Benefits from "@/components/landing/Benefits.astro";
 import Reviews from "@/components/landing/Reviews.astro";
 import FAQ from "@/components/landing/FAQ.astro";
 import CallToAction from "@/components/landing/CallToAction.astro";
-import Footer from "@/components/landing/Footer.astro";
 ---
 
 <BaseLayout>
-	<Navigation />
 	<Hero />
 	<HeroSamples />
 	<Divider />
@@ -41,5 +38,4 @@ import Footer from "@/components/landing/Footer.astro";
 	<Divider size="super-large" />
 	<FAQ />
 	<CallToAction />
-	<Footer />
 </BaseLayout>
