@@ -1,0 +1,26 @@
+---
+import ArrowIcon from "@/assets/icons/arrow-icon.svg";
+import Background from "@/assets/images/call-to-action/background.webp?url";
+import Title from "@/components/ui/Title.astro";
+---
+
+<section
+	class="bg-night-blue relative flex h-[520px] w-full items-center justify-center bg-contain bg-center bg-no-repeat"
+>
+	<img src={Background} class="h-[520px] w-full object-cover" alt="Background" />
+	<div class="top-50% left-50% absolute z-10">
+		<Title type="h1" class="text-center text-neutral-100"> Still not convinced? </Title>
+
+		<div class="text-k-h5-mobile text-neutral-80 mx-auto my-6 w-[80%] text-center lg:hidden">
+			Schedule a live demo with us today and see first-hand if Kapa is right for you.
+		</div>
+
+		<div class="mt-6 flex justify-center gap-x-4 text-center">
+			<a href="#" class="button-neutral inline-flex items-center gap-x-2 text-nowrap">
+				See our Work
+				<ArrowIcon class="text-neutral-10 h-3 w-3" />
+			</a>
+			<a href="#" class="button-primary"> Start free trial </a>
+		</div>
+	</div>
+</section>

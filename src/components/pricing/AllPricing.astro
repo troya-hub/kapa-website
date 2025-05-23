@@ -1,10 +1,11 @@
 ---
 import Divider from "@/components/ui/Divider.astro";
+import Title from "@/components/ui/Title.astro";
 
 import TimeIcon from "@/assets/icons/pricing/time.svg?url";
 import TwentyFourHoursIcon from "@/assets/icons/pricing/24-hours.svg?url";
 import DedicatedTeamIcon from "@/assets/icons/pricing/dedicated-team.svg?url";
-import Title from "../ui/Title.astro";
+import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 
 import clsx from "clsx";
 
@@ -121,8 +122,14 @@ const selectedFrequency = "monthly";
 							<span class="relative -top-1">per {selectedFrequency}</span>
 						</div>
 
-						<button class={clsx(price.isDedicated ? "button-primary" : "button-secondary")}>
+						<button
+							class={clsx(
+								"flex items-center justify-center gap-x-2",
+								price.isDedicated ? "button-primary" : "button-secondary",
+							)}
+						>
 							Start free trial
+							<ArrowIcon class="h-3 w-3 text-neutral-100" />
 						</button>
 					</div>
 				))
