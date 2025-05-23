@@ -1,0 +1,132 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+
+import TimeIcon from "@/assets/icons/pricing/time.svg?url";
+import TwentyFourHoursIcon from "@/assets/icons/pricing/24-hours.svg?url";
+import DedicatedTeamIcon from "@/assets/icons/pricing/dedicated-team.svg?url";
+import Title from "../ui/Title.astro";
+
+import clsx from "clsx";
+
+const prices = {
+	monthly: [
+		{
+			icon: TimeIcon,
+			title: "Async standard",
+			pricing: 349,
+			description:
+				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
+			isDedicated: false,
+		},
+		{
+			icon: TwentyFourHoursIcon,
+			title: "Async priority",
+			pricing: 849,
+			description:
+				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
+			isDedicated: false,
+		},
+		{
+			icon: DedicatedTeamIcon,
+			title: "Dedicated team",
+			pricing: 1299,
+			description:
+				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
+			isDedicated: true,
+		},
+	],
+	yearly: [
+		{
+			icon: TimeIcon,
+			title: "Async standard",
+			pricing: 349,
+			description:
+				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
+			isDedicated: false,
+		},
+		{
+			icon: TwentyFourHoursIcon,
+			title: "Async priority",
+			pricing: 849,
+			description:
+				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
+			isDedicated: false,
+		},
+		{
+			icon: DedicatedTeamIcon,
+			title: "Dedicated team",
+			pricing: 1299,
+			description:
+				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
+			isDedicated: true,
+		},
+	],
+};
+
+const selectedFrequency = "monthly";
+---
+
+<div class="site-container">
+	<div class="mx-auto flex flex-col justify-center">
+		<!-- Switch -->
+		<div
+			class="border-blue bg-sky-blue inline-flex items-center justify-center rounded-4xl border px-3 py-1"
+		>
+			<div
+				class="text-neutral-10 rounded-2xl bg-neutral-100 px-4 py-1 font-medium"
+				style="box-shadow:0px 1px 2px 0px rgba(24, 29, 41, 0.18)"
+			>
+				Monthly
+			</div>
+			<div
+				class="inline-flex items-center justify-center rounded-4xl border border-transparent px-2 py-3"
+			>
+				Annual
+			</div>
+		</div>
+
+		<Divider size="small" />
+
+		<div class="grid grid-cols-3 gap-x-6">
+			{
+				prices[selectedFrequency].map((price) => (
+					<div
+						class={clsx(
+							"border-light-blue flex flex-col gap-y-8 rounded-2xl border p-8",
+							price.isDedicated ? "text-neutral-95 bg-night-blue" : "text-neutral-10 bg-sky-blue",
+						)}
+					>
+						<div class="mb-6">
+							<img src={price.icon} alt={price.title} class="mb-4 w-10" />
+							<Title
+								type="h6"
+								class={clsx(price.isDedicated ? "text-neutral-95" : "text-neutral-10")}
+							>
+								{price.title}
+							</Title>
+							<p
+								class={clsx("text-k-md", price.isDedicated ? "text-neutral-95" : "text-neutral-10")}
+							>
+								{price.description}
+							</p>
+						</div>
+
+						<div class="flex items-end gap-x-2">
+							<Title
+								type="h4"
+								class={clsx(price.isDedicated ? "text-neutral-95" : "text-neutral-10")}
+							>
+								${price.pricing}
+							</Title>
+							<span class="relative -top-1">per {selectedFrequency}</span>
+						</div>
+
+						<button class={clsx(price.isDedicated ? "button-primary" : "button-secondary")}>
+							Start free trial
+						</button>
+					</div>
+				))
+			}
+		</div>
+	</div>
+</div>
