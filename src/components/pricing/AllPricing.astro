@@ -40,7 +40,7 @@ const prices = {
 		{
 			icon: TimeIcon,
 			title: "Async standard",
-			pricing: 349,
+			pricing: 670,
 			description:
 				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
 			isDedicated: false,
@@ -48,7 +48,7 @@ const prices = {
 		{
 			icon: TwentyFourHoursIcon,
 			title: "Async priority",
-			pricing: 849,
+			pricing: 1200,
 			description:
 				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
 			isDedicated: false,
@@ -56,7 +56,7 @@ const prices = {
 		{
 			icon: DedicatedTeamIcon,
 			title: "Dedicated team",
-			pricing: 1299,
+			pricing: 2500,
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
@@ -68,10 +68,10 @@ const selectedFrequency = "monthly";
 ---
 
 <div class="site-container">
-	<div class="mx-auto flex flex-col justify-center">
+	<div class="mx-auto flex flex-col items-center justify-center">
 		<!-- Switch -->
 		<div
-			class="border-blue bg-sky-blue inline-flex items-center justify-center rounded-4xl border px-3 py-1"
+			class="border-blue bg-sky-blue flex w-[200px] items-center justify-center rounded-4xl border px-3 py-1"
 		>
 			<div
 				class="text-neutral-10 rounded-2xl bg-neutral-100 px-4 py-1 font-medium"
@@ -106,7 +106,10 @@ const selectedFrequency = "monthly";
 								{price.title}
 							</Title>
 							<p
-								class={clsx("text-k-md", price.isDedicated ? "text-neutral-95" : "text-neutral-10")}
+								class={clsx(
+									"text-k-md mt-2 min-h-[72px]",
+									price.isDedicated ? "text-neutral-95" : "text-neutral-10",
+								)}
 							>
 								{price.description}
 							</p>

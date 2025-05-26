@@ -1,34 +1,7 @@
 ---
 import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
-import Hays from "@/assets/icons/hero/hays.svg?url";
-import SweetFish from "@/assets/icons/hero/sweet-fish.svg?url";
-import CurrencyCloud from "@/assets/icons/hero/currency-cloud.svg?url";
-import Eofire from "@/assets/icons/hero/eofire.svg?url";
-import Five9 from "@/assets/icons/hero/five9.svg?url";
-import Title from "../ui/Title.astro";
-
-const companies = [
-	{
-		name: "Hays",
-		logo: Hays,
-	},
-	{
-		name: "Sweet Fish",
-		logo: SweetFish,
-	},
-	{
-		name: "Currency Cloud",
-		logo: CurrencyCloud,
-	},
-	{
-		name: "Eofire",
-		logo: Eofire,
-	},
-	{
-		name: "Five9",
-		logo: Five9,
-	},
-];
+import Title from "@/components/ui/Title.astro";
+import OurClients from "@/components/landing/OurClients.astro";
 ---
 
 <section class="site-container text-neutral-10 mt-8 lg:mt-16">
@@ -53,18 +26,6 @@ const companies = [
 			</div>
 		</div>
 
-		<div class="mt-12 lg:mt-16">
-			<div class="mb-8">We've helped over 4,000+ clients</div>
-
-			<div class="mx-auto flex max-w-[80%] flex-wrap justify-center gap-x-8 gap-y-12 md:gap-y-0">
-				{
-					companies.map((company) => (
-						<div class="flex items-center justify-center lg:w-auto">
-							<img src={company.logo} alt={company.name} class="h-8 w-auto max-w-[60px]" />
-						</div>
-					))
-				}
-			</div>
-		</div>
+		<OurClients />
 	</div>
 </section>
