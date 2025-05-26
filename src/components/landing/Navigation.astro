@@ -13,7 +13,7 @@ const menuOptions = [
 ---
 
 <nav class="site-container text-neutral-10 relative flex w-full items-center justify-between py-6">
-	<a href="/public" class="flex items-center">
+	<a href="/" class="flex items-center">
 		<Logo class="h-7" />
 	</a>
 
@@ -135,10 +135,8 @@ const menuOptions = [
 				let isActive = false;
 
 				if (href === "#") {
-					// Hash links are active when on home page or /public
-					isActive = currentPath === "/" || currentPath === "/public";
+					isActive = currentPath === "/";
 				} else {
-					// Exact path matches
 					isActive = currentPath === href;
 				}
 
@@ -168,10 +166,8 @@ const menuOptions = [
 				let isActive = false;
 
 				if (href === "#") {
-					// Hash links are active when on home page or /public
-					isActive = currentPath === "/" || currentPath === "/public";
+					isActive = currentPath === "/";
 				} else {
-					// Exact path matches
 					isActive = currentPath === href;
 				}
 
