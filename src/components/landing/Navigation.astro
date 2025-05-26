@@ -2,8 +2,6 @@
 import Logo from "@/assets/icons/logo.svg";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 
-import clsx from "clsx";
-
 const menuOptions = [
 	{ label: "How it works", href: "#" },
 	{ label: "Pricing", href: "/pricing" },
@@ -12,19 +10,6 @@ const menuOptions = [
 	{ label: "Samples", href: "#" },
 	{ label: "Case studies", href: "#" },
 ];
-
-// Get current pathname for active state detection
-const currentPath = Astro.url.pathname;
-
-// Function to check if a menu item is active
-const isActive = (href: string) => {
-	// Handle hash links (they're active when on home page)
-	if (href === "#") {
-		return currentPath === "/" || currentPath === "/public";
-	}
-	// Handle exact path matches
-	return currentPath === href;
-};
 ---
 
 <nav class="site-container text-neutral-10 relative flex w-full items-center justify-between py-6">
@@ -38,12 +23,11 @@ const isActive = (href: string) => {
 			menuOptions.map((item) => (
 				<a
 					href={item.href}
-					class={clsx(
-						"flex items-center gap-x-2 transition-colors hover:underline",
-						isActive(item.href) ? "font-medium" : "hover:text-blue-500",
-					)}
+					class="nav-link flex items-center gap-x-2 transition-colors hover:text-blue-500 hover:underline"
+					data-href={item.href}
+					data-active="false"
 				>
-					{isActive(item.href) && <div class="bg-pumpkin h-2 w-2 rounded-full" />}
+					<div class="active-circle h-2 w-2 rounded-full opacity-0 transition-opacity" />
 					{item.label}
 				</a>
 			))
@@ -93,14 +77,11 @@ const isActive = (href: string) => {
 			menuOptions.map((item) => (
 				<a
 					href={item.href}
-					class={clsx(
-						"border-neutral-95 flex items-center gap-x-3 border-b py-4 text-lg transition-colors",
-						isActive(item.href)
-							? "bg-orange-50 font-medium"
-							: "hover:bg-gray-50 hover:text-blue-500",
-					)}
+					class="mobile-nav-link border-neutral-95 flex items-center gap-x-3 border-b py-4 text-lg transition-colors hover:bg-gray-50 hover:text-blue-500"
+					data-href={item.href}
+					data-active="false"
 				>
-					{isActive(item.href) && <div class="bg-pumpkin h-2 w-2 flex-shrink-0 rounded-full" />}
+					<div class="mobile-active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0 transition-opacity" />
 					{item.label}
 				</a>
 			))
@@ -138,5 +119,93 @@ const isActive = (href: string) => {
 		toggle?.addEventListener("click", openMenu);
 		close?.addEventListener("click", closeMenu);
 		overlay?.addEventListener("click", closeMenu);
+
+		// Function to update active states based on current path
+		function updateActiveStates() {
+			const currentPath = window.location.pathname;
+			const navLinks = document.querySelectorAll(".nav-link");
+			const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
+
+			// Update desktop nav links
+			navLinks.forEach((link) => {
+				const href = link.getAttribute("data-href");
+				const circle = link.querySelector(".active-circle")!;
+
+				// Determine if this link should be active
+				let isActive = false;
+
+				if (href === "#") {
+					// Hash links are active when on home page or /public
+					isActive = currentPath === "/" || currentPath === "/public";
+				} else {
+					// Exact path matches
+					isActive = currentPath === href;
+				}
+
+				// Update the data-active attribute
+				link.setAttribute("data-active", isActive.toString());
+
+				// Update styles based on data-active attribute
+				if (isActive) {
+					link.classList.add("font-medium");
+					link.classList.remove("hover:text-blue-500");
+					circle.classList.add("bg-pumpkin", "opacity-100");
+					circle.classList.remove("opacity-0");
+				} else {
+					link.classList.remove("font-medium");
+					link.classList.add("hover:text-blue-500");
+					circle.classList.remove("bg-pumpkin", "opacity-100");
+					circle.classList.add("opacity-0");
+				}
+			});
+
+			// Update mobile nav links
+			mobileNavLinks.forEach((link) => {
+				const href = link.getAttribute("data-href");
+				const circle = link.querySelector(".mobile-active-circle")!;
+
+				// Determine if this link should be active
+				let isActive = false;
+
+				if (href === "#") {
+					// Hash links are active when on home page or /public
+					isActive = currentPath === "/" || currentPath === "/public";
+				} else {
+					// Exact path matches
+					isActive = currentPath === href;
+				}
+
+				// Update the data-active attribute
+				link.setAttribute("data-active", isActive.toString());
+
+				// Update styles based on data-active attribute
+				if (isActive) {
+					link.classList.add("bg-orange-50", "font-medium");
+					link.classList.remove("hover:bg-gray-50", "hover:text-blue-500");
+					circle.classList.add("bg-pumpkin", "opacity-100");
+					circle.classList.remove("opacity-0");
+				} else {
+					link.classList.remove("bg-orange-50", "font-medium");
+					link.classList.add("hover:bg-gray-50", "hover:text-blue-500");
+					circle.classList.remove("bg-pumpkin", "opacity-100");
+					circle.classList.add("opacity-0");
+				}
+			});
+		}
+
+		// Update active states on page load
+		document.addEventListener("DOMContentLoaded", updateActiveStates);
+
+		// Update active states when the URL changes (for client-side routing)
+		window.addEventListener("popstate", updateActiveStates);
+
+		// Optional: Update active states when clicking nav links (for immediate feedback)
+		document.addEventListener("click", (event) => {
+			const link = event?.target?.closest(".nav-link, .mobile-nav-link");
+			if (link) {
+				// Small delay to allow navigation to complete
+				setTimeout(updateActiveStates, 10);
+			}
+		});
 	</script>
 </nav>

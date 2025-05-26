@@ -2,7 +2,6 @@
 import KapaTexture from "@/assets/images/footer/kapa-texture.webp?url";
 import KapaIcon from "@/assets/icons/footer/kapa.svg";
 import Title from "@/components/ui/Title.astro";
-import clsx from "clsx";
 
 const links = [
 	{
@@ -31,19 +30,6 @@ const links = [
 
 const firstColumn = links[0];
 const secondColumn = links[1];
-
-// Get current pathname for active state detection
-const currentPath = Astro.url.pathname;
-
-// Function to check if a menu item is active
-const isActive = (href: string) => {
-	// Handle hash links (they're active when on home page)
-	if (href === "#") {
-		return currentPath === "/";
-	}
-	// Handle exact path matches
-	return currentPath === href;
-};
 ---
 
 <div class="bg-night-blue border-y border-[rgba(102,153,255,0.20)]">
@@ -73,13 +59,12 @@ const isActive = (href: string) => {
 			{
 				firstColumn.children.map((link) => (
 					<a
-						class={clsx(
-							"text-k-md text-neutral-95 mb-3 flex items-center gap-x-2 transition-colors",
-							isActive(link.href) ? "font-medium" : "hover:text-pumpkin",
-						)}
+						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center gap-x-2 transition-colors"
 						href={link.href}
+						data-href={link.href}
+						data-active="false"
 					>
-						{isActive(link.href) && <div class="bg-pumpkin h-2 w-2 flex-shrink-0 rounded-full" />}
+						<div class="active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0 transition-opacity" />
 						{link.title}
 					</a>
 				))
@@ -90,13 +75,12 @@ const isActive = (href: string) => {
 			{
 				secondColumn.children.map((link) => (
 					<a
-						class={clsx(
-							"text-k-md text-neutral-95 mb-3 flex items-center gap-x-2 transition-colors",
-							isActive(link.href) ? "font-medium" : "hover:text-pumpkin",
-						)}
+						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center gap-x-2 transition-colors"
 						href={link.href}
+						data-href={link.href}
+						data-active="false"
 					>
-						{isActive(link.href) && <div class="bg-pumpkin h-2 w-2 flex-shrink-0 rounded-full" />}
+						<div class="active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0 transition-opacity" />
 						{link.title}
 					</a>
 				))
@@ -119,3 +103,58 @@ const isActive = (href: string) => {
 		</div>
 	</div>
 </div>
+
+<script>
+	// Function to update active states based on current path
+	function updateActiveStates() {
+		const currentPath = window.location.pathname;
+		const footerLinks = document.querySelectorAll(".footer-nav-link");
+
+		footerLinks.forEach((link) => {
+			const href = link.getAttribute("data-href");
+			const circle = link.querySelector(".active-circle")!;
+
+			// Determine if this link should be active
+			let isActive = false;
+
+			if (href === "#") {
+				// Hash links are active when on home page
+				isActive = currentPath === "/";
+			} else {
+				// Exact path matches
+				isActive = currentPath === href;
+			}
+
+			// Update the data-active attribute
+			link.setAttribute("data-active", isActive.toString());
+
+			// Update styles based on data-active attribute
+			if (isActive) {
+				link.classList.add("font-medium");
+				link.classList.remove("hover:text-pumpkin");
+				circle.classList.add("bg-pumpkin", "opacity-100");
+				circle.classList.remove("opacity-0");
+			} else {
+				link.classList.remove("font-medium");
+				link.classList.add("hover:text-pumpkin");
+				circle.classList.remove("bg-pumpkin", "opacity-100");
+				circle.classList.add("opacity-0");
+			}
+		});
+	}
+
+	// Update active states on page load
+	document.addEventListener("DOMContentLoaded", updateActiveStates);
+
+	// Update active states when the URL changes (for client-side routing)
+	window.addEventListener("popstate", updateActiveStates);
+
+	// Optional: Update active states when clicking links (for immediate feedback)
+	document.addEventListener("click", (event) => {
+		const link = event?.target.closest(".footer-nav-link");
+		if (link) {
+			// Small delay to allow navigation to complete
+			setTimeout(updateActiveStates, 10);
+		}
+	});
+</script>
