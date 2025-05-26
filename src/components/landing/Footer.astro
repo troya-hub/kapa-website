@@ -2,6 +2,7 @@
 import KapaTexture from "@/assets/images/footer/kapa-texture.webp?url";
 import KapaIcon from "@/assets/icons/footer/kapa.svg";
 import Title from "@/components/ui/Title.astro";
+import clsx from "clsx";
 
 const links = [
 	{
@@ -30,6 +31,19 @@ const links = [
 
 const firstColumn = links[0];
 const secondColumn = links[1];
+
+// Get current pathname for active state detection
+const currentPath = Astro.url.pathname;
+
+// Function to check if a menu item is active
+const isActive = (href: string) => {
+	// Handle hash links (they're active when on home page)
+	if (href === "#") {
+		return currentPath === "/";
+	}
+	// Handle exact path matches
+	return currentPath === href;
+};
 ---
 
 <div class="bg-night-blue border-y border-[rgba(102,153,255,0.20)]">
@@ -58,7 +72,14 @@ const secondColumn = links[1];
 			<span class="text-blue mb-4 block">{firstColumn.title}</span>
 			{
 				firstColumn.children.map((link) => (
-					<a class="text-k-md text-neutral-95 mb-3 block" href={link.href}>
+					<a
+						class={clsx(
+							"text-k-md text-neutral-95 mb-3 flex items-center gap-x-2 transition-colors",
+							isActive(link.href) ? "font-medium" : "hover:text-pumpkin",
+						)}
+						href={link.href}
+					>
+						{isActive(link.href) && <div class="bg-pumpkin h-2 w-2 flex-shrink-0 rounded-full" />}
 						{link.title}
 					</a>
 				))
@@ -68,7 +89,14 @@ const secondColumn = links[1];
 			<span class="text-blue mb-4 block">{secondColumn.title}</span>
 			{
 				secondColumn.children.map((link) => (
-					<a class="text-k-md text-neutral-95 mb-3 block" href={link.href}>
+					<a
+						class={clsx(
+							"text-k-md text-neutral-95 mb-3 flex items-center gap-x-2 transition-colors",
+							isActive(link.href) ? "font-medium" : "hover:text-pumpkin",
+						)}
+						href={link.href}
+					>
+						{isActive(link.href) && <div class="bg-pumpkin h-2 w-2 flex-shrink-0 rounded-full" />}
 						{link.title}
 					</a>
 				))

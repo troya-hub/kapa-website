@@ -2,6 +2,8 @@
 import Logo from "@/assets/icons/logo.svg";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 
+import clsx from "clsx";
+
 const menuOptions = [
 	{ label: "How it works", href: "#" },
 	{ label: "Pricing", href: "/pricing" },
@@ -10,6 +12,19 @@ const menuOptions = [
 	{ label: "Samples", href: "#" },
 	{ label: "Case studies", href: "#" },
 ];
+
+// Get current pathname for active state detection
+const currentPath = Astro.url.pathname;
+
+// Function to check if a menu item is active
+const isActive = (href: string) => {
+	// Handle hash links (they're active when on home page)
+	if (href === "#") {
+		return currentPath === "/" || currentPath === "/public";
+	}
+	// Handle exact path matches
+	return currentPath === href;
+};
 ---
 
 <nav class="site-container text-neutral-10 relative flex w-full items-center justify-between py-6">
@@ -21,7 +36,14 @@ const menuOptions = [
 	<div class="hidden grow items-center justify-center gap-x-7 lg:flex">
 		{
 			menuOptions.map((item) => (
-				<a href={item.href} class="hover:underline">
+				<a
+					href={item.href}
+					class={clsx(
+						"flex items-center gap-x-2 transition-colors hover:underline",
+						isActive(item.href) ? "font-medium" : "hover:text-blue-500",
+					)}
+				>
+					{isActive(item.href) && <div class="bg-pumpkin h-2 w-2 rounded-full" />}
 					{item.label}
 				</a>
 			))
@@ -69,7 +91,16 @@ const menuOptions = [
 
 		{
 			menuOptions.map((item) => (
-				<a href={item.href} class="border-neutral-95 border-b py-4 text-lg">
+				<a
+					href={item.href}
+					class={clsx(
+						"border-neutral-95 flex items-center gap-x-3 border-b py-4 text-lg transition-colors",
+						isActive(item.href)
+							? "bg-orange-50 font-medium"
+							: "hover:bg-gray-50 hover:text-blue-500",
+					)}
+				>
+					{isActive(item.href) && <div class="bg-pumpkin h-2 w-2 flex-shrink-0 rounded-full" />}
 					{item.label}
 				</a>
 			))
@@ -95,17 +126,17 @@ const menuOptions = [
 		const overlay = document.getElementById("menu-overlay");
 
 		const openMenu = () => {
-			menu.classList.remove("-translate-x-full");
-			overlay.classList.remove("hidden");
+			menu?.classList.remove("-translate-x-full");
+			overlay?.classList.remove("hidden");
 		};
 
 		const closeMenu = () => {
-			menu.classList.add("-translate-x-full");
-			overlay.classList.add("hidden");
+			menu?.classList.add("-translate-x-full");
+			overlay?.classList.add("hidden");
 		};
 
-		toggle.addEventListener("click", openMenu);
-		close.addEventListener("click", closeMenu);
-		overlay.addEventListener("click", closeMenu);
+		toggle?.addEventListener("click", openMenu);
+		close?.addEventListener("click", closeMenu);
+		overlay?.addEventListener("click", closeMenu);
 	</script>
 </nav>
