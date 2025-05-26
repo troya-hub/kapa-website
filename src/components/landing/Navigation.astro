@@ -27,7 +27,9 @@ const menuOptions = [
 					data-href={item.href}
 					data-active="false"
 				>
-					<div class="active-circle mr-0 h-2 w-0 w-2 rounded-full opacity-0 transition-all duration-200" />
+					<div class="mr-2 flex w-2 justify-center">
+						<div class="active-circle h-2 w-2 rounded-full opacity-0" />
+					</div>
 					{item.label}
 				</a>
 			))
@@ -81,7 +83,9 @@ const menuOptions = [
 					data-href={item.href}
 					data-active="false"
 				>
-					<div class="mobile-active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+					<div class="mr-3 flex w-2 justify-center">
+						<div class="mobile-active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0" />
+					</div>
 					{item.label}
 				</a>
 			))
@@ -119,99 +123,9 @@ const menuOptions = [
 		toggle?.addEventListener("click", openMenu);
 		close?.addEventListener("click", closeMenu);
 		overlay?.addEventListener("click", closeMenu);
-
-		// Function to update active states based on current path
-		function updateActiveStates() {
-			let currentPath = window.location.pathname;
-
-			// Normalize path by removing trailing slash (except for root)
-			if (currentPath.endsWith("/") && currentPath !== "/") {
-				currentPath = currentPath.slice(0, -1);
-			}
-
-			const navLinks = document.querySelectorAll(".nav-link");
-			const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
-
-			// Update desktop nav links
-			navLinks.forEach((link) => {
-				const href = link.getAttribute("data-href");
-				const circle = link.querySelector(".active-circle");
-
-				// Determine if this link should be active
-				let isActive = false;
-
-				if (href === "#") {
-					// Hash links are active when on home page or /public
-					isActive = currentPath === "/" || currentPath === "/public";
-				} else {
-					// Exact path matches
-					isActive = currentPath === href;
-				}
-
-				// Update the data-active attribute
-				link.setAttribute("data-active", isActive.toString());
-
-				// Update styles based on data-active attribute
-				if (isActive) {
-					link.classList.add("font-medium");
-					link.classList.remove("hover:text-blue-500");
-					circle.classList.add("bg-pumpkin", "opacity-100", "w-2", "mr-2");
-					circle.classList.remove("opacity-0", "w-0", "mr-0");
-				} else {
-					link.classList.remove("font-medium");
-					link.classList.add("hover:text-blue-500");
-					circle.classList.remove("bg-pumpkin", "opacity-100", "w-2", "mr-2");
-					circle.classList.add("opacity-0", "w-0", "mr-0");
-				}
-			});
-
-			// Update mobile nav links
-			mobileNavLinks.forEach((link) => {
-				const href = link.getAttribute("data-href");
-				const circle = link.querySelector(".mobile-active-circle");
-
-				// Determine if this link should be active
-				let isActive = false;
-
-				if (href === "#") {
-					// Hash links are active when on home page or /public
-					isActive = currentPath === "/" || currentPath === "/public";
-				} else {
-					// Exact path matches
-					isActive = currentPath === href;
-				}
-
-				// Update the data-active attribute
-				link.setAttribute("data-active", isActive.toString());
-
-				// Update styles based on data-active attribute
-				if (isActive) {
-					link.classList.add("bg-orange-50", "font-medium");
-					link.classList.remove("hover:bg-gray-50", "hover:text-blue-500");
-					circle.classList.add("bg-pumpkin", "opacity-100", "w-2", "mr-3");
-					circle.classList.remove("opacity-0", "w-0", "mr-0");
-				} else {
-					link.classList.remove("bg-orange-50", "font-medium");
-					link.classList.add("hover:bg-gray-50", "hover:text-blue-500");
-					circle.classList.remove("bg-pumpkin", "opacity-100", "w-2", "mr-3");
-					circle.classList.add("opacity-0", "w-0", "mr-0");
-				}
-			});
-		}
-
-		// Update active states on page load
-		document.addEventListener("DOMContentLoaded", updateActiveStates);
-
-		// Update active states when the URL changes (for client-side routing)
-		window.addEventListener("popstate", updateActiveStates);
-
-		// Optional: Update active states when clicking nav links (for immediate feedback)
-		document.addEventListener("click", (event) => {
-			const link = event.target.closest(".nav-link, .mobile-nav-link");
-			if (link) {
-				// Small delay to allow navigation to complete
-				setTimeout(updateActiveStates, 10);
-			}
-		});
 	</script>
 </nav>
+
+<script>
+	import "@/scripts/active-manager.js";
+</script>
