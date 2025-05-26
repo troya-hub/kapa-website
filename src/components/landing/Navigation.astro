@@ -13,7 +13,7 @@ const menuOptions = [
 ---
 
 <nav class="site-container text-neutral-10 relative flex w-full items-center justify-between py-6">
-	<a href="/" class="flex items-center">
+	<a href="/public" class="flex items-center">
 		<Logo class="h-7" />
 	</a>
 
@@ -23,11 +23,11 @@ const menuOptions = [
 			menuOptions.map((item) => (
 				<a
 					href={item.href}
-					class="nav-link flex items-center gap-x-2 transition-colors hover:text-blue-500 hover:underline"
+					class="nav-link flex items-center transition-colors hover:text-blue-500 hover:underline"
 					data-href={item.href}
 					data-active="false"
 				>
-					<div class="active-circle h-2 w-2 rounded-full opacity-0 transition-opacity" />
+					<div class="active-circle mr-0 h-2 w-0 w-2 rounded-full opacity-0 transition-all duration-200" />
 					{item.label}
 				</a>
 			))
@@ -77,11 +77,11 @@ const menuOptions = [
 			menuOptions.map((item) => (
 				<a
 					href={item.href}
-					class="mobile-nav-link border-neutral-95 flex items-center gap-x-3 border-b py-4 text-lg transition-colors hover:bg-gray-50 hover:text-blue-500"
+					class="mobile-nav-link border-neutral-95 flex items-center border-b py-4 text-lg transition-colors hover:bg-gray-50 hover:text-blue-500"
 					data-href={item.href}
 					data-active="false"
 				>
-					<div class="mobile-active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0 transition-opacity" />
+					<div class="mobile-active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 					{item.label}
 				</a>
 			))
@@ -122,21 +122,29 @@ const menuOptions = [
 
 		// Function to update active states based on current path
 		function updateActiveStates() {
-			const currentPath = window.location.pathname;
+			let currentPath = window.location.pathname;
+
+			// Normalize path by removing trailing slash (except for root)
+			if (currentPath.endsWith("/") && currentPath !== "/") {
+				currentPath = currentPath.slice(0, -1);
+			}
+
 			const navLinks = document.querySelectorAll(".nav-link");
 			const mobileNavLinks = document.querySelectorAll(".mobile-nav-link");
 
 			// Update desktop nav links
 			navLinks.forEach((link) => {
 				const href = link.getAttribute("data-href");
-				const circle = link.querySelector(".active-circle")!;
+				const circle = link.querySelector(".active-circle");
 
 				// Determine if this link should be active
 				let isActive = false;
 
 				if (href === "#") {
-					isActive = currentPath === "/";
+					// Hash links are active when on home page or /public
+					isActive = currentPath === "/" || currentPath === "/public";
 				} else {
+					// Exact path matches
 					isActive = currentPath === href;
 				}
 
@@ -147,27 +155,29 @@ const menuOptions = [
 				if (isActive) {
 					link.classList.add("font-medium");
 					link.classList.remove("hover:text-blue-500");
-					circle.classList.add("bg-pumpkin", "opacity-100");
-					circle.classList.remove("opacity-0");
+					circle.classList.add("bg-pumpkin", "opacity-100", "w-2", "mr-2");
+					circle.classList.remove("opacity-0", "w-0", "mr-0");
 				} else {
 					link.classList.remove("font-medium");
 					link.classList.add("hover:text-blue-500");
-					circle.classList.remove("bg-pumpkin", "opacity-100");
-					circle.classList.add("opacity-0");
+					circle.classList.remove("bg-pumpkin", "opacity-100", "w-2", "mr-2");
+					circle.classList.add("opacity-0", "w-0", "mr-0");
 				}
 			});
 
 			// Update mobile nav links
 			mobileNavLinks.forEach((link) => {
 				const href = link.getAttribute("data-href");
-				const circle = link.querySelector(".mobile-active-circle")!;
+				const circle = link.querySelector(".mobile-active-circle");
 
 				// Determine if this link should be active
 				let isActive = false;
 
 				if (href === "#") {
-					isActive = currentPath === "/";
+					// Hash links are active when on home page or /public
+					isActive = currentPath === "/" || currentPath === "/public";
 				} else {
+					// Exact path matches
 					isActive = currentPath === href;
 				}
 
@@ -178,13 +188,13 @@ const menuOptions = [
 				if (isActive) {
 					link.classList.add("bg-orange-50", "font-medium");
 					link.classList.remove("hover:bg-gray-50", "hover:text-blue-500");
-					circle.classList.add("bg-pumpkin", "opacity-100");
-					circle.classList.remove("opacity-0");
+					circle.classList.add("bg-pumpkin", "opacity-100", "w-2", "mr-3");
+					circle.classList.remove("opacity-0", "w-0", "mr-0");
 				} else {
 					link.classList.remove("bg-orange-50", "font-medium");
 					link.classList.add("hover:bg-gray-50", "hover:text-blue-500");
-					circle.classList.remove("bg-pumpkin", "opacity-100");
-					circle.classList.add("opacity-0");
+					circle.classList.remove("bg-pumpkin", "opacity-100", "w-2", "mr-3");
+					circle.classList.add("opacity-0", "w-0", "mr-0");
 				}
 			});
 		}
@@ -197,7 +207,7 @@ const menuOptions = [
 
 		// Optional: Update active states when clicking nav links (for immediate feedback)
 		document.addEventListener("click", (event) => {
-			const link = event?.target?.closest(".nav-link, .mobile-nav-link");
+			const link = event.target.closest(".nav-link, .mobile-nav-link");
 			if (link) {
 				// Small delay to allow navigation to complete
 				setTimeout(updateActiveStates, 10);

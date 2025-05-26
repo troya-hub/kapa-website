@@ -59,12 +59,12 @@ const secondColumn = links[1];
 			{
 				firstColumn.children.map((link) => (
 					<a
-						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center gap-x-2 transition-colors"
+						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center transition-colors"
 						href={link.href}
 						data-href={link.href}
 						data-active="false"
 					>
-						<div class="active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0 transition-opacity" />
+						<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 						{link.title}
 					</a>
 				))
@@ -75,12 +75,12 @@ const secondColumn = links[1];
 			{
 				secondColumn.children.map((link) => (
 					<a
-						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center gap-x-2 transition-colors"
+						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center transition-colors"
 						href={link.href}
 						data-href={link.href}
 						data-active="false"
 					>
-						<div class="active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0 transition-opacity" />
+						<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 						{link.title}
 					</a>
 				))
@@ -138,13 +138,13 @@ const secondColumn = links[1];
 			if (isActive) {
 				link.classList.add("font-medium");
 				link.classList.remove("hover:text-pumpkin");
-				circle.classList.add("bg-pumpkin", "opacity-100");
-				circle.classList.remove("opacity-0");
+				circle.classList.add("bg-pumpkin", "opacity-100", "w-2", "mr-2");
+				circle.classList.remove("opacity-0", "w-0", "mr-0");
 			} else {
 				link.classList.remove("font-medium");
 				link.classList.add("hover:text-pumpkin");
-				circle.classList.remove("bg-pumpkin", "opacity-100");
-				circle.classList.add("opacity-0");
+				circle.classList.remove("bg-pumpkin", "opacity-100", "w-2", "mr-2");
+				circle.classList.add("opacity-0", "w-0", "mr-0");
 			}
 		});
 	}
