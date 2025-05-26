@@ -107,12 +107,18 @@ const secondColumn = links[1];
 <script>
 	// Function to update active states based on current path
 	function updateActiveStates() {
-		const currentPath = window.location.pathname;
+		let currentPath = window.location.pathname;
+
+		// Normalize path by removing trailing slash (except for root)
+		if (currentPath.endsWith("/") && currentPath !== "/") {
+			currentPath = currentPath.slice(0, -1);
+		}
+
 		const footerLinks = document.querySelectorAll(".footer-nav-link");
 
 		footerLinks.forEach((link) => {
 			const href = link.getAttribute("data-href");
-			const circle = link.querySelector(".active-circle")!;
+			const circle = link.querySelector(".active-circle");
 
 			// Determine if this link should be active
 			let isActive = false;
@@ -151,7 +157,7 @@ const secondColumn = links[1];
 
 	// Optional: Update active states when clicking links (for immediate feedback)
 	document.addEventListener("click", (event) => {
-		const link = event?.target.closest(".footer-nav-link");
+		const link = event.target.closest(".footer-nav-link");
 		if (link) {
 			// Small delay to allow navigation to complete
 			setTimeout(updateActiveStates, 10);
