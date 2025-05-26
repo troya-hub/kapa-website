@@ -62,10 +62,8 @@ class ActiveStateManager {
 
 	isActive(href, currentPath) {
 		if (href === "#") {
-			// Hash links are active when on home page or /public
-			return currentPath === "/" || currentPath === "/public";
+			return currentPath === "/";
 		}
-		// Exact path matches
 		return currentPath === href;
 	}
 
