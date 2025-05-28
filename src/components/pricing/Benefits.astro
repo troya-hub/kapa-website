@@ -11,36 +11,42 @@ import clsx from "clsx";
 
 const benefits = [
 	{
+		id: "unlimited-active-tasks",
 		title: "Unlimited Active Tasks",
 		icon: UnlimitedActiveTasksIcon,
 		description:
 			"Whether you need one design or ten, you can submit all your requests and keep them moving simultaneously - no need to wait for one to finish before starting another.",
 	},
 	{
+		id: "unlimited-brands",
 		title: "Unlimited Brands",
 		icon: UnlimitedBrandIcon,
 		description:
 			"Manage and request designs for as many brands as you like. This is ideal for agencies, marketing teams, or entrepreneurs with multiple businesses.",
 	},
 	{
+		id: "unlimited-graphic-design",
 		title: "Unlimited Graphic Design",
 		icon: UnlimitedGraphicDesignsIcon,
 		description:
 			"Enjoy unlimited access to high-quality, custom graphic designs tailored to your needs. From eye-catching GIFs and unique illustrations to pitch-perfect presentations and professional logos.",
 	},
 	{
+		id: "native-adobe-files",
 		title: "Native Adobe Files",
 		icon: NativeAdobeFilesIcon,
 		description:
-			"You’ll receive your final designs along with the original, fully editable Adobe source files (like AI, PSD, or INDD). This gives you full control for future edits, tweaks, or scaling across platforms.",
+			"You'll receive your final designs along with the original, fully editable Adobe source files (like AI, PSD, or INDD). This gives you full control for future edits, tweaks, or scaling across platforms.",
 	},
 	{
+		id: "canva-file-delivery",
 		title: "Canva File Delivery",
 		icon: CanvaFileDeliveryIcon,
 		description:
 			"Prefer working in Canva? No problem. You can request your files to be delivered in Canva format, making it easy to update and collaborate within your team—even without design software.",
 	},
 	{
+		id: "unlimited-team-members",
 		title: "Unlimited Team Members",
 		icon: UnlimitedTeamMembersIcon,
 		description:
@@ -54,19 +60,21 @@ const activeBenefit = benefits[0];
 <div class="site-container">
 	<div class="mx-auto flex items-start justify-center gap-x-16">
 		{
-			benefits.map((benefits) => (
-				<div class="flex max-w-[120px] flex-col items-center gap-y-6">
+			benefits.map((benefit, index) => (
+				<div
+					class="benefit-item flex max-w-[120px] cursor-pointer flex-col items-center gap-y-6 transition-transform hover:scale-105"
+					data-benefit-id={benefit.id}
+					data-benefit-index={index}
+				>
 					<div
 						class={clsx(
-							"border-blue flex h-14 w-14 items-center justify-center rounded-lg",
-							activeBenefit.title === benefits.title
-								? "active--benefit bg-light-blue"
-								: "bg-sky-blue",
+							"benefit-icon border-blue flex h-14 w-14 items-center justify-center rounded-lg transition-all duration-300",
+							index === 0 ? "active--benefit bg-light-blue" : "bg-sky-blue",
 						)}
 					>
-						<img src={benefits.icon} alt={benefits.title} />
+						<img src={benefit.icon} alt={benefit.title} />
 					</div>
-					<span class="text-k-sm text-neutral-10 text-center font-medium">{benefits.title}</span>
+					<span class="text-k-sm text-neutral-10 text-center font-medium">{benefit.title}</span>
 				</div>
 			))
 		}
@@ -74,12 +82,15 @@ const activeBenefit = benefits[0];
 
 	<Divider size="small" />
 
-	<div class="border-neutral-95 flex items-center gap-x-12 rounded-2xl border-2 px-10 py-8">
-		<div class="text-k-lg text-neutral-10 w-[240px] font-medium">
+	<div
+		id="benefit-description-container"
+		class="border-neutral-95 flex items-center gap-x-12 rounded-2xl border-2 px-10 py-8 transition-opacity duration-300"
+	>
+		<div id="benefit-title" class="text-k-lg text-neutral-10 min-w-[240px] font-medium">
 			{activeBenefit.title}
 		</div>
 
-		<div class="text-k-sm text-neutral-10">
+		<div id="benefit-description" class="text-k-sm text-neutral-10">
 			{activeBenefit.description}
 		</div>
 	</div>
@@ -92,4 +103,79 @@ const activeBenefit = benefits[0];
 			13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08),
 			3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);
 	}
+
+	.benefit-item {
+		user-select: none;
+	}
+
+	.benefit-description-fade {
+		opacity: 0;
+	}
 </style>
+
+<script define:vars={{ benefits }}>
+	// Benefits data is now passed from server-side
+
+	let currentActiveBenefit = 0;
+
+	function updateActiveBenefit(newIndex) {
+		if (newIndex === currentActiveBenefit) return;
+
+		const container = document.getElementById("benefit-description-container");
+		const titleEl = document.getElementById("benefit-title");
+		const descriptionEl = document.getElementById("benefit-description");
+
+		// Remove active state from current benefit
+		const currentIcon = document.querySelector(
+			`[data-benefit-index="${currentActiveBenefit}"] .benefit-icon`,
+		);
+		if (currentIcon) {
+			currentIcon.classList.remove("active--benefit", "bg-light-blue");
+			currentIcon.classList.add("bg-sky-blue");
+		}
+
+		// Add active state to new benefit
+		const newIcon = document.querySelector(`[data-benefit-index="${newIndex}"] .benefit-icon`);
+		if (newIcon) {
+			newIcon.classList.remove("bg-sky-blue");
+			newIcon.classList.add("active--benefit", "bg-light-blue");
+		}
+
+		// Fade out animation
+		container.style.opacity = "0.3";
+
+		setTimeout(() => {
+			// Update content
+			titleEl.textContent = benefits[newIndex].title;
+			descriptionEl.textContent = benefits[newIndex].description;
+
+			// Fade in animation
+			container.style.opacity = "1";
+
+			currentActiveBenefit = newIndex;
+		}, 150);
+	}
+
+	// Add click event listeners to benefit items
+	document.addEventListener("DOMContentLoaded", () => {
+		const benefitItems = document.querySelectorAll(".benefit-item");
+
+		benefitItems.forEach((item, index) => {
+			item.addEventListener("click", () => {
+				updateActiveBenefit(index);
+			});
+
+			// Add keyboard support
+			item.setAttribute("tabindex", "0");
+			item.setAttribute("role", "button");
+			item.setAttribute("aria-label", `Select ${benefits[index].title}`);
+
+			item.addEventListener("keydown", (e) => {
+				if (e.key === "Enter" || e.key === " ") {
+					e.preventDefault();
+					updateActiveBenefit(index);
+				}
+			});
+		});
+	});
+</script>
