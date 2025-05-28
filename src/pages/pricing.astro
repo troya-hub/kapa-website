@@ -2,21 +2,31 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 
 import Hero from "@/components/pricing/Hero.astro";
-import Divider from "../components/ui/Divider.astro";
+import HeroChip from "@/components/pricing/HeroChip.astro";
+import Divider from "@/components/ui/Divider.astro";
 import Benefits from "@/components/pricing/Benefits.astro";
 import AllPricing from "@/components/pricing/AllPricing.astro";
 import CallToAction from "@/components/pricing/CallToAction.astro";
-import Reviews from "../components/landing/Reviews.astro";
-import FAQ from "../components/landing/FAQ.astro";
-import PricingClients from "../components/pricing/PricingClients.astro";
+import Reviews from "@/components/landing/Reviews.astro";
+import FAQ from "@/components/landing/FAQ.astro";
+import PricingClients from "@/components/pricing/PricingClients.astro";
 ---
 
 <BaseLayout>
-	<Hero />
-	<Divider size="small" />
-	<Benefits />
-	<Divider size="small" />
-	<AllPricing />
+	<div class="flex flex-col">
+		<HeroChip />
+		<div class="order-2 lg:order-1">
+			<Hero />
+			<Divider size="small" />
+		</div>
+		<div class="order-3 lg:order-2">
+			<Benefits />
+			<Divider size="small" />
+		</div>
+		<div class="order-1 lg:order-3">
+			<AllPricing />
+		</div>
+	</div>
 	<Divider size="medium" />
 	<PricingClients />
 	<Divider size="large" />

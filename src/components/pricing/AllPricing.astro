@@ -68,6 +68,10 @@ const selectedFrequency = "monthly";
 ---
 
 <div class="site-container">
+	<Title type="h1" class="text-center lg:hidden">Design On Demand, One Flat Rate</Title>
+
+	<Divider size="small" />
+
 	<div class="mx-auto flex flex-col items-center justify-center">
 		<!-- Switch -->
 		<div
@@ -110,7 +114,10 @@ const selectedFrequency = "monthly";
 
 		<Divider size="small" />
 
-		<div id="pricing-grid" class="grid grid-cols-3 gap-x-6 transition-opacity duration-300">
+		<div
+			id="pricing-grid"
+			class="grid grid-cols-1 gap-x-6 gap-y-6 transition-opacity duration-300 lg:grid-cols-3 lg:gap-y-0"
+		>
 			{
 				prices[selectedFrequency].map((price, index) => (
 					<div
@@ -124,6 +131,7 @@ const selectedFrequency = "monthly";
 							<img src={price.icon} alt={price.title} class="mb-4 w-10" />
 							<Title
 								type="h6"
+								mobileType="h4"
 								class={clsx(price.isDedicated ? "text-neutral-95" : "text-neutral-10")}
 							>
 								{price.title}
@@ -141,6 +149,7 @@ const selectedFrequency = "monthly";
 						<div class="flex items-end gap-x-2">
 							<Title
 								type="h4"
+								useDesktopOnMobile
 								class={clsx(
 									"pricing-amount transition-all duration-300",
 									price.isDedicated ? "text-neutral-95" : "text-neutral-10",
@@ -200,10 +209,6 @@ const selectedFrequency = "monthly";
 
 		isAnimating = true;
 		const pricingGrid = document.getElementById("pricing-grid");
-		const pricingCards = document.querySelectorAll(".pricing-card");
-
-		// Add updating class for opacity change only
-		pricingCards.forEach((card) => card.classList.add("updating"));
 
 		// Fade out
 		pricingGrid.style.opacity = "0.3";
@@ -234,12 +239,6 @@ const selectedFrequency = "monthly";
 
 			// Fade in
 			pricingGrid.style.opacity = "1";
-
-			// Remove updating class
-			setTimeout(() => {
-				pricingCards.forEach((card) => card.classList.remove("updating"));
-				isAnimating = false;
-			}, 150);
 		}, 150);
 	}
 
@@ -248,12 +247,10 @@ const selectedFrequency = "monthly";
 		const toggle = document.getElementById("pricing-toggle");
 
 		if (frequency === "yearly") {
-			// Move to annual position
 			switchBackground.style.left = "100px";
 			toggle.checked = true;
 			toggle.setAttribute("data-frequency", "yearly");
 		} else {
-			// Move to monthly position
 			switchBackground.style.left = "12px";
 			toggle.checked = false;
 			toggle.setAttribute("data-frequency", "monthly");

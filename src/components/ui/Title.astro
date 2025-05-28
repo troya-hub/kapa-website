@@ -1,12 +1,106 @@
 ---
+/**
+ * Title Component - Responsive Typography with Flexible Sizing
+ *
+ * A flexible title component that supports different typography scales across mobile and desktop,
+ * with options to use desktop classes on mobile for precise control.
+ *
+ * @example Basic Usage
+ * ```astro
+ * <!-- Standard responsive title -->
+ * <Title type="h1">Main Heading</Title>
+ * <!-- Result: <h1 class="text-k-h1-mobile lg:text-k-h1 text-neutral-10 font-semibold"> -->
+ *
+ * <Title type="h6">Small Heading</Title>
+ * <!-- Result: <h6 class="text-k-h6 text-neutral-10 font-semibold"> -->
+ * ```
+ *
+ * @example Custom Mobile/Desktop Sizing
+ * ```astro
+ * <!-- Larger on mobile, smaller on desktop -->
+ * <Title type="h6" mobileType="h4">
+ *   Large mobile, small desktop
+ * </Title>
+ * <!-- Result: <h6 class="text-k-h4-mobile lg:text-k-h6 text-neutral-10 font-semibold"> -->
+ *
+ * <!-- Smaller on mobile, larger on desktop -->
+ * <Title type="h2" mobileType="h3">
+ *   Medium mobile, large desktop
+ * </Title>
+ * <!-- Result: <h2 class="text-k-h3-mobile lg:text-k-h2 text-neutral-10 font-semibold"> -->
+ * ```
+ *
+ * @example Using Desktop Classes on Mobile
+ * ```astro
+ * <!-- Use h4 DESKTOP classes on mobile (not h4-mobile classes) -->
+ * <Title type="h6" mobileType="h4" mobileUseDesktop>
+ *   H4 desktop styles on mobile, H6 on desktop
+ * </Title>
+ * <!-- Result: <h6 class="text-k-h4 lg:text-k-h6 text-neutral-10 font-semibold"> -->
+ *
+ * <!-- Compare with standard mobile classes -->
+ * <Title type="h6" mobileType="h4">
+ *   H4 mobile styles on mobile, H6 on desktop
+ * </Title>
+ * <!-- Result: <h6 class="text-k-h4-mobile lg:text-k-h6 text-neutral-10 font-semibold"> -->
+ * ```
+ *
+ * @example Desktop Styles Everywhere
+ * ```astro
+ * <!-- Force desktop styles on all screen sizes -->
+ * <Title type="h3" useDesktopOnMobile>
+ *   Desktop H3 on mobile and desktop
+ * </Title>
+ * <!-- Result: <h3 class="text-k-h3 text-neutral-10 font-semibold"> -->
+ * ```
+ *
+ * @example With Additional Classes
+ * ```astro
+ * <!-- Add custom styling -->
+ * <Title type="h4" mobileType="h2" class="text-blue-500 mb-6">
+ *   Custom styled responsive title
+ * </Title>
+ * <!-- Result: <h4 class="text-k-h2-mobile lg:text-k-h4 text-neutral-10 font-semibold text-blue-500 mb-6"> -->
+ * ```
+ *
+ * @example Common Use Cases
+ * ```astro
+ * <!-- Hero title: Large on mobile, larger on desktop -->
+ * <Title type="h1" mobileType="h2">Hero Title</Title>
+ *
+ * <!-- Card title: Medium desktop size on mobile, small on desktop -->
+ * <Title type="h6" mobileType="h4" mobileUseDesktop>Card Title</Title>
+ *
+ * <!-- Consistent sizing: Same size everywhere -->
+ * <Title type="h5" useDesktopOnMobile>Consistent Title</Title>
+ *
+ * <!-- Fine-tuned: Custom mobile size, specific desktop size -->
+ * <Title type="h3" mobileType="h4">Section Title</Title>
+ * ```
+ *
+ * @param type - HTML heading element (h1-h6) and base desktop text size
+ * @param mobileType - Override mobile text size (uses different heading's mobile classes)
+ * @param mobileUseDesktop - Use desktop classes on mobile instead of mobile classes
+ * @param useDesktopOnMobile - Force desktop styles on all screen sizes (overrides mobileType)
+ * @param class - Additional CSS classes to merge
+ */
 type IHtmlTag = "h1" | "h2" | "h3" | "h4" | "h5" | "h6";
 
 interface Props {
 	type: IHtmlTag;
+	mobileType?: IHtmlTag;
+	mobileUseDesktop?: boolean;
+	useDesktopOnMobile?: boolean;
 	class?: string;
 }
 
-const { type: Element, class: extraClass } = Astro.props;
+const {
+	type: Element,
+	mobileType,
+	mobileUseDesktop,
+	useDesktopOnMobile,
+	class: extraClass,
+} = Astro.props;
 
 const titles = {
 	h1: "text-k-h1-mobile lg:text-k-h1 text-neutral-10 font-semibold",
@@ -17,7 +111,25 @@ const titles = {
 	h6: "text-k-h6 text-neutral-10 font-semibold",
 };
 
-const merged = [titles[Element], extraClass].filter(Boolean).join(" ");
+// If mobileType is provided, create custom responsive classes
+const getResponsiveClasses = () => {
+	if (useDesktopOnMobile) {
+		// Use desktop styles on all screen sizes
+		return `text-k-${Element} text-neutral-10 font-semibold`;
+	} else if (mobileType && mobileType !== Element) {
+		// Custom mobile/desktop combination
+		const mobileClass = mobileUseDesktop
+			? `text-k-${mobileType}` // Use desktop classes for mobile
+			: `text-k-${mobileType}-mobile`; // Use mobile classes for mobile
+		const desktopClass = `lg:text-k-${Element}`;
+		return `${mobileClass} ${desktopClass} text-neutral-10 font-semibold`;
+	} else {
+		// Use default responsive classes from titles object
+		return titles[Element];
+	}
+};
+
+const merged = [getResponsiveClasses(), extraClass].filter(Boolean).join(" ");
 ---
 
 <Element class={merged}>
