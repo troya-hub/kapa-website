@@ -4,6 +4,7 @@ import Divider from "@/components/ui/Divider.astro";
 import JohnDunasVideoImage from "@/assets/images/reviews/john-dunas-video.webp?url";
 import JoshWilliamsVideoImage from "@/assets/images/reviews/josh-williams.webp?url";
 import CharlieMcKenzieVideoImage from "@/assets/images/reviews/charlie-mckenzie-video.webp?url";
+import clsx from "clsx";
 
 const customers = [
 	{
@@ -49,7 +50,9 @@ const customers = [
 						data-index={index}
 					>
 						<div class="flex items-center justify-between">
-							<Title type="h6">{customer.name}</Title>
+							<Title type="h6" class={clsx(index === 0 ? "text-neutral-10" : "text-neutral-60")}>
+								{customer.name}
+							</Title>
 						</div>
 						<div
 							class={`testimonial-content overflow-hidden transition-all duration-500 ease-in-out ${index === 0 ? "initial-content" : ""}`}
@@ -71,7 +74,7 @@ const customers = [
 					>
 						<img
 							src={customer.image}
-							class="w-full transform rounded-3xl transition-transform duration-700 ease-out"
+							class="aspect-square w-full transform rounded-3xl object-contain transition-transform duration-700 ease-out"
 							alt={`${customer.name} testimonial`}
 							style={index === 0 ? "transform: scale(1);" : "transform: scale(0.95);"}
 						/>
@@ -126,10 +129,17 @@ const customers = [
 			// Update UI for testimonial items
 			testimonialItems.forEach((item, index) => {
 				const contentElement = item.querySelector(".testimonial-content") as HTMLElement;
+				const titleElement = item.querySelector("h6") as HTMLElement;
 
 				if (index === activeIndex) {
 					// Activate current item
 					item.classList.add("active");
+
+					// Update title color
+					if (titleElement) {
+						titleElement.classList.remove("text-neutral-60");
+						titleElement.classList.add("text-neutral-10");
+					}
 
 					// Calculate height for content
 					const contentHeight =
@@ -143,6 +153,13 @@ const customers = [
 				} else {
 					// Deactivate other items
 					item.classList.remove("active");
+
+					// Update title color
+					if (titleElement) {
+						titleElement.classList.remove("text-neutral-10");
+						titleElement.classList.add("text-neutral-60");
+					}
+
 					contentElement.style.maxHeight = "0";
 					contentElement.style.opacity = "0";
 					contentElement.style.marginTop = "0";
