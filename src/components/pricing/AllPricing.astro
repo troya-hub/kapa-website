@@ -210,23 +210,19 @@ const selectedFrequency = "monthly";
 		isAnimating = true;
 		const pricingGrid = document.getElementById("pricing-grid");
 
-		// Fade out
 		pricingGrid.style.opacity = "0.3";
 
 		setTimeout(() => {
-			// Update all pricing information
 			const selectedPrices = prices[frequency];
 
 			selectedPrices.forEach((price, index) => {
 				const card = document.querySelector(`[data-card-index="${index}"]`);
 				if (card) {
-					// Update pricing amount
 					const amountEl = card.querySelector(".pricing-amount");
 					if (amountEl) {
 						amountEl.textContent = `$${price.pricing}`;
 					}
 
-					// Update frequency text
 					const frequencyEl = card.querySelector(".pricing-frequency");
 					if (frequencyEl) {
 						frequencyEl.textContent = `per ${frequency === "yearly" ? "year" : "month"}`;
@@ -234,11 +230,10 @@ const selectedFrequency = "monthly";
 				}
 			});
 
-			// Update current frequency
 			currentFrequency = frequency;
 
-			// Fade in
 			pricingGrid.style.opacity = "1";
+			isAnimating = false;
 		}, 150);
 	}
 
@@ -272,24 +267,6 @@ const selectedFrequency = "monthly";
 				const frequency = option.getAttribute("data-frequency");
 				handleFrequencyChange(frequency);
 			});
-		});
-
-		// Keyboard support for the hidden checkbox
-		const toggle = document.getElementById("pricing-toggle");
-		toggle.addEventListener("change", () => {
-			const newFrequency = toggle.checked ? "yearly" : "monthly";
-			updatePricingDisplay(newFrequency);
-		});
-
-		// Keyboard navigation
-		toggle.addEventListener("keydown", (e) => {
-			if (e.key === "ArrowLeft") {
-				e.preventDefault();
-				handleFrequencyChange("monthly");
-			} else if (e.key === "ArrowRight") {
-				e.preventDefault();
-				handleFrequencyChange("yearly");
-			}
 		});
 	});
 </script>
