@@ -5,33 +5,50 @@ import UnlimitedGraphicDesignsIcon from "@/assets/icons/pricing/unlimited-graphi
 import NativeAdobeFilesIcon from "@/assets/icons/pricing/native-adobe-files.svg?url";
 import CanvaFileDeliveryIcon from "@/assets/icons/pricing/canva-file-delivery.svg?url";
 import UnlimitedTeamMembersIcon from "@/assets/icons/pricing/unlimited-team-members.svg?url";
+import Divider from "@/components/ui/Divider.astro";
+
+import clsx from "clsx";
 
 const benefits = [
 	{
 		title: "Unlimited Active Tasks",
 		icon: UnlimitedActiveTasksIcon,
+		description:
+			"Whether you need one design or ten, you can submit all your requests and keep them moving simultaneously - no need to wait for one to finish before starting another.",
 	},
 	{
 		title: "Unlimited Brands",
 		icon: UnlimitedBrandIcon,
+		description:
+			"Manage and request designs for as many brands as you like. This is ideal for agencies, marketing teams, or entrepreneurs with multiple businesses.",
 	},
 	{
 		title: "Unlimited Graphic Design",
 		icon: UnlimitedGraphicDesignsIcon,
+		description:
+			"Enjoy unlimited access to high-quality, custom graphic designs tailored to your needs. From eye-catching GIFs and unique illustrations to pitch-perfect presentations and professional logos.",
 	},
 	{
 		title: "Native Adobe Files",
 		icon: NativeAdobeFilesIcon,
+		description:
+			"You’ll receive your final designs along with the original, fully editable Adobe source files (like AI, PSD, or INDD). This gives you full control for future edits, tweaks, or scaling across platforms.",
 	},
 	{
 		title: "Canva File Delivery",
 		icon: CanvaFileDeliveryIcon,
+		description:
+			"Prefer working in Canva? No problem. You can request your files to be delivered in Canva format, making it easy to update and collaborate within your team—even without design software.",
 	},
 	{
 		title: "Unlimited Team Members",
 		icon: UnlimitedTeamMembersIcon,
+		description:
+			"Your entire team can join in. Invite as many collaborators as needed, allowing everyone to submit, track, and manage design requests in one centralized place.",
 	},
 ];
+
+const activeBenefit = benefits[0];
 ---
 
 <div class="site-container">
@@ -40,8 +57,12 @@ const benefits = [
 			benefits.map((benefits) => (
 				<div class="flex max-w-[120px] flex-col items-center gap-y-6">
 					<div
-						class="bg-light-blue border-blue flex h-14 w-14 items-center justify-center rounded-lg"
-						style="box-shadow: 27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06), 13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08), 3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);"
+						class={clsx(
+							"border-blue flex h-14 w-14 items-center justify-center rounded-lg",
+							activeBenefit.title === benefits.title
+								? "active--benefit bg-light-blue"
+								: "bg-sky-blue",
+						)}
 					>
 						<img src={benefits.icon} alt={benefits.title} />
 					</div>
@@ -50,4 +71,25 @@ const benefits = [
 			))
 		}
 	</div>
+
+	<Divider size="small" />
+
+	<div class="border-neutral-95 flex items-center gap-x-12 rounded-2xl border-2 px-10 py-8">
+		<div class="text-k-lg text-neutral-10 w-[240px] font-medium">
+			{activeBenefit.title}
+		</div>
+
+		<div class="text-k-sm text-neutral-10">
+			{activeBenefit.description}
+		</div>
+	</div>
 </div>
+
+<style>
+	.active--benefit {
+		box-shadow:
+			27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06),
+			13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08),
+			3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);
+	}
+</style>
