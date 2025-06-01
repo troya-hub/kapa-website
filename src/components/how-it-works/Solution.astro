@@ -1,0 +1,38 @@
+---
+import TextureBackgroundImage from "@/assets/images/how-it-works/texture-background.webp?url";
+import VideoHeroImage from "@/assets/images/how-it-works/video-hero.webp?url";
+
+import PatternImage from "@/assets/icons/why-use-it/pattern.svg?url";
+---
+
+<div>
+	<div class="relative">
+		<!-- Dot Background -->
+		<div
+			class="absolute -top-10 h-[80%] w-full bg-repeat"
+			style={`background-image: url(${PatternImage})`}
+		>
+		</div>
+
+		<!-- Overlay to hide the background between the hero and the video -->
+		<div
+			class="clip-diagonal-inverse absolute -top-10 left-1/2 h-[60%] w-[90%] -translate-x-1/2 bg-white"
+		>
+		</div>
+
+		<div class="site-container relative w-[80%]">
+			<img src={VideoHeroImage} alt="Solution" />
+		</div>
+	</div>
+</div>
+
+<style>
+	.clip-diagonal-inverse {
+		clip-path: polygon(
+			0% 0%,
+			/* Top-left corner */ 100% 0%,
+			/* Top-right corner */ 90% 100%,
+			/* Bottom-right diagonal inward */ 10% 100% /* Bottom-left diagonal inward */
+		);
+	}
+</style>

@@ -1,5 +1,12 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "../components/ui/Divider.astro";
+import Hero from "@/components/how-it-works/Hero.astro";
+import Solution from "@/components/how-it-works/Solution.astro";
 ---
 
-<BaseLayout> How it works</BaseLayout>
+<BaseLayout>
+	<Hero />
+	<Divider size="medium" />
+	<Solution />
+</BaseLayout>

@@ -1,6 +1,12 @@
 ---
 import Divider from "@/components/ui/Divider.astro";
 import BoltIcon from "@/assets/icons/pricing/bolt.svg";
+
+interface Props {
+	title?: string;
+}
+
+const { title = "Pick the package that fits you best" }: Props = Astro.props;
 ---
 
 <Divider size="small" />
@@ -8,7 +14,7 @@ import BoltIcon from "@/assets/icons/pricing/bolt.svg";
 	<div
 		class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
 	>
-		Pick the package that fits you best
+		{title}
 		<BoltIcon />
 	</div>
 </div>
