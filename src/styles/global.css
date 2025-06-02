@@ -3,6 +3,8 @@
 
 @source "src/data/*";
 
+@custom-variant dark (&:where([data-theme=dark], [data-theme=dark] *));
+
 :root {
   --spacing-divider: 5rem; /* 80px */
   --spacing-divider--almost-large: 6.25rem; /* 100px */

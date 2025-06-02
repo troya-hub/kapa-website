@@ -6,6 +6,8 @@ import Solution from "@/components/how-it-works/Solution.astro";
 import SolutionDetails from "@/components/how-it-works/SolutionDetails.astro";
 import DesignWorkflow from "@/components/how-it-works/DesignWorkflow.astro";
 import DesignSteps from "@/components/how-it-works/DesignSteps.astro";
+import Benefits from "@/components/landing/Benefits.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
 ---
 
 <BaseLayout>
@@ -20,5 +22,9 @@ import DesignSteps from "@/components/how-it-works/DesignSteps.astro";
 	<div class="bg-night-blue text-neutral-100">
 		<Divider size="large" />
 		<DesignSteps />
+		<Divider size="large" />
+		<Benefits theme="dark" />
+		<Divider size="large" />
 	</div>
+	<CallToAction />
 </BaseLayout>
