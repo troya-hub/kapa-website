@@ -134,6 +134,7 @@
   --spacing-divider--extra-large: 12.5rem; /* 200px */
   --spacing-divider--super-large: 15rem; /* 240px */
   --spacing-divider--almost-large: 7.5rem; /* 120px */
+  --font-weight-semibold: 550;
 }
 
 @utility divider {
