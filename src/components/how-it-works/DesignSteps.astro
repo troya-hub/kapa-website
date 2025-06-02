@@ -1,0 +1,63 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+
+const designSteps = [
+	{
+		id: "01.",
+		title: "Submit Your Request",
+		description:
+			"Use our quick 4-step brief or write it your way. Upload brand assets for consistent results.",
+		style: "background: rgba(102, 153, 255, 0.20);",
+	},
+	{
+		id: "02.",
+		title: "We Design It",
+		description:
+			"Your project manager assigns the right designer. Our team ensures quality and brand alignment.",
+		style: "background: rgba(102, 153, 255, 0.40);",
+	},
+	{
+		id: "03.",
+		title: "Review & Revise",
+		description: "Track progress, leave visual feedback, and prioritize urgent tasks effortlessly.",
+		style: "background: rgba(102, 153, 255, 0.60);",
+	},
+	{
+		id: "04.",
+		title: "Approve & Download",
+		description: "Once you're happy, approve and download your files in all necessary formats.",
+		style: "background: rgba(102, 153, 255, 0.80);",
+	},
+];
+---
+
+<div class="site-container">
+	<Title type="h1" class="text-center text-neutral-100"> Get design in 4 simple steps </Title>
+
+	<Divider size="large" />
+
+	<div class="grid grid-cols-1 gap-8 md:grid-cols-2 lg:grid-cols-4">
+		{
+			designSteps.map((step) => (
+				<div class="flex flex-col gap-y-2 rounded-xl p-8" style={step.style}>
+					<div class="text-3xl font-bold">{step.id}</div>
+					<Title type="h6" class="text-neutral-100">
+						{step.title}
+					</Title>
+					<p class="text-k-lg">{step.description}</p>
+				</div>
+			))
+		}
+	</div>
+
+	<div
+		class="mt-8 flex w-full items-center rounded-xl px-6"
+		style="background: linear-gradient(90deg, rgba(102, 153, 255, 0.18) 12%, rgba(102, 153, 255, 0.36) 36.87%, rgba(102, 153, 255, 0.72) 62.82%, rgba(102, 153, 255, 0.81) 88.88%);"
+	>
+		<span class="grow">Start your first request today — it’s free for 15 days.</span>
+		<div class="py-2">
+			<button class="button-primary"> Start with a free 15 day trial</button>
+		</div>
+	</div>
+</div>

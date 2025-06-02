@@ -5,6 +5,7 @@ import Hero from "@/components/how-it-works/Hero.astro";
 import Solution from "@/components/how-it-works/Solution.astro";
 import SolutionDetails from "@/components/how-it-works/SolutionDetails.astro";
 import DesignWorkflow from "@/components/how-it-works/DesignWorkflow.astro";
+import DesignSteps from "@/components/how-it-works/DesignSteps.astro";
 ---
 
 <BaseLayout>
@@ -15,4 +16,9 @@ import DesignWorkflow from "@/components/how-it-works/DesignWorkflow.astro";
 	<SolutionDetails />
 	<Divider size="extra-large" />
 	<DesignWorkflow />
+	<Divider size="large" />
+	<div class="bg-night-blue text-neutral-100">
+		<Divider size="large" />
+		<DesignSteps />
+	</div>
 </BaseLayout>
