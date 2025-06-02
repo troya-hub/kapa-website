@@ -65,7 +65,7 @@ const customers = [
 				))
 			}
 		</div>
-		<div class="relative order-1 aspect-video lg:order-2">
+		<div class="relative order-1 aspect-video max-w-full lg:order-2">
 			{
 				customers.map((customer, index) => (
 					<div
@@ -74,7 +74,7 @@ const customers = [
 					>
 						<img
 							src={customer.image}
-							class="h-full w-full transform object-contain transition-transform duration-700 ease-out"
+							class="h-full w-full max-w-full transform object-contain transition-transform duration-700 ease-out"
 							alt={`${customer.name} testimonial`}
 							style={index === 0 ? "transform: scale(1);" : "transform: scale(0.95);"}
 						/>
