@@ -1,0 +1,40 @@
+---
+import UserCheckIcon from "@/assets/icons/how-it-works/user-check.svg";
+import TeamIcon from "@/assets/icons/how-it-works/team.svg";
+import AwardIcon from "@/assets/icons/how-it-works/award.svg";
+
+const details = [
+	{
+		title: "Project Manager",
+		description:
+			"You get a project manager who’s mission is to understand your needs and design preferences, and to deliver high-quality results on time.",
+		icon: UserCheckIcon,
+	},
+	{
+		title: "Design specialists",
+		description:
+			"Instead of just assigning a generalist, you get access to a full team of experts across multiple disciplines — including logo design, print design, and more.",
+		icon: TeamIcon,
+	},
+	{
+		title: "Quality assurance.",
+		description:
+			"We trust our team, but a senior group of talented graphic designers verifies their output for common issues like typos before it’s delivered to you.",
+		icon: AwardIcon,
+	},
+];
+---
+
+<div class="site-container">
+	<div class="mx-auto grid w-[80%] grid-cols-3 gap-x-14">
+		{
+			details.map((detail) => (
+				<div class="flex flex-col gap-y-4">
+					<detail.icon />
+					<h3 class="text-k-xl text-neutral-10 font-semibold">{detail.title}</h3>
+					<p class="text-k-md text-neutral-40">{detail.description}</p>
+				</div>
+			))
+		}
+	</div>
+</div>
