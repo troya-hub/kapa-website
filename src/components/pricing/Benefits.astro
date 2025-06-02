@@ -76,7 +76,11 @@ const activeBenefit = benefits[0];
 					>
 						<img src={benefit.icon} alt={benefit.title} />
 					</div>
-					<span class="text-k-sm text-neutral-10 text-center font-medium">{benefit.title}</span>
+					<span
+						class={clsx("text-k-sm text-neutral-10 text-center", index === 0 ? "font-medium" : "")}
+					>
+						{benefit.title}
+					</span>
 				</div>
 			))
 		}
@@ -134,16 +138,26 @@ const activeBenefit = benefits[0];
 		const currentIcon = document.querySelector(
 			`[data-benefit-index="${currentActiveBenefit}"] .benefit-icon`,
 		);
+		const currentTitle = document.querySelector(
+			`[data-benefit-index="${currentActiveBenefit}"] span`,
+		);
 		if (currentIcon) {
 			currentIcon.classList.remove("active--benefit", "bg-light-blue");
 			currentIcon.classList.add("bg-sky-blue");
 		}
+		if (currentTitle) {
+			currentTitle.classList.remove("font-medium");
+		}
 
 		// Add active state to new benefit
 		const newIcon = document.querySelector(`[data-benefit-index="${newIndex}"] .benefit-icon`);
+		const newTitle = document.querySelector(`[data-benefit-index="${newIndex}"] span`);
 		if (newIcon) {
 			newIcon.classList.remove("bg-sky-blue");
 			newIcon.classList.add("active--benefit", "bg-light-blue");
+		}
+		if (newTitle) {
+			newTitle.classList.add("font-medium");
 		}
 
 		// Fade out animation

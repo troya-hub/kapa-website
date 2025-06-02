@@ -2,9 +2,11 @@
 import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
 import Title from "@/components/ui/Title.astro";
 import OurClients from "@/components/landing/OurClients.astro";
+import Divider from "../ui/Divider.astro";
 ---
 
-<section class="site-container text-neutral-10 mt-8 lg:mt-16">
+<section class="site-container text-neutral-10">
+	<Divider size="small" />
 	<div class="mx-auto max-w-[1000px] text-center">
 		<div
 			class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
@@ -13,7 +15,7 @@ import OurClients from "@/components/landing/OurClients.astro";
 			<ArrowRightUp />
 		</div>
 
-		<div class="space-y-4">
+		<div class="mt-6 space-y-4">
 			<Title type="h1"> A dedicated design team for your business without the big price tag </Title>
 
 			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">

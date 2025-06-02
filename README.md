@@ -16,3 +16,10 @@ All commands are run from the root of the project, from a terminal:
 ## Default Rules
 
 - Max width of the sections is 1440px
+
+## TODO
+
+- [ ] Refactor HeroChip
+  - Move directory to UI
+  - Refactor all changed imports
+  - Se quito el divider small de este componente, verificar que afecto
