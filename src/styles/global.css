@@ -15,7 +15,7 @@
 
 /* https://tailwindcss.com/docs/theme */
 @theme {
-  --font-sans: "Switzer", sans-serif;
+  --font-sans: "Switzer Variable", sans-serif;
 
   /** COLORS **/
   --color-*: initial;
