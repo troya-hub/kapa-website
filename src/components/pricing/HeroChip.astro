@@ -1,20 +1,47 @@
 ---
 import Divider from "@/components/ui/Divider.astro";
 import BoltIcon from "@/assets/icons/pricing/bolt.svg";
+import RedBoltIcon from "@/assets/icons/pricing/red-bolt.svg";
+
+type Icon = "bolt" | "red-bolt";
 
 interface Props {
 	title?: string;
+	icon?: Icon;
+	align?: "left" | "center" | "right";
 }
 
-const { title = "Pick the package that fits you best" }: Props = Astro.props;
+const {
+	title = "Pick the package that fits you best",
+	icon = undefined,
+	align = "center",
+}: Props = Astro.props;
+
+const getIcon = (icon?: Icon) => {
+	if (icon === "red-bolt") {
+		return RedBoltIcon;
+	}
+
+	return BoltIcon;
+};
+
+const HeroChipIcon = getIcon(icon);
 ---
 
-<Divider size="small" />
-<div class="flex items-center justify-center">
+<!--<Divider size="small" />-->
+<div
+	class="flex items-center"
+	class:list={{
+		"justify-center": align === "center",
+		"justify-start": align === "left",
+		"justify-end": align === "right",
+	}}
+>
 	<div
 		class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
 	>
 		{title}
-		<BoltIcon />
+
+		<HeroChipIcon />
 	</div>
 </div>

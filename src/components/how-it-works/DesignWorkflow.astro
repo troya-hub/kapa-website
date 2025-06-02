@@ -1,0 +1,119 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+import HeroChip from "@/components/pricing/HeroChip.astro";
+
+import KapaChatImage from "@/assets/images/how-it-works/kapa-chat.webp?url";
+import KanbanBoardImage from "@/assets/images/how-it-works/kaban-board.webp?url";
+import PrioritizationPillsImage from "@/assets/images/how-it-works/prioritization-pills.webp?url";
+import PriorityCommentsImage from "@/assets/images/how-it-works/priority-comments.webp?url";
+import DedicatedTeamImage from "@/assets/images/how-it-works/dedicated-team.webp?url";
+import StepsImage from "@/assets/images/how-it-works/steps.webp?url";
+
+const bentoCardDefaultClasses = "bg-sky-blue border-light-blue rounded-2xl";
+---
+
+<div class="site-container">
+	<Title type="h1" class="text-center"> Your all-in-one design workflow </Title>
+
+	<Divider size="large" />
+
+	<!-- Bento Grid -->
+	<div class="grid grid-cols-1 gap-y-7">
+		<!-- First Row -->
+		<div class:list={[bentoCardDefaultClasses, "flex border"]}>
+			<div class="w-[55%] px-10 pt-16 pb-4">
+				<HeroChip icon="red-bolt" align="left"> Available with Dedicated Team</HeroChip>
+				<Title type="h6" class="mt-6">Real Time Collaboration</Title>
+				<p class="text-neutral-40 text-k-lg mt-2 mb-6">
+					Collaborate in real time through the tools you already use —
+					<span class="font-medium">Slack, Asana, Trello, ClickUp, and more</span>. We’ll plug right
+					into your workflow so communication stays seamless and projects keep moving.
+				</p>
+				<button class="button-primary"> Start with a free 15 day trial</button>
+			</div>
+			<div class="pt-8">
+				<img
+					src={KapaChatImage}
+					alt="Kapa Chat"
+					class="aspect-video min-h-[400px] rounded-2xl object-cover object-left-top"
+				/>
+			</div>
+		</div>
+
+		<!-- Second Row -->
+		<div class="flex gap-x-10">
+			<!-- Left side -->
+			<div class:list={[bentoCardDefaultClasses, "flex w-1/2 flex-col overflow-hidden"]}>
+				<div class="mx-10 mt-12">
+					<Title type="h6">Stay on top of everything</Title>
+					<p class="text-neutral-40 text-k-lg mt-2 mb-10">
+						Track design progress with a <span class="font-medium">visual board</span>. Know exactly
+						what’s in progress, what’s coming, and when to expect delivery.
+					</p>
+				</div>
+				<img
+					src={KanbanBoardImage}
+					alt="Kanban Board"
+					class="ml-10 aspect-video grow rounded-2xl object-cover object-left-top"
+				/>
+			</div>
+
+			<!--Right side -->
+			<div class="w-1/2">
+				<div class:list={[bentoCardDefaultClasses, "px-10 pt-12"]}>
+					<Title type="h6">Prioritize what matters most</Title>
+					<p class="text-neutral-40 text-k-lg mt-2 mb-10">
+						Need something sooner? Flag it. Easily rearrange
+						<span class="font-medium">priorities</span> and we’ll take care of the rest.
+					</p>
+					<img
+						src={PrioritizationPillsImage}
+						alt="Prioritization Pills"
+						class="rounded-2xl object-contain object-center"
+					/>
+				</div>
+
+				<div class:list={[bentoCardDefaultClasses, "mt-7 px-10 pt-12"]}>
+					<Title type="h6">Point, click, revise</Title>
+					<p class="text-neutral-40 text-k-lg mt-2 mb-10">
+						Give <span class="font-medium">feedback visually</span> with a single click. Speed up iterations
+						and cut down on revision time.
+					</p>
+					<img
+						src={PriorityCommentsImage}
+						alt="Priority Comments"
+						class="rounded-2xl object-contain object-center"
+					/>
+				</div>
+			</div>
+		</div>
+
+		<!-- Third Row -->
+		<div class="flex gap-x-10">
+			<!-- Third row | Left side -->
+			<div class:list={[bentoCardDefaultClasses, "mt-7 px-10 pt-12"]}>
+				<Title type="h6">Collaborate with your team</Title>
+				<p class="text-neutral-40 text-k-lg mt-2 mb-10">
+					Add your <span class="font-medium">teammates</span> to submit and manage requests together.
+					One subscription, shared productivity.
+				</p>
+				<img
+					src={DedicatedTeamImage}
+					alt="Dedicated Team"
+					class="rounded-2xl object-contain object-center"
+				/>
+			</div>
+
+			<!-- Third row | Right side -->
+			<div class:list={[bentoCardDefaultClasses, "mt-7 px-10 pt-12"]}>
+				<Title type="h6">Collaborate with your team</Title>
+				<p class="text-neutral-40 text-k-lg mt-2 mb-10">
+					Add your <span class="font-medium">teammates</span> to submit and manage requests together.
+					One subscription, shared productivity.
+				</p>
+				<img src={StepsImage} alt="Steps" class="rounded-2xl object-contain object-center" />
+			</div>
+		</div>
+	</div>
+</div>
