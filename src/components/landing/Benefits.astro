@@ -1,5 +1,12 @@
 ---
 import type { AstroComponentFactory } from "astro";
+import DesignIcon from "@/assets/icons/benefits/design.svg";
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+import BenefitCard from "@/components/ui/BenefitCard.astro";
+import type { IBenefits } from "@/types";
+
+// Light icons
 import TimeIcon from "@/assets/icons/benefits/time.svg";
 import SaveMoneyIcon from "@/assets/icons/benefits/save-money.svg";
 import QualityWorkIcon from "@/assets/icons/benefits/get-quality.svg";
@@ -7,9 +14,8 @@ import RiskFreeIcon from "@/assets/icons/benefits/risk-free.svg";
 import ProfessionalIcon from "@/assets/icons/benefits/professional.svg";
 import CancelAnytimeIcon from "@/assets/icons/benefits/cancel-anytime.svg";
 import UnlimitedEditsIcon from "@/assets/icons/benefits/unlimited.svg";
-import DesignIcon from "@/assets/icons/benefits/design.svg";
-import Title from "@/components/ui/Title.astro";
-import Divider from "../ui/Divider.astro";
+
+// Dark icons
 import DarkTimeIcon from "@/assets/icons/benefits/dark-save-time.svg";
 import DarkSaveMoneyIcon from "@/assets/icons/benefits/dark-save-money.svg";
 import DarkQualityWorkIcon from "@/assets/icons/benefits/dark-get-quality.svg";
@@ -22,12 +28,6 @@ import DarkDesignIcon from "@/assets/icons/benefits/dark-industry-experts.svg";
 interface Props {
 	theme?: "light" | "dark";
 }
-
-type IBenefits = Array<{
-	title: string;
-	description: string;
-	icon: AstroComponentFactory;
-}>;
 
 const benefits: IBenefits = [
 	{
@@ -91,22 +91,6 @@ const { theme = "light" } = Astro.props;
 	<Divider size="large" />
 
 	<div class="grid grid-cols-2 gap-x-14 gap-y-20 md:grid-cols-3 lg:grid-cols-4">
-		{
-			benefits.map((benefit) => (
-				<div class=" ">
-					<div class="flex">
-						<span class="dark:bg-dark-blue bg-light-blue border-blue rounded-md border p-4 shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),12px_12px_16px_0px_rgba(11,15,41,0.08),3px_3px_8px_0px_rgba(11,15,41,0.08)] dark:border-b dark:border-t-transparent dark:border-r-transparent dark:border-l-transparent dark:shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),_12px_12px_16px_0px_rgba(11,15,41,0.08),_3px_3px_8px_0px_rgba(11,15,41,0.08)]">
-							{theme === "dark" ? <benefit.darkIcon /> : <benefit.icon />}
-						</span>
-					</div>
-					<div class="mt-6">
-						<Title type="h6" class="dark:text-neutral-100">
-							{benefit.title}
-						</Title>
-						<p class="text-k-md text-neutral-40 dark:text-neutral-80 mt-2">{benefit.description}</p>
-					</div>
-				</div>
-			))
-		}
+		{benefits.map((benefit) => <BenefitCard theme={theme} data={benefit} />)}
 	</div>
 </section>
