@@ -1,5 +1,19 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+import FoundersQuote from "@/components/landing/FoundersQuote.astro";
+import Hero from "@/components/why-us/Hero.astro";
+import Rates from "@/components/why-us/Rates.astro";
 ---
 
-<BaseLayout> Why us</BaseLayout>
+<BaseLayout>
+	<Hero />
+	<Divider size="medium" />
+	<FoundersQuote />
+	<Divider size="medium" />
+	<div class="site-container">
+		<div class="border-neutral-95 border-t"></div>
+		<Divider size="medium" />
+		<Rates />
+	</div>
+</BaseLayout>
