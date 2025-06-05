@@ -1,0 +1,36 @@
+---
+import CircleIcon from "@/assets/icons/why-us/circle.svg";
+
+type Props = {
+	spacing?: boolean;
+};
+
+const { spacing = false } = Astro.props;
+---
+
+<div class="flex">
+	<div class:list={["relative mr-15 w-[280px]", { "pt-30": spacing }]}>
+		<span
+			class="bg-gradient-to-b from-[#6699ff] to-[#172780] bg-clip-text text-[120px] font-light text-transparent"
+			style="letter-spacing: -4.8px"
+		>
+			<slot name="year" />
+		</span>
+	</div>
+	<div
+		class:list={[
+			"border-dark-blue relative flex grow flex-col border-l pl-15",
+			{ "pt-30": spacing },
+		]}
+	>
+		<slot name="content" />
+
+		<CircleIcon
+			class:list={[
+				"absolute",
+				{ "top-[20%] -left-2.5": !spacing },
+				{ "top-[200px] -left-2.5": spacing },
+			]}
+		/>
+	</div>
+</div>

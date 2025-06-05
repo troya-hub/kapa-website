@@ -1,0 +1,118 @@
+---
+import Title from "../ui/Title.astro";
+
+import Divider from "@/components/ui/Divider.astro";
+import JourneyCard from "@/components/why-us/JourneyCard.astro";
+
+import KakeiImage from "@/assets/images/why-us/kakei.webp?url";
+import KakeiChristmasImage from "@/assets/images/why-us/kakei-christmas.webp?url";
+
+import PlusIcon from "@/assets/icons/why-us/plus.svg";
+
+import KaImage from "@/assets/images/founders/ka.webp?url";
+import PaolaImage from "@/assets/images/founders/paola.webp?url";
+---
+
+<div class="site-container">
+	<div class="mx-auto max-w-[900px]">
+		<Title type="h1" class="text-center text-neutral-100">The journey behind the design</Title>
+
+		<Divider size="large" />
+		<div class="flex flex-col">
+			<JourneyCard>
+				<Fragment slot="year">2012</Fragment>
+
+				<Fragment slot="content">
+					<img class="w-full" src={KakeiImage} alt="CEO" />
+					<p class="text-k-xl text-neutral-95 mt-8">
+						While managing a family restaurant, Ka Kei Ho needed constant design help — but hiring
+						was too expensive, and freelance work was slow and hard to manage.
+					</p>
+				</Fragment>
+			</JourneyCard>
+
+			<JourneyCard spacing>
+				<Fragment slot="year">2013</Fragment>
+
+				<Fragment slot="content">
+					<Title type="h5" class="text-neutral-100">
+						While managing a family restaurant,
+						<span class="text-blue">
+							Ka Kei Ho needed constant design help — but hiring was too expensive
+						</span>, and freelance work was slow and hard to manage.
+					</Title>
+				</Fragment>
+			</JourneyCard>
+
+			<JourneyCard spacing>
+				<Fragment slot="year">2014</Fragment>
+
+				<Fragment slot="content">
+					<Title type="h5" class="mb-6 text-neutral-100">The Inspiration</Title>
+
+					<p class="text-k-lg text-neutral-80">
+						In December of 2014, during the holiday season, I found myself finishing the book, The 7
+						Day Startup by Dan Norris, in it he outlines how he created a service business in the
+						WordPress space that was ultimately sold to GoDaddy, the interesting part was that he
+						focused on offering unlimited WordPress help for a monthly flat fee.
+					</p>
+				</Fragment>
+			</JourneyCard>
+
+			<JourneyCard spacing>
+				<Fragment slot="year">2015</Fragment>
+
+				<Fragment slot="content">
+					<img class="w-full" src={KakeiChristmasImage} alt="CEO" />
+					<p class="text-k-xl text-neutral-95 mt-8">
+						While managing a family restaurant, Ka Kei Ho needed constant design help — but hiring
+						was too expensive, and freelance work was slow and hard to manage.
+					</p>
+				</Fragment>
+			</JourneyCard>
+
+			<JourneyCard spacing>
+				<Fragment slot="year">2016</Fragment>
+
+				<Fragment slot="content">
+					<Title type="h5" class="mb-6 text-neutral-100">The Inspiration</Title>
+
+					<p class="text-k-lg text-neutral-80">
+						In December of 2014, during the holiday season, I found myself finishing the book, The 7
+						Day Startup by Dan Norris, in it he outlines how he created a service business in the
+						WordPress space that was ultimately sold to GoDaddy, the interesting part was that he
+						focused on offering unlimited WordPress help for a monthly flat fee.
+					</p>
+				</Fragment>
+			</JourneyCard>
+
+			<Divider size="large" />
+
+			<div
+				class="flex items-center rounded-xl px-6 py-4"
+				style="background: linear-gradient(90deg, rgba(102, 153, 255, 0.18) 12%, rgba(102, 153, 255, 0.36) 36.87%, rgba(102, 153, 255, 0.72) 62.82%, rgba(102, 153, 255, 0.81) 88.88%);"
+			>
+				<p class="text-k-lg grow text-neutral-100">
+					Kapa is more than a brand — it’s a blend of Ka Kei and Paola, <br />
+					the creative and personal partnership that started it all.
+				</p>
+
+				<div class="flex items-center">
+					<div class="flex items-center gap-x-4">
+						<img class="w-16 -rotate-4 transform" src={KaImage} alt="Ka Kei Ho" />
+						<span class="text-k-lg text-neutral-100">Ka</span>
+					</div>
+					<div class="mx-4">
+						<PlusIcon />
+					</div>
+					<div class="flex items-center gap-x-4">
+						<span class="text-k-lg text-neutral-100">Pa</span>
+						<img class="w-16 rotate-4 transform" src={PaolaImage} alt="Paola" />
+					</div>
+				</div>
+			</div>
+
+			<Divider size="large" />
+		</div>
+	</div>
+</div>
