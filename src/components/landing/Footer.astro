@@ -51,40 +51,44 @@ const secondColumn = links[1];
 	</div>
 </div>
 
-<div class="bg-night-blue grid grid-cols-1 lg:grid-cols-2">
-	<div></div>
-	<div class="grid grid-cols-2 justify-between">
-		<div class="px-6 py-10">
-			<span class="text-blue mb-4 block">{firstColumn.title}</span>
-			{
-				firstColumn.children.map((link) => (
-					<a
-						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center transition-colors"
-						href={link.href}
-						data-href={link.href}
-						data-active="false"
-					>
-						<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
-						{link.title}
-					</a>
-				))
-			}
-		</div>
-		<div class="px-6 py-10">
-			<span class="text-blue mb-4 block">{secondColumn.title}</span>
-			{
-				secondColumn.children.map((link) => (
-					<a
-						class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center transition-colors"
-						href={link.href}
-						data-href={link.href}
-						data-active="false"
-					>
-						<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
-						{link.title}
-					</a>
-				))
-			}
+<div class="bg-night-blue">
+	<div class="site-container">
+		<div class="grid grid-cols-1 lg:grid-cols-2">
+			<div></div>
+			<div class="grid grid-cols-2 justify-between gap-x-28">
+				<div class="px-6 py-10">
+					<span class="text-blue mb-4 block">{firstColumn.title}</span>
+					{
+						firstColumn.children.map((link) => (
+							<a
+								class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center transition-colors"
+								href={link.href}
+								data-href={link.href}
+								data-active="false"
+							>
+								<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+								{link.title}
+							</a>
+						))
+					}
+				</div>
+				<div class="px-6 py-10">
+					<span class="text-blue mb-4 block">{secondColumn.title}</span>
+					{
+						secondColumn.children.map((link) => (
+							<a
+								class="footer-nav-link text-k-md text-neutral-95 hover:text-pumpkin mb-3 flex items-center transition-colors"
+								href={link.href}
+								data-href={link.href}
+								data-active="false"
+							>
+								<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+								{link.title}
+							</a>
+						))
+					}
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

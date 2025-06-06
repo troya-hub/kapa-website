@@ -34,7 +34,7 @@ export default function CarouselWrapper() {
 			<div class="site-container flex">
 				<div class="mt-20 mb-25 flex grow flex-col lg:mt-30 lg:flex-row">
 					<div class="grow">
-						<h2 class="text-k-h2-mobile lg:text-k-h2 mb-almost-large font-semibold text-neutral-100">
+						<h2 class="text-k-h1-mobile lg:text-k-h1 mb-almost-large font-semibold text-neutral-100">
 							Whatever you need, <br /> we’ve got you covered.
 						</h2>
 					</div>

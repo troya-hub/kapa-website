@@ -10,7 +10,7 @@ import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 import clsx from "clsx";
 
 const prices = {
-	monthly: [
+	month: [
 		{
 			icon: TimeIcon,
 			title: "Async standard",
@@ -56,7 +56,7 @@ const prices = {
 		{
 			icon: DedicatedTeamIcon,
 			title: "Dedicated team",
-			pricing: 2500,
+			pricing: 2499,
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
@@ -64,7 +64,7 @@ const prices = {
 	],
 };
 
-const selectedFrequency = "monthly";
+const selectedFrequency = "month";
 ---
 
 <div class="site-container">
@@ -75,10 +75,10 @@ const selectedFrequency = "monthly";
 	<div class="mx-auto flex flex-col items-center justify-center">
 		<!-- Switch -->
 		<div
-			class="border-blue bg-sky-blue relative flex w-[200px] items-center justify-center rounded-4xl border px-3 py-1"
+			class="bg-sky-blue relative flex w-[200px] items-center justify-center rounded-4xl border border-[#CDF] px-3 py-2"
 		>
 			<!-- Hidden input for state management -->
-			<input type="checkbox" id="pricing-toggle" class="sr-only" data-frequency="monthly" />
+			<input type="checkbox" id="pricing-toggle" class="sr-only" data-frequency="month" />
 
 			<!-- Sliding background -->
 			<div
@@ -97,7 +97,7 @@ const selectedFrequency = "monthly";
 			<label
 				for="pricing-toggle"
 				class="pricing-option text-neutral-10 relative z-10 cursor-pointer rounded-2xl px-4 py-1 font-medium transition-colors duration-300 select-none"
-				data-frequency="monthly"
+				data-frequency="month"
 			>
 				Monthly
 			</label>
@@ -201,7 +201,7 @@ const selectedFrequency = "monthly";
 </style>
 
 <script define:vars={{ prices }}>
-	let currentFrequency = "monthly";
+	let currentFrequency = "month";
 	let isAnimating = false;
 
 	function updatePricingDisplay(frequency) {
@@ -248,7 +248,7 @@ const selectedFrequency = "monthly";
 		} else {
 			switchBackground.style.left = "12px";
 			toggle.checked = false;
-			toggle.setAttribute("data-frequency", "monthly");
+			toggle.setAttribute("data-frequency", "month");
 		}
 	}
 

@@ -1,0 +1,67 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import Title from "@/components/ui/Title.astro";
+import type { IBenefits } from "@/types";
+
+import QualityIcon from "@/assets/icons/why-us/quality.svg";
+import AccountabilityIcon from "@/assets/icons/why-us/accountability.svg";
+import PunctualityIcon from "@/assets/icons/why-us/punctuality.svg";
+import TeamworkIcon from "@/assets/icons/why-us/teamwork.svg";
+import CustomerFirstIcon from "@/assets/icons/why-us/customer-first.svg";
+import AdaptabilityIcon from "@/assets/icons/why-us/adaptability.svg";
+import BenefitCard from "@/components/ui/BenefitCard.astro";
+
+const values: IBenefits = [
+	{
+		title: "Quality",
+		description:
+			"We deliver high-end design and exceptional support to create a premium experience every time.",
+		icon: QualityIcon,
+		darkIcon: QualityIcon,
+	},
+	{
+		title: "Accountability",
+		description:
+			"We take full ownership of our promises and always follow through with reliable results.",
+		icon: AccountabilityIcon,
+		darkIcon: AccountabilityIcon,
+	},
+	{
+		title: "Punctuality",
+		description:
+			"We respect your time and always deliver your files within the estimated timeframe.",
+		icon: PunctualityIcon,
+		darkIcon: PunctualityIcon,
+	},
+	{
+		title: "Teamwork",
+		description:
+			"We collaborate closely with you to understand your needs and reach your goals together.",
+		icon: TeamworkIcon,
+		darkIcon: TeamworkIcon,
+	},
+	{
+		title: "Customer-First",
+		description:
+			"We build relationships that bring lasting value and make your work easier and more successful.",
+		icon: CustomerFirstIcon,
+		darkIcon: CustomerFirstIcon,
+	},
+	{
+		title: "Adaptability",
+		description:
+			"We quickly adapt to your needs, feedback, and pace—offering flexible design support as your goals and priorities evolve.",
+		icon: AdaptabilityIcon,
+		darkIcon: AdaptabilityIcon,
+	},
+];
+---
+
+<div class="site-container">
+	<Divider size="large" />
+	<Title type="h1" class="text-center text-neutral-100">Our core values</Title>
+	<Divider size="medium" />
+	<div class="grid grid-cols-2 gap-x-14 gap-y-20 md:grid-cols-3 lg:grid-cols-3">
+		{values.map((value) => <BenefitCard theme="dark" data={value} />)}
+	</div>
+</div>

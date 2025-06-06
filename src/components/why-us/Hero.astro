@@ -1,0 +1,27 @@
+---
+import Title from "@/components/ui/Title.astro";
+import HeroChip from "@/components/pricing/HeroChip.astro";
+import Divider from "@/components/ui/Divider.astro";
+
+import HeroImage from "@/assets/images/why-us/hero.webp?url";
+---
+
+<section class="site-container text-neutral-10">
+	<div class="mx-auto max-w-[1000px] text-center">
+		<Divider size="small" />
+		<HeroChip title="From idea to delivery, fast" />
+
+		<div class="mt-6 space-y-4">
+			<Title type="h1"> Design, done right for teams that move fast </Title>
+
+			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">
+				We built Kapa to make high-quality design accessible, scalable, and stress-free. For
+				thousands of businesses, we’re not just a design service, we’re the team behind the brand.
+			</div>
+		</div>
+
+		<Divider size="small" />
+
+		<img src={HeroImage} alt="Kapa Hero Image" class="mx-auto max-w-full rounded-lg shadow-lg" />
+	</div>
+</section>

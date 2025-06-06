@@ -8,6 +8,7 @@ import DesignWorkflow from "@/components/how-it-works/DesignWorkflow.astro";
 import DesignSteps from "@/components/how-it-works/DesignSteps.astro";
 import Benefits from "@/components/landing/Benefits.astro";
 import CallToAction from "@/components/landing/CallToAction.astro";
+import LineDivider from "@/components/ui/LineDivider.astro";
 ---
 
 <BaseLayout>
@@ -19,10 +20,10 @@ import CallToAction from "@/components/landing/CallToAction.astro";
 	<Divider size="large" />
 	<DesignWorkflow />
 	<Divider size="large" />
-	<div class="bg-night-blue text-neutral-100">
+	<div class="bg-night-blue relative text-neutral-100">
 		<Divider size="large" />
 		<DesignSteps />
-		<Divider size="large" />
+		<LineDivider />
 		<Benefits theme="dark" />
 		<Divider size="large" />
 	</div>

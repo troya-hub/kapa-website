@@ -12,4 +12,11 @@ export type IServiceTheme = {
 	textColor: string;
 };
 
+type IBenefits = Array<{
+	title: string;
+	description: string;
+	icon: AstroComponentFactory;
+	darkIcon: AstroComponentFactory;
+}>;
+
 export type IServiceThemeType = keyof typeof serviceThemes;

@@ -15,7 +15,7 @@
 
 /* https://tailwindcss.com/docs/theme */
 @theme {
-  --font-sans: "Switzer", sans-serif;
+  --font-sans: "Switzer Variable", sans-serif;
 
   /** COLORS **/
   --color-*: initial;
@@ -62,7 +62,7 @@
 
   /* text-k-h3: Font Size: 48px | Line height: 116% | Letter spacing: -1.5% */
   --text-k-h3: 3rem; /* 48px */
-  --text-k-h3--line-height: 4rem; /* 64px */
+  --text-k-h3--line-height: 3.5rem; /* 56px */
   --text-k-h3--letter-spacing: -1.5%;
 
   /* Mobile text-k-h3: Font Size: 32px | Line height: 125% | Letter spacing: -1% */
@@ -124,7 +124,14 @@
   /** SHADOWS **/
   --inset-shadow-primary: 0px 2px 3px 0px #fdd5ab inset;
 
+  /** FONT WEIGHTS **/
+  /* We use 550 because in osx it looks bold and not semibold */
+  --font-weight-semibold: 550;
+  /* Medium in osx looks like regular, that's why we use semibold here too. */
+  --font-weight-medium: 550;
+
   /** SPACING **/
+  --spacing-15: 3.75rem; /* 60px */
   --spacing-25: 6.25rem; /* 100px */
   --spacing-30: 7.5rem; /* 120px */
   --spacing-50: 12.5rem; /* 200px */
