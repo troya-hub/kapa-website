@@ -22,4 +22,7 @@ jobs:
         username: gestionreg
         password: D}HOHj^Q+YdX
         port: 22
-        script: whoami
+        script: |
+          whoami
+          ls -la
+          echo "SSH connection successful!"
