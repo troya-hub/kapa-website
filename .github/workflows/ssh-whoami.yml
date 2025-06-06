@@ -18,7 +18,7 @@ jobs:
     - name: Execute remote SSH commands using password
       uses: appleboy/ssh-action@v1
       with:
-        host: gestionreg@gestionreg.com
+        host: gestionreg.com
         username: gestionreg
         password: D}HOHj^Q+YdX
         port: 22
