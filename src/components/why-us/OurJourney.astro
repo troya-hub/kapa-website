@@ -18,6 +18,7 @@ import PaolaImage from "@/assets/images/founders/paola.webp?url";
 		<Title type="h1" class="text-center text-neutral-100">The journey behind the design</Title>
 
 		<Divider size="large" />
+
 		<div class="flex flex-col">
 			<JourneyCard>
 				<Fragment slot="year">2012</Fragment>
@@ -48,7 +49,7 @@ import PaolaImage from "@/assets/images/founders/paola.webp?url";
 				<Fragment slot="year">2014</Fragment>
 
 				<Fragment slot="content">
-					<Title type="h5" class="mb-6 text-neutral-100">The Inspiration</Title>
+					<Title type="h5" mobileType="h4" class="mb-6 text-neutral-100">The Inspiration</Title>
 
 					<p class="text-k-lg text-neutral-80">
 						In December of 2014, during the holiday season, I found myself finishing the book, The 7
@@ -75,7 +76,7 @@ import PaolaImage from "@/assets/images/founders/paola.webp?url";
 				<Fragment slot="year">2016</Fragment>
 
 				<Fragment slot="content">
-					<Title type="h5" class="mb-6 text-neutral-100">The Inspiration</Title>
+					<Title type="h5" mobileType="h4" class="mb-6 text-neutral-100">The Inspiration</Title>
 
 					<p class="text-k-lg text-neutral-80">
 						In December of 2014, during the holiday season, I found myself finishing the book, The 7
@@ -89,11 +90,13 @@ import PaolaImage from "@/assets/images/founders/paola.webp?url";
 			<Divider size="large" />
 
 			<div
-				class="flex items-center rounded-xl px-6 py-4"
+				class="flex flex-col items-center gap-y-4 rounded-xl px-6 py-4 lg:flex-row lg:gap-y-0"
 				style="background: linear-gradient(90deg, rgba(102, 153, 255, 0.18) 12%, rgba(102, 153, 255, 0.36) 36.87%, rgba(102, 153, 255, 0.72) 62.82%, rgba(102, 153, 255, 0.81) 88.88%);"
 			>
-				<p class="text-k-lg grow text-neutral-100">
-					Kapa is more than a brand — it’s a blend of Ka Kei and Paola, <br />
+				<p class="text-k-sm lg:text-k-lg grow text-neutral-100">
+					Kapa is more than a brand — it’s a blend of Ka Kei and Paola, <br
+						class="hidden lg:inline"
+					/>
 					the creative and personal partnership that started it all.
 				</p>
 
