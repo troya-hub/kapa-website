@@ -1,0 +1,94 @@
+---
+import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
+import Title from "@/components/ui/Title.astro";
+import OurClients from "@/components/landing/OurClients.astro";
+import Divider from "../ui/Divider.astro";
+
+import AaronDuncanImage from "@/assets/images/testimonials/aaron-duncan.webp?url";
+import AngelaMurphyImage from "@/assets/images/testimonials/angela-murphy.webp?url";
+import CynthiaMurphyImage from "@/assets/images/testimonials/cynthia-murphy.webp?url";
+import JamesCarbaryImage from "@/assets/images/testimonials/james-carbary.webp?url";
+import KeiraSpencerImage from "@/assets/images/testimonials/keira-spencer.webp?url";
+import RyanUnderwoodImage from "@/assets/images/testimonials/ryan-underwood.webp?url";
+
+const peopleImages = [
+	{ name: "Aaron Duncan", image: AaronDuncanImage },
+	{ name: "Angela Murphy", image: AngelaMurphyImage },
+	{ name: "Cynthia Murphy", image: CynthiaMurphyImage },
+	{ name: "James Carbary", image: JamesCarbaryImage },
+	{ name: "Keira Spencer", image: KeiraSpencerImage },
+	{ name: "Ryan Underwood", image: RyanUnderwoodImage },
+];
+
+// Arc configuration based on your rules
+const imageSize = 100; // 120px width/height
+const separation = 80; // 80px separation between images
+const maxArcHeight = 300; // 300px max height for arc
+const total = 6;
+
+// Calculate positions for arc layout
+const centerX = 50; // percentage from left
+const centerY = 400; // pixels from top
+const radius = 350; // radius for the arc
+
+// Create arc from left to right (180° to 0°)
+const arcStart = Math.PI; // 180° (left)
+const arcEnd = 0; // 0° (right)
+
+const people = peopleImages.map((person, i) => {
+	const angle = arcStart - ((arcStart - arcEnd) * i) / (total - 1);
+	const x = centerX + (radius * Math.cos(angle)) / 10; // convert to percentage
+	const y = centerY - radius * Math.sin(angle);
+	return { ...person, x, y };
+});
+---
+
+<section class="site-container text-neutral-10 relative overflow-hidden">
+	<Divider size="small" />
+
+	<!-- Main content container -->
+	<div class="relative z-10 mx-auto max-w-[90%] pt-[100px] pb-[80px] text-center">
+		<!-- Badge -->
+		<div
+			class="mb-8 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm text-green-700"
+		>
+			<span>15 years helping businesses</span>
+			<span class="text-green-500">📈</span>
+		</div>
+
+		<div class="mx-auto w-[70%] space-y-4">
+			<Title type="h1">Trusted by leaders who value speed and design</Title>
+
+			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">
+				See why professionals choose our unlimited design service to grow without limits.
+			</div>
+
+			<div class="mt-8 flex justify-center">
+				<a class="button-primary" href="#">Start with a free 15 day trial</a>
+			</div>
+		</div>
+	</div>
+
+	<!-- Positioned profile images using calculated arc -->
+	<div class="pointer-events-none absolute inset-0">
+		{
+			people.map((person) => (
+				<div
+					class="absolute hidden lg:block"
+					style={`left: ${person.x}%; top: ${person.y}px; transform: translate(-50%, -50%);`}
+				>
+					<img
+						src={person.image}
+						alt={person.name}
+						class="rounded-full border-2 border-white object-cover shadow-lg"
+						style={`width: ${imageSize}px; height: ${imageSize}px;`}
+					/>
+				</div>
+			))
+		}
+	</div>
+
+	<div class="relative z-10 mt-10">
+		<OurClients />
+	</div>
+</section>
