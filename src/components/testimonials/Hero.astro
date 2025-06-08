@@ -11,49 +11,41 @@ import JamesCarbaryImage from "@/assets/images/testimonials/james-carbary.webp?u
 import KeiraSpencerImage from "@/assets/images/testimonials/keira-spencer.webp?url";
 import RyanUnderwoodImage from "@/assets/images/testimonials/ryan-underwood.webp?url";
 
-const peopleImages = [
-	{ name: "Aaron Duncan", image: AaronDuncanImage },
-	{ name: "Angela Murphy", image: AngelaMurphyImage },
-	{ name: "Cynthia Murphy", image: CynthiaMurphyImage },
-	{ name: "James Carbary", image: JamesCarbaryImage },
-	{ name: "Keira Spencer", image: KeiraSpencerImage },
-	{ name: "Ryan Underwood", image: RyanUnderwoodImage },
+const people = [
+	{ name: "Aaron Duncan", image: AaronDuncanImage, styles: "absolute top-[5%] left-[35%]" },
+	{ name: "Angela Murphy", image: AngelaMurphyImage, styles: "absolute top-[5%] left-[55%]" },
+	{ name: "Cynthia Murphy", image: CynthiaMurphyImage, styles: "absolute top-[25%] left-[72%]" },
+	{ name: "James Carbary", image: JamesCarbaryImage, styles: "absolute top-[25%] left-[18%]" },
+	{ name: "Keira Spencer", image: KeiraSpencerImage, styles: "absolute top-[60%] left-[89%]" },
+	{ name: "Ryan Underwood", image: RyanUnderwoodImage, styles: "absolute top-[60%] left-[1%]" },
 ];
-
-// Arc configuration based on your rules
-const imageSize = 100; // 120px width/height
-const separation = 80; // 80px separation between images
-const maxArcHeight = 300; // 300px max height for arc
-const total = 6;
-
-// Calculate positions for arc layout
-const centerX = 50; // percentage from left
-const centerY = 400; // pixels from top
-const radius = 350; // radius for the arc
-
-// Create arc from left to right (180° to 0°)
-const arcStart = Math.PI; // 180° (left)
-const arcEnd = 0; // 0° (right)
-
-const people = peopleImages.map((person, i) => {
-	const angle = arcStart - ((arcStart - arcEnd) * i) / (total - 1);
-	const x = centerX + (radius * Math.cos(angle)) / 10; // convert to percentage
-	const y = centerY - radius * Math.sin(angle);
-	return { ...person, x, y };
-});
 ---
 
 <section class="site-container text-neutral-10 relative overflow-hidden">
 	<Divider size="small" />
 
+	<div class="relative mx-auto h-[300px] max-w-[90%]">
+		{
+			people.map((person) => (
+				<div class:list={[person.styles]}>
+					<img
+						src={person.image}
+						alt={person.name}
+						class="rounded-ful max-w-[100px] rounded-full border-2 border-white object-cover shadow-lg"
+					/>
+				</div>
+			))
+		}
+	</div>
+
 	<!-- Main content container -->
-	<div class="relative z-10 mx-auto max-w-[90%] pt-[100px] pb-[80px] text-center">
+	<div class="relative z-10 mx-auto -mt-[100px] max-w-[90%] pb-[64px] text-center">
 		<!-- Badge -->
 		<div
-			class="mb-8 inline-flex items-center gap-2 rounded-full bg-green-50 px-4 py-2 text-sm text-green-700"
+			class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
 		>
-			<span>15 years helping businesses</span>
-			<span class="text-green-500">📈</span>
+			15 years of helping businesses
+			<ArrowRightUp />
 		</div>
 
 		<div class="mx-auto w-[70%] space-y-4">
@@ -69,26 +61,7 @@ const people = peopleImages.map((person, i) => {
 		</div>
 	</div>
 
-	<!-- Positioned profile images using calculated arc -->
-	<div class="pointer-events-none absolute inset-0">
-		{
-			people.map((person) => (
-				<div
-					class="absolute hidden lg:block"
-					style={`left: ${person.x}%; top: ${person.y}px; transform: translate(-50%, -50%);`}
-				>
-					<img
-						src={person.image}
-						alt={person.name}
-						class="rounded-full border-2 border-white object-cover shadow-lg"
-						style={`width: ${imageSize}px; height: ${imageSize}px;`}
-					/>
-				</div>
-			))
-		}
-	</div>
-
-	<div class="relative z-10 mt-10">
+	<div class="relative z-10">
 		<OurClients />
 	</div>
 </section>

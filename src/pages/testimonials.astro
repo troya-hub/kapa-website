@@ -1,8 +1,23 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+import Reviews from "@/components/landing/Reviews.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
 import Hero from "@/components/testimonials/Hero.astro";
+import PersonalReview from "@/components/testimonials/PersonalReview.astro";
+import ClientTestimonials from "@/components/testimonials/ClientTestimonials.astro";
 ---
 
 <BaseLayout>
 	<Hero />
+	<Divider size="extra-large" />
+	<Reviews />
+	<Divider size="medium" />
+	<PersonalReview />
+	<div class="bg-sky-blue">
+		<Divider size="large" />
+		<ClientTestimonials />
+		<Divider size="extra-large" />
+	</div>
+	<CallToAction />
 </BaseLayout>

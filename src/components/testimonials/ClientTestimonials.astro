@@ -1,0 +1,155 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import Title from "@/components/ui/Title.astro";
+
+import AaronDuncanImage from "@/assets/images/testimonials/clients/aaron-duncan.webp?url";
+import JeffKeylorImage from "@/assets/images/testimonials/clients/jeff-keylor.webp?url";
+import MichaelCheungImage from "@/assets/images/testimonials/clients/michael-cheung.webp?url";
+import AngelaMurphyImage from "@/assets/images/testimonials/clients/angela-murphy.webp?url";
+import CourtneyPeppernellImage from "@/assets/images/testimonials/clients/courtney-peppernell.webp?url";
+import TamiraChapmanImage from "@/assets/images/testimonials/clients/tamira-chapman.webp?url";
+import JamesCarbaryImage from "@/assets/images/testimonials/clients/james-carbary.webp?url";
+import RyanUnderwoodImage from "@/assets/images/testimonials/clients/ryan-underwood.webp?url";
+import BetsyAndZoeImage from "@/assets/images/testimonials/clients/betsy-and-zoe.webp?url";
+import LindaPhanImage from "@/assets/images/testimonials/clients/linda-phan.webp?url";
+import MichaelEnsorImage from "@/assets/images/testimonials/clients/michael-ensor.webp?url";
+import LourdesViadoImage from "@/assets/images/testimonials/clients/lourdes-viado.webp?url";
+import BlairCastroImage from "@/assets/images/testimonials/clients/blair-castro.webp?url";
+import CynthiaMurphyImage from "@/assets/images/testimonials/clients/cynthia-murphy.webp?url";
+import KeiraSpencerImage from "@/assets/images/testimonials/clients/keira-spencer.webp?url";
+
+const testimonials = [
+	{
+		name: "Aaron Duncan",
+		job: "Founder of Swat Digital Group",
+		content:
+			"What can I say, they save me time, money, and creative frustration. Their team has great communication and even when there was a slight bump in the road, they were quick to explain and make things right. Working with kapa99 is a great opportunity for any business with design needs that will stretch them thin. I couldn't consider a different business for these needs!",
+		image: AaronDuncanImage,
+	},
+	{
+		name: "Angela Murphy",
+		job: "JustPositionIt!® Consulting",
+		content:
+			'"Kapa99 has helped me systematically grow my business with their stellar designs. In the noisy world, we call the internet, it’s nearly impossible to stand out. They’ve brought my brand to life and this directly results in more engagement and sales!"',
+		image: AngelaMurphyImage,
+	},
+	{
+		name: "James Carbary",
+		job: "Founder of Sweet Fish media",
+		content:
+			'"Kapa99 saves us 100 hours per month and about $45,000 per year, if there was no Kapa99 we just wouldn’t be able to do so much of what makes our service special. We have been using the service for over 5 years and we can\'t recommend Kapa9 enough."',
+		image: JamesCarbaryImage,
+	},
+	{
+		name: "Jeff Keylor",
+		job: "Magician and Public speaker",
+		content:
+			"A big firm will burn through your money. Using one freelancer is way too slow. With Kapa99, we produce fast, awesome designs for our clients, people are always blown away, but more importantly, great customer service, prompt responses, and great designs are what sets Kapa99 apart. I wouldn't go anywhere else.",
+		image: JeffKeylorImage,
+	},
+	{
+		name: "Betsy and Zoe",
+		job: "Founders of ImproveHQ",
+		content:
+			"\"Before coming across Kapa99, we didn't have a resource that would be able to guarantee a 48-hour turnaround. Kapa99 is high quality, prompt, professional, and dependable. I would recommend the service to anyone looking to save time and money with graphic design. There's no better place to go. We're completely in love with everything about the service.\"",
+		image: BetsyAndZoeImage,
+	},
+	{
+		name: "Linda Phan",
+		job: "Marketing Director",
+		content:
+			'"We did not have a designer that was providing us the quality designs we needed for our platform and social media. We tried to do it internally, but with limited resources, it was hard for us to maintain. Using Kapa99 allowed us to keep with our schedule and get good quality designs. They are quick and having unlimited revision is helpful."',
+		image: LindaPhanImage,
+	},
+	{
+		name: "Michael Ensor",
+		job: "Agency owner",
+		content:
+			"\"As an agency owner Kapa99 is essential. We have accomplished over 200+ designs for just one client and we're getting 10 hours of work for every 1 hour we put in. Since all I have to do is post jobs, give feedback, and submit final work to clients. Kapa99 goes above and beyond to be there for me. As an agency owner, my clients require marketing assets that generate sales or leads, and I have found that conversion rates are steadily improving with the help of Kapa99. If you're in marketing and need graphic design, look no further, Kapa99 is the service that you need.\"",
+		image: MichaelEnsorImage,
+	},
+	{
+		name: "Ryan Underwood",
+		job: "CEO of TeamTRI",
+		content:
+			"\"I've tried so many other similar services and have been disappointed. Kapa99 is simple, timely, affordable, awesome, and so great to work with... it's like my birthday every day I get a notice they've completed a new project for me.\"",
+		image: RyanUnderwoodImage,
+	},
+	{
+		name: "Lourdes Viado",
+		job: "Ph.D., LMFT",
+		content:
+			'"Kapa99 has been my go-to graphic design company since 2015. They are responsive to my communications, questions, and concerns. I appreciate the designers\' patience and creativity as they work with my design ideas and put them into form. As a small business owner, Kapa99 meets my graphic design needs at a price point that works for me."',
+		image: LourdesViadoImage,
+	},
+	{
+		name: "Michael Cheung",
+		job: "VP of Marketing",
+		content:
+			'"We were fortunate to come across Kapa99 who has been working with us for easily more than a year now. Without their services there would have been a lot of projects that would never have come to fruition."',
+		image: MichaelCheungImage,
+	},
+	{
+		name: "Blair Castro",
+		job: "Agency owner",
+		content:
+			'"Kapa99 provides high-quality, professional graphics with a FAST turnaround! I have saved hundreds of dollars every month by using their services for my own business. Their customer service is top-notch, as they are flexible with prioritizing and scheduling your designs and always very friendly and accommodating."',
+		image: BlairCastroImage,
+	},
+	{
+		name: "Courtney Peppernell",
+		job: "Author",
+		content:
+			'"I recommend Kapa99 for fast turnaround and affordability. They also perform unlimited revisions, which means if I am not happy, they will continue working until they have exactly what I want. Which is awesome!"',
+		image: CourtneyPeppernellImage,
+	},
+	{
+		name: "Tamira Chapman",
+		job: "Founders of Vitalspack",
+		content:
+			'"Before subscribing to Kapa99, we spent a lot of time and resources searching for and hiring designers. With Kapa99 we were able to have one consistent branding profile for all of our businesses. We were able to take the fee, add it to the budget, and plan for it. Kapa99 has been one of the best uses of our resources and we can\'t go one day without them."',
+		image: TamiraChapmanImage,
+	},
+	{
+		name: "Cynthia Murphy",
+		job: "Founder of Assuaged",
+		content:
+			'"Kapa99 is a friendly agency that truly cares to master the craft of your branding. They work around the clock to provide ongoing design services for our Assuaged startup. The team has also helped in creating concepts and designs for our new product launch. They also handled our rebranding for various of our product lines. Kapa99 is able to provide excellent design services. They have an eye for how things fit together and they deliver graphics in a on time and even ahead of a schedule. They are also prompt in handling feedback following naming files for SEO purposes and organizing graphics in the sizes needed. We are grateful for their ongoing support of our team students at Assuaged!"',
+		image: CynthiaMurphyImage,
+	},
+	{
+		name: "Keira Spencer",
+		job: "Founder of PickMyBrain",
+		content:
+			'"Kapa99 has been a lifesaver to me and my business. I love the way that they can able to take the stress off of the design process while I stick to the business side of things. I have been with Kapa99 for almost a year and it has truly been rewarding. They have helped me deliver over 500 tasks in such a short time and they are very communicative. Even when I have projects with a very short deadline, they still make it happen for me. Thank you for everything you do for me and my business. I highly recommend the team at Kapa99 to anyone!"',
+		image: KeiraSpencerImage,
+	},
+];
+---
+
+<div class="site-container">
+	<div class="mx-auto lg:w-[70%]">
+		<Title type="h1" class="text-center">
+			Empowering hundreds of companies with unlimited graphic design
+		</Title>
+	</div>
+
+	<Divider size="small" />
+
+	<div class="masonry-grid columns-1 gap-6 sm:columns-2 lg:columns-3">
+		{
+			testimonials.map((testimonial) => (
+				<div class="mb-6 break-inside-avoid rounded-lg bg-white p-8">
+					<div class="text-k-md text-neutral-10">{testimonial.content}</div>
+					<div class="mt-6 flex gap-x-4">
+						<img src={testimonial.image} alt={testimonial.name} class="h-12 w-12 rounded-full" />
+						<div class="flex grow flex-col justify-center">
+							<div class="text-k-md text-neutral-10">{testimonial.name}</div>
+							<div class="text-k-sm text-neutral-60">{testimonial.job}</div>
+						</div>
+					</div>
+				</div>
+			))
+		}
+	</div>
+</div>
