@@ -12,12 +12,42 @@ import KeiraSpencerImage from "@/assets/images/testimonials/keira-spencer.webp?u
 import RyanUnderwoodImage from "@/assets/images/testimonials/ryan-underwood.webp?url";
 
 const people = [
-	{ name: "Aaron Duncan", image: AaronDuncanImage, styles: "absolute top-[5%] left-[35%]" },
-	{ name: "Angela Murphy", image: AngelaMurphyImage, styles: "absolute top-[5%] left-[55%]" },
-	{ name: "Cynthia Murphy", image: CynthiaMurphyImage, styles: "absolute top-[25%] left-[72%]" },
-	{ name: "James Carbary", image: JamesCarbaryImage, styles: "absolute top-[25%] left-[18%]" },
-	{ name: "Keira Spencer", image: KeiraSpencerImage, styles: "absolute top-[60%] left-[89%]" },
-	{ name: "Ryan Underwood", image: RyanUnderwoodImage, styles: "absolute top-[60%] left-[1%]" },
+	{
+		name: "Aaron Duncan",
+		image: AaronDuncanImage,
+		styles: "absolute lg:top-[5%] lg:left-[35%] left-[30%]",
+		hiddenMobile: false,
+	},
+	{
+		name: "Cynthia Murphy",
+		image: CynthiaMurphyImage,
+		styles: "absolute lg:top-[5%] lg:left-[55%] left-[60%]",
+		hiddenMobile: false,
+	},
+	{
+		name: "James Carbary",
+		image: JamesCarbaryImage,
+		styles: "absolute lg:top-[25%] lg:left-[72%] top-[15%] left-[1%]",
+		hiddenMobile: false,
+	},
+	{
+		name: "Keira Spencer",
+		image: KeiraSpencerImage,
+		styles: "absolute lg:top-[25%] lg:left-[18%] top-[15%] left-[88%]",
+		hiddenMobile: false,
+	},
+	{
+		name: "Angela Murphy",
+		image: AngelaMurphyImage,
+		styles: "absolute lg:top-[60%] lg:left-[89%]",
+		hiddenMobile: true,
+	},
+	{
+		name: "Ryan Underwood",
+		image: RyanUnderwoodImage,
+		styles: "absolute lg:top-[60%] lg:left-[1%]",
+		hiddenMobile: true,
+	},
 ];
 ---
 
@@ -27,11 +57,11 @@ const people = [
 	<div class="relative mx-auto h-[300px] max-w-[90%]">
 		{
 			people.map((person) => (
-				<div class:list={[person.styles]}>
+				<div class:list={[person.styles, { "hidden md:block": person.hiddenMobile }]}>
 					<img
 						src={person.image}
 						alt={person.name}
-						class="rounded-ful max-w-[100px] rounded-full border-2 border-white object-cover shadow-lg"
+						class="rounded-ful w-[60px] max-w-[100px] rounded-full border-2 border-white object-cover shadow-lg lg:w-[120px]"
 					/>
 				</div>
 			))
@@ -39,7 +69,9 @@ const people = [
 	</div>
 
 	<!-- Main content container -->
-	<div class="relative z-10 mx-auto -mt-[100px] max-w-[90%] pb-[64px] text-center">
+	<div
+		class="relative z-10 mx-auto -mt-[170px] pb-[64px] text-center lg:-mt-[100px] lg:max-w-[90%]"
+	>
 		<!-- Badge -->
 		<div
 			class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
@@ -48,7 +80,7 @@ const people = [
 			<ArrowRightUp />
 		</div>
 
-		<div class="mx-auto w-[70%] space-y-4">
+		<div class="mx-auto space-y-4 lg:w-[70%]">
 			<Title type="h1">Trusted by leaders who value speed and design</Title>
 
 			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">
