@@ -8,7 +8,7 @@ const menuOptions = [
 	{ label: "Why us", href: "/why-us" },
 	{ label: "Testimonials", href: "/testimonials" },
 	{ label: "Samples", href: "/samples" },
-	{ label: "Case studies", href: "/case-studies" },
+	{ label: "Case studies", href: "/case-studies" }
 ];
 ---
 
@@ -118,7 +118,12 @@ const menuOptions = [
 				</a>
 			))
 		}
-		<a href="https://kapa99.com/login" class="border-neutral-95 border-b py-4 text-lg">Login</a>
+		<a href="https://kapa99.com/login" class="flex border-neutral-95 border-b py-4 text-lg">
+			<div class="mr-3 flex w-2 justify-center">
+				<div class="mobile-active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0" />
+			</div>
+			Login
+		</a>
 		<a
 			href="https://kapa99.com/register"
 			class="button-secondary mt-4 flex w-full items-center justify-center gap-x-2"
