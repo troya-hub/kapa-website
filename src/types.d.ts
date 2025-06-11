@@ -28,10 +28,10 @@ type Attachment = {
 	instance_of: string;
 };
 
-type Samples = {
+type Sample = {
 	id: number;
 	task_category_id: number;
-	attachment: Array<Attachment>;
+	attachment: Attachment;
 };
 
 type TaskCategory = {
@@ -43,7 +43,7 @@ type TaskCategory = {
 	background: string;
 	enabled: boolean;
 	sort_order_on_samples: number;
-	samples: Array<Samples>;
+	samples: Array<Sample>;
 };
 
 export type IServiceThemeType = keyof typeof serviceThemes;

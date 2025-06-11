@@ -1,5 +1,5 @@
 ---
-import type { TaskCategory } from "@/types";
+import type { TaskCategory, Sample } from "@/types";
 
 import LogoDesignIcon from "@/assets/icons/samples/logo-design.svg";
 import BackgroundRemovalIcon from "@/assets/icons/samples/background-removal.svg";
@@ -17,6 +17,8 @@ import RestaurantMenuIcon from "@/assets/icons/samples/restaurant-menu.svg";
 import SignsBannersIcon from "@/assets/icons/samples/signs-banners.svg";
 import TShirtDesignIcon from "@/assets/icons/samples/t-shirt-design.svg";
 import PackagingIcon from "@/assets/icons/samples/packaging.svg";
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
 
 const icons: Record<string, any> = {
 	"logo-design": LogoDesignIcon,
@@ -54,10 +56,18 @@ const taskCategories: Array<TaskCategory> = data.taskCategories
 	.sort((a: TaskCategory, b: TaskCategory) => a.sort_order_on_samples - b.sort_order_on_samples);
 
 console.log(taskCategories);
+
+const selectedCategory: TaskCategory = taskCategories[0];
 ---
 
 <div class="site-container">
-	<div class="flex flex-wrap gap-4">
+	<div class="mb-10">
+		<Title type="h4" class="text-center">
+			What kind of design are you looking for?
+		</Title>
+	</div>
+	
+	<div class="flex justify-center flex-wrap gap-4">
 		{
 			taskCategories.map((category) => (
 				<button
@@ -68,5 +78,13 @@ console.log(taskCategories);
 				</button>
 			))
 		}
+	</div>
+
+	<Divider size="large" />
+
+	<div class="grid grid-cols-2 gap-x-4 gap-y-30">
+		{selectedCategory.samples.map((sample: Sample, index) => (
+			<img src={sample.attachment.public_path} alt={sample.attachment.original_name} />
+		))}
 	</div>
 </div>

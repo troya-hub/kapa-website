@@ -2,8 +2,9 @@
 import Divider from "@/components/ui/Divider.astro";
 import BoltIcon from "@/assets/icons/pricing/bolt.svg";
 import RedBoltIcon from "@/assets/icons/pricing/red-bolt.svg";
+import AwardIcon from "@/assets/icons/pricing/award.svg";
 
-type Icon = "bolt" | "red-bolt";
+type Icon = "bolt" | "red-bolt" | "award";
 
 interface Props {
 	title?: string;
@@ -14,12 +15,16 @@ interface Props {
 const {
 	title = "Pick the package that fits you best",
 	icon = undefined,
-	align = "center",
+	align = "center"
 }: Props = Astro.props;
 
 const getIcon = (icon?: Icon) => {
 	if (icon === "red-bolt") {
 		return RedBoltIcon;
+	}
+
+	if (icon === "award") {
+		return AwardIcon;
 	}
 
 	return BoltIcon;
@@ -34,7 +39,7 @@ const HeroChipIcon = getIcon(icon);
 	class:list={{
 		"justify-center": align === "center",
 		"justify-start": align === "left",
-		"justify-end": align === "right",
+		"justify-end": align === "right"
 	}}
 >
 	<div
