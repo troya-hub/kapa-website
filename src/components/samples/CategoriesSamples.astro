@@ -1,0 +1,72 @@
+---
+import type { TaskCategory } from "@/types";
+
+import LogoDesignIcon from "@/assets/icons/samples/logo-design.svg";
+import BackgroundRemovalIcon from "@/assets/icons/samples/background-removal.svg";
+import InfographicsIcon from "@/assets/icons/samples/infographics.svg";
+import IllustrationsIcon from "@/assets/icons/samples/illustrations.svg";
+import SocialMediaImagesIcon from "@/assets/icons/samples/social-media-images.svg";
+import BookCoversIcon from "@/assets/icons/samples/book-covers.svg";
+import BookLayoutsIcon from "@/assets/icons/samples/book-layouts.svg";
+import BrochuresIcon from "@/assets/icons/samples/brochures.svg";
+import BusinessCardIcon from "@/assets/icons/samples/business-card.svg";
+import FlyersAndPostersIcon from "@/assets/icons/samples/flyers-and-posters.svg";
+import LabelsIcon from "@/assets/icons/samples/labels.svg";
+import PodcastCoversIcon from "@/assets/icons/samples/podcast-covers.svg";
+import RestaurantMenuIcon from "@/assets/icons/samples/restaurant-menu.svg";
+import SignsBannersIcon from "@/assets/icons/samples/signs-banners.svg";
+import TShirtDesignIcon from "@/assets/icons/samples/t-shirt-design.svg";
+import PackagingIcon from "@/assets/icons/samples/packaging.svg";
+
+const icons: Record<string, any> = {
+	"logo-design": LogoDesignIcon,
+	"background-removal": BackgroundRemovalIcon,
+	"infographics": InfographicsIcon,
+	"illustrations": IllustrationsIcon,
+	"social-media-images": SocialMediaImagesIcon,
+	"book-covers": BookCoversIcon,
+	"book-layouts": BookLayoutsIcon,
+	"brochures": BrochuresIcon,
+	"business-cards": BusinessCardIcon,
+	"flyers-posters": FlyersAndPostersIcon,
+	"labels": LabelsIcon,
+	"podcast-covers": PodcastCoversIcon,
+	"restaurant-menus": RestaurantMenuIcon,
+	"signs-banners": SignsBannersIcon,
+	"t-shirt-design": TShirtDesignIcon,
+	"packaging": PackagingIcon,
+	"default": LogoDesignIcon
+};
+
+const getIcon = (category: TaskCategory["slug"]) => {
+	return icons[category] || icons["default"];
+};
+
+const response = await fetch("http://kapa99.test/api/astro/samples");
+const data = await response.json();
+
+const taskCategories: Array<TaskCategory> = data.taskCategories
+	.filter((category: TaskCategory) => category.enabled)
+	.map((category: TaskCategory) => ({
+		...category,
+		icon: getIcon(category.slug)
+	}))
+	.sort((a: TaskCategory, b: TaskCategory) => a.sort_order_on_samples - b.sort_order_on_samples);
+
+console.log(taskCategories);
+---
+
+<div class="site-container">
+	<div class="flex flex-wrap gap-4">
+		{
+			taskCategories.map((category) => (
+				<button
+					class="group cursor-pointer border-neutral-95 rounded border px-4 py-2 flex flex-nowrap items-center gap-x-2 hover:border hover:border-light-blue hover:bg-sky-blue">
+					<!-- #9365E6, #DEC2FF -->
+					<category.icon class="h-4 w-4 text-[#828899] group-hover:text-[#9365E6]" />
+					<h2 class="accent-neutral-60 text-sm">{category.title}</h2>
+				</button>
+			))
+		}
+	</div>
+</div>
