@@ -56,6 +56,36 @@ const taskCategories: Array<TaskCategory> = data.taskCategories
 	.sort((a: TaskCategory, b: TaskCategory) => a.sort_order_on_samples - b.sort_order_on_samples);
 
 const selectedCategory: TaskCategory = taskCategories[0];
+const samples = selectedCategory.samples;
+
+// Define the layout structure
+const rowLayouts: string[][] = [
+	["col-span-1", "col-span-1", "col-span-1"],
+	["col-span-2", "col-span-1"],
+	["col-span-1", "col-span-2"],
+	["col-span-3"],
+	["col-span-1", "col-span-1"]
+];
+
+// Prepare layout-driven image rendering
+const rows: { sample: Sample; span: string }[][] = [];
+
+let index = 0;
+let layoutIndex = 0;
+
+while (index < samples.length) {
+	const layout = rowLayouts[layoutIndex % rowLayouts.length];
+	const row: { sample: Sample; span: string }[] = [];
+
+	for (let span of layout) {
+		if (index >= samples.length) break;
+		row.push({ sample: samples[index], span });
+		index++;
+	}
+
+	rows.push(row);
+	layoutIndex++;
+}
 ---
 
 <div class="site-container">
@@ -80,18 +110,19 @@ const selectedCategory: TaskCategory = taskCategories[0];
 
 	<Divider size="large" />
 
-	<div class="grid grid-cols-4 gap-x-4 gap-y-30">
-		{selectedCategory.samples.map((sample: Sample, index) => (
-			<img src={sample.attachment.public_path}
-					 alt={sample.attachment.original_name}
-					 class:list={[
-						 { "col-span-2": index === 0 },
-						 "h-[300px]",
-						 "w-full",
-						 "object-cover",
-						 "rounded-xl"
-					 ]}
-			/>
-		))}
+	<div class="grid grid-cols-3 gap-x-4 gap-y-16">
+		{rows.map(row =>
+			row.map(({ sample, span }) => (
+				<div class:list={[span, "w-full min-h-[250px]", "overflow-hidden", "rounded-xl"]}>
+					<img
+						class="w-full h-full object-cover"
+						src={sample.attachment.public_path}
+						alt={sample.attachment.original_name}
+					/>
+				</div>
+			))
+		)}
 	</div>
+
+	<Divider size="extra-large" />
 </div>
