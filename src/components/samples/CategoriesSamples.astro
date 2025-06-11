@@ -44,7 +44,7 @@ const getIcon = (category: TaskCategory["slug"]) => {
 	return icons[category] || icons["default"];
 };
 
-const response = await fetch("http://kapa99.test/api/astro/samples");
+const response = await fetch("https://kapa99.com/api/astro/samples");
 const data = await response.json();
 
 const taskCategories: Array<TaskCategory> = data.taskCategories
