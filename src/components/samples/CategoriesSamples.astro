@@ -1,128 +1,66 @@
 ---
 import type { TaskCategory, Sample } from "@/types";
-
-import LogoDesignIcon from "@/assets/icons/samples/logo-design.svg";
-import BackgroundRemovalIcon from "@/assets/icons/samples/background-removal.svg";
-import InfographicsIcon from "@/assets/icons/samples/infographics.svg";
-import IllustrationsIcon from "@/assets/icons/samples/illustrations.svg";
-import SocialMediaImagesIcon from "@/assets/icons/samples/social-media-images.svg";
-import BookCoversIcon from "@/assets/icons/samples/book-covers.svg";
-import BookLayoutsIcon from "@/assets/icons/samples/book-layouts.svg";
-import BrochuresIcon from "@/assets/icons/samples/brochures.svg";
-import BusinessCardIcon from "@/assets/icons/samples/business-card.svg";
-import FlyersAndPostersIcon from "@/assets/icons/samples/flyers-and-posters.svg";
-import LabelsIcon from "@/assets/icons/samples/labels.svg";
-import PodcastCoversIcon from "@/assets/icons/samples/podcast-covers.svg";
-import RestaurantMenuIcon from "@/assets/icons/samples/restaurant-menu.svg";
-import SignsBannersIcon from "@/assets/icons/samples/signs-banners.svg";
-import TShirtDesignIcon from "@/assets/icons/samples/t-shirt-design.svg";
-import PackagingIcon from "@/assets/icons/samples/packaging.svg";
 import Title from "@/components/ui/Title.astro";
 import Divider from "@/components/ui/Divider.astro";
+import CategorySelector from "./CategorySelector";
+
+import LogoDesignIcon from "@/assets/icons/samples/logo-design.svg?url";
+import BackgroundRemovalIcon from "@/assets/icons/samples/background-removal.svg?url";
+import InfographicsIcon from "@/assets/icons/samples/infographics.svg?url";
+import IllustrationsIcon from "@/assets/icons/samples/illustrations.svg?url";
+import SocialMediaImagesIcon from "@/assets/icons/samples/social-media-images.svg?url";
+import BookCoversIcon from "@/assets/icons/samples/book-covers.svg?url";
+import BookLayoutsIcon from "@/assets/icons/samples/book-layouts.svg?url";
+import BrochuresIcon from "@/assets/icons/samples/brochures.svg?url";
+import BusinessCardIcon from "@/assets/icons/samples/business-card.svg?url";
+import FlyersAndPostersIcon from "@/assets/icons/samples/flyers-and-posters.svg?url";
+import LabelsIcon from "@/assets/icons/samples/labels.svg?url";
+import PodcastCoversIcon from "@/assets/icons/samples/podcast-covers.svg?url";
+import RestaurantMenuIcon from "@/assets/icons/samples/restaurant-menu.svg?url";
+import SignsBannersIcon from "@/assets/icons/samples/signs-banners.svg?url";
+import TShirtDesignIcon from "@/assets/icons/samples/t-shirt-design.svg?url";
+import PackagingIcon from "@/assets/icons/samples/packaging.svg?url";
 
 const icons: Record<string, any> = {
 	"logo-design": LogoDesignIcon,
 	"background-removal": BackgroundRemovalIcon,
-	"infographics": InfographicsIcon,
-	"illustrations": IllustrationsIcon,
+	infographics: InfographicsIcon,
+	illustrations: IllustrationsIcon,
 	"social-media-images": SocialMediaImagesIcon,
 	"book-covers": BookCoversIcon,
 	"book-layouts": BookLayoutsIcon,
-	"brochures": BrochuresIcon,
+	brochures: BrochuresIcon,
 	"business-cards": BusinessCardIcon,
 	"flyers-posters": FlyersAndPostersIcon,
-	"labels": LabelsIcon,
+	labels: LabelsIcon,
 	"podcast-covers": PodcastCoversIcon,
 	"restaurant-menus": RestaurantMenuIcon,
 	"signs-banners": SignsBannersIcon,
 	"t-shirt-design": TShirtDesignIcon,
-	"packaging": PackagingIcon,
-	"default": LogoDesignIcon
+	packaging: PackagingIcon,
+	default: LogoDesignIcon
 };
 
-const getIcon = (category: TaskCategory["slug"]) => {
-	return icons[category] || icons["default"];
-};
+const getIcon = (category: TaskCategory["slug"]) => icons[category] || icons["default"];
 
 const response = await fetch("https://kapa99.com/api/astro/samples");
 const data = await response.json();
 
 const taskCategories: Array<TaskCategory> = data.taskCategories
-	.filter((category: TaskCategory) => category.enabled)
+	.filter((category: TaskCategory) => category.enabled && category.samples.length)
 	.map((category: TaskCategory) => ({
 		...category,
 		icon: getIcon(category.slug)
 	}))
 	.sort((a: TaskCategory, b: TaskCategory) => a.sort_order_on_samples - b.sort_order_on_samples);
-
-const selectedCategory: TaskCategory = taskCategories[0];
-const samples = selectedCategory.samples;
-
-// Define the layout structure
-const rowLayouts: string[][] = [
-	["col-span-1", "col-span-1", "col-span-1"],
-	["col-span-2", "col-span-1"],
-	["col-span-1", "col-span-2"],
-	["col-span-3"],
-	["col-span-1", "col-span-1"]
-];
-
-// Prepare layout-driven image rendering
-const rows: { sample: Sample; span: string }[][] = [];
-
-let index = 0;
-let layoutIndex = 0;
-
-while (index < samples.length) {
-	const layout = rowLayouts[layoutIndex % rowLayouts.length];
-	const row: { sample: Sample; span: string }[] = [];
-
-	for (let span of layout) {
-		if (index >= samples.length) break;
-		row.push({ sample: samples[index], span });
-		index++;
-	}
-
-	rows.push(row);
-	layoutIndex++;
-}
 ---
 
 <div class="site-container">
 	<div class="mb-10">
-		<Title type="h4" class="text-center">
-			What kind of design are you looking for?
-		</Title>
+		<Title type="h4" class="text-center"> What kind of design are you looking for? </Title>
 	</div>
 
-	<div class="flex justify-center flex-wrap gap-4">
-		{
-			taskCategories.map((category) => (
-				<button
-					class="group cursor-pointer border-neutral-95 rounded border px-4 py-2 flex flex-nowrap items-center gap-x-2 hover:border hover:border-light-blue hover:bg-sky-blue">
-					<!-- #9365E6, #DEC2FF -->
-					<category.icon class="h-4 w-4 text-[#828899] group-hover:text-[#9365E6]" />
-					<h2 class="accent-neutral-60 text-sm">{category.title}</h2>
-				</button>
-			))
-		}
-	</div>
-
-	<Divider size="large" />
-
-	<div class="grid grid-cols-3 gap-x-4 gap-y-16">
-		{rows.map(row =>
-			row.map(({ sample, span }) => (
-				<div class:list={[span, "w-full min-h-[250px]", "overflow-hidden", "rounded-xl"]}>
-					<img
-						class="w-full h-full object-cover"
-						src={sample.attachment.public_path}
-						alt={sample.attachment.original_name}
-					/>
-				</div>
-			))
-		)}
-	</div>
+	<CategorySelector client:only="preact" initialTaskCategories={taskCategories} />
 
 	<Divider size="extra-large" />
 </div>

@@ -44,6 +44,7 @@ type TaskCategory = {
 	enabled: boolean;
 	sort_order_on_samples: number;
 	samples: Array<Sample>;
+	icon: AstroComponentFactory;
 };
 
 export type IServiceThemeType = keyof typeof serviceThemes;
