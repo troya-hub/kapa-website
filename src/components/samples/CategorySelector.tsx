@@ -72,7 +72,11 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 									: "border-neutral-95 hover:border-light-blue hover:bg-sky-blue"
 							}`}
 						>
-							<img src={category.icon} alt={category.title} className={`relative top-px h-4 w-4`} />
+							<img
+								src={isSelected ? category.selectedIcon : category.icon}
+								alt={category.title}
+								className={`relative top-px h-4 w-4`}
+							/>
 							<h2 className="accent-neutral-60 text-sm">{category.title}</h2>
 						</button>
 					);

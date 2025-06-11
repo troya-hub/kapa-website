@@ -21,6 +21,24 @@ import SignsBannersIcon from "@/assets/icons/samples/signs-banners.svg?url";
 import TShirtDesignIcon from "@/assets/icons/samples/t-shirt-design.svg?url";
 import PackagingIcon from "@/assets/icons/samples/packaging.svg?url";
 
+import SelectedLogoDesignIcon from "@/assets/icons/samples/selected-logo-design.svg?url";
+import SelectedBackgroundRemovalIcon from "@/assets/icons/samples/selected-background-removal.svg?url";
+import SelectedInfographicsIcon from "@/assets/icons/samples/selected-infographics.svg?url";
+import SelectedIllustrationsIcon from "@/assets/icons/samples/selected-illustrations.svg?url";
+import SelectedSocialMediaImagesIcon from "@/assets/icons/samples/selected-social-media-images.svg?url";
+import SelectedBookCoversIcon from "@/assets/icons/samples/selected-book-covers.svg?url";
+import SelectedBookLayoutsIcon from "@/assets/icons/samples/selected-book-layouts.svg?url";
+import SelectedBrochuresIcon from "@/assets/icons/samples/selected-brochures.svg?url";
+import SelectedBusinessCardIcon from "@/assets/icons/samples/selected-business-card.svg?url";
+import SelectedFlyersAndPostersIcon from "@/assets/icons/samples/selected-flyers-and-posters.svg?url";
+import SelectedLabelsIcon from "@/assets/icons/samples/selected-labels.svg?url";
+import SelectedPodcastCoversIcon from "@/assets/icons/samples/selected-podcast-covers.svg?url";
+import SelectedRestaurantMenuIcon from "@/assets/icons/samples/selected-restaurant-menu.svg?url";
+import SelectedSignsBannersIcon from "@/assets/icons/samples/selected-signs-banners.svg?url";
+import SelectedTShirtDesignIcon from "@/assets/icons/samples/selected-t-shirt-design.svg?url";
+import SelectedPackagingIcon from "@/assets/icons/samples/selected-packaging.svg?url";
+
+
 const icons: Record<string, any> = {
 	"logo-design": LogoDesignIcon,
 	"background-removal": BackgroundRemovalIcon,
@@ -38,10 +56,33 @@ const icons: Record<string, any> = {
 	"signs-banners": SignsBannersIcon,
 	"t-shirt-design": TShirtDesignIcon,
 	packaging: PackagingIcon,
-	default: LogoDesignIcon
+	"selected-logo-design": SelectedLogoDesignIcon,
+	"selected-background-removal": SelectedBackgroundRemovalIcon,
+	"selected-infographics": SelectedInfographicsIcon,
+	"selected-illustrations": SelectedIllustrationsIcon,
+	"selected-social-media-images": SelectedSocialMediaImagesIcon,
+	"selected-book-covers": SelectedBookCoversIcon,
+	"selected-book-layouts": SelectedBookLayoutsIcon,
+	"selected-brochures": SelectedBrochuresIcon,
+	"selected-business-cards": SelectedBusinessCardIcon,
+	"selected-flyers-posters": SelectedFlyersAndPostersIcon,
+	"selected-labels": SelectedLabelsIcon,
+	"selected-podcast-covers": SelectedPodcastCoversIcon,
+	"selected-restaurant-menus": SelectedRestaurantMenuIcon,
+	"selected-signs-banners": SelectedSignsBannersIcon,
+	"selected-t-shirt-design": SelectedTShirtDesignIcon,
+	"selected-packaging": SelectedPackagingIcon,
+	default: LogoDesignIcon,
+	"selected-default": SelectedLogoDesignIcon
 };
 
-const getIcon = (category: TaskCategory["slug"]) => icons[category] || icons["default"];
+const getIcon = (category: TaskCategory["slug"], selected: boolean = false) => {
+	const icon = icons[selected ? `selected-${category}` : category];
+
+	if (icon) return icon;
+
+	return selected ? icons["selected-default"] : icons.default;
+};
 
 const response = await fetch("https://kapa99.com/api/astro/samples");
 const data = await response.json();
@@ -50,7 +91,8 @@ const taskCategories: Array<TaskCategory> = data.taskCategories
 	.filter((category: TaskCategory) => category.enabled && category.samples.length)
 	.map((category: TaskCategory) => ({
 		...category,
-		icon: getIcon(category.slug)
+		icon: getIcon(category.slug),
+		selectedIcon: getIcon(category.slug, true)
 	}))
 	.sort((a: TaskCategory, b: TaskCategory) => a.sort_order_on_samples - b.sort_order_on_samples);
 ---

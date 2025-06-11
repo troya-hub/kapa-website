@@ -45,6 +45,7 @@ type TaskCategory = {
 	sort_order_on_samples: number;
 	samples: Array<Sample>;
 	icon: AstroComponentFactory;
+	selectedIcon: AstroComponentFactory;
 };
 
 export type IServiceThemeType = keyof typeof serviceThemes;
