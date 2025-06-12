@@ -52,11 +52,7 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 	};
 
 	return (
-		<div className="site-container">
-			<div className="mb-10">
-				<h4 className="text-center">What kind of design are you looking for?</h4>
-			</div>
-
+		<div>
 			<div className="flex flex-wrap justify-center gap-4">
 				{taskCategories.map((category) => {
 					const IconComponent = category.icon;
