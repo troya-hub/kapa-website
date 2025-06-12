@@ -1,6 +1,7 @@
 // CategoriesSampleInteractive.tsx
 import { useState, useEffect } from "preact/hooks";
 import type { TaskCategory, Sample } from "@/types";
+import SamplesModal from "@/components/samples/SamplesModal.tsx";
 
 const rowLayouts: string[][] = [
 	["col-span-1", "col-span-1", "col-span-1"],
@@ -40,6 +41,14 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 	const [taskCategories] = useState<TaskCategory[]>(initialTaskCategories);
 	const [selectedCategory, setSelectedCategory] = useState<TaskCategory>(initialTaskCategories[0]);
 	const [rows, setRows] = useState<{ sample: Sample; span: string }[][]>([]);
+
+	const [isModalOpen, setIsModalOpen] = useState(false);
+	const [modalStartIndex, setModalStartIndex] = useState(0);
+
+	const handleSampleClick = (index: number) => {
+		setModalStartIndex(index);
+		setIsModalOpen(true);
+	};
 
 	useEffect(() => {
 		if (selectedCategory?.samples) {
@@ -84,23 +93,35 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 
 			<div className="grid grid-cols-3 gap-x-4 gap-y-16">
 				{rows.map((row, rowIndex) =>
-					row.map(({ sample, span }, itemIndex) => (
-						<div
-							key={`${rowIndex}-${itemIndex}`}
-							className={`${span} min-h-[250px] w-full overflow-hidden rounded-xl`}
-						>
-							<img
-								className="h-full w-full object-cover"
-								src={sample.attachment.public_path}
-								alt={sample.attachment.original_name}
-							/>
-						</div>
-					)),
+					row.map(({ sample, span }, itemIndex) => {
+						const flatIndex = row
+							.slice(0, itemIndex)
+							.reduce((acc, _, i) => acc + 1, rows.slice(0, rowIndex).flat().length);
+						return (
+							<div
+								key={`${rowIndex}-${itemIndex}`}
+								className={`${span} min-h-[250px] w-full cursor-pointer overflow-hidden rounded-xl`}
+								onClick={() => handleSampleClick(flatIndex)}
+							>
+								<img
+									className="h-full w-full object-cover"
+									src={sample.attachment.public_path}
+									alt={sample.attachment.original_name}
+								/>
+							</div>
+						);
+					}),
 				)}
 			</div>
 
 			<div className="border-neutral-95 my-16 border-t"></div>
-			{/* Extra large divider */}
+
+			<SamplesModal
+				isOpen={isModalOpen}
+				onClose={() => setIsModalOpen(false)}
+				samples={selectedCategory.samples}
+				initialIndex={modalStartIndex}
+			/>
 		</div>
 	);
 }
