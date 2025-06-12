@@ -8,6 +8,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import type { Sample } from "@/types";
 
+import RightArrowIcon from "@/assets/icons/samples/right-arrow.svg?url";
+
 interface SamplesModalProps {
 	isOpen: boolean;
 	onClose: () => void;
@@ -88,21 +90,25 @@ export default function SamplesModal({
 					&times;
 				</button>
 				<div
-					className="relative w-full max-w-4xl px-2 lg:px-8"
+					className="relative w-full max-w-5xl px-2 lg:px-8"
 					onClick={(e) => e.stopPropagation()}
 				>
 					{/* Custom navigation buttons */}
 					<button
 						ref={prevRef}
-						className="absolute top-1/2 left-2 z-10 hidden -translate-y-1/2 cursor-pointer rounded-full bg-white p-2 shadow hover:bg-gray-100 md:block"
+						className="absolute top-1/2 z-10 hidden -translate-y-1/2 cursor-pointer rounded-full shadow hover:bg-gray-100 md:block"
 					>
-						&#8592;
+						<img
+							src={RightArrowIcon}
+							alt="Previous"
+							class="w-[30px] origin-center rotate-180 transform"
+						/>
 					</button>
 					<button
 						ref={nextRef}
-						className="absolute top-1/2 right-2 z-10 hidden -translate-y-1/2 cursor-pointer rounded-full bg-white p-2 shadow hover:bg-gray-100 md:block"
+						className="absolute top-1/2 right-2 z-10 hidden -translate-y-1/2 cursor-pointer shadow hover:bg-gray-100 md:block"
 					>
-						&#8594;
+						<img src={RightArrowIcon} alt="Next" class="w-[30px]" />
 					</button>
 
 					<div className="swiper" ref={containerRef}>
@@ -111,7 +117,7 @@ export default function SamplesModal({
 								<div key={sample.id} className="swiper-slide">
 									<div className="rounded-3xl p-2 shadow-xl lg:p-8">
 										<img
-											className="mx-auto w-auto max-w-[90%] rounded-2xl object-contain lg:max-w-[80%]"
+											className="mx-auto w-auto max-w-[90%] rounded-2xl object-contain"
 											src={sample.attachment.public_path}
 											alt={sample.attachment.original_name}
 										/>
