@@ -4,11 +4,11 @@ import type { TaskCategory, Sample } from "@/types";
 import SamplesModal from "@/components/samples/SamplesModal.tsx";
 
 const rowLayouts: string[][] = [
-	["col-span-1", "col-span-1", "col-span-1"],
-	["col-span-2", "col-span-1"],
-	["col-span-1", "col-span-2"],
-	["col-span-3"],
-	["col-span-1", "col-span-1"],
+	["col-span-3 md:col-span-1", "col-span-3 md:col-span-1", "col-span-3 md:col-span-1"],
+	["col-span-3 md:col-span-2", "col-span-3 md:col-span-1"],
+	["col-span-3 md:col-span-1", "col-span-3 md:col-span-2"],
+	["col-span-3 md:col-span-3"],
+	["col-span-3 md:col-span-1", "col-span-3 md:col-span-1"],
 ];
 
 const createRows = (samples: Sample[]) => {
@@ -64,7 +64,6 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 		<div>
 			<div className="flex flex-wrap justify-center gap-4">
 				{taskCategories.map((category) => {
-					const IconComponent = category.icon;
 					const isSelected = selectedCategory?.slug === category.slug;
 
 					return (
