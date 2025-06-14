@@ -1,0 +1,155 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+import HeroChip from "@/components/pricing/HeroChip.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
+
+import SweetFishMediaLargeCover from "@/assets/images/case-studies/upsolar/upsolar-large-cover.webp?url";
+import JamesCarbaryImage from "@/assets/images/case-studies/sweet-fish-media/james-carbary.webp?url";
+
+import { caseStudies } from "@/data/case-studies";
+
+const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
+---
+
+<BaseLayout>
+	<section class="site-container text-neutral-10">
+		<Divider size="small" />
+		<div class="mx-auto lg:max-w-[80%] text-center">
+			<HeroChip icon="layout" title="Case Study" />
+
+			<div class="mt-6 space-y-4">
+				<Title type="h1"> {caseStudy.title} </Title>
+			</div>
+		</div>
+
+		<!--Body of the case study -->
+		<div class="mt-14">
+			<img src={SweetFishMediaLargeCover} class="aspect-video object-cover mx-auto rounded-lg mt-6"
+					 alt={caseStudy.title} />
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">Meet James Carbary...</Title>
+			</div>
+			<div class="text-k-lg">
+				James Carbary is the founder of Sweet Fish Media, he’s the head of marketing and his general routine includes
+				creating content for different channels, like Facebook, LinkedIn, and other social media outlets, he also hosts
+				a daily podcast with his partner in business, Jonathan.
+
+				<img src={JamesCarbaryImage} alt="Michael Cheung" class="mt-10 rounded-lg w-full max-w-[300px] mx-auto" />
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">What's Sweet Fish Media?</Title>
+			</div>
+			<div class="text-k-lg">
+				"In the simplest terms, Sweet Fish produces podcasts for b2b brands, and we do that with a different view on
+				podcasting, where most people look at podcasting because they want to grow an audience, we look at podcasting
+				because we want to build quality relationships, and the way you do that is by building relationships with your
+				guests and by having guests that are ideal clients for your business. Relationships make life better and we
+				create these relationships for other businesses by producing podcasts for them. In a nutshell, Sweet Fish
+				produces podcasts for B2B brands"
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">Before Kapa99</Title>
+			</div>
+			<div class="text-k-lg flex flex-col gap-y-10 justify-center">
+				<p>James tried to use Canva.com to get the graphics that he usually requires for his own content and the content
+					of
+					his clients. He quickly realized that "there’s no way that was going to scale as we brought on more clients"
+					and
+					there was an economic problem, "hiring an in-house graphic designer would run at least fifty grand a year," he
+					told us. A price that his agency couldn’t afford back then in 2015.</p>
+
+				<p>James requires graphic design for his clients at Sweet Fish. They create logos for every new podcast that
+					they
+					launch, and once they launch the podcast, every episode gets custom graphics. It’s simple but time-consuming
+					and
+					expensive. Graphics for clients are not all the graphics that Sweet Fish requires. The company needs PDF files
+					for opt-in bribes, and books and infographics for marketing are also required every month.</p>
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">The Solution</Title>
+			</div>
+			<div class="text-k-lg flex flex-col gap-y-10 justify-center">
+				<p>James found Kapa99 on Facebook and decided to give it a shot on the spot.</p>
+
+				<p>The first month James requested images for the company’s blog, infographics, lead magnets, and more…</p>
+
+				<p>Two years after, Sweet Fish Media uses Kapa99 because the company needs quality graphic design work and fast
+					turnaround times, something that Kapa99 has accomplished from the very beginning.</p>
+
+				<p>Today usual requests are logos for the B2B podcasting done-for-you service, PDF files for opt-in bribes, blog
+					images, podcast episode images, ebook layout, and even personal requests, like the time James’s sister wanted
+					to
+					write a book and he requested a book cover to get her excited!</p>
+
+				<p>As the company has grown, James and his team take "less than a minute to type in the description on Trello of
+					what we need."</p>
+
+				<p>Sweet Fish realized that they could save at least $45,000 dollars per year by using Kapa99 when compared to
+					hiring an in-house graphic designer. In the process, James also noticed the time and effort saved, which
+					allows
+					for other activities, be it marketing or enjoying life. "We’re easily saving well over a hundred hours a month
+					because we’re not only using Kapa99 for our brand but we’re using it for our clients as well. If there was no
+					Kapa99, we just wouldn’t be able to do so much of what makes our service special."</p>
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">James even uses Kapa99 to motivate his sister and help his friends!</Title>
+			</div>
+			<div class="text-k-lg flex flex-col gap-y-10 justify-center">
+				<p>My sister wanted to write a book and so I had Kapa99 put together some book covers for what she said the
+					title
+					of her book would be, being able to see kind of the look on her face whenever she saw [the book cover] was
+					priceless.</p>
+
+				<p>A friend of mine, he’s a children’s book author and he’s trying to start growing his email list and we were
+					talking at lunch one day. I was giving him some ideas on how he could start growing his email list.</p>
+
+				<p>One of the ideas we came up with was to create a lead magnet listing the 12 best children’s books.</p>
+
+				<p>So mom’s coming to his website would be incentivized to download that PDF because they want to know the best
+					children’s books for their kids and so we came out of that meeting, quickly popped on Trello, and put in: Hey
+					can we get a PDF graphic that’s really clean, that has these twelve books and I just sent as the Amazon links
+					to
+					those twelve books. And within a couple of days, I had a really really good-looking PDF that I could give to
+					Timmy.</p>
+
+				<p>Obviously, Timmy wasn’t expecting it he thought he was gonna have to go and design some PDF, and was not like
+					he
+					was not looking forward to it.</p>
+
+				<p>The fact that I was able to give him something to tangibly use on his website just a couple of days after we
+					talked about it was a game-changer for him.</p>
+			</div>
+		</div>
+
+		<Divider size="large" />
+	</section>
+
+	<CallToAction />
+</BaseLayout>
