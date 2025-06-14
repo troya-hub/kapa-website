@@ -1,0 +1,63 @@
+---
+import CodeDevLogo from "@/assets/images/case-studies/code-dev-logo.webp?url";
+import CodeDevCover from "@/assets/images/case-studies/code-dev-cover.webp?url";
+import UpSolarLogo from "@/assets/images/case-studies/upsolar-logo.webp?url";
+import UpSolarCover from "@/assets/images/case-studies/upsolar-cover.webp?url";
+import SweetFishLogo from "@/assets/images/case-studies/sweet-fish-logo.webp?url";
+import SweetFishCover from "@/assets/images/case-studies/sweet-fish-cover.webp?url";
+import Title from "../ui/Title.astro";
+import Divider from "../ui/Divider.astro";
+
+const caseStudies = [
+	{
+		title: "Marketing agency in Miami gets 10x output from 1 hour of work",
+		excerpt: "Code & Dev is a business development company that works shoulder-by-shoulder with business owners, managers, and employees to accomplish marketing and sales goals.",
+		tags: ["Design", "Marketing", "Social Media"],
+		logo: CodeDevLogo,
+		image: CodeDevCover
+	}, {
+		title: "How a multinational corporation delegates their graphic design work in 10 minutes",
+		excerpt: "Upsolar, a multinational corporation, delegates graphic design in 10 minutes for marketing campaigns across the world.",
+		tags: ["Design", "Marketing", "Social Media"],
+		logo: UpSolarLogo,
+		image: UpSolarCover
+	}, {
+		title: "Learn how the world top B2B podcast producer saves 100 hours and $45,000 per year",
+		excerpt: "Sweet Fish Media, is the world-leading podcast agency the world, and is getting a lot of value from Kapa99 and is using the graphic design subscription in unexpected ways.",
+		tags: ["Design", "Marketing", "Social Media"],
+		logo: SweetFishLogo,
+		image: SweetFishCover
+	}
+];
+---
+
+<section class="site-container">
+	{caseStudies.map((caseStudy) => (
+		<div class="grid grid-cols-1 lg:grid-cols-2 bg-sky-blue border-light-blue rounded-xl">
+			<div class="flex flex-col gap-y-6 lg:gap-y-12 p-6 pt-10 lg:p-16 justify-center">
+				<img src={caseStudy.logo} class="max-w-[200px]" alt={caseStudy.title} />
+
+				<div class="flex flex-col gap-y-4">
+					<Title type="h5" mobileType="h4">
+						{caseStudy.title}
+					</Title>
+
+					<p>{caseStudy.excerpt}</p>
+				</div>
+
+				<div class="flex flex-wrap gap-x-2">
+					{caseStudy.tags.map((tag) => (
+						<div
+							class="text-k-xs lg:text-k-md text-neutral-40 inline-block rounded-xl border-light-blue border py-[2px] px-[10px]">{tag}
+						</div>
+					))}
+				</div>
+			</div>
+			<div class="p-6">
+				<img src={caseStudy.image} class="w-full h-auto object-cover rounded-lg" alt={caseStudy.title} />
+			</div>
+		</div>
+
+		<Divider size="small" />
+	))}
+</section>
