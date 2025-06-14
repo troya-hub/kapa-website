@@ -1,0 +1,140 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+import HeroChip from "@/components/pricing/HeroChip.astro";
+
+import UpsolarLargeCover from "@/assets/images/case-studies/upsolar/upsolar-large-cover.webp?url";
+import Image1 from "@/assets/images/case-studies/code-dev/01.webp?url";
+import Image2 from "@/assets/images/case-studies/code-dev/02.webp?url";
+import Image3 from "@/assets/images/case-studies/code-dev/03.webp?url";
+import Image4 from "@/assets/images/case-studies/code-dev/04.webp?url";
+
+import { caseStudies } from "@/data/case-studies";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
+---
+
+<BaseLayout>
+	<section class="site-container text-neutral-10">
+		<Divider size="small" />
+		<div class="mx-auto lg:max-w-[80%] text-center">
+			<HeroChip icon="layout" title="Case Study" />
+
+			<div class="mt-6 space-y-4">
+				<Title type="h1"> {caseStudy.title} </Title>
+			</div>
+		</div>
+
+		<!--Body of the case study -->
+		<div class="mt-14">
+			<img src={UpsolarLargeCover} class="aspect-video object-cover mx-auto rounded-lg mt-6" alt={caseStudy.title} />
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">Meet Michael Cheung...</Title>
+			</div>
+			<div class="text-k-lg">
+				Michael Cheung is the Marketing Director of Upsolar, where he oversees all marketing and PR initiatives. His
+				general routine includes the creation of marketing strategies to reach out to potential new clients. Usually,
+				this requires creating materials that will be marketed through Upsolar channels of communication.
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">What's Upsolar?</Title>
+			</div>
+			<div class="text-k-lg">
+				""Upsolar is a leading international developer and producer of high-quality solar photovoltaic (PV) modules at
+				competitive prices. Upsolar’s mission is to develop and produce solar PV modules featuring the best
+				quality-to-cost ratio on the market, ensuring secure long-term investments for our customers around the world.
+				By utilizing top-tier module components and working alongside the industry’s premier providers of
+				balance-of-system solutions, Upsolar is able to stay ahead of the demand curve and offer innovative, tailored PV
+				technologies to meet customers’ varying performance and aesthetic needs."
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">The Challenge</Title>
+			</div>
+			<div class="text-k-lg flex flex-col gap-y-10 justify-center">
+				<p>Upsolar used to have an in-house graphic designer. However, the designer left the company. There was no
+					immediate search for a replacement, and nobody in the company was familiar with graphic design tools, like
+					Photoshop or Illustrator. Even finding someone in-house would have taken weeks, but marketing campaigns
+					couldn’t stop.</p>
+
+				<p>Michael required graphic design help to make Upsolar marketing more powerful and appealing to the audience
+					the company is reaching.</p>
+
+				<p>As head of Marketing, Michael had to find a solution that was immediate but also high quality.</p>
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">The Solution</Title>
+			</div>
+			<div class="text-k-lg flex flex-col gap-y-10 justify-center">
+				<p>Michael had never heard of unlimited graphic design before. He was used to freelancers, in-house designers,
+					and even agencies, but a service like Kapa99 was something new to him.</p>
+
+				<p>By searching in google he found the concept of unlimited graphic design, he approached other similar
+					companies but ultimately decided to go with Kapa99. In his words, "I was impressed with the ease of reaching
+					out to them through the website and their quick response to our questions. The flexibility of Kapa99 allowed
+					us to complete some design tasks where others were not willing to accept due to some set boundaries on their
+					services. In addition, for design requests, they usually provide a few options to choose from. But what
+					impressed me the most was the service and attitude of Kapa99. As marketers, we are typically faced with a
+					sudden request or tight timeframe to deliver, and during those times, Kapa99 was always there to make sure
+					everything was addressed and completed on time."</p>
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">The Results</Title>
+			</div>
+			<div class="text-k-lg flex flex-col gap-y-10 justify-center">
+				<p>A billboard for Upsolar’s Japan branch and promotional materials for the American branch were all created in
+					the
+					same week and without traveling a single mile!</p>
+
+				<p>"We recently had to work with Upsolar’s Japan team to create a billboard design, and due to a high standard,
+					there was a lot of communication going back and forth to make sure the final design was perfect. The Trello
+					board allowed clear communication between Upsolar and themselves across different time zones, and in the end,
+					everyone was satisfied with the results.</p>
+
+				<p>There have been a few incidences where some cases were very urgent, but the most memorable one was working
+					with
+					our American branch and putting together summer promotional materials. When it began, we thought there would
+					be
+					enough time, but we were wrong.</p>
+
+				<p>In fact, the case got so urgent that at one point, I was reaching out to Kapa99 in the evening to try and get
+					part of the materials finalized. Needless to say, they got it done in the end.
+					<strong>I think any other company wouldn’t go that far, and that is one of the main reasons why we stick with
+						Kapa99.</strong></p>
+
+				<p>We were fortunate to come across Kapa99, who has been working with us for easily more than a year now.
+					Without
+					their services, there would have been a lot of projects that would never have come to fruition, which makes
+					Kapa99 a valuable company and service to work with."</p>
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+	</section>
+</BaseLayout>
