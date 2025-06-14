@@ -1,16 +1,13 @@
 ---
+import BaseLayout from "@/layouts/BaseLayout.astro";
 import Title from "@/components/ui/Title.astro";
 import Divider from "@/components/ui/Divider.astro";
 import HeroChip from "@/components/pricing/HeroChip.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
 
 import UpsolarLargeCover from "@/assets/images/case-studies/upsolar/upsolar-large-cover.webp?url";
-import Image1 from "@/assets/images/case-studies/code-dev/01.webp?url";
-import Image2 from "@/assets/images/case-studies/code-dev/02.webp?url";
-import Image3 from "@/assets/images/case-studies/code-dev/03.webp?url";
-import Image4 from "@/assets/images/case-studies/code-dev/04.webp?url";
 
 import { caseStudies } from "@/data/case-studies";
-import BaseLayout from "@/layouts/BaseLayout.astro";
 
 const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 ---
@@ -135,6 +132,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 		</div>
 
 		<Divider size="large" />
-
 	</section>
+
+	<CallToAction />
 </BaseLayout>
