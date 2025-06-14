@@ -1,0 +1,110 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+import HeroChip from "@/components/pricing/HeroChip.astro";
+
+import CodeDevLargeCover from "@/assets/images/case-studies/code-dev-large-cover.webp?url";
+import Image1 from "@/assets/images/case-studies/code-dev/01.webp?url";
+import Image2 from "@/assets/images/case-studies/code-dev/02.webp?url";
+import Image3 from "@/assets/images/case-studies/code-dev/03.webp?url";
+import Image4 from "@/assets/images/case-studies/code-dev/04.webp?url";
+
+import { caseStudies } from "@/data/case-studies";
+import BaseLayout from "@/layouts/BaseLayout.astro";
+
+const caseStudy = caseStudies.find((cs) => cs.slug === "code-and-dev")!;
+---
+
+<BaseLayout>
+	<section class="site-container text-neutral-10">
+		<Divider size="small" />
+		<div class="mx-auto lg:max-w-[80%] text-center">
+			<HeroChip icon="layout" title="Case Study" />
+
+			<div class="mt-6 space-y-4">
+				<Title type="h1"> {caseStudy.title} </Title>
+			</div>
+		</div>
+
+		<!--Body of the case study -->
+		<div class="mt-14">
+			<img src={CodeDevLargeCover} class="w-full h-auto object-cover rounded-lg mt-6" alt={caseStudy.title} />
+		</div>
+
+		<Divider size="small" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 text-neutral-40 gap-y-6 lg:gap-y-0">
+			<div class="grow lg:min-w-[400px]">
+				<Title type="h3">The Challenge</Title>
+			</div>
+			<div class="text-k-lg">
+				Code and Dev, based in Fort Myers Beach, supports local tourism businesses with creative marketing tied to
+				seasonal events. To generate weekly leads, Michael crafts targeted campaigns using print and digital materials.
+				Realizing the need for high-quality design, he turned to Kapa. What he values most? Quality, speed, and clear
+				communication. “We’ve come a long way with communication,” he says.
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div>
+			<img src={Image1} class="w-full h-auto object-cover rounded-lg mt-6" alt="Code and Dev Image 1" />
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 gap-y-6 lg:gap-y-0">
+			<div class="grow min-w-[400px]">
+				<Title type="h3" class="grow">The Solution</Title>
+			</div>
+			<div class="text-k-lg text-neutral-40">
+				Michael discovered Kapa in a Facebook group and decided to give it a try for a month. He requested various
+				designs—flyers, menus, posters—and was impressed by the quality and speed.
+
+				<Title type="h6" class="my-10">
+					Convinced it was the right fit, he made Kapa his go-to design partner.
+				</Title>
+
+				Two years later, that partnership is still going strong. “The team at Kapa goes above and beyond,” he says.
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+		<div class="grid grid-cols-1 lg:grid-cols-2 gap-x-10">
+			<div>
+				<img src={Image2} class="w-full h-auto object-cover rounded-lg mt-6" alt="Code and Dev Image 2" />
+			</div>
+			<div>
+				<img src={Image3} class="w-full h-auto object-cover rounded-lg mt-6" alt="Code and Dev Image 3" />
+			</div>
+		</div>
+
+		<Divider size="small" />
+
+		<div>
+			<img src={Image4} class="w-full h-auto object-cover rounded-lg mt-6" alt="Code and Dev Image 4" />
+		</div>
+
+		<Divider size="large" />
+
+		<div class="flex flex-col lg:flex-row gap-x-10 gap-y-6 lg:gap-y-0">
+			<div class="grow min-w-[400px]">
+				<Title type="h3" class="grow">The Result</Title>
+			</div>
+			<div class="text-k-lg text-neutral-40">
+				Code and Dev’s visual branding improved noticeably, helping attract more leads.
+
+				<Title type="h6" class="my-10">
+					Michael estimates he gets 10 hours of output for every hour invested thanks to Kapa’s efficient system.
+				</Title>
+
+				With over 200 unique designs created for just one client, Kapa has helped him meet marketing and sales goals
+				with ease.
+			</div>
+		</div>
+
+		<Divider size="large" />
+
+	</section>
+</BaseLayout>
