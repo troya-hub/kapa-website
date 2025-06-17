@@ -1,0 +1,28 @@
+---
+import type { Page, PageComponent, PagesApiResponse } from "@/pages.types.ts";
+import ComponentRenderer from "./components/ComponentRenderer.astro";
+
+export async function getStaticPaths() {
+	const response = await fetch("https://kapa99.com/api/astro/pages");
+	const { pages } = await response.json() as PagesApiResponse;
+
+	return pages.map((page: Page) => {
+		return {
+			params: { path: page.slug },
+			props: { page }
+		};
+	});
+}
+
+const { page } = Astro.props as { page: Page };
+
+const sortedComponents = page.components.sort((a, b) => a.order - b.order);
+---
+
+<div class="site-container">
+	<h1>{page.title}</h1>
+
+	{sortedComponents.map((component: PageComponent) => (
+		<ComponentRenderer component={component} />
+	))}
+</div>

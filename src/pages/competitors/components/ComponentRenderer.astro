@@ -1,0 +1,67 @@
+---
+import type { PageComponent } from "@/pages.types.ts";
+import { PAGEABLE_TYPES } from "@/pages.types.ts";
+
+// import Hero from './Hero.astro';
+// import StaticPage from './StaticPage.astro';
+// import TextComponent from './TextComponent.astro';
+// import CallToAction from './CallToAction.astro';
+// import Testimonial from './Testimonial.astro';
+// import Carousel from './Carousel.astro';
+// import FeatureBenefit from './FeatureBenefit.astro';
+// import Feature from './Feature.astro';
+
+interface Props {
+	component: PageComponent;
+}
+
+const { component } = Astro.props as Props;
+---
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_HERO && (
+<div>
+	Hero Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.STATIC_PAGE && (
+<div>
+	Static Page Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_TEXT_COMPONENT && (
+<div>
+	Text Component Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_CALL_TO_ACTION && (
+<div>
+	Call To Action Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_TESTIMONIAL && (
+<div>
+	Testimonial Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_CAROUSEL && (
+<div>
+	Carousel Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE_BENEFIT && (
+<div>
+	Feature Benefit Goes Here
+</div>
+	)}
+
+{component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE && (
+<div>
+	Feature Goes Here
+</div>
+	)}
