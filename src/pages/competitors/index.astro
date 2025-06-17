@@ -1,0 +1,31 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+import Hero from "@/components/competitors/Hero.astro";
+import OurClients from "@/components/landing/OurClients.astro";
+import KapaVsOtherServices from "@/components/competitors/KapaVsOtherServices.astro";
+import KapaVsAlternatives from "@/components/competitors/KapaVsAlternatives.astro";
+import Benefits from "@/components/landing/Benefits.astro";
+import Reviews from "@/components/landing/Reviews.astro";
+import FAQ from "@/components/landing/FAQ.astro";
+---
+
+<BaseLayout>
+	<Hero />
+	<OurClients />
+	<Divider size="large" />
+	<KapaVsOtherServices />
+	<Divider size="large" />
+	<div class="bg-night-blue">
+		<Divider size="large" />
+		<Benefits theme="dark" />
+		<Divider size="large" />
+		<KapaVsAlternatives />
+		<Divider size="large" />
+	</div>
+	<Divider size="large" />
+	<Reviews />
+	<Divider size="large" />
+	<FAQ />
+	<Divider size="large" />
+</BaseLayout>

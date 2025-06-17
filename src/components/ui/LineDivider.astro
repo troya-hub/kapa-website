@@ -1,5 +1,11 @@
 ---
 import LineImage from "@/assets/images/line.webp?url";
+
+interface Props {
+	class?: string;
+}
+
+const { class: className = "" }: Props = Astro.props;
 ---
 
-<img src={LineImage} alt="Kapa" class="w-[100vw] object-cover" />
+<img src={LineImage} alt="Kapa" class:list={["w-[100vw] object-cover", className]} />

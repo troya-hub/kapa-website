@@ -1,0 +1,154 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Divider from "@/components/ui/Divider.astro";
+
+import ProsIcon from "@/assets/icons/competitors/pros.svg";
+import ConsIcon from "@/assets/icons/competitors/cons.svg";
+import KapaIcon from "@/assets/icons/competitors/kapa.svg";
+import FreelancerIcon from "@/assets/icons/competitors/freelancers.svg";
+import AgencyIcon from "@/assets/icons/competitors/agencies.svg";
+
+const competitors = [
+	{
+		featured: true,
+		icon: KapaIcon,
+		name: "Kapa",
+		pros: [
+			"Real Time Collaboration",
+			"Unlimited requests & revisions",
+			"Dedicated project manager",
+			"Flat monthly pricing with no contracts",
+			"Quality control from senior designers"
+		],
+		cons: [
+			"UI/UX design not included",
+			"We don't offer website design services"
+		]
+	},
+	{
+		featured: false,
+		icon: FreelancerIcon,
+		name: "Freelancers",
+		pros: [
+			"Affordable for small or one-off tasks",
+			"Great for one-off projects",
+			"Flexible and widely available"
+		],
+		cons: [
+			"Inconsistent quality",
+			"Limited skillsets",
+			"Difficult to scale",
+			"Requires hands-on management"
+		]
+	},
+	{
+		featured: false,
+		icon: AgencyIcon,
+		name: "Agencies",
+		pros: [
+			"Strategic brand development",
+			"Ideal for long-term creative campaigns",
+			"Access to development teams"
+		],
+		cons: [
+			"Expensive retainers and fees",
+			"Slow delivery times",
+			"Rigid project scopes",
+			"Limited output for ongoing needs"
+		]
+	}
+];
+---
+<div class="site-container">
+	<div class="lg:w-[60%]">
+		<Title type="h3">
+			Kapa vs other design services
+		</Title>
+
+		<p class="mt-6 text-neutral-40 text-k-lg">
+			Modern businesses need more design than ever — for websites, ads, content, branding, and more. But traditional
+			options like agencies and freelancers can slow you down, drain your budget, or limit your output. Kapa is the
+			flexible, affordable, and scalable alternative built for teams who need design that keeps up with their
+			growth.
+		</p>
+	</div>
+
+	<Divider size="small" />
+
+	<div class="grid grid-cols-1 lg:grid-cols-3 gap-x-7 gap-y-6 lg:gap-y-0">
+		{competitors.map((competitor) => (
+			<div class:list={[
+				"p-12 rounded-2xl",
+				{ "bg-night-blue text-neutral-100": competitor.featured },
+				{ "bg-sky-blue border border-light-blue": !competitor.featured }
+			]}>
+				<div
+					class:list={[
+						"mb-6 border-b pb-6",
+						{ "border-dark-blue": competitor.featured },
+						{ "border-light-blue": !competitor.featured }
+					]}>
+					<span class:list={[
+						"inline-block p-2 rounded-xl border-b border-blue",
+						{ "featured bg-dark-blue": competitor.featured },
+						{ "non-featured bg-light-blue": !competitor.featured }
+					]}>
+						<competitor.icon />
+					</span>
+
+					<Title type="h5"
+								 class={`mt-3 ${competitor.featured ? "text-neutral-100" : "text-neutral-10"}`}>{competitor.name}</Title>
+				</div>
+				<div class="mt-8">
+					<div class="text-k-xl mb-3">
+						Pros
+					</div>
+
+					<div class="flex flex-col gap-y-3">
+						{competitor.pros.map((pro) => (
+							<div class="flex items-center gap-x-3">
+								<ProsIcon />
+								<span class={`text-k-md ${competitor.featured ? "text-neutral-100" : "text-neutral-40"}`}
+								>{pro}</span>
+							</div>
+						))}
+					</div>
+				</div>
+
+				<div class="mt-8">
+					<div class="text-k-xl mb-3">
+						Cons
+					</div>
+
+					<div class="flex flex-col gap-y-3">
+						{competitor.cons.map((con) => (
+							<div class="flex items-center gap-x-3">
+								<ConsIcon />
+								<span class={`text-k-md ${competitor.featured ? "text-neutral-100" : "text-neutral-40"}`}>{con}</span>
+							</div>
+						))}
+					</div>
+				</div>
+			</div>
+		))}
+	</div>
+
+	<div
+		class="mt-8 flex w-full flex-col items-center rounded-xl px-6 py-6 lg:flex-row lg:py-0 bg-night-blue text-neutral-100"
+	>
+		<span class="grow text-k-lg"> Start your first request today — it’s free for 15 days. </span>
+		<div class="pt-6 lg:py-4">
+			<button class="button-primary"> Start with a free 15 day trial</button>
+		</div>
+	</div>
+</div>
+
+<style>
+	.featured {
+		box-shadow: 24px 28px 24px 0px rgba(11, 15, 41, 0.06), 12px 12px 16px 0px rgba(11, 15, 41, 0.08), 3px 3px 8px 0px rgba(11, 15, 41, 0.08);
+	}
+
+	.non-featured {
+		box-shadow: 24px 28px 24px 0px rgba(11, 15, 41, 0.06), 12px 12px 16px 0px rgba(11, 15, 41, 0.08), 3px 3px 8px 0px rgba(11, 15, 41, 0.08);
+	}
+</style>
