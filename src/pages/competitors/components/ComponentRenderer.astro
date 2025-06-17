@@ -18,49 +18,49 @@ interface Props {
 const { component } = Astro.props as Props;
 ---
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_HERO && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_HERO && (
 <div>
 	Hero Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.STATIC_PAGE && (
+{component && component.pageable_type === PAGEABLE_TYPES.STATIC_PAGE && (
 <div>
 	Static Page Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_TEXT_COMPONENT && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_TEXT_COMPONENT && (
 <div>
 	Text Component Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_CALL_TO_ACTION && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_CALL_TO_ACTION && (
 <div>
 	Call To Action Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_TESTIMONIAL && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_TESTIMONIAL && (
 <div>
 	Testimonial Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_CAROUSEL && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_CAROUSEL && (
 <div>
 	Carousel Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE_BENEFIT && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE_BENEFIT && (
 <div>
 	Feature Benefit Goes Here
 </div>
 	)}
 
-{component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE && (
+{component && component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE && (
 <div>
 	Feature Goes Here
 </div>
