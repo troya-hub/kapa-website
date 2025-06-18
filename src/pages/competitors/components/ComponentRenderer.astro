@@ -1,6 +1,7 @@
 ---
 import type { PageComponent } from "@/pages.types.ts";
 import { PAGEABLE_TYPES } from "@/pages.types.ts";
+import Hero from "./Hero.astro";
 
 // import Hero from './Hero.astro';
 // import StaticPage from './StaticPage.astro';
@@ -20,7 +21,7 @@ const { component } = Astro.props as Props;
 
 {component && component.pageable_type === PAGEABLE_TYPES.PAGE_HERO && (
 <div>
-	Hero Goes Here
+	<Hero component={component} />
 </div>
 	)}
 

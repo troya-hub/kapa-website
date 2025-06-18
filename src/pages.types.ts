@@ -97,7 +97,7 @@ interface PageComponent {
 	order: number;
 	created_at: string;
 	updated_at: string;
-	pageable: PageableContent;
+	pageable: unknown;
 }
 
 // Main page interface

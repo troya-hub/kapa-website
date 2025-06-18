@@ -1,6 +1,7 @@
 ---
 import type { Page, PageComponent, PagesApiResponse } from "@/pages.types.ts";
 import ComponentRenderer from "./components/ComponentRenderer.astro";
+import BaseLayout from "../../layouts/BaseLayout.astro";
 
 export async function getStaticPaths() {
 	const response = await fetch("https://kapa99.com/api/astro/pages");
@@ -19,10 +20,14 @@ const { page } = Astro.props as { page: Page };
 const sortedComponents = page.components.sort((a, b) => a.order - b.order);
 ---
 
-<div class="site-container">
-	<h1>{page.title}</h1>
+<BaseLayout>
+	<div class="site-container">
+		{sortedComponents.map((component: PageComponent) => (
+			<ComponentRenderer component={component} />
+		))}
+	</div>
+</BaseLayout>
 
-	{sortedComponents.map((component: PageComponent) => (
-		<ComponentRenderer component={component} />
-	))}
-</div>
+<script define:vars={{ sortedComponents }}>
+	console.log({ hero: sortedComponents[0] });
+</script>

@@ -1,0 +1,40 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import Title from "@/components/ui/Title.astro";
+import type { PageComponent } from "@/pages.types";
+
+interface Props {
+	component: PageComponent;
+}
+
+interface HeroData {
+	title: string;
+	description: string;
+	button_text: string;
+	button_href: string;
+}
+
+const { component } = Astro.props;
+
+const data = component.pageable as HeroData;
+---
+
+<section class="site-container text-neutral-10">
+	<div class="mx-auto max-w-[90%] text-center">
+		<div class="mt-6 space-y-4">
+			<Title type="h1">
+				{data.title}
+			</Title>
+
+			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">
+				{data.description}
+			</div>
+
+			<div class="mt-6 flex justify-center">
+				<a class="button-primary" href={"https://app.kapa99.com/" + data.button_href}>
+					{data.button_text}
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
