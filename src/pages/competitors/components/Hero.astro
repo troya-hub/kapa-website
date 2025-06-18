@@ -2,6 +2,7 @@
 import Divider from "@/components/ui/Divider.astro";
 import Title from "@/components/ui/Title.astro";
 import type { PageComponent } from "@/pages.types";
+import HeroChip from "@/components/pricing/HeroChip.astro";
 
 interface Props {
 	component: PageComponent;
@@ -20,8 +21,12 @@ const data = component.pageable as HeroData;
 ---
 
 <section class="site-container text-neutral-10">
+	<Divider size="small" />
+	
 	<div class="mx-auto max-w-[90%] text-center">
 		<div class="mt-6 space-y-4">
+			<HeroChip title="The Creative Struggle" icon="sword" />
+
 			<Title type="h1">
 				{data.title}
 			</Title>
