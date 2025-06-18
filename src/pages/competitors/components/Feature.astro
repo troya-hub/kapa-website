@@ -1,0 +1,85 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Logo from "@/assets/icons/competitors/logo.svg";
+import type { PageComponent } from "@/pages.types";
+import Divider from "@/components/ui/Divider.astro";
+import FeatureRowValue from "./FeatureRowValue.astro";
+
+interface Props {
+	component: PageComponent;
+}
+
+const { component } = Astro.props;
+
+const data = component.pageable as {
+	first_company: string;
+	second_company: string;
+	title: string;
+	description: string;
+	value: {
+		name: string;
+		rows: {
+			text: string;
+			value1: {
+				type: "CHECKBOX" | "TEXT";
+				value: string;
+			};
+			value2: {
+				type: "CHECKBOX" | "TEXT";
+				value: string;
+			};
+		}[]
+	}[]
+};
+---
+<div class="site-container">
+	<div class="text-center">
+		<Title type="h2">
+			{data.title}
+		</Title>
+
+		<div class="mt-6 text-k-lg text-neutral-40 mx-auto max-w-[80%]">
+			{data.description}
+		</div>
+
+		<Divider size="small" />
+
+		<div>
+			<!-- First Row -->
+			<div class="grid grid-cols-4">
+				<div class="col-span-2"></div>
+				<div class="flex items-center justify-center bg-blue py-4">
+					<Logo class="h-4 relative top-px" />
+				</div>
+				<div class="text-center py-4">
+					{data.second_company}
+				</div>
+			</div>
+
+
+			<!-- Second Row -->
+			{data.value.map(value => (
+				<div class="grid grid-cols-4">
+					<div class="col-span-4 text-left bg-sky-blue p-3 font-semibold flex items-center">
+						<span>{value.name}</span>
+					</div>
+
+					<div class="col-span-4 grid grid-cols-4">
+						{value.rows.map(row => (
+							<div
+								class="col-span-2 text-neutral-40 text-left p-3 font-medium border border-light-blue flex items-center">
+								{row.text}
+							</div>
+							<div class="text-neutral-40 p-3 border border-light-blue">
+								<FeatureRowValue data={row.value1} />
+							</div>
+							<div class="text-neutral-40 p-3 border border-light-blue">
+								<FeatureRowValue data={row.value2} />
+							</div>
+						))}
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</div>

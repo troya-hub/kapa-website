@@ -2,6 +2,8 @@
 import type { PageComponent } from "@/pages.types.ts";
 import { PAGEABLE_TYPES } from "@/pages.types.ts";
 import Hero from "./Hero.astro";
+import Feature from "./Feature.astro";
+import Divider from "../../../components/ui/Divider.astro";
 
 // import Hero from './Hero.astro';
 // import StaticPage from './StaticPage.astro';
@@ -63,6 +65,7 @@ const { component } = Astro.props as Props;
 
 {component && component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE && (
 <div>
-	Feature Goes Here
+	<Divider class="large" />
+	<Feature component={component} />
 </div>
 	)}
