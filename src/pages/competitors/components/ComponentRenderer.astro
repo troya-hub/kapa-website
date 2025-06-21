@@ -1,13 +1,20 @@
 ---
 import type { PageComponent } from "@/pages.types.ts";
 import { PAGEABLE_TYPES } from "@/pages.types.ts";
+
+import Reviews from "@/components/landing/Reviews.astro";
+import ClientTestimonials from "@/components/testimonials/ClientTestimonials.astro";
+import Divider from "@/components/ui/Divider.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
+
 import Hero from "./Hero.astro";
 import Feature from "./Feature.astro";
-import Divider from "../../../components/ui/Divider.astro";
+import TextComponent from "./TextComponent.astro";
+import StaticRenderer from "./StaticRenderer.astro";
 
 // import Hero from './Hero.astro';
 // import StaticPage from './StaticPage.astro';
-// import TextComponent from './TextComponent.astro';
+
 // import CallToAction from './CallToAction.astro';
 // import Testimonial from './Testimonial.astro';
 // import Carousel from './Carousel.astro';
@@ -19,51 +26,53 @@ interface Props {
 }
 
 const { component } = Astro.props as Props;
+
+const isComponent = (type: string) => {
+	return component && component.pageable_type === type;
+};
 ---
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_HERO && (
+{isComponent(PAGEABLE_TYPES.PAGE_HERO) && (
 <div>
 	<Hero component={component} />
 </div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.STATIC_PAGE && (
+{isComponent(PAGEABLE_TYPES.STATIC_PAGE) && (
 <div>
-	Static Page Goes Here
+	<StaticRenderer component={component} />
 </div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_TEXT_COMPONENT && (
+{isComponent(PAGEABLE_TYPES.PAGE_TEXT_COMPONENT) && (
 <div>
-	Text Component Goes Here
+	<TextComponent component={component} />
 </div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_CALL_TO_ACTION && (
+{  isComponent(PAGEABLE_TYPES.PAGE_CALL_TO_ACTION) && (
 <div>
-	Call To Action Goes Here
+	<Divider class="small" />
+	<CallToAction component={component} />
 </div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_TESTIMONIAL && (
+{isComponent(PAGEABLE_TYPES.PAGE_TESTIMONIAL) && (
 <div>
-	Testimonial Goes Here
+	<Divider class="small" />
+	<ClientTestimonials />
 </div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_CAROUSEL && (
-<div>
-	Carousel Goes Here
-</div>
+{isComponent(PAGEABLE_TYPES.PAGE_CAROUSEL) && (
+<div>Carousel Goes Here</div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE_BENEFIT && (
-<div>
-	Feature Benefit Goes Here
-</div>
+{isComponent(PAGEABLE_TYPES.PAGE_FEATURE_BENEFIT) && (
+<div>Feature Benefit Goes Here</div>
 	)}
 
-{component && component.pageable_type === PAGEABLE_TYPES.PAGE_FEATURE && (
+{isComponent(PAGEABLE_TYPES.PAGE_FEATURE) && (
 <div>
 	<Divider class="large" />
 	<Feature component={component} />

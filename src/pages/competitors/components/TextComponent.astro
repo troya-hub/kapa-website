@@ -1,0 +1,45 @@
+---
+import Title from "@/components/ui/Title.astro";
+import Logo from "@/assets/icons/competitors/logo.svg";
+import type { PageComponent } from "@/pages.types";
+import Divider from "@/components/ui/Divider.astro";
+import FeatureRowValue from "./FeatureRowValue.astro";
+
+interface Props {
+	component: PageComponent;
+}
+
+const { component } = Astro.props;
+
+const data = component.pageable as {
+	title: string;
+	description: string;
+};
+---
+<div class="site-container">
+	<Divider size="small" />
+
+	<div class="w-[70%] mx-auto">
+		<Title type="h3">
+			{data.title}
+		</Title>
+
+		<div class="mt-6 text-k-xl text-neutral-40 text-component" set:html={data.description} />
+	</div>
+</div>
+
+<style is:global>
+	.text-component {
+		line-height: 36px !important;
+	}
+
+	.text-component ul {
+		margin: 20px 0px;
+	}
+
+	.text-component li {
+		background: url(/icons/check-icon.svg) no-repeat 0 0;
+		padding-left: 35px;
+		position: relative;
+	}
+</style>

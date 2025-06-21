@@ -1,0 +1,44 @@
+---
+import type { PageComponent } from "@/pages.types";
+import DesignWorkflow from "../../../components/how-it-works/DesignWorkflow.astro";
+import Divider from "../../../components/ui/Divider.astro";
+import DesignSteps from "../../../components/how-it-works/DesignSteps.astro";
+
+interface Props {
+	component: PageComponent;
+}
+
+type StaticTypes = "features" | "how-it-works" | "testimonials" | "faq" | "why-choose-kapa99";
+
+const { component } = Astro.props;
+
+const data = component.pageable;
+const type = data.title.toLowerCase().replace(/\s+/g, "-");
+
+console.log({ data });
+
+const isStaticComponent = (currentType: StaticTypes) => {
+	return type === currentType;
+};
+---
+
+{isStaticComponent("features") && (
+<div>
+	<Divider size="small" />
+	<DesignWorkflow />
+</div>
+	)}
+
+{isStaticComponent("how-it-works") && (
+<Divider size="small" />
+<div class="bg-night-blue text-neutral-100">
+	<Divider size="small" />
+	<DesignSteps />
+	<Divider size="small" />
+</div>
+<Divider size="small" />
+	)}
+
+<script define:vars={{ data, type }}>
+	console.log({ data, type });
+</script>

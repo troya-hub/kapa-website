@@ -26,6 +26,13 @@ const secondColumn = pages.slice(Math.ceil(pages.length / 2));
 	</div>
 </div>
 
-<script define:vars={{ pages, p, firstColumn, secondColumn }}>
-	console.log({ pages, p, firstColumn, secondColumn });
+<script define:vars={{ p }}>
+	const components = p.map(q => q.components).flat()
+		.filter(c => c.pageable_type === "App\\Models\\StaticPage")
+		.map(c => c.pageable)
+		.map(c => c.title);
+
+	const staticComponents = [...new Set(components)];
+	console.log({ staticComponents });
 </script>
+
