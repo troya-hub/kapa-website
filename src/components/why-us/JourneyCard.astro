@@ -11,8 +11,8 @@ const { spacing = false } = Astro.props;
 <div class="flex flex-col lg:flex-row">
 	<div
 		class:list={[
-			"border-dark-blue relative w-[280px] border-l pl-6 lg:mr-15 lg:pl-0",
-			{ "pt-8 lg:pt-30": spacing },
+			"border-dark-blue relative w-[280px] border-l lg:border-none pl-6 lg:mr-15 lg:pl-0",
+			{ "pt-8 lg:pt-30": spacing }
 		]}
 	>
 		<span
@@ -25,7 +25,7 @@ const { spacing = false } = Astro.props;
 				class:list={[
 					"absolute -left-2.5 block lg:hidden",
 					{ "top-[50%]": !spacing },
-					{ "top-[56%]": spacing },
+					{ "top-[56%]": spacing }
 				]}
 			/>
 		</span>
@@ -33,7 +33,7 @@ const { spacing = false } = Astro.props;
 	<div
 		class:list={[
 			"border-dark-blue relative flex grow flex-col border-l pl-6 lg:pl-15",
-			{ "lg:pt-30": spacing },
+			{ "lg:pt-30": spacing }
 		]}
 	>
 		<slot name="content" />
@@ -42,7 +42,7 @@ const { spacing = false } = Astro.props;
 			class:list={[
 				"absolute hidden lg:block",
 				{ "top-[20%] -left-2.5": !spacing },
-				{ "top-[200px] -left-2.5": spacing },
+				{ "top-[200px] -left-2.5": spacing }
 			]}
 		/>
 	</div>
