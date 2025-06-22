@@ -17,10 +17,8 @@ type StaticTypes = "features" | "how-it-works" | "testimonials" | "faq" | "why-c
 
 const { component } = Astro.props;
 
-const data = component.pageable;
+const data = component.pageable as { title: string; };
 const type = data.title.toLowerCase().replace(/\s+/g, "-");
-
-console.log({ data });
 
 const isStaticComponent = (currentType: StaticTypes) => {
 	return type === currentType;
