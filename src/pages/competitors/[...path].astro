@@ -10,7 +10,7 @@ export async function getStaticPaths() {
 	return pages.map((page: Page) => {
 		return {
 			params: { path: page.slug },
-			props: { page },
+			props: { page }
 		};
 	});
 }
@@ -30,11 +30,11 @@ const sortedComponents = page.components.sort((a, b) => a.order - b.order);
 	</div>
 </BaseLayout>
 
-<script define:vars={{ sortedComponents }}>
-	console.log(
-		sortedComponents
-			.filter((p) => p.pageable_type === "App\\Models\\StaticPage")
-			.map((p) => p.pageable)
-			.flat(),
-	);
-</script>
+<!--<script define:vars={{ sortedComponents }}>-->
+<!--	console.log(-->
+<!--		sortedComponents-->
+<!--			.filter((p) => p.pageable_type === "App\\Models\\StaticPage")-->
+<!--			.map((p) => p.pageable.title)-->
+<!--			.flat()-->
+<!--	);-->
+<!--</script>-->

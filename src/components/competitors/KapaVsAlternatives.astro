@@ -26,13 +26,20 @@ const secondColumn = pages.slice(Math.ceil(pages.length / 2));
 	</div>
 </div>
 
-<script define:vars={{ p }}>
-	const components = p.map(q => q.components).flat()
-		.filter(c => c.pageable_type === "App\\Models\\StaticPage")
-		.map(c => c.pageable)
-		.map(c => c.title);
+<!--<script define:vars={{ p }}>-->
+<!--	const components = p.map(q => q.components).flat()-->
+<!--		.filter(c => c.pageable_type === "App\\Models\\StaticPage")-->
+<!--		.map(c => c.pageable)-->
+<!--		.map(c => c.title);-->
 
-	const staticComponents = [...new Set(components)];
-	console.log({ staticComponents });
-</script>
+<!--	const staticComponents = [...new Set(components)];-->
+<!--	console.log({ staticComponents });-->
+
+<!--	const mainComponents = p.map(q => q.components).flat()-->
+<!--		.filter(c => c.pageable_type.includes("App\\Models"))-->
+<!--		.map(c => c.pageable_type);-->
+
+<!--	console.log({ mainComponents: [...new Set(mainComponents)] });-->
+
+<!--</script>-->
 

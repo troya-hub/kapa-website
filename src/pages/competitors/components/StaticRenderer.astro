@@ -3,6 +3,11 @@ import type { PageComponent } from "@/pages.types";
 import DesignWorkflow from "../../../components/how-it-works/DesignWorkflow.astro";
 import Divider from "../../../components/ui/Divider.astro";
 import DesignSteps from "../../../components/how-it-works/DesignSteps.astro";
+import Benefits from "../../../components/landing/Benefits.astro";
+import HowDoWeDoIt from "../../../components/landing/HowDoWeDoIt.astro";
+import Reviews from "../../../components/landing/Reviews.astro";
+import FAQ from "../../../components/landing/FAQ.astro";
+import WhyUseIt from "../../../components/landing/WhyUseIt.astro";
 
 interface Props {
 	component: PageComponent;
@@ -24,21 +29,31 @@ const isStaticComponent = (currentType: StaticTypes) => {
 
 {isStaticComponent("features") && (
 <div>
-	<Divider size="small" />
-	<DesignWorkflow />
+	<Divider size="large" />
+	<Benefits />
 </div>
 	)}
 
 {isStaticComponent("how-it-works") && (
-<Divider size="small" />
-<div class="bg-night-blue text-neutral-100">
-	<Divider size="small" />
-	<DesignSteps />
-	<Divider size="small" />
-</div>
-<Divider size="small" />
+<Divider size="large" />
+<HowDoWeDoIt />
 	)}
 
-<script define:vars={{ data, type }}>
-	console.log({ data, type });
-</script>
+{isStaticComponent("testimonials") && (
+<Divider size="large" />
+<Reviews />
+	)}
+
+{isStaticComponent("faq") && (
+<Divider size="large" />
+<FAQ />
+	)}
+
+{isStaticComponent("why-choose-kapa99") && (
+<Divider size="large" />
+<WhyUseIt />
+	)}
+
+<!--<script define:vars={{ data, type }}>-->
+<!--	console.log({ data, type });-->
+<!--</script>-->

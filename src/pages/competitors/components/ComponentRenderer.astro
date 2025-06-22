@@ -11,6 +11,8 @@ import Hero from "./Hero.astro";
 import Feature from "./Feature.astro";
 import TextComponent from "./TextComponent.astro";
 import StaticRenderer from "./StaticRenderer.astro";
+import Benefits from "../../../components/landing/Benefits.astro";
+import PersonalReview from "../../../components/testimonials/PersonalReview.astro";
 
 // import Hero from './Hero.astro';
 // import StaticPage from './StaticPage.astro';
@@ -46,30 +48,36 @@ const isComponent = (type: string) => {
 
 {isComponent(PAGEABLE_TYPES.PAGE_TEXT_COMPONENT) && (
 <div>
+	<Divider class="large" />
 	<TextComponent component={component} />
 </div>
 	)}
 
 {  isComponent(PAGEABLE_TYPES.PAGE_CALL_TO_ACTION) && (
 <div>
-	<Divider class="small" />
+	<Divider class="large" />
 	<CallToAction component={component} />
 </div>
 	)}
 
 {isComponent(PAGEABLE_TYPES.PAGE_TESTIMONIAL) && (
 <div>
-	<Divider class="small" />
+	<Divider class="large" />
+	<PersonalReview />
+	<Divider class="large" />
 	<ClientTestimonials />
 </div>
 	)}
 
 {isComponent(PAGEABLE_TYPES.PAGE_CAROUSEL) && (
-<div>Carousel Goes Here</div>
+<div></div>
 	)}
 
 {isComponent(PAGEABLE_TYPES.PAGE_FEATURE_BENEFIT) && (
-<div>Feature Benefit Goes Here</div>
+<div>
+	<Divider class="large" />
+	<Benefits />
+</div>
 	)}
 
 {isComponent(PAGEABLE_TYPES.PAGE_FEATURE) && (

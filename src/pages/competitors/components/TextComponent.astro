@@ -19,19 +19,28 @@ const data = component.pageable as {
 <div class="site-container">
 	<Divider size="small" />
 
-	<div class="w-[70%] mx-auto">
+	<div class="w-[70%] mx-auto text-component">
 		<Title type="h3">
 			{data.title}
 		</Title>
 
-		<div class="mt-6 text-k-xl text-neutral-40 text-component" set:html={data.description} />
+		<div class="mt-6 text-k-xl text-neutral-40" set:html={data.description} />
 	</div>
 </div>
 
 <style is:global>
-	.text-component {
+	.text-component * {
 		line-height: 36px !important;
 	}
+
+	.text-component h3 {
+		line-height: 50px !important;
+	}
+
+	.text-component p {
+		margin-bottom: 30px;
+	}
+
 
 	.text-component ul {
 		margin: 20px 0px;
