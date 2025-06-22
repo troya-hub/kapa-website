@@ -3,7 +3,7 @@ import CheckIcon from "@/assets/icons/competitors/check.svg";
 import ErrorIcon from "@/assets/icons/competitors/error.svg";
 
 interface Props {
-	data: {
+	data?: {
 		type: "CHECKBOX" | "TEXT";
 		value: string;
 	};
@@ -13,16 +13,16 @@ const { data } = Astro.props;
 ---
 
 <div class="flex justify-center gap-x-2">
-	{data.type === "CHECKBOX" && (
+	{data?.type === "CHECKBOX" && (
 		<div>
-			{data.value === true ? (
+			{data?.value === true ? (
 				<CheckIcon class="w-6" />
 			) : (
 				<ErrorIcon class="w-6" />
 			)}
 		</div>
 	)}
-	{data.type === "TEXT" && (
-		<span class="text-k-md text-neutral-40">{data.value}</span>
+	{data?.type === "TEXT" && (
+		<span class="text-k-md text-neutral-40">{data?.value}</span>
 	)}
 </div>
