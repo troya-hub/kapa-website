@@ -11,20 +11,21 @@ interface Props {
 
 const { component } = Astro.props;
 
-const data = component.pageable as {
+const data = component?.pageable as {
 	title: string;
 	description: string;
 };
 ---
+
 <div class="site-container">
 	<Divider size="small" />
 
-	<div class="lg:w-[70%] mx-auto text-component">
+	<div class="text-component mx-auto lg:w-[70%]">
 		<Title type="h3">
 			{data.title}
 		</Title>
 
-		<div class="mt-6 text-k-xl text-neutral-40" set:html={data.description} />
+		<div class="text-k-xl text-neutral-40 mt-6" set:html={data.description} />
 	</div>
 </div>
 
@@ -40,7 +41,6 @@ const data = component.pageable as {
 	.text-component p {
 		margin-bottom: 30px;
 	}
-
 
 	.text-component ul {
 		margin: 20px 0px;

@@ -17,12 +17,12 @@ interface HeroData {
 
 const { component } = Astro.props;
 
-const data = component.pageable as HeroData;
+const data = component?.pageable as HeroData;
 ---
 
 <section class="site-container text-neutral-10">
 	<Divider size="small" />
-	
+
 	<div class="mx-auto max-w-[90%] text-center">
 		<div class="mt-6 space-y-4">
 			<HeroChip title="The Creative Struggle" icon="sword" />
