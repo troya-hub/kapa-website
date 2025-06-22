@@ -12,20 +12,19 @@ const links = [
 			{ title: "Why us", href: "/why-us" },
 			{ title: "Testimonials", href: "/testimonials" },
 			{ title: "Samples", href: "/samples" },
-			{ title: "Case studies", href: "/case-studies" },
-		],
+			{ title: "Case studies", href: "/case-studies" }
+		]
 	},
 	{
 		title: "Company",
 		children: [
-			{ title: "Contact us", href: "#" },
-			{ title: "LinkedIn", href: "#" },
+			{ title: "LinkedIn", href: "https://www.linkedin.com/company/kapa99/" },
 			{ title: "FAQ's", href: "/#faq" },
 			{ title: "Kapa vs Others", href: "/competitors" },
 			{ title: "Knowledge base", href: "https://knowledge.kapa99.com/" },
-			{ title: "Blog", href: "https://kapa99.com/blog/" },
-		],
-	},
+			{ title: "Blog", href: "https://kapa99.com/blog/" }
+		]
+	}
 ];
 
 const firstColumn = links[0];
@@ -66,7 +65,8 @@ const secondColumn = links[1];
 								data-href={link.href}
 								data-active="false"
 							>
-								<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+								<div
+									class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 								{link.title}
 							</a>
 						))
@@ -82,7 +82,8 @@ const secondColumn = links[1];
 								data-href={link.href}
 								data-active="false"
 							>
-								<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+								<div
+									class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 								{link.title}
 							</a>
 						))
