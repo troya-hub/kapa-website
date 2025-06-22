@@ -28,16 +28,16 @@ const data = component?.pageable as HeroData;
 			<HeroChip title="The Creative Struggle" icon="sword" />
 
 			<Title type="h1">
-				{data.title}
+				{data?.title}
 			</Title>
 
 			<div class="text-k-lg text-neutral-40 mx-auto max-w-[80%]">
-				{data.description}
+				{data?.description}
 			</div>
 
 			<div class="mt-6 flex justify-center">
-				<a class="button-primary" href={"https://app.kapa99.com/" + data.button_href}>
-					{data.button_text}
+				<a class="button-primary" href={"https://app.kapa99.com/" + data?.button_href}>
+					{data?.button_text}
 				</a>
 			</div>
 		</div>

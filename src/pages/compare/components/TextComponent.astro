@@ -22,10 +22,10 @@ const data = component?.pageable as {
 
 	<div class="text-component mx-auto lg:w-[70%]">
 		<Title type="h3">
-			{data.title}
+			{data?.title}
 		</Title>
 
-		<div class="text-k-xl text-neutral-40 mt-6" set:html={data.description} />
+		<div class="text-k-xl text-neutral-40 mt-6" set:html={data?.description} />
 	</div>
 </div>
 
