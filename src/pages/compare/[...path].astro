@@ -1,7 +1,8 @@
 ---
 import type { Page, PageComponent, PagesApiResponse } from "@/pages.types.ts";
 import BaseLayout from "@/layouts/BaseLayout.astro";
-import ComponentRenderer from "./components/ComponentRenderer.astro";
+
+import ComponentRenderer from "@/pages/competitors/components/ComponentRenderer.astro";
 
 export async function getStaticPaths() {
 	const response = await fetch("https://kapa99.com/api/astro/pages");
@@ -10,7 +11,7 @@ export async function getStaticPaths() {
 	return pages.map((page: Page) => {
 		return {
 			params: { path: page.slug },
-			props: { page }
+			props: { page },
 		};
 	});
 }

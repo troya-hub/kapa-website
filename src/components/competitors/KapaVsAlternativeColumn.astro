@@ -10,13 +10,14 @@ const { column } = Astro.props;
 
 {
 	column.map((page) => (
-	<a
-		href={`/competitors/${page.slug}`}
-		class="group text-k-lg text-neutral-95 flex items-center gap-x-3"
-	>
-		{page.title}
-		<div class="hidden grow group-hover:inline-block">
-			<ArrowRight />
-		</div>
-	</a>
-		))}
+		<a
+			href={`/compare/${page.slug}`}
+			class="group text-k-lg text-neutral-95 flex items-center gap-x-3"
+		>
+			{page.title}
+			<div class="hidden grow group-hover:inline-block">
+				<ArrowRight />
+			</div>
+		</a>
+	))
+}
