@@ -11,7 +11,7 @@ interface Props {
 
 const { component } = Astro.props;
 
-const data = component.pageable as {
+const data = component?.pageable as {
 	first_company: string;
 	second_company: string;
 	title: string;
@@ -37,11 +37,11 @@ const data = component.pageable as {
 
 	<div class="text-center">
 		<Title type="h3">
-			{data.title}
+			{data?.title}
 		</Title>
 
 		<div class="mt-6 text-k-lg text-neutral-40 mx-auto max-w-[80%]">
-			{data.description}
+			{data?.description}
 		</div>
 
 		<Divider size="small" />
@@ -54,13 +54,13 @@ const data = component.pageable as {
 					<Logo class="h-4 relative top-px" />
 				</div>
 				<div class="text-center py-4">
-					{data.second_company}
+					{data?.second_company}
 				</div>
 			</div>
 
 
 			<!-- Second Row -->
-			{data.value.map(value => (
+			{data?.value.map(value => (
 				<div class="grid grid-cols-4">
 					<div class="col-span-4 text-left bg-sky-blue p-3 font-semibold flex items-center">
 						<span>{value.name}</span>
