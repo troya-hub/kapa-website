@@ -15,43 +15,43 @@ const benefits = [
 		title: "Unlimited Active Tasks",
 		icon: UnlimitedActiveTasksIcon,
 		description:
-			"Whether you need one design or ten, you can submit all your requests and keep them moving simultaneously - no need to wait for one to finish before starting another.",
+			"Whether you need one design or ten, you can submit all your requests and keep them moving simultaneously - no need to wait for one to finish before starting another."
 	},
 	{
 		id: "unlimited-brands",
 		title: "Unlimited Brands",
 		icon: UnlimitedBrandIcon,
 		description:
-			"Manage and request designs for as many brands as you like. This is ideal for agencies, marketing teams, or entrepreneurs with multiple businesses.",
+			"Manage and request designs for as many brands as you like. This is ideal for agencies, marketing teams, or entrepreneurs with multiple businesses."
 	},
 	{
 		id: "unlimited-graphic-design",
 		title: "Unlimited Graphic Design",
 		icon: UnlimitedGraphicDesignsIcon,
 		description:
-			"Enjoy unlimited access to high-quality, custom graphic designs tailored to your needs. From eye-catching GIFs and unique illustrations to pitch-perfect presentations and professional logos.",
+			"Enjoy unlimited access to high-quality, custom graphic designs tailored to your needs. From eye-catching GIFs and unique illustrations to pitch-perfect presentations and professional logos."
 	},
 	{
 		id: "native-adobe-files",
 		title: "Native Adobe Files",
 		icon: NativeAdobeFilesIcon,
 		description:
-			"You'll receive your final designs along with the original, fully editable Adobe source files (like AI, PSD, or INDD). This gives you full control for future edits, tweaks, or scaling across platforms.",
+			"You'll receive your final designs along with the original, fully editable Adobe source files (like AI, PSD, or INDD). This gives you full control for future edits, tweaks, or scaling across platforms."
 	},
 	{
 		id: "canva-file-delivery",
 		title: "Canva File Delivery",
 		icon: CanvaFileDeliveryIcon,
 		description:
-			"Prefer working in Canva? No problem. You can request your files to be delivered in Canva format, making it easy to update and collaborate within your team—even without design software.",
+			"Prefer working in Canva? No problem. You can request your files to be delivered in Canva format, making it easy to update and collaborate within your team—even without design software."
 	},
 	{
 		id: "unlimited-team-members",
 		title: "Unlimited Team Members",
 		icon: UnlimitedTeamMembersIcon,
 		description:
-			"Your entire team can join in. Invite as many collaborators as needed, allowing everyone to submit, track, and manage design requests in one centralized place.",
-	},
+			"Your entire team can join in. Invite as many collaborators as needed, allowing everyone to submit, track, and manage design requests in one centralized place."
+	}
 ];
 
 const activeBenefit = benefits[0];
@@ -70,8 +70,8 @@ const activeBenefit = benefits[0];
 				>
 					<div
 						class={clsx(
-							"benefit-icon border-blue flex h-14 w-14 items-center justify-center rounded-lg transition-all duration-300",
-							index === 0 ? "active--benefit bg-light-blue" : "bg-sky-blue",
+							"benefit-icon border-blue flex h-14 w-14 items-center justify-center rounded-[14px] transition-all duration-300",
+							index === 0 ? "active--benefit bg-light-blue border-b-[1.5px] border-blue" : "bg-sky-blue"
 						)}
 					>
 						<img src={benefit.icon} alt={benefit.title} />
@@ -107,10 +107,9 @@ const activeBenefit = benefits[0];
 
 <style>
 	.active--benefit {
-		box-shadow:
-			27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06),
-			13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08),
-			3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);
+		box-shadow: 27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06),
+		13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08),
+		3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);
 	}
 
 	.benefit-item {
@@ -136,10 +135,10 @@ const activeBenefit = benefits[0];
 
 		// Remove active state from current benefit
 		const currentIcon = document.querySelector(
-			`[data-benefit-index="${currentActiveBenefit}"] .benefit-icon`,
+			`[data-benefit-index="${currentActiveBenefit}"] .benefit-icon`
 		);
 		const currentTitle = document.querySelector(
-			`[data-benefit-index="${currentActiveBenefit}"] span`,
+			`[data-benefit-index="${currentActiveBenefit}"] span`
 		);
 		if (currentIcon) {
 			currentIcon.classList.remove("active--benefit", "bg-light-blue");
