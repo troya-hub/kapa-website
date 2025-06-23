@@ -12,8 +12,8 @@ const links = [
 			{ title: "Why us", href: "/why-us" },
 			{ title: "Testimonials", href: "/testimonials" },
 			{ title: "Samples", href: "/samples" },
-			{ title: "Case studies", href: "/case-studies" },
-		],
+			{ title: "Case studies", href: "/case-studies" }
+		]
 	},
 	{
 		title: "Company",
@@ -22,9 +22,9 @@ const links = [
 			{ title: "FAQ's", href: "/#faq" },
 			{ title: "Kapa vs Others", href: "/compare" },
 			{ title: "Knowledge base", href: "https://knowledge.kapa99.com/" },
-			{ title: "Blog", href: "https://kapa99.com/blog/" },
-		],
-	},
+			{ title: "Blog", href: "https://kapa99.com/blog/" }
+		]
+	}
 ];
 
 const firstColumn = links[0];
@@ -39,7 +39,7 @@ const secondColumn = links[1];
 			</div>
 			<div class="justify-between lg:flex lg:border-l lg:border-[rgba(102,153,255,0.20)]">
 				<div class="space-y-2 px-6 py-10 lg:space-y-0">
-					<Title type="h6" class="text-neutral-95">+1 (786) 2203376</Title>
+					<Title type="h6" class="text-neutral-95">+1 (518) 838 1619</Title>
 					<Title type="h6" class="text-neutral-95 lg:hidden">help@kapa99.com</Title>
 				</div>
 				<div class="hidden px-6 py-10 lg:block lg:border-l lg:border-[rgba(102,153,255,0.20)]">
@@ -65,7 +65,8 @@ const secondColumn = links[1];
 								data-href={link.href}
 								data-active="false"
 							>
-								<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+								<div
+									class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 								{link.title}
 							</a>
 						))
@@ -81,7 +82,8 @@ const secondColumn = links[1];
 								data-href={link.href}
 								data-active="false"
 							>
-								<div class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
+								<div
+									class="active-circle mr-0 h-2 w-0 w-2 flex-shrink-0 rounded-full opacity-0 transition-all duration-200" />
 								{link.title}
 							</a>
 						))
