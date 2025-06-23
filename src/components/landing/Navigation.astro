@@ -1,6 +1,7 @@
 ---
 import Logo from "@/assets/icons/logo.svg";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
+import { LOGIN_URL, REGISTER_URL } from "@/constants/app";
 
 const menuOptions = [
 	{ label: "How it works", href: "/how-it-works" },
@@ -8,7 +9,7 @@ const menuOptions = [
 	{ label: "Why us", href: "/why-us" },
 	{ label: "Testimonials", href: "/testimonials" },
 	{ label: "Samples", href: "/samples" },
-	{ label: "Case studies", href: "/case-studies" }
+	{ label: "Case studies", href: "/case-studies" },
 ];
 ---
 
@@ -38,10 +39,10 @@ const menuOptions = [
 
 	<!-- Desktop Auth -->
 	<div class="hidden items-center gap-4 lg:flex">
-		<a href="https://kapa99.com/login">Login</a>
-		<a href="https://kapa99.com/register" class="button-secondary flex items-center gap-x-2">
+		<a href={LOGIN_URL}>Login</a>
+		<a href={REGISTER_URL} class="group button-secondary flex items-center gap-x-2">
 			<span>Start free trial</span>
-			<ArrowIcon />
+			<ArrowIcon class="group-hover:text-neutral-40 h-3 w-3 text-white" />
 		</a>
 	</div>
 
@@ -118,14 +119,14 @@ const menuOptions = [
 				</a>
 			))
 		}
-		<a href="https://kapa99.com/login" class="flex border-neutral-95 border-b py-4 text-lg">
+		<a href="https://kapa99.com/login" class="border-neutral-95 flex border-b py-4 text-lg">
 			<div class="mr-3 flex w-2 justify-center">
-				<div class="mobile-active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0" />
+				<div class="mobile-active-circle h-2 w-2 flex-shrink-0 rounded-full opacity-0"></div>
 			</div>
 			Login
 		</a>
 		<a
-			href="https://kapa99.com/register"
+			href={REGISTER_URL}
 			class="button-secondary mt-4 flex w-full items-center justify-center gap-x-2"
 		>
 			<span>Start free trial</span>

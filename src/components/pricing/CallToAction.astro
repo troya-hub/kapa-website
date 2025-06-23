@@ -2,6 +2,7 @@
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 import Background from "@/assets/images/call-to-action/background.webp?url";
 import Title from "@/components/ui/Title.astro";
+import { REGISTER_URL } from "../../constants/app";
 ---
 
 <section
@@ -20,7 +21,7 @@ import Title from "@/components/ui/Title.astro";
 				See our Work
 				<ArrowIcon class="text-neutral-10 h-3 w-3" />
 			</a>
-			<a href="#" class="button-primary"> Start free trial </a>
+			<a href={REGISTER_URL} class="button-primary"> Start free trial </a>
 		</div>
 	</div>
 </section>

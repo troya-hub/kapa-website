@@ -8,27 +8,28 @@ const founders = [
 	{
 		name: "Ka",
 		job: "Co-Founder",
-		image: KaImage,
+		image: KaImage
 	},
 	{
 		name: "Paola",
 		image: PaolaImage,
-		job: "Co-Founder",
-	},
+		job: "Co-Founder"
+	}
 ];
 ---
 
 <div class="site-container">
 	<Title type="h4" class="mx-auto text-center lg:w-[80%]">
-		Your business graphic design needs covered,
+		Your business graphic design needs covered, <br class="hidden xl:inline-block">
 		<span class="text-neutral-60">
-			whether it’s marketing assets, presentations, reports, illustrations, gifs, or workbooks.
+			whether it’s marketing assets, presentations, <br class="hidden xl:inline-block">
+			reports, illustrations, gifs, or workbooks.
 		</span>
 	</Title>
 
 	<Divider size="medium" />
 
-	<div class="mx-auto flex justify-center gap-x-20">
+	<div class="mx-auto flex justify-center gap-x-4 lg:gap-x-20">
 		{
 			founders.map((founder) => (
 				<div class="flex gap-x-4">

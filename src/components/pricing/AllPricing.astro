@@ -8,6 +8,7 @@ import DedicatedTeamIcon from "@/assets/icons/pricing/dedicated-team.svg?url";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 
 import clsx from "clsx";
+import { REGISTER_URL } from "../../constants/app";
 
 const prices = {
 	month: [
@@ -162,7 +163,8 @@ const selectedFrequency = "month";
 							</span>
 						</div>
 
-						<button
+						<a
+							href={REGISTER_URL}
 							class={clsx(
 								"flex items-center justify-center gap-x-2",
 								price.isDedicated ? "button-primary" : "button-secondary",
@@ -170,7 +172,7 @@ const selectedFrequency = "month";
 						>
 							Start free trial
 							<ArrowIcon class="h-3 w-3 text-neutral-100" />
-						</button>
+						</a>
 					</div>
 				))
 			}
