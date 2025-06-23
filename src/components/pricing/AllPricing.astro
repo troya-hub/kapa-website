@@ -8,61 +8,74 @@ import DedicatedTeamIcon from "@/assets/icons/pricing/dedicated-team.svg?url";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 
 import clsx from "clsx";
-import { REGISTER_URL } from "../../constants/app";
+
+import { getRegisterUrlWithParams } from "@/constants/app";
 
 const prices = {
 	month: [
 		{
 			icon: TimeIcon,
 			title: "Async standard",
-			pricing: 349,
+			pricing: 499,
+			discount: 349,
 			description:
 				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
 			isDedicated: false,
+			register_url: getRegisterUrlWithParams({ plan: "price_1" })
 		},
 		{
 			icon: TwentyFourHoursIcon,
 			title: "Async priority",
-			pricing: 849,
+			pricing: 999,
+			discount: 849,
 			description:
 				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
 			isDedicated: false,
+			register_url: getRegisterUrlWithParams({ plan: "price_2" })
 		},
 		{
 			icon: DedicatedTeamIcon,
 			title: "Dedicated team",
-			pricing: 1299,
+			pricing: 2500,
+			discount: 2000,
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
-		},
+			register_url: getRegisterUrlWithParams({ plan: "price_3" })
+		}
 	],
 	yearly: [
 		{
 			icon: TimeIcon,
 			title: "Async standard",
 			pricing: 670,
+			discount: 650,
 			description:
 				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
 			isDedicated: false,
+			register_url: getRegisterUrlWithParams({ plan: "price_4" })
 		},
 		{
 			icon: TwentyFourHoursIcon,
 			title: "Async priority",
 			pricing: 1200,
+			discount: 1100,
 			description:
 				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
 			isDedicated: false,
+			register_url: getRegisterUrlWithParams({ plan: "price_5" })
 		},
 		{
 			icon: DedicatedTeamIcon,
 			title: "Dedicated team",
 			pricing: 2499,
+			discount: 2400,
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
-		},
-	],
+			register_url: getRegisterUrlWithParams({ plan: "price_6" })
+		}
+	]
 };
 
 const selectedFrequency = "month";
@@ -124,7 +137,7 @@ const selectedFrequency = "month";
 					<div
 						class={clsx(
 							"pricing-card border-light-blue flex flex-col gap-y-8 rounded-2xl border p-8 transition-all duration-300",
-							price.isDedicated ? "text-neutral-95 bg-night-blue" : "text-neutral-10 bg-sky-blue",
+							price.isDedicated ? "text-neutral-95 bg-night-blue" : "text-neutral-10 bg-sky-blue"
 						)}
 						data-card-index={index}
 					>
@@ -140,7 +153,7 @@ const selectedFrequency = "month";
 							<p
 								class={clsx(
 									"text-k-md mt-2 min-h-[72px]",
-									price.isDedicated ? "text-neutral-95" : "text-neutral-10",
+									price.isDedicated ? "text-neutral-95" : "text-neutral-10"
 								)}
 							>
 								{price.description}
@@ -148,15 +161,18 @@ const selectedFrequency = "month";
 						</div>
 
 						<div class="flex items-end gap-x-2">
+							<span class="pricing-original relative -top-1 text-lg line-through transition-all duration-300">
+								${price.pricing}
+							</span>
 							<Title
 								type="h4"
 								useDesktopOnMobile
 								class={clsx(
 									"pricing-amount transition-all duration-300",
-									price.isDedicated ? "text-neutral-95" : "text-neutral-10",
+									price.isDedicated ? "text-neutral-95" : "text-neutral-10"
 								)}
 							>
-								${price.pricing}
+								${price.discount}
 							</Title>
 							<span class="pricing-frequency relative -top-1 transition-all duration-300">
 								per {selectedFrequency}
@@ -164,14 +180,16 @@ const selectedFrequency = "month";
 						</div>
 
 						<a
-							href={REGISTER_URL}
+							href={price.register_url}
 							class={clsx(
-								"flex items-center justify-center gap-x-2",
-								price.isDedicated ? "button-primary" : "button-secondary",
+								"group flex items-center justify-center gap-x-2",
+								price.isDedicated ? "button-primary" : "button-secondary"
 							)}
 						>
 							Start free trial
-							<ArrowIcon class="h-3 w-3 text-neutral-100" />
+							<ArrowIcon
+								class={`h-3 w-3 text-neutral-100 ${price.isDedicated ? "group-hover:text-neutral-100" : "group-hover:text-neutral-40"}`}
+							/>
 						</a>
 					</div>
 				))
@@ -220,14 +238,28 @@ const selectedFrequency = "month";
 			selectedPrices.forEach((price, index) => {
 				const card = document.querySelector(`[data-card-index="${index}"]`);
 				if (card) {
+					// Update the main discounted price (prominent display)
 					const amountEl = card.querySelector(".pricing-amount");
 					if (amountEl) {
-						amountEl.textContent = `$${price.pricing}`;
+						amountEl.textContent = `$${price.discount}`;
 					}
 
-					const frequencyEl = card.querySelector(".pricing-frequency");
-					if (frequencyEl) {
-						frequencyEl.textContent = `per ${frequency === "yearly" ? "year" : "month"}`;
+					// Update the original price (strikethrough)
+					const originalEl = card.querySelector(".pricing-original");
+					if (originalEl) {
+						originalEl.textContent = `$${price.pricing}`;
+					}
+
+					// Update the frequency text
+					const frequencyEls = card.querySelectorAll(".pricing-frequency");
+					frequencyEls.forEach((el) => {
+						el.textContent = `per ${frequency === "yearly" ? "year" : "month"}`;
+					});
+
+					// Update the register URL
+					const registerLinkEl = card.querySelector("a[href]");
+					if (registerLinkEl && price.register_url) {
+						registerLinkEl.href = price.register_url;
 					}
 				}
 			});
