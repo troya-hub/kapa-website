@@ -23,9 +23,10 @@ import Title from "@/components/ui/Title.astro";
 		<BentoCard>
 			<div
 				slot="images"
-				class="flex items-center justify-center gap-x-[10px] py-[70px] lg:w-[120%] lg:pl-10"
+				class="flex lg:items-center lg:justify-center gap-x-[10px] py-[70px] lg:w-[120%] pl-10"
 			>
-				{designers.map((designer) => <DesignerCard designer={designer} />)}
+				{designers.map((designer) =>
+					<DesignerCard designer={designer} />)}
 			</div>
 			<span slot="title">A design team for a fraction of the cost</span>
 			<span slot="description">
