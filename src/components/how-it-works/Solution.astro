@@ -1,8 +1,12 @@
 ---
-import TextureBackgroundImage from "@/assets/images/how-it-works/texture-background.webp?url";
 import VideoHeroImage from "@/assets/images/how-it-works/video-hero.webp?url";
 
 import PatternImage from "@/assets/icons/why-use-it/pattern.svg?url";
+
+const wistiaScripts = `
+  <script src="https://fast.wistia.com/assets/external/E-v1.js" async></script>
+  <script src="https://fast.wistia.com/embed/medias/vev5adlkpt.jsonp" async></script>
+`;
 ---
 
 <div>
@@ -21,18 +25,26 @@ import PatternImage from "@/assets/icons/why-use-it/pattern.svg?url";
 		</div>
 
 		<div class="site-container relative w-[80%]">
-			<img src={VideoHeroImage} alt="Solution" />
+			<div class="wistia_embed wistia_async_vev5adlkpt popover=true popoverAnimateThumbnail=true popoverContent=link"
+					 style="display:inline;position:relative">
+				<a href="#">
+					<img src={VideoHeroImage} alt="Solution" />
+				</a>
+			</div>
 		</div>
 	</div>
 </div>
+
+
+<div set:html={wistiaScripts} />
 
 <style>
 	.clip-diagonal-inverse {
 		clip-path: polygon(
 			0% 0%,
-			/* Top-left corner */ 100% 0%,
-			/* Top-right corner */ 90% 100%,
-			/* Bottom-right diagonal inward */ 10% 100% /* Bottom-left diagonal inward */
+				/* Top-left corner */ 100% 0%,
+				/* Top-right corner */ 90% 100%,
+				/* Bottom-right diagonal inward */ 10% 100% /* Bottom-left diagonal inward */
 		);
 	}
 </style>
