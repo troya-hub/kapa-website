@@ -15,6 +15,7 @@ import DedicatedTeamImage from "@/assets/images/how-it-works/dedicated-team.webp
 import DedicatedTeamMobileImage from "@/assets/images/how-it-works/dedicated-team-mobile.webp?url";
 import StepsImage from "@/assets/images/how-it-works/steps.webp?url";
 import StepsMobileImage from "@/assets/images/how-it-works/steps-mobile.webp?url";
+import { REGISTER_URL } from "@/constants/app";
 
 const bentoCardDefaultClasses = "bg-sky-blue border-light-blue rounded-2xl";
 ---
@@ -35,7 +36,7 @@ const bentoCardDefaultClasses = "bg-sky-blue border-light-blue rounded-2xl";
 					<span class="font-medium">Slack, Asana, Trello, ClickUp, and more</span>. We’ll plug right
 					into your workflow so communication stays seamless and projects keep moving.
 				</p>
-				<button class="button-primary"> Start with a free 15 day trial</button>
+				<a class="button-primary" href={REGISTER_URL}> Start with a free 15 day trial</a>
 			</div>
 			<div class="pt-8">
 				<picture>

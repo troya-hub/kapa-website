@@ -7,6 +7,7 @@ import ConsIcon from "@/assets/icons/competitors/cons.svg";
 import KapaIcon from "@/assets/icons/competitors/kapa.svg";
 import FreelancerIcon from "@/assets/icons/competitors/freelancers.svg";
 import AgencyIcon from "@/assets/icons/competitors/agencies.svg";
+import { REGISTER_URL } from "@/constants/app";
 
 const competitors = [
 	{
@@ -138,17 +139,17 @@ const competitors = [
 	>
 		<span class="grow text-k-lg"> Start your first request today — it’s free for 15 days. </span>
 		<div class="pt-6 lg:py-4">
-			<button class="button-primary"> Start with a free 15 day trial</button>
+			<a class="button-primary" href={REGISTER_URL}> Start with a free 15 day trial</a>
 		</div>
 	</div>
 </div>
 
 <style>
 	.featured {
-		box-shadow: 24px 28px 24px 0px rgba(11, 15, 41, 0.06), 12px 12px 16px 0px rgba(11, 15, 41, 0.08), 3px 3px 8px 0px rgba(11, 15, 41, 0.08);
+		box-shadow: 24px 28px 24px 0 rgba(11, 15, 41, 0.06), 12px 12px 16px 0 rgba(11, 15, 41, 0.08), 3px 3px 8px 0 rgba(11, 15, 41, 0.08);
 	}
 
 	.non-featured {
-		box-shadow: 24px 28px 24px 0px rgba(11, 15, 41, 0.06), 12px 12px 16px 0px rgba(11, 15, 41, 0.08), 3px 3px 8px 0px rgba(11, 15, 41, 0.08);
+		box-shadow: 24px 28px 24px 0 rgba(11, 15, 41, 0.06), 12px 12px 16px 0 rgba(11, 15, 41, 0.08), 3px 3px 8px 0 rgba(11, 15, 41, 0.08);
 	}
 </style>

@@ -3,6 +3,7 @@ import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
 import Title from "@/components/ui/Title.astro";
 import OurClients from "@/components/landing/OurClients.astro";
 import Divider from "@/components/ui/Divider.astro";
+import { REGISTER_URL } from "@/constants/app";
 ---
 
 <section class="site-container text-neutral-10">
@@ -11,7 +12,7 @@ import Divider from "@/components/ui/Divider.astro";
 		<div
 			class="text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
 		>
-			15 years of helping businesses
+			12 years helping people like you
 			<ArrowRightUp />
 		</div>
 
@@ -24,7 +25,7 @@ import Divider from "@/components/ui/Divider.astro";
 			</div>
 
 			<div class="mt-6 flex justify-center">
-				<a class="button-primary" href="#">Start with a free 15 day trial</a>
+				<a class="button-primary" href={REGISTER_URL}>Start with a free 15 day trial</a>
 			</div>
 		</div>
 

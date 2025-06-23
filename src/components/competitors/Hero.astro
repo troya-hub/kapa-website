@@ -2,6 +2,8 @@
 import Title from "@/components/ui/Title.astro";
 import Divider from "@/components/ui/Divider.astro";
 import HeroChip from "@/components/pricing/HeroChip.astro";
+
+import { REGISTER_URL } from "@/constants/app";
 ---
 
 <section class="site-container text-neutral-10">
@@ -18,7 +20,7 @@ import HeroChip from "@/components/pricing/HeroChip.astro";
 			</div>
 
 			<div class="mt-6 flex justify-center">
-				<a class="button-primary" href="#">Start with a free 15 day trial</a>
+				<a class="button-primary" href={REGISTER_URL}>Start with a free 15 day trial</a>
 			</div>
 		</div>
 	</div>
