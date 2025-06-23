@@ -175,7 +175,7 @@ const selectedFrequency = "month";
 								${price.discount}
 							</Title>
 							<span class="pricing-frequency relative -top-1 transition-all duration-300">
-								per {selectedFrequency}
+								per first two months
 							</span>
 						</div>
 
@@ -250,11 +250,11 @@ const selectedFrequency = "month";
 						originalEl.textContent = `$${price.pricing}`;
 					}
 
-					// Update the frequency text
-					const frequencyEls = card.querySelectorAll(".pricing-frequency");
-					frequencyEls.forEach((el) => {
-						el.textContent = `per ${frequency === "yearly" ? "year" : "month"}`;
-					});
+					// // Update the frequency text
+					// const frequencyEls = card.querySelectorAll(".pricing-frequency");
+					// frequencyEls.forEach((el) => {
+					// 	el.textContent = `per ${frequency === "yearly" ? "year" : "month"}`;
+					// });
 
 					// Update the register URL
 					const registerLinkEl = card.querySelector("a[href]");
