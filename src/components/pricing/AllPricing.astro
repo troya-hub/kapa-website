@@ -21,7 +21,7 @@ const prices = {
 			description:
 				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
 			isDedicated: false,
-			register_url: getRegisterUrlWithParams({ plan: "price_1" })
+			register_url: getRegisterUrlWithParams({ plan: "price_1N4p9YJxdssqISMq90oyffZs" })
 		},
 		{
 			icon: TwentyFourHoursIcon,
@@ -31,7 +31,7 @@ const prices = {
 			description:
 				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
 			isDedicated: false,
-			register_url: getRegisterUrlWithParams({ plan: "price_2" })
+			register_url: getRegisterUrlWithParams({ plan: "price_1OVfGjJxdssqISMqr4tfUE1G" })
 		},
 		{
 			icon: DedicatedTeamIcon,
@@ -41,39 +41,39 @@ const prices = {
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
-			register_url: getRegisterUrlWithParams({ plan: "price_3" })
+			register_url: getRegisterUrlWithParams({ plan: "price_1RdJN3JxdssqISMq1vlvhMSE" })
 		}
 	],
 	yearly: [
 		{
 			icon: TimeIcon,
 			title: "Async standard",
-			pricing: 670,
-			discount: 650,
+			pricing: 5988,
+			discount: 4790,
 			description:
 				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
 			isDedicated: false,
-			register_url: getRegisterUrlWithParams({ plan: "price_4" })
+			register_url: getRegisterUrlWithParams({ plan: "price_1N4pC4JxdssqISMqHzXeKOH1" })
 		},
 		{
 			icon: TwentyFourHoursIcon,
 			title: "Async priority",
-			pricing: 1200,
-			discount: 1100,
+			pricing: 11988,
+			discount: 9590,
 			description:
 				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
 			isDedicated: false,
-			register_url: getRegisterUrlWithParams({ plan: "price_5" })
+			register_url: getRegisterUrlWithParams({ plan: "price_1OVfLpJxdssqISMqBZqcOIGI" })
 		},
 		{
 			icon: DedicatedTeamIcon,
 			title: "Dedicated team",
-			pricing: 2499,
-			discount: 2400,
+			pricing: 25000,
+			discount: 20000,
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
-			register_url: getRegisterUrlWithParams({ plan: "price_6" })
+			register_url: getRegisterUrlWithParams({ plan: "price_1RdJNSJxdssqISMq4RO9Thzx" })
 		}
 	]
 };
@@ -250,11 +250,11 @@ const selectedFrequency = "month";
 						originalEl.textContent = `$${price.pricing}`;
 					}
 
-					// // Update the frequency text
-					// const frequencyEls = card.querySelectorAll(".pricing-frequency");
-					// frequencyEls.forEach((el) => {
-					// 	el.textContent = `per ${frequency === "yearly" ? "year" : "month"}`;
-					// });
+					// Update the frequency text
+					const frequencyEls = card.querySelectorAll(".pricing-frequency");
+					frequencyEls.forEach((el) => {
+						el.textContent = `per ${frequency === "yearly" ? "20% discount" : "first  two months"}`;
+					});
 
 					// Update the register URL
 					const registerLinkEl = card.querySelector("a[href]");
