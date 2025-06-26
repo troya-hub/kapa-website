@@ -1,7 +1,8 @@
 ---
 import Logo from "@/assets/icons/logo.svg";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
-import { LOGIN_URL, REGISTER_URL } from "@/constants/app";
+import { LOGIN_URL, PRICING_URL } from "@/constants/app";
+import { PRICING_URL } from "../../constants/app";
 
 const menuOptions = [
 	{ label: "How it works", href: "/how-it-works" },
@@ -9,7 +10,7 @@ const menuOptions = [
 	{ label: "Why us", href: "/why-us" },
 	{ label: "Testimonials", href: "/testimonials" },
 	{ label: "Samples", href: "/samples" },
-	{ label: "Case studies", href: "/case-studies" }
+	{ label: "Case studies", href: "/case-studies" },
 ];
 ---
 
@@ -40,7 +41,7 @@ const menuOptions = [
 	<!-- Desktop Auth -->
 	<div class="hidden items-center gap-4 lg:flex">
 		<a href={LOGIN_URL}>Login</a>
-		<a href={REGISTER_URL} class="group button-secondary flex items-center gap-x-2">
+		<a href={PRICING_URL} class="group button-secondary flex items-center gap-x-2">
 			<span>Start free trial</span>
 			<ArrowIcon class="group-hover:text-neutral-40 h-3 w-3 text-white" />
 		</a>
