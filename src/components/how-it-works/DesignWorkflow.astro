@@ -53,7 +53,8 @@ const bentoCardDefaultClasses = "bg-sky-blue border-light-blue rounded-2xl";
 
 		<!-- Second Row -->
 		<div class="flex flex-col gap-x-10 lg:flex-row lg:gap-y-6">
-			<div class:list={[bentoCardDefaultClasses, "flex w-full flex-col overflow-hidden lg:w-1/2"]}>
+			<div
+				class:list={[bentoCardDefaultClasses, "flex w-full flex-col overflow-hidden lg:w-1/2 lg:min-h-[500px] rounded-2xl"]}>
 				<div class="mx-6 mt-12 lg:mx-10">
 					<Title type="h6">Stay on top of everything</Title>
 					<p class="text-neutral-40 text-k-lg mt-2 mb-10">
@@ -61,14 +62,16 @@ const bentoCardDefaultClasses = "bg-sky-blue border-light-blue rounded-2xl";
 						what’s in progress, what’s coming, and when to expect delivery.
 					</p>
 				</div>
-				<picture class="grow">
-					<source srcset={KanbanBoardMobileImage} media="(max-width: 1023px)" />
-					<img
-						src={KanbanBoardImage}
-						alt="Kanban Board"
-						class="h-full grow rounded-2xl rounded-bl-none object-cover object-left-top lg:ml-10"
-					/>
-				</picture>
+				<div class="flex grow">
+					<picture class="w-full grow lg:pl-10 relative -left-4 lg:left-0">
+						<source srcset={KanbanBoardMobileImage} media="(max-width: 1023px)" />
+						<img
+							src={KanbanBoardImage}
+							alt="Kanban Board"
+							class="h-full w-full object-cover object-left-top rounded-2xl rounded-bl-none"
+						/>
+					</picture>
+				</div>
 			</div>
 
 			<div class="mt-6 w-full lg:mt-0 lg:w-1/2">
