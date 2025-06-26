@@ -3,7 +3,7 @@ import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
 import Title from "@/components/ui/Title.astro";
 import OurClients from "@/components/landing/OurClients.astro";
 import Divider from "@/components/ui/Divider.astro";
-import { REGISTER_URL } from "@/constants/app";
+import { PRICING_URL } from "@/constants/app";
 
 import AaronDuncanImage from "@/assets/images/testimonials/aaron-duncan.webp?url";
 import AngelaMurphyImage from "@/assets/images/testimonials/angela-murphy.webp?url";
@@ -11,6 +11,7 @@ import CynthiaMurphyImage from "@/assets/images/testimonials/cynthia-murphy.webp
 import JamesCarbaryImage from "@/assets/images/testimonials/james-carbary.webp?url";
 import KeiraSpencerImage from "@/assets/images/testimonials/keira-spencer.webp?url";
 import RyanUnderwoodImage from "@/assets/images/testimonials/ryan-underwood.webp?url";
+import { PRICING_URL } from "../../constants/app";
 
 const people = [
 	{
@@ -89,7 +90,7 @@ const people = [
 			</div>
 
 			<div class="mt-8 flex justify-center">
-				<a class="button-primary" href={REGISTER_URL}>Start with a free 15 day trial</a>
+				<a class="button-primary" href={PRICING_URL}>Start with a free 15 day trial</a>
 			</div>
 		</div>
 	</div>

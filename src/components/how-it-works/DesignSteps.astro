@@ -1,7 +1,8 @@
 ---
 import Title from "@/components/ui/Title.astro";
 import Divider from "@/components/ui/Divider.astro";
-import { REGISTER_URL } from "@/constants/app";
+import { PRICING_URL } from "@/constants/app";
+import { PRICING_URL } from "../../constants/app";
 
 const designSteps = [
 	{
@@ -34,7 +35,7 @@ const designSteps = [
 ---
 
 <div class="site-container">
-	<Title type="h1" class="text-center text-neutral-100"> Get design in 4 simple steps </Title>
+	<Title type="h1" class="text-center text-neutral-100"> Get Design help in 4 simple steps </Title>
 
 	<Divider size="large" />
 
@@ -58,7 +59,7 @@ const designSteps = [
 	>
 		<span class="grow"> Start your first request today — it’s free for 15 days. </span>
 		<div class="pt-6 lg:py-2">
-			<a class="button-primary" href={REGISTER_URL}> Get Design help in 4 simple steps</a>
+			<a class="button-primary" href={PRICING_URL}> Start with a free 15 day trial </a>
 		</div>
 	</div>
 </div>
