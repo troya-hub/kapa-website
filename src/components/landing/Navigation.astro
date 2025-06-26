@@ -2,7 +2,6 @@
 import Logo from "@/assets/icons/logo.svg";
 import ArrowIcon from "@/assets/icons/arrow-icon.svg";
 import { LOGIN_URL, PRICING_URL } from "@/constants/app";
-import { PRICING_URL } from "../../constants/app";
 
 const menuOptions = [
 	{ label: "How it works", href: "/how-it-works" },
@@ -10,7 +9,7 @@ const menuOptions = [
 	{ label: "Why us", href: "/why-us" },
 	{ label: "Testimonials", href: "/testimonials" },
 	{ label: "Samples", href: "/samples" },
-	{ label: "Case studies", href: "/case-studies" },
+	{ label: "Case studies", href: "/case-studies" }
 ];
 ---
 
@@ -129,7 +128,7 @@ const menuOptions = [
 			Login
 		</a>
 		<a
-			href={REGISTER_URL}
+			href={PRICING_URL}
 			class="button-secondary mt-4 flex w-full items-center justify-center gap-x-2"
 		>
 			<span>Start free trial</span>
