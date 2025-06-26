@@ -37,14 +37,14 @@ import Title from "@/components/ui/Title.astro";
 
 		<BentoCard>
 			<div slot="images">
-				<div class="mx-auto flex max-w-[380px] flex-col items-center pt-10 pb-6">
+				<div class="mx-auto flex max-w-[380px] flex-col items-center pt-10 pb-6 pl-4">
 					<div
 						class="border-neutral-95 mx-auto flex gap-x-2 rounded-lg bg-neutral-100 px-5 py-[10px] shadow-[0px_1px_2px_0px_rgba(24,29,41,0.28)]"
 					>
 						<div class="flex items-center">
 							<EnvelopeIcon />
 						</div>
-						<div class="text-neutral-60 grow text-xs">
+						<div class="text-neutral-60 grow text-[10px] lg:text-xs">
 							I need an illustrator to design a stunning book cover
 						</div>
 						<div class="flex items-center">
@@ -57,36 +57,36 @@ import Title from "@/components/ui/Title.astro";
 					<div class="mt-2 flex w-full flex-col gap-y-1">
 						<!-- Card #1 -->
 						<div
-							class="border-neutral-95 relative z-10 flex items-center rounded-lg border-2 bg-neutral-100 px-6 py-3 shadow-[0px_16px_24px_0px_rgba(24,29,41,0.24)]"
+							class="border-neutral-95 relative z-10 flex items-center rounded-lg border-2 bg-neutral-100 px-[18px] py-[10px] lg:px-6 lg:py-3 shadow-[0px_16px_24px_0px_rgba(24,29,41,0.24)]"
 						>
-							<img src={JohnMontgomery} alt="John Montgomery" class="h-10 w-10" />
+							<img src={JohnMontgomery} alt="John Montgomery" class="lg:h-10 lg:w-10 h-[30px] w-[30px]" />
 							<div class="ml-5 flex grow flex-col justify-center">
-								<span class="text-k-sm text-neutral-10 font-medium">Logo Designer</span>
-								<span class="text-k-xs text-neutral-60">John Montgomery</span>
+								<span class="text-[11px] lg:text-k-sm text-neutral-10 font-medium">Logo Designer</span>
+								<span class="text-[9.5px] lg:text-k-xs text-neutral-60">John Montgomery</span>
 							</div>
 							<AddIcon />
 						</div>
 
 						<!-- Card #2 -->
 						<div
-							class="flex -rotate-[3deg] transform items-center rounded-lg border-2 border-[#12B288] bg-neutral-100 px-6 py-3 shadow-[0px_16px_24px_0px_rgba(24,29,41,0.24)]"
+							class="flex -rotate-[1.8deg] transform items-center rounded-lg border-2 border-[#12B288] bg-neutral-100 px-[18px] py-[10px] lg:px-6 lg:py-3 shadow-[0px_16px_24px_0px_rgba(24,29,41,0.24)]"
 						>
-							<img src={GeorgiaMonroe} alt="Georgia Monroe" class="h-10 w-10" />
+							<img src={GeorgiaMonroe} alt="Georgia Monroe" class="lg:h-10 lg:w-10 h-[30px] w-[30px]" />
 							<div class="ml-5 flex grow flex-col">
-								<span class="text-k-sm text-neutral-10 font-medium">Illustrator</span>
-								<span class="text-k-xs text-neutral-60">Georgia Monroe</span>
+								<span class="text-[11px] lg:text-k-sm text-neutral-10 font-medium">Illustrator</span>
+								<span class="text-[9.5px] lg:text-k-xs text-neutral-60">Georgia Monroe</span>
 							</div>
 							<CheckSelectedIcon />
 						</div>
 
 						<!-- Card #3-->
 						<div
-							class="border-neutral-95 flex items-center rounded-lg border-2 bg-neutral-100 px-6 py-3"
+							class="border-neutral-95 flex items-center rounded-lg border-2 bg-neutral-100 px-[18px] py-[10px] lg:px-6 lg:py-3"
 						>
-							<img src={MikeTowsen} alt="Mike Townsen" class="h-10 w-10" />
+							<img src={MikeTowsen} alt="Mike Townsen" class="lg:h-10 lg:w-10 h-[30px] w-[30px]" />
 							<div class="ml-5 flex grow flex-col">
-								<span class="text-k-sm text-neutral-10 font-medium">Logo Designer</span>
-								<span class="text-k-xs text-neutral-60">Mike Towsend</span>
+								<span class="text-[11px] lg:text-k-sm text-neutral-10 font-medium">Logo Designer</span>
+								<span class="text-[9.5px] lg:text-k-xs text-neutral-60">Mike Towsend</span>
 							</div>
 							<AddIcon />
 						</div>
