@@ -71,13 +71,18 @@ const activeBenefit = benefits[0];
 					<div
 						class={clsx(
 							"benefit-icon flex h-14 w-14 items-center justify-center rounded-[14px] transition-all duration-300",
-							index === 0 ? "active--benefit bg-light-blue border-b-[1.5px] border-blue" : "bg-sky-blue"
+							index === 0
+								? "active bg-light-blue border-b-[1.5px] border-blue benefit-shadow"
+								: "bg-sky-blue hover:bg-light-blue hover:border-b-[1.5px] hover:border-blue hover:benefit-shadow"
 						)}
 					>
 						<img src={benefit.icon} alt={benefit.title} />
 					</div>
 					<span
-						class={clsx("text-k-sm text-neutral-10 text-center", index === 0 ? "font-medium" : "")}
+						class={clsx(
+							"text-k-sm text-neutral-10 text-center transition-all duration-300",
+							index === 0 ? "font-medium" : "hover:font-medium"
+						)}
 					>
 						{benefit.title}
 					</span>
@@ -106,7 +111,7 @@ const activeBenefit = benefits[0];
 </div>
 
 <style>
-	.active--benefit {
+	.benefit-shadow {
 		box-shadow: 27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06),
 		13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08),
 		3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);
@@ -114,6 +119,13 @@ const activeBenefit = benefits[0];
 
 	.benefit-item {
 		user-select: none;
+	}
+
+	/* Ensure hover effects work properly */
+	.benefit-icon:not(.active):hover.benefit-shadow {
+		box-shadow: 27.429px 32px 27.429px 0px rgba(11, 15, 41, 0.06),
+		13.714px 13.714px 18.286px 0px rgba(11, 15, 41, 0.08),
+		3.429px 3.429px 9.143px 0px rgba(11, 15, 41, 0.08);
 	}
 
 	.benefit-description-fade {
@@ -140,22 +152,50 @@ const activeBenefit = benefits[0];
 		const currentTitle = document.querySelector(
 			`[data-benefit-index="${currentActiveBenefit}"] span`
 		);
+
 		if (currentIcon) {
-			currentIcon.classList.remove("active--benefit", "bg-light-blue", "border-b-[1.5px]", "border-blue");
-			currentIcon.classList.add("bg-sky-blue");
+			currentIcon.classList.remove(
+				"active",
+				"bg-light-blue",
+				"border-b-[1.5px]",
+				"border-blue",
+				"benefit-shadow"
+			);
+			currentIcon.classList.add(
+				"bg-sky-blue",
+				"hover:bg-light-blue",
+				"hover:border-b-[1.5px]",
+				"hover:border-blue",
+				"hover:benefit-shadow"
+			);
 		}
 		if (currentTitle) {
 			currentTitle.classList.remove("font-medium");
+			currentTitle.classList.add("hover:font-medium");
 		}
 
 		// Add active state to new benefit
 		const newIcon = document.querySelector(`[data-benefit-index="${newIndex}"] .benefit-icon`);
 		const newTitle = document.querySelector(`[data-benefit-index="${newIndex}"] span`);
+
 		if (newIcon) {
-			newIcon.classList.remove("bg-sky-blue");
-			newIcon.classList.add("active--benefit", "bg-light-blue", "border-b-[1.5px]", "border-blue");
+			newIcon.classList.remove(
+				"bg-sky-blue",
+				"hover:bg-light-blue",
+				"hover:border-b-[1.5px]",
+				"hover:border-blue",
+				"hover:benefit-shadow"
+			);
+			newIcon.classList.add(
+				"active",
+				"bg-light-blue",
+				"border-b-[1.5px]",
+				"border-blue",
+				"benefit-shadow"
+			);
 		}
 		if (newTitle) {
+			newTitle.classList.remove("hover:font-medium");
 			newTitle.classList.add("font-medium");
 		}
 
