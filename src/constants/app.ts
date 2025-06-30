@@ -1,4 +1,5 @@
 export const PRICING_URL = "/pricing";
+export const APP_REGISTER_URL = "https://app.kapa99.com/register";
 export const LOGIN_URL = "https://app.kapa99.com/login";
 
 export const getRegisterUrlWithParams = (params: Record<string, string>) => {

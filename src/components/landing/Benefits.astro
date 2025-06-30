@@ -34,50 +34,50 @@ const benefits: IBenefits = [
 		title: "Save Time",
 		description: "Delegate any design task in 5 minutes and get it back in 12 to 48 hours.",
 		icon: TimeIcon,
-		darkIcon: DarkTimeIcon,
+		darkIcon: DarkTimeIcon
 	},
 	{
 		title: "Save Money",
 		description: "Our plans starts at $349/m. No more breaking the bank.",
 		icon: SaveMoneyIcon,
-		darkIcon: DarkSaveMoneyIcon,
+		darkIcon: DarkSaveMoneyIcon
 	},
 	{
 		title: "Get Quality Work",
 		description: "Whether you need a simple logo or a complex illustration, we’ll get it done.",
 		icon: QualityWorkIcon,
-		darkIcon: DarkQualityWorkIcon,
+		darkIcon: DarkQualityWorkIcon
 	},
 	{
 		title: "Risk-Free",
 		description: "Enjoy a complimentary 15-day trial on us, no strings attached.",
 		icon: RiskFreeIcon,
-		darkIcon: DarkRiskFreeIcon,
+		darkIcon: DarkRiskFreeIcon
 	},
 	{
-		title: "Work With Professional",
+		title: "Work With Professionals",
 		description: "Stop wasting time with freelancers that leave you hanging.",
 		icon: ProfessionalIcon,
-		darkIcon: DarkProfessionalIcon,
+		darkIcon: DarkProfessionalIcon
 	},
 	{
 		title: "Cancel Anytime",
 		description: "No lock-in contracts. Go month-to-month, and cancel whenever you want.",
 		icon: CancelAnytimeIcon,
-		darkIcon: DarkCancelAnytimeIcon,
+		darkIcon: DarkCancelAnytimeIcon
 	},
 	{
-		title: "Unlimited Edits",
+		title: "Unlimited Revisions and Requests",
 		description: "There's no limit to how many open projects you can have at the same time.",
 		icon: UnlimitedEditsIcon,
-		darkIcon: DarkUnlimitedEditsIcon,
+		darkIcon: DarkUnlimitedEditsIcon
 	},
 	{
 		title: "Industry Experts",
 		description: "Whatever your niche, we have a graphic designer with the expertise to help.",
 		icon: DesignIcon,
-		darkIcon: DarkDesignIcon,
-	},
+		darkIcon: DarkDesignIcon
+	}
 ];
 
 const { theme = "light" } = Astro.props;
@@ -91,6 +91,7 @@ const { theme = "light" } = Astro.props;
 	<Divider size="large" />
 
 	<div class="grid grid-cols-2 gap-x-14 gap-y-20 md:grid-cols-3 lg:grid-cols-4">
-		{benefits.map((benefit) => <BenefitCard theme={theme} data={benefit} />)}
+		{benefits.map((benefit) =>
+			<BenefitCard theme={theme} data={benefit} />)}
 	</div>
 </section>
