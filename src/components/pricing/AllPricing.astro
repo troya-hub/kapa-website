@@ -48,8 +48,8 @@ const prices = {
 		{
 			icon: TimeIcon,
 			title: "Async standard",
-			pricing: 5988,
-			discount: 4790,
+			pricing: 7185,
+			discount: 5988,
 			description:
 				"Ideal for steady-paced needs. Get your tasks delivered within two days using async communication.",
 			isDedicated: false,
@@ -58,8 +58,8 @@ const prices = {
 		{
 			icon: TwentyFourHoursIcon,
 			title: "Async priority",
-			pricing: 11988,
-			discount: 9590,
+			pricing: 14385,
+			discount: 11988,
 			description:
 				"Need things faster? Priority delivery in just one day — all with the ease of async updates.",
 			isDedicated: false,
@@ -68,8 +68,8 @@ const prices = {
 		{
 			icon: DedicatedTeamIcon,
 			title: "Dedicated team",
-			pricing: 25000,
-			discount: 20000,
+			pricing: 30000,
+			discount: 25000,
 			description:
 				"Your on-demand team, fully synced with you. Real-time collaboration and same-day delivery.",
 			isDedicated: true,
@@ -253,7 +253,7 @@ const selectedFrequency = "month";
 					// Update the frequency text
 					const frequencyEls = card.querySelectorAll(".pricing-frequency");
 					frequencyEls.forEach((el) => {
-						el.textContent = `per ${frequency === "yearly" ? "20% discount" : "first  two months"}`;
+						el.textContent = `${frequency === "yearly" ? "20% discount" : "per first  two months"}`;
 					});
 
 					// Update the register URL
