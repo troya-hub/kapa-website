@@ -104,7 +104,7 @@ const logoDesign: IServiceItem = {
 };
 
 const powerpoint: IServiceItem = {
-	title: "Powerpoint",
+	title: "PowerPoint",
 	icon: PowerpointTemplatesIcon,
 	theme: "light-red",
 };
@@ -188,7 +188,7 @@ const podcastCovers: IServiceItem = {
 };
 
 const restaurantMenus: IServiceItem = {
-	title: "Restaurant Menu's",
+	title: "Restaurant Menus",
 	icon: RestaurantMenus,
 	theme: "orange",
 };
