@@ -14,9 +14,11 @@ const { theme = "light", data }: Props = Astro.props;
 <div data-theme={theme}>
 	<div class="flex">
 		<span
-			class="dark:bg-dark-blue bg-light-blue border-blue rounded-md border p-4 shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),12px_12px_16px_0px_rgba(11,15,41,0.08),3px_3px_8px_0px_rgba(11,15,41,0.08)] dark:border-b dark:border-t-transparent dark:border-r-transparent dark:border-l-transparent dark:shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),_12px_12px_16px_0px_rgba(11,15,41,0.08),_3px_3px_8px_0px_rgba(11,15,41,0.08)]"
+			class="dark:bg-dark-blue bg-light-blue border-blue rounded-md border-b p-4 shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),12px_12px_16px_0px_rgba(11,15,41,0.08),3px_3px_8px_0px_rgba(11,15,41,0.08)] dark:border-b dark:border-t-transparent dark:border-r-transparent dark:border-l-transparent dark:shadow-[24px_28px_24px_0px_rgba(11,15,41,0.06),_12px_12px_16px_0px_rgba(11,15,41,0.08),_3px_3px_8px_0px_rgba(11,15,41,0.08)]"
 		>
-			{theme === "dark" ? <data.darkIcon /> : <data.icon />}
+			{theme === "dark" ?
+				<data.darkIcon /> :
+				<data.icon />}
 		</span>
 	</div>
 	<div class="mt-6">

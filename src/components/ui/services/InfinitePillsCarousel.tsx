@@ -52,7 +52,7 @@ const InfinitePillsCarousel: FunctionalComponent<Props> = ({ items, forward = fa
 
 	return (
 		<div className="-my-20 w-full touch-pan-y overflow-x-hidden overscroll-x-contain py-20">
-			<div ref={trackRef} className="flex w-max gap-x-3 will-change-transform">
+			<div ref={trackRef} className="flex w-max gap-x-7 will-change-transform">
 				{infiniteItems.map((data, index) => (
 					<ServiceItemPill key={`${data.title}-${index}`} data={data} />
 				))}

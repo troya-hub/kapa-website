@@ -6,6 +6,8 @@ import JoshWilliamsVideoImage from "@/assets/images/reviews/josh-williams.webp?u
 import CharlieMcKenzieVideoImage from "@/assets/images/reviews/charlie-mckenzie-video.webp?url";
 import clsx from "clsx";
 
+import ArrowRightIcon from "@/assets/icons/competitors/arrow-right.svg";
+
 const customers = [
 	{
 		name: "John Lee Dunas",
@@ -40,10 +42,15 @@ const wistiaScripts = `
 
 <section class="site-container">
 	<div class="flex flex-col items-start gap-y-8 lg:flex-row lg:items-center lg:gap-y-0">
-		<Title type="h1" class="lg:w-[60%]">What customers are saying…</Title>
+		<Title type="h1" class="lg:w-[60%] grow">What customers are saying…</Title>
 
-		<div class="grow text-left lg:text-right">
-			<a href="/testimonials" class="button-link text-k-lg">View all testimonials</a>
+		<div class="text-left lg:text-right">
+			<a href="/testimonials" class="button-link flex items-center space-x-2 text-k-lg group">
+				<span>View all testimonials</span>
+				<ArrowRightIcon
+					class="text-neutral-10 opacity-0 transform translate-x-[-4px] transition-all duration-300 group-hover:opacity-100 group-hover:translate-x-0"
+				/>
+			</a>
 		</div>
 	</div>
 
