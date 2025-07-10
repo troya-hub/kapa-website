@@ -97,8 +97,8 @@ const questions = [
 							data-toggle
 							type="button"
 						>
-							<Title type="h6">{question.question}</Title>
-							<span class="faq-icon relative h-5 w-5 transition-transform duration-300">
+							<Title type="h6" class="w-[90%]">{question.question}</Title>
+							<span class="faq-icon relative h-6 w-6 transition-transform duration-300">
 								<PlusIcon class="plus-icon absolute inset-0 block transition-opacity duration-300" />
 								<MinusIcon class="minus-icon absolute inset-0 hidden transition-opacity duration-300" />
 							</span>
@@ -142,23 +142,23 @@ const questions = [
 					// Close all
 					document.querySelectorAll("[data-toggle]").forEach((el) => {
 						(el as HTMLElement).setAttribute("aria-expanded", "false");
-						});
+					});
 
 					document.querySelectorAll(".faq-answer").forEach((el) => {
 						(el as HTMLElement).style.maxHeight = "0px";
-						});
+					});
 
 					document.querySelectorAll(".plus-icon").forEach((el) => {
 						const icon = el as HTMLElement;
 						icon.classList.remove("hidden");
 						icon.style.opacity = "1";
-						});
+					});
 
 					document.querySelectorAll(".minus-icon").forEach((el) => {
 						const icon = el as HTMLElement;
 						icon.classList.add("hidden");
 						icon.style.opacity = "0";
-						});
+					});
 
 					// Toggle current
 					if (!isExpanded) {
@@ -176,11 +176,11 @@ const questions = [
 							minusIcon?.classList.remove("hidden");
 							setTimeout(() => {
 								minusIcon.style.opacity = "1";
-								}, 10);
-							}, 50);
-						}
-					});
+							}, 10);
+						}, 50);
+					}
 				});
 			});
+		});
 	</script>
 </section>
