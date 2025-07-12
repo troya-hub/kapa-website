@@ -2,6 +2,7 @@
 import { useState, useEffect } from "preact/hooks";
 import type { TaskCategory, Sample } from "@/types";
 import SamplesModal from "@/components/samples/SamplesModal.tsx";
+import CategorySelectorModal from "./CategorySelectorModal.tsx";
 
 const rowLayouts: string[][] = [
 	["col-span-3 md:col-span-1", "col-span-3 md:col-span-1", "col-span-3 md:col-span-1"],
@@ -41,6 +42,7 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 	const [taskCategories] = useState<TaskCategory[]>(initialTaskCategories);
 	const [selectedCategory, setSelectedCategory] = useState<TaskCategory>(initialTaskCategories[0]);
 	const [rows, setRows] = useState<{ sample: Sample; span: string }[][]>([]);
+	const [isCategoryModalOpen, setIsCategoryModalOpen] = useState(false);
 
 	const [isModalOpen, setIsModalOpen] = useState(false);
 	const [modalStartIndex, setModalStartIndex] = useState(0);
@@ -62,7 +64,26 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 
 	return (
 		<div>
-			<div className="flex flex-wrap justify-center gap-4">
+			<div className="mb-6 flex justify-center lg:hidden">
+				<button
+					onClick={() => setIsCategoryModalOpen(true)}
+					className="border-light-blue bg-sky-blue flex w-full items-center justify-between gap-2 rounded-xl border px-4 py-2"
+				>
+					<div className="flex items-center gap-x-1">
+						<img src={selectedCategory.icon} alt={selectedCategory.title} className="h-4 w-4" />
+						<span className="text-sm font-medium">{selectedCategory.title}</span>
+					</div>
+					<svg className="h-3 w-3 text-blue-500" fill="currentColor" viewBox="0 0 20 20">
+						<path
+							fillRule="evenodd"
+							d="M5.23 7.21a.75.75 0 011.06.02L10 10.94l3.71-3.7a.75.75 0 111.06 1.06l-4.24 4.25a.75.75 0 01-1.06 0L5.21 8.29a.75.75 0 01.02-1.08z"
+							clipRule="evenodd"
+						/>
+					</svg>
+				</button>
+			</div>
+
+			<div className="hidden flex-wrap justify-center gap-4 lg:flex">
 				{taskCategories.map((category) => {
 					const isSelected = selectedCategory?.slug === category.slug;
 
@@ -120,6 +141,14 @@ export default function CategorySelector({ initialTaskCategories }: Props) {
 				onClose={() => setIsModalOpen(false)}
 				samples={selectedCategory.samples}
 				initialIndex={modalStartIndex}
+			/>
+
+			<CategorySelectorModal
+				isOpen={isCategoryModalOpen}
+				onClose={() => setIsCategoryModalOpen(false)}
+				taskCategories={taskCategories}
+				selectedCategorySlug={selectedCategory.slug}
+				onSelect={handleCategorySelect}
 			/>
 		</div>
 	);
