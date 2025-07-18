@@ -1,10 +1,11 @@
 /** @jsxImportSource preact */
 import { useEffect, useRef } from "preact/hooks";
 import Swiper from "swiper";
-import { Navigation, Pagination } from "swiper/modules";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
+
 import type { RefObject } from "preact";
 
 export type SwiperCarouselHandle = {
@@ -21,15 +22,28 @@ interface Props {
 	autoplay?: boolean;
 }
 
-const SwiperCarousel = ({ data, aspectRatio = "aspect-square", refInstance }: Props) => {
+const SwiperCarousel = ({
+	data,
+	aspectRatio = "aspect-square",
+	refInstance,
+	loop = false,
+	autoplay = false,
+}: Props) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const swiperInstance = useRef<Swiper>();
 
 	useEffect(() => {
 		if (containerRef.current) {
 			swiperInstance.current = new Swiper(containerRef.current, {
-				modules: [Navigation, Pagination],
+				modules: [Navigation, Pagination, Autoplay],
 				slidesPerView: 5,
+				loop,
+				autoplay: autoplay
+					? {
+							delay: 3000,
+							disableOnInteraction: false,
+						}
+					: false,
 				breakpoints: {
 					1: {
 						slidesPerView: 1,
@@ -58,7 +72,7 @@ const SwiperCarousel = ({ data, aspectRatio = "aspect-square", refInstance }: Pr
 				};
 			}
 		}
-	}, []);
+	}, [autoplay, loop]);
 
 	return (
 		<div class="relative mx-auto w-full">
