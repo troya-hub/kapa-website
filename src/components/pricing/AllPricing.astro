@@ -175,7 +175,7 @@ const selectedFrequency = "month";
 								${price.discount}
 							</Title>
 							<span class="pricing-frequency relative -top-1 transition-all duration-300">
-								per first two months
+								first two months
 							</span>
 						</div>
 
@@ -253,7 +253,7 @@ const selectedFrequency = "month";
 					// Update the frequency text
 					const frequencyEls = card.querySelectorAll(".pricing-frequency");
 					frequencyEls.forEach((el) => {
-						el.textContent = `${frequency === "yearly" ? "20% discount" : "per first  two months"}`;
+						el.textContent = `${frequency === "yearly" ? "20% discount" : "first  two months"}`;
 					});
 
 					// Update the register URL
