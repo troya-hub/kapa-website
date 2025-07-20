@@ -41,7 +41,7 @@ const SwiperCarousel = ({
 				loop,
 				autoplay: autoplay
 					? {
-							delay: 3000,
+							delay: 5000,
 						}
 					: false,
 				breakpoints: {
