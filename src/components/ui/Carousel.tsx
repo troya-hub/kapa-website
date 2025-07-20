@@ -7,6 +7,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 
 import type { RefObject } from "preact";
+import clsx from "clsx";
 
 export type SwiperCarouselHandle = {
 	next: () => void;
@@ -41,7 +42,6 @@ const SwiperCarousel = ({
 				autoplay: autoplay
 					? {
 							delay: 3000,
-							disableOnInteraction: false,
 						}
 					: false,
 				breakpoints: {
@@ -61,7 +61,7 @@ const SwiperCarousel = ({
 						slidesPerView: 7,
 					},
 				},
-				spaceBetween: 10,
+				spaceBetween: 20,
 			});
 
 			if (refInstance) {
@@ -79,8 +79,12 @@ const SwiperCarousel = ({
 			<div class="swiper" ref={containerRef}>
 				<div class="swiper-wrapper">
 					{data.map((item) => (
-						<div className="swiper-slide">
-							<img class={aspectRatio} src={item.image} alt={item.alt} />
+						<div className="swiper-slide aspect-square object-cover">
+							<img
+								class={clsx(aspectRatio, "h-full w-full rounded-lg object-cover")}
+								src={item.image}
+								alt={item.alt}
+							/>
 						</div>
 					))}
 				</div>
