@@ -19,7 +19,7 @@ All commands are run from the root of the project, from a terminal:
 
 ## TODO
 
-- [ ] Refactor HeroChip
+- [ ] Pending: Refactor HeroChip
   - Move directory to UI
   - Refactor all changed imports
   - Se quito el divider small de este componente, verificar que afecto
