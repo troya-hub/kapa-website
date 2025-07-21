@@ -79,7 +79,7 @@ const SwiperCarousel = ({
 			<div class="swiper" ref={containerRef}>
 				<div class="swiper-wrapper">
 					{data.map((item) => (
-						<div className="swiper-slide aspect-square object-cover">
+						<div className={`swiper-slide object-cover ${aspectRatio}`}>
 							<img
 								class={clsx(aspectRatio, "h-full w-full rounded-lg object-cover")}
 								src={item.image}
