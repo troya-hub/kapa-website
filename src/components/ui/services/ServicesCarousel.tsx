@@ -2,7 +2,7 @@
 import { useRef, useState, useEffect } from "preact/hooks";
 import Carousel, { type SwiperCarouselHandle } from "../Carousel.tsx";
 
-import { samples } from "@/data/samples";
+import { getYouCoveredSamples } from "@/data/samples";
 
 import LeftArrowIcon from "@/assets/icons/services/left-arrow.svg?url";
 import RightArrowIcon from "@/assets/icons/services/right-arrow.svg?url";
@@ -58,7 +58,7 @@ export default function CarouselWrapper() {
 			</div>
 
 			<div class="site-container md:pr-0 xl:pr-0">
-				<Carousel data={samples} aspectRatio="aspect-[3/4]" refInstance={ref} loop={false} />
+				<Carousel data={getYouCoveredSamples} aspectRatio="aspect-[3/4]" refInstance={ref} loop={false} randomize={true} />
 			</div>
 		</>
 	);

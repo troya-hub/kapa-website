@@ -5,5 +5,5 @@ import { samples } from "@/data/samples";
 
 <!--<div class="mt-16 flex gap-x-4 overflow-x-scroll">--><!--	{samples.map((sample) => <img src={sample.image} alt={sample.alt} class="w-[360px]" />)}--><!--</div>-->
 <div class="mt-12 lg:mt-16">
-	<Carousel client:only="preact" data={samples} loop autoplay aspectRatio="aspect-auto" />
+	<Carousel client:only="preact" data={samples} loop autoplay aspectRatio="aspect-auto" randomize="true" />
 </div>
