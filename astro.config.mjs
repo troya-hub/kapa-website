@@ -35,5 +35,7 @@ export default defineConfig({
 
 	adapter: cloudflare(),
 
+	outDir: "_dist",
+
 	integrations: [preact()],
 });
