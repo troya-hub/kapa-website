@@ -2,6 +2,7 @@
 import "@/styles/global.css";
 import Navigation from "@/components/landing/Navigation.astro";
 import Footer from "@/components/landing/Footer.astro";
+import Analytics from "@/components/landing/Analytics.astro";
 ---
 
 <!doctype html>
@@ -13,8 +14,6 @@ import Footer from "@/components/landing/Footer.astro";
 		<meta name="generator" content={Astro.generator} />
 		<title>Kapa - Unlimited Graphic Design - Free 15-Day Trial</title>
 
-		<!-- Favicon Information -->
-		<!-- https://realfavicongenerator.net -->
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="shortcut icon" href="/favicon.ico" />
@@ -26,5 +25,7 @@ import Footer from "@/components/landing/Footer.astro";
 		<Navigation />
 		<slot />
 		<Footer />
+
+		<Analytics />
 	</body>
 </html>
