@@ -8,6 +8,7 @@ import "swiper/css/pagination";
 
 import type { RefObject } from "preact";
 import clsx from "clsx";
+import { randomizeSamples, samples } from "@/data/samples.ts";
 
 export type SwiperCarouselHandle = {
 	next: () => void;
@@ -21,6 +22,7 @@ interface Props {
 	refInstance?: RefObject<SwiperCarouselHandle>;
 	loop?: boolean;
 	autoplay?: boolean;
+	randomize?: boolean;
 }
 
 const SwiperCarousel = ({
@@ -29,9 +31,11 @@ const SwiperCarousel = ({
 	refInstance,
 	loop = false,
 	autoplay = false,
+	randomize = false,
 }: Props) => {
 	const containerRef = useRef<HTMLDivElement>(null);
 	const swiperInstance = useRef<Swiper>();
+	const images = randomizeSamples(data);
 
 	useEffect(() => {
 		if (containerRef.current) {
@@ -78,7 +82,7 @@ const SwiperCarousel = ({
 		<div class="relative mx-auto w-full">
 			<div class="swiper" ref={containerRef}>
 				<div class="swiper-wrapper">
-					{data.map((item) => (
+					{images.map((item) => (
 						<div className={`swiper-slide object-cover ${aspectRatio}`}>
 							<img
 								class={clsx(aspectRatio, "h-full w-full rounded-lg object-cover")}
