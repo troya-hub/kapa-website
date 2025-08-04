@@ -84,7 +84,7 @@ const getIcon = (category: TaskCategory["slug"], selected: boolean = false) => {
 	return selected ? icons["selected-default"] : icons.default;
 };
 
-const response = await fetch("https://kapa99.com/api/astro/samples");
+const response = await fetch("https://app.kapa99.com/api/astro/samples");
 const data = await response.json();
 
 const taskCategories: Array<TaskCategory> = data.taskCategories

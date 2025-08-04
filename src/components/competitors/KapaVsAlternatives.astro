@@ -2,7 +2,7 @@
 import Title from "@/components/ui/Title.astro";
 import KapaVsAlternativeColumn from "./KapaVsAlternativeColumn.astro";
 
-const response = await fetch("https://kapa99.com/api/astro/pages");
+const response = await fetch("https://app.kapa99.com/api/astro/pages");
 const { pages: p } = await response.json();
 
 const pages = p.filter((p) => p.title.includes("vs"));
@@ -42,4 +42,3 @@ const secondColumn = pages.slice(Math.ceil(pages.length / 2));
 <!--	console.log({ mainComponents: [...new Set(mainComponents)] });-->
 
 <!--</script>-->
-
