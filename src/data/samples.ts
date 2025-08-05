@@ -18,8 +18,6 @@ import Sample18 from "@/assets/images/hero/samples/18.webp?url";
 import Sample19 from "@/assets/images/hero/samples/19.webp?url";
 import Sample20 from "@/assets/images/hero/samples/20.webp?url";
 import Sample21 from "@/assets/images/hero/samples/21.webp?url";
-import Sample22 from "@/assets/images/hero/samples/22.webp?url";
-import Sample23 from "@/assets/images/hero/samples/23.webp?url";
 
 import GotCoveredSample1 from "@/assets/images/hero/got-you-covered-samples/1.webp?url";
 import GotCoveredSample2 from "@/assets/images/hero/got-you-covered-samples/2.webp?url";
@@ -41,6 +39,7 @@ import GotCoveredSample17 from "@/assets/images/hero/got-you-covered-samples/17.
 import GotCoveredSample18 from "@/assets/images/hero/got-you-covered-samples/18.webp?url";
 import GotCoveredSample19 from "@/assets/images/hero/got-you-covered-samples/19.webp?url";
 import GotCoveredSample20 from "@/assets/images/hero/got-you-covered-samples/20.webp?url";
+import GotCoveredSample21 from "@/assets/images/hero/got-you-covered-samples/21.webp?url";
 
 export const samples = [
 	{ image: Sample1, alt: "Sample 1" },
@@ -63,8 +62,6 @@ export const samples = [
 	{ image: Sample19, alt: "Sample 19" },
 	{ image: Sample20, alt: "Sample 20" },
 	{ image: Sample21, alt: "Sample 21" },
-	{ image: Sample22, alt: "Sample 22" },
-	{ image: Sample23, alt: "Sample 23" },
 ];
 
 export const getYouCoveredSamples = [
@@ -88,6 +85,7 @@ export const getYouCoveredSamples = [
 	{ image: GotCoveredSample18, alt: "Sample 18" },
 	{ image: GotCoveredSample19, alt: "Sample 19" },
 	{ image: GotCoveredSample20, alt: "Sample 20" },
+	{ image: GotCoveredSample21, alt: "Sample 21" },
 ];
 
 export const randomizeSamples = (samples: { image: string; alt: string }[]) => {
