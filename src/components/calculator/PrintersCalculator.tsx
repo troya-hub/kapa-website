@@ -47,8 +47,6 @@ export default function PrintersCalculator() {
     annualSavings: 0,
   });
 
-  const [showResults, setShowResults] = useState(false);
-
   // Auto-calculate when inputs change
   useEffect(() => {
     calculateCosts();
@@ -81,267 +79,210 @@ export default function PrintersCalculator() {
     });
   };
 
-  const handleCalculate = () => {
-    setShowResults(true);
-  };
-
   return (
-    <div className="w-full">
-      {/* Calculator Card */}
-      <div className="bg-white rounded-lg shadow-lg p-8 md:p-12">
-        <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl md:text-4xl font-bold text-night-blue mb-4">
-            Calculate Your Hidden Design Costs
-          </h2>
-          <p className="text-lg text-neutral-60 mb-8">
-            Fill in your current design workflow details to see how much you could save with Kapa99's flat-fee
-            service.
-          </p>
+    <div className="w-full max-w-7xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-start">
+        {/* Left: Input Form */}
+        <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-6 lg:p-8">
+          <h2 className="text-xl font-semibold text-night-blue mb-6">Your Current Workflow</h2>
 
-          {/* Input Grid */}
-          <div className="grid md:grid-cols-2 gap-6 mb-8">
+          <div className="space-y-5">
             {/* Design Requests */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
+              <label className="block text-sm font-medium text-night-blue mb-2">
                 Monthly Design Requests
               </label>
               <input
                 type="number"
                 value={inputs.designRequests}
                 onChange={(e) => handleInputChange("designRequests", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="20"
                 min="0"
               />
-              <p className="text-xs text-neutral-50 mt-1">How many designs do you need per month?</p>
             </div>
 
             {/* Hours per Design */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
-                Average Hours Per Design
+              <label className="block text-sm font-medium text-night-blue mb-2">
+                Hours Per Design
               </label>
               <input
                 type="number"
                 value={inputs.hoursPerDesign}
                 onChange={(e) => handleInputChange("hoursPerDesign", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="3"
                 min="0"
                 step="0.5"
               />
-              <p className="text-xs text-neutral-50 mt-1">Average time spent on each design</p>
             </div>
 
             {/* Designer Rate */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
-                Designer Hourly Rate ($)
+              <label className="block text-sm font-medium text-night-blue mb-2">
+                Designer Rate ($/hour)
               </label>
               <input
                 type="number"
                 value={inputs.designerRate}
                 onChange={(e) => handleInputChange("designerRate", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="50"
                 min="0"
               />
-              <p className="text-xs text-neutral-50 mt-1">Include salary, benefits, and overhead</p>
             </div>
 
             {/* Revisions */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
-                Average Revisions Per Project
+              <label className="block text-sm font-medium text-night-blue mb-2">
+                Revisions Per Project
               </label>
               <input
                 type="number"
                 value={inputs.revisionsPerProject}
                 onChange={(e) => handleInputChange("revisionsPerProject", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="2"
                 min="0"
               />
-              <p className="text-xs text-neutral-50 mt-1">How many rounds of changes per design?</p>
             </div>
 
             {/* Hours per Revision */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
+              <label className="block text-sm font-medium text-night-blue mb-2">
                 Hours Per Revision
               </label>
               <input
                 type="number"
                 value={inputs.hoursPerRevision}
                 onChange={(e) => handleInputChange("hoursPerRevision", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="1"
                 min="0"
                 step="0.5"
               />
-              <p className="text-xs text-neutral-50 mt-1">Time spent on each revision round</p>
             </div>
 
             {/* Software Costs */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
-                Monthly Software Costs ($)
+              <label className="block text-sm font-medium text-night-blue mb-2">
+                Software Costs ($/month)
               </label>
               <input
                 type="number"
                 value={inputs.softwareCosts}
                 onChange={(e) => handleInputChange("softwareCosts", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="100"
                 min="0"
               />
-              <p className="text-xs text-neutral-50 mt-1">Adobe, Canva, Figma subscriptions, etc.</p>
             </div>
 
             {/* Overhead Hours */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
-                Monthly Overhead Hours
+              <label className="block text-sm font-medium text-night-blue mb-2">
+                Overhead Hours (per month)
               </label>
               <input
                 type="number"
                 value={inputs.overheadHours}
                 onChange={(e) => handleInputChange("overheadHours", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="10"
                 min="0"
               />
-              <p className="text-xs text-neutral-50 mt-1">Management, emails, coordination time</p>
             </div>
 
             {/* Stock Photos */}
             <div>
-              <label className="block text-sm font-semibold text-night-blue mb-2">
-                Monthly Stock Photo Costs ($)
+              <label className="block text-sm font-medium text-night-blue mb-2">
+                Stock Assets ($/month)
               </label>
               <input
                 type="number"
                 value={inputs.stockPhotoCosts}
                 onChange={(e) => handleInputChange("stockPhotoCosts", e.currentTarget.value)}
-                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent"
+                className="w-full px-4 py-3 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all"
                 placeholder="50"
                 min="0"
               />
-              <p className="text-xs text-neutral-50 mt-1">Stock images, fonts, graphics licenses</p>
             </div>
           </div>
+        </div>
 
-          {/* Calculate Button */}
-          <div className="text-center mb-8">
-            <button onClick={handleCalculate} className="button-primary px-8 py-4 text-lg">
-              Calculate My Costs
-            </button>
-          </div>
-
-          {/* Results Section */}
-          {showResults && (
-            <div className="border-t-2 border-neutral-20 pt-8">
-              {/* Cost Breakdown */}
-              <div className="mb-8">
-                <h3 className="text-2xl font-bold text-night-blue mb-4">Your Monthly Cost Breakdown</h3>
-                <div className="space-y-3">
-                  <div className="flex justify-between items-center py-2 border-b border-neutral-20">
-                    <span className="text-neutral-70">Design Work</span>
-                    <span className="font-semibold text-night-blue">
-                      ${results.designCosts.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-neutral-20">
-                    <span className="text-neutral-70">Revisions</span>
-                    <span className="font-semibold text-night-blue">
-                      ${results.revisionCosts.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-neutral-20">
-                    <span className="text-neutral-70">Software Subscriptions</span>
-                    <span className="font-semibold text-night-blue">
-                      ${results.softwareCosts.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-neutral-20">
-                    <span className="text-neutral-70">Project Management Overhead</span>
-                    <span className="font-semibold text-night-blue">
-                      ${results.overheadCosts.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-2 border-b border-neutral-20">
-                    <span className="text-neutral-70">Stock Photos & Assets</span>
-                    <span className="font-semibold text-night-blue">
-                      ${results.stockPhotoCosts.toLocaleString()}
-                    </span>
-                  </div>
-                  <div className="flex justify-between items-center py-3 bg-neutral-10 px-4 rounded-lg mt-4">
-                    <span className="font-bold text-lg text-night-blue">Total Monthly Cost</span>
-                    <span className="font-bold text-2xl text-pumpkin">
-                      ${results.totalMonthlyCost.toLocaleString()}
-                    </span>
-                  </div>
-                </div>
+        {/* Right: Results (Sticky) */}
+        <div className="lg:sticky lg:top-8">
+          {/* Cost Breakdown */}
+          <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-6 lg:p-8 mb-6">
+            <h2 className="text-xl font-semibold text-night-blue mb-6">Monthly Breakdown</h2>
+            <div className="space-y-3 mb-6">
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-neutral-60">Design Work</span>
+                <span className="font-medium text-night-blue">${results.designCosts.toLocaleString()}</span>
               </div>
-
-              {/* Comparison */}
-              <div className="bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-xl p-8 mb-8">
-                <h3 className="text-2xl md:text-3xl font-bold mb-6 text-center">
-                  Your Potential Savings with Kapa99
-                </h3>
-                <div className="grid md:grid-cols-2 gap-6 mb-6">
-                  <div className="bg-white/10 backdrop-blur rounded-lg p-6 text-center">
-                    <p className="text-sm uppercase tracking-wide mb-2 opacity-90">Your Current Cost</p>
-                    <p className="text-4xl font-bold">${results.totalMonthlyCost.toLocaleString()}</p>
-                    <p className="text-sm mt-1 opacity-75">per month</p>
-                  </div>
-                  <div className="bg-white/10 backdrop-blur rounded-lg p-6 text-center">
-                    <p className="text-sm uppercase tracking-wide mb-2 opacity-90">Kapa99 Flat Fee</p>
-                    <p className="text-4xl font-bold">${KAPA99_MONTHLY_COST}</p>
-                    <p className="text-sm mt-1 opacity-75">per month</p>
-                  </div>
-                </div>
-
-                {results.monthlySavings > 0 ? (
-                  <div className="text-center">
-                    <div className="bg-white text-pumpkin rounded-lg p-6 inline-block">
-                      <p className="text-sm font-semibold mb-2">YOU COULD SAVE</p>
-                      <p className="text-5xl font-bold mb-1">${results.monthlySavings.toLocaleString()}</p>
-                      <p className="text-lg">per month</p>
-                      <p className="text-2xl font-bold mt-4">
-                        ${results.annualSavings.toLocaleString()} annually
-                      </p>
-                    </div>
-                  </div>
-                ) : (
-                  <div className="text-center bg-white/10 backdrop-blur rounded-lg p-6">
-                    <p className="text-lg">
-                      Even at your current volume, Kapa99 offers unlimited designs for a predictable flat fee of
-                      $499/month.
-                    </p>
-                  </div>
-                )}
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-neutral-60">Revisions</span>
+                <span className="font-medium text-night-blue">${results.revisionCosts.toLocaleString()}</span>
               </div>
-
-              {/* CTA */}
-              <div className="bg-night-blue text-white rounded-xl p-8 text-center">
-                <h3 className="text-2xl md:text-3xl font-bold mb-4">Ready to Cut Your Design Costs?</h3>
-                <p className="text-lg mb-6 opacity-90">
-                  See how Kapa99's unlimited design service can transform your print shop's workflow and bottom
-                  line.
-                </p>
-                <a
-                  href="https://cal.com/agencylinkup/kapa99-15-mins-chat"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="button-primary inline-block px-8 py-4 text-lg"
-                >
-                  Book a Free 15-Minute Call
-                </a>
-                <p className="text-sm mt-4 opacity-75">No commitment required • See if Kapa99 is right for you</p>
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-neutral-60">Software</span>
+                <span className="font-medium text-night-blue">${results.softwareCosts.toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-neutral-60">Overhead</span>
+                <span className="font-medium text-night-blue">${results.overheadCosts.toLocaleString()}</span>
+              </div>
+              <div className="flex justify-between items-center text-sm">
+                <span className="text-neutral-60">Stock Assets</span>
+                <span className="font-medium text-night-blue">${results.stockPhotoCosts.toLocaleString()}</span>
               </div>
             </div>
-          )}
+
+            <div className="border-t border-neutral-20 pt-4 mb-6">
+              <div className="flex justify-between items-center">
+                <span className="text-base font-semibold text-night-blue">Your Total</span>
+                <span className="text-3xl font-bold text-night-blue">
+                  ${results.totalMonthlyCost.toLocaleString()}
+                </span>
+              </div>
+              <p className="text-xs text-neutral-50 mt-1 text-right">per month</p>
+            </div>
+
+            <div className="bg-neutral-10 rounded-lg p-4 mb-6">
+              <div className="flex justify-between items-center">
+                <span className="text-sm text-neutral-60">Kapa99</span>
+                <span className="text-2xl font-bold text-night-blue">${KAPA99_MONTHLY_COST}</span>
+              </div>
+              <p className="text-xs text-neutral-50 mt-1 text-right">per month, unlimited</p>
+            </div>
+
+            {results.monthlySavings > 0 && (
+              <div className="bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-xl p-6 text-center">
+                <p className="text-sm font-medium mb-2 opacity-90">Your Savings</p>
+                <p className="text-4xl font-bold mb-1">${results.monthlySavings.toLocaleString()}</p>
+                <p className="text-sm opacity-90">per month</p>
+                <div className="mt-4 pt-4 border-t border-white/20">
+                  <p className="text-2xl font-bold">${results.annualSavings.toLocaleString()}</p>
+                  <p className="text-xs opacity-75 mt-1">annually</p>
+                </div>
+              </div>
+            )}
+          </div>
+
+          {/* CTA */}
+          <div className="bg-night-blue text-white rounded-2xl p-6 lg:p-8 text-center">
+            <h3 className="text-xl font-bold mb-3">Ready to save?</h3>
+            <p className="text-sm opacity-90 mb-6">Book a free call to see how Kapa99 works for your print shop.</p>
+            <a
+              href="https://cal.com/agencylinkup/kapa99-15-mins-chat"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="button-primary inline-block w-full px-6 py-3"
+            >
+              Book Free Call
+            </a>
+          </div>
         </div>
       </div>
     </div>
