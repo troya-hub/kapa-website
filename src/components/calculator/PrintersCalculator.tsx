@@ -251,10 +251,10 @@ export default function PrintersCalculator() {
 
             <div className="bg-neutral-10 rounded-lg p-4 mb-6">
               <div className="flex justify-between items-center">
-                <span className="text-sm text-neutral-60">Kapa99</span>
+                <span className="text-sm text-neutral-60">With our service</span>
                 <span className="text-2xl font-bold text-night-blue">${KAPA99_MONTHLY_COST}</span>
               </div>
-              <p className="text-xs text-neutral-50 mt-1 text-right">per month, unlimited</p>
+              <p className="text-xs text-neutral-50 mt-1 text-right">per month, unlimited designs</p>
             </div>
 
             {results.monthlySavings > 0 && (
@@ -271,15 +271,21 @@ export default function PrintersCalculator() {
           </div>
 
           {/* CTA */}
-          <div className="bg-night-blue text-white rounded-2xl p-6 lg:p-8 text-center">
-            <h3 className="text-xl font-bold mb-3">Ready to save?</h3>
-            <p className="text-sm opacity-90 mb-6">Start your free trial and see how Kapa99 works for your print shop.</p>
+          <div className="bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-2xl p-8 lg:p-10 text-center shadow-xl">
+            <div className="inline-block bg-white/20 backdrop-blur-sm rounded-full px-4 py-1.5 mb-4">
+              <span className="text-sm font-semibold">Free 14-Day Trial</span>
+            </div>
+            <h3 className="text-2xl lg:text-3xl font-bold mb-3">Start Saving Today</h3>
+            <p className="text-base opacity-95 mb-8 max-w-sm mx-auto">
+              Unlimited design requests. No contracts. Cancel anytime.
+            </p>
             <a
               href="/pricing"
-              className="button-primary inline-block w-full px-6 py-3"
+              className="inline-block w-full bg-white text-pumpkin font-bold px-8 py-4 rounded-xl hover:bg-neutral-10 transition-all transform hover:scale-105 shadow-lg text-lg"
             >
-              Start free trial
+              Start Your Free Trial
             </a>
+            <p className="text-xs opacity-75 mt-4">No credit card required</p>
           </div>
         </div>
       </div>
