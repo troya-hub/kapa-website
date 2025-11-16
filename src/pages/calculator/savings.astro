@@ -8,23 +8,11 @@ import PrintersCalculator from "@/components/calculator/PrintersCalculator";
 	<Divider size="small" />
 
 	<div class="site-container">
-		{/* Compact title */}
-		<div class="text-center mb-6">
-			<h1 class="text-2xl md:text-3xl font-bold text-night-blue">
-				Calculate Your Design Costs
+		{/* Minimal title */}
+		<div class="text-center mb-12">
+			<h1 class="text-3xl font-semibold text-night-blue tracking-tight">
+				Calculate Your Savings
 			</h1>
-		</div>
-
-		{/* Full-width CTA */}
-		<div class="bg-gradient-to-br from-pumpkin to-dark-pumpkin rounded-2xl shadow-xl p-6 text-center mb-8 max-w-4xl mx-auto">
-			<p class="text-white/90 text-base mb-3">See your savings and start your free trial</p>
-			<a
-				href="/pricing"
-				class="inline-block bg-white text-pumpkin font-bold text-lg px-8 py-3.5 rounded-lg hover:bg-neutral-10 transition-all transform hover:scale-105 active:scale-95 shadow-lg"
-			>
-				Start Your Free Trial →
-			</a>
-			<p class="text-white/80 text-sm mt-3">15-day free trial • No credit card required</p>
 		</div>
 
 		<PrintersCalculator client:only="preact" />
