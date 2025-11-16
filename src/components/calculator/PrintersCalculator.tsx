@@ -57,23 +57,23 @@ export default function PrintersCalculator() {
   };
 
   return (
-    <div className="w-full max-w-7xl mx-auto">
-      <div className="grid lg:grid-cols-2 gap-6 items-start">
+    <div className="w-full max-w-6xl mx-auto">
+      <div className="grid lg:grid-cols-2 gap-12 items-start">
         {/* Left: Input Form */}
-        <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-5 lg:p-6">
-          <h2 className="text-lg font-semibold text-night-blue mb-4">Your Current Workflow</h2>
+        <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-10">
+          <h2 className="text-xl font-medium text-night-blue mb-8 tracking-tight">Your Current Workflow</h2>
 
-          <div className="space-y-3">
+          <div className="space-y-5">
             {/* Design Requests */}
             <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
+              <label className="block text-sm font-medium text-neutral-60 mb-2">
                 Monthly Design Requests
               </label>
               <input
                 type="number"
                 value={inputs.designRequests}
                 onChange={(e) => handleInputChange("designRequests", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
+                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
                 placeholder="20"
                 min="0"
               />
@@ -81,14 +81,14 @@ export default function PrintersCalculator() {
 
             {/* Hours per Design */}
             <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
+              <label className="block text-sm font-medium text-neutral-60 mb-2">
                 Hours Per Design
               </label>
               <input
                 type="number"
                 value={inputs.hoursPerDesign}
                 onChange={(e) => handleInputChange("hoursPerDesign", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
+                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
                 placeholder="3"
                 min="0"
                 step="0.5"
@@ -97,14 +97,14 @@ export default function PrintersCalculator() {
 
             {/* Designer Rate */}
             <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
+              <label className="block text-sm font-medium text-neutral-60 mb-2">
                 Designer Rate ($/hour)
               </label>
               <input
                 type="number"
                 value={inputs.designerRate}
                 onChange={(e) => handleInputChange("designerRate", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
+                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
                 placeholder="50"
                 min="0"
               />
@@ -112,14 +112,14 @@ export default function PrintersCalculator() {
 
             {/* Revisions */}
             <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
+              <label className="block text-sm font-medium text-neutral-60 mb-2">
                 Revisions Per Project
               </label>
               <input
                 type="number"
                 value={inputs.revisionsPerProject}
                 onChange={(e) => handleInputChange("revisionsPerProject", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
+                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
                 placeholder="2"
                 min="0"
               />
@@ -127,14 +127,14 @@ export default function PrintersCalculator() {
 
             {/* Hours per Revision */}
             <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
+              <label className="block text-sm font-medium text-neutral-60 mb-2">
                 Hours Per Revision
               </label>
               <input
                 type="number"
                 value={inputs.hoursPerRevision}
                 onChange={(e) => handleInputChange("hoursPerRevision", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
+                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
                 placeholder="1"
                 min="0"
                 step="0.5"
@@ -144,50 +144,63 @@ export default function PrintersCalculator() {
         </div>
 
         {/* Right: Results */}
-        <div className="lg:sticky lg:top-8 space-y-4">
-          {/* Comparison Card */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-5 lg:p-6">
-            <h2 className="text-lg font-semibold text-night-blue mb-4">The Numbers</h2>
+        <div className="lg:sticky lg:top-8">
+          <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-10">
 
-            {/* Your Cost */}
-            <div className="mb-5">
-              <p className="text-xs text-neutral-60 mb-1.5">You currently spend</p>
-              <p className="text-4xl font-bold text-night-blue">
+            {/* Comparison */}
+            <div className="mb-10">
+              <p className="text-sm text-neutral-50 mb-3 tracking-wide">You currently spend</p>
+              <p className="text-5xl font-semibold text-night-blue tracking-tight mb-1">
                 ${results.totalMonthlyCost.toLocaleString()}
               </p>
-              <p className="text-xs text-neutral-50 mt-1">per month</p>
+              <p className="text-sm text-neutral-40">per month</p>
             </div>
 
-            {/* Divider */}
-            <div className="border-t border-neutral-20 my-5"></div>
+            <div className="h-px bg-neutral-10 my-10"></div>
 
-            {/* Our Price */}
-            <div>
-              <p className="text-xs text-neutral-60 mb-1.5">Switch to unlimited for</p>
-              <p className="text-4xl font-bold text-pumpkin">
+            <div className="mb-10">
+              <p className="text-sm text-neutral-50 mb-3 tracking-wide">With unlimited designs</p>
+              <p className="text-5xl font-semibold text-night-blue tracking-tight mb-1">
                 ${KAPA99_MONTHLY_COST}
               </p>
-              <p className="text-xs text-neutral-50 mt-1">per month, unlimited designs</p>
+              <p className="text-sm text-neutral-40">per month</p>
             </div>
+
+            {/* Savings - Elegant, not screaming */}
+            {results.monthlySavings > 0 && (
+              <>
+                <div className="h-px bg-neutral-10 my-10"></div>
+
+                <div className="text-center py-8">
+                  <p className="text-sm text-neutral-50 mb-6 tracking-wide uppercase">Your Savings</p>
+                  <p className="text-6xl font-semibold text-pumpkin tracking-tight mb-2 leading-none">
+                    ${results.monthlySavings.toLocaleString()}
+                  </p>
+                  <p className="text-base text-neutral-50 mb-10">every month</p>
+
+                  <div className="bg-neutral-5 rounded-2xl px-8 py-6">
+                    <p className="text-4xl font-semibold text-night-blue tracking-tight mb-1">
+                      ${results.annualSavings.toLocaleString()}
+                    </p>
+                    <p className="text-sm text-neutral-50">per year</p>
+                  </div>
+                </div>
+
+                <div className="h-px bg-neutral-10 my-10"></div>
+
+                {/* CTA - Understated */}
+                <div className="text-center">
+                  <a
+                    href="/pricing"
+                    className="inline-block bg-pumpkin hover:bg-dark-pumpkin text-white font-medium px-8 py-3.5 rounded-full transition-all"
+                  >
+                    Start 15-day free trial
+                  </a>
+                  <p className="text-xs text-neutral-40 mt-4">No credit card required</p>
+                </div>
+              </>
+            )}
           </div>
-
-          {/* Savings - HERO (Standalone, not in white card) */}
-          {results.monthlySavings > 0 && (
-            <div className="bg-gradient-to-br from-pumpkin to-dark-pumpkin rounded-2xl shadow-xl p-6 lg:p-8 text-center">
-              <p className="text-white/80 text-xs mb-3 uppercase tracking-wide font-semibold">You Save</p>
-              <p className="text-white text-6xl lg:text-7xl font-black mb-2 leading-none">
-                ${results.monthlySavings.toLocaleString()}
-              </p>
-              <p className="text-white/90 text-base mb-5">every month</p>
-
-              <div className="bg-white/10 backdrop-blur-sm rounded-xl p-4 border border-white/20">
-                <p className="text-white text-3xl lg:text-4xl font-black mb-1">
-                  ${results.annualSavings.toLocaleString()}
-                </p>
-                <p className="text-white/80 text-sm">per year</p>
-              </div>
-            </div>
-          )}
         </div>
       </div>
     </div>
