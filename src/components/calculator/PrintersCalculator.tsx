@@ -6,17 +6,9 @@ interface CalculatorInputs {
   designerRate: number;
   revisionsPerProject: number;
   hoursPerRevision: number;
-  softwareCosts: number;
-  overheadHours: number;
-  stockPhotoCosts: number;
 }
 
 interface CalculationResults {
-  designCosts: number;
-  revisionCosts: number;
-  softwareCosts: number;
-  overheadCosts: number;
-  stockPhotoCosts: number;
   totalMonthlyCost: number;
   monthlySavings: number;
   annualSavings: number;
@@ -31,17 +23,9 @@ export default function PrintersCalculator() {
     designerRate: 50,
     revisionsPerProject: 2,
     hoursPerRevision: 1,
-    softwareCosts: 100,
-    overheadHours: 10,
-    stockPhotoCosts: 50,
   });
 
   const [results, setResults] = useState<CalculationResults>({
-    designCosts: 0,
-    revisionCosts: 0,
-    softwareCosts: 0,
-    overheadCosts: 0,
-    stockPhotoCosts: 0,
     totalMonthlyCost: 0,
     monthlySavings: 0,
     annualSavings: 0,
@@ -61,18 +45,11 @@ export default function PrintersCalculator() {
     const designCosts = inputs.designRequests * inputs.hoursPerDesign * inputs.designerRate;
     const revisionCosts =
       inputs.designRequests * inputs.revisionsPerProject * inputs.hoursPerRevision * inputs.designerRate;
-    const overheadCosts = inputs.overheadHours * inputs.designerRate;
-    const totalMonthlyCost =
-      designCosts + revisionCosts + inputs.softwareCosts + overheadCosts + inputs.stockPhotoCosts;
+    const totalMonthlyCost = designCosts + revisionCosts;
     const monthlySavings = totalMonthlyCost - KAPA99_MONTHLY_COST;
     const annualSavings = monthlySavings * 12;
 
     setResults({
-      designCosts,
-      revisionCosts,
-      softwareCosts: inputs.softwareCosts,
-      overheadCosts,
-      stockPhotoCosts: inputs.stockPhotoCosts,
       totalMonthlyCost,
       monthlySavings,
       annualSavings,
@@ -163,51 +140,6 @@ export default function PrintersCalculator() {
                 step="0.5"
               />
             </div>
-
-            {/* Software Costs */}
-            <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
-                Software Costs ($/month)
-              </label>
-              <input
-                type="number"
-                value={inputs.softwareCosts}
-                onChange={(e) => handleInputChange("softwareCosts", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
-                placeholder="100"
-                min="0"
-              />
-            </div>
-
-            {/* Overhead Hours */}
-            <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
-                Overhead Hours (per month)
-              </label>
-              <input
-                type="number"
-                value={inputs.overheadHours}
-                onChange={(e) => handleInputChange("overheadHours", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
-                placeholder="10"
-                min="0"
-              />
-            </div>
-
-            {/* Stock Photos */}
-            <div>
-              <label className="block text-sm font-medium text-night-blue mb-1.5">
-                Stock Assets ($/month)
-              </label>
-              <input
-                type="number"
-                value={inputs.stockPhotoCosts}
-                onChange={(e) => handleInputChange("stockPhotoCosts", e.currentTarget.value)}
-                className="w-full px-3 py-2 border border-neutral-30 rounded-lg focus:outline-none focus:ring-2 focus:ring-pumpkin focus:border-transparent transition-all text-sm"
-                placeholder="50"
-                min="0"
-              />
-            </div>
           </div>
         </div>
 
@@ -256,21 +188,6 @@ export default function PrintersCalculator() {
               </div>
             </div>
           )}
-
-          {/* CTA Card */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-5 lg:p-6 text-center">
-            <h3 className="text-xl font-bold text-night-blue mb-2">Ready to save?</h3>
-            <p className="text-neutral-60 text-sm mb-4">Start your free trial today</p>
-            <a
-              href="/pricing"
-              className="block w-full bg-pumpkin hover:bg-dark-pumpkin text-white text-center font-bold text-base py-3.5 rounded-lg transition-all transform hover:scale-105 active:scale-95 shadow-lg mb-2"
-            >
-              Start Your Free Trial →
-            </a>
-            <p className="text-xs text-neutral-50">
-              15-day free trial • No credit card required
-            </p>
-          </div>
         </div>
       </div>
     </div>
