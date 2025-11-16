@@ -213,8 +213,34 @@ export default function PrintersCalculator() {
 
         {/* Right: Results (Sticky) */}
         <div className="lg:sticky lg:top-8">
+          {/* CTA - Always Visible First */}
+          <div className="relative mb-6">
+            <div className="absolute -inset-1 bg-gradient-to-r from-pumpkin via-yellow-400 to-pumpkin rounded-2xl blur opacity-40 animate-pulse"></div>
+            <div className="relative bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-2xl p-10 lg:p-12 text-center shadow-2xl">
+              <div className="inline-flex items-center gap-2 bg-white text-pumpkin font-bold rounded-full px-5 py-2 mb-6 text-base">
+                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
+                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
+                </svg>
+                <span>Free 15-Day Trial</span>
+              </div>
+              <h3 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
+                Start Saving Today
+              </h3>
+              <p className="text-lg opacity-95 mb-10 max-w-md mx-auto leading-relaxed">
+                Unlimited design requests. No contracts. Cancel anytime.
+              </p>
+              <a
+                href="/calculator/savings"
+                className="inline-block w-full bg-white text-pumpkin font-bold px-10 py-5 rounded-2xl hover:bg-neutral-10 transition-all transform hover:scale-105 active:scale-95 shadow-2xl text-xl mb-4"
+              >
+                Start Your Free Trial →
+              </a>
+              <p className="text-sm opacity-90">No credit card required • Cancel anytime</p>
+            </div>
+          </div>
+
           {/* Cost Breakdown */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-6 lg:p-8 mb-6">
+          <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-6 lg:p-8">
             <h2 className="text-xl font-semibold text-night-blue mb-6">Monthly Breakdown</h2>
             <div className="space-y-3 mb-6">
               <div className="flex justify-between items-center text-sm">
@@ -256,7 +282,7 @@ export default function PrintersCalculator() {
             </div>
 
             {results.monthlySavings > 0 && (
-              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-xl p-6 text-center mb-6">
+              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-xl p-6 text-center">
                 <p className="text-sm font-medium mb-2 opacity-90">You Save</p>
                 <p className="text-4xl font-bold mb-1">${results.monthlySavings.toLocaleString()}/mo</p>
                 <div className="mt-3 pt-3 border-t border-white/20">
@@ -264,32 +290,6 @@ export default function PrintersCalculator() {
                 </div>
               </div>
             )}
-          </div>
-
-          {/* CTA - Maximum Prominence */}
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-pumpkin via-yellow-400 to-pumpkin rounded-2xl blur opacity-40 animate-pulse"></div>
-            <div className="relative bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-2xl p-10 lg:p-12 text-center shadow-2xl">
-              <div className="inline-flex items-center gap-2 bg-white text-pumpkin font-bold rounded-full px-5 py-2 mb-6 text-base">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span>Free 15-Day Trial</span>
-              </div>
-              <h3 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                Start Saving Today
-              </h3>
-              <p className="text-lg opacity-95 mb-10 max-w-md mx-auto leading-relaxed">
-                Unlimited design requests. No contracts. Cancel anytime.
-              </p>
-              <a
-                href="/pricing"
-                className="inline-block w-full bg-white text-pumpkin font-bold px-10 py-5 rounded-2xl hover:bg-neutral-10 transition-all transform hover:scale-105 active:scale-95 shadow-2xl text-xl mb-4"
-              >
-                Start Your Free Trial →
-              </a>
-              <p className="text-sm opacity-90">No credit card required • Cancel anytime</p>
-            </div>
           </div>
         </div>
       </div>
