@@ -23,7 +23,7 @@ export default function FreelancersCalculator() {
   const [inputs, setInputs] = useState<CalculatorInputs>({
     clientsServed: 10,
     chargePerClient: 1500,
-    designSpending: 2000,
+    designSpending: 10000,
     clientsTurnedAway: 3,
   });
 
@@ -52,7 +52,9 @@ export default function FreelancersCalculator() {
     const currentMargin = currentRevenue - inputs.designSpending;
     const currentMarginPercent = currentRevenue > 0 ? (currentMargin / currentRevenue) * 100 : 0;
 
-    const flatFeeMargin = currentRevenue - KAPA99_MONTHLY_COST;
+    // With us: design costs halve (not go to zero)
+    const designCostsWithUs = inputs.designSpending / 2;
+    const flatFeeMargin = currentRevenue - designCostsWithUs;
     const flatFeeMarginPercent = currentRevenue > 0 ? (flatFeeMargin / currentRevenue) * 100 : 0;
 
     const turnedAwayRevenue = inputs.clientsTurnedAway * inputs.chargePerClient;
@@ -118,7 +120,7 @@ export default function FreelancersCalculator() {
                   value={inputs.designSpending}
                   onChange={(e) => handleInputChange("designSpending", e.currentTarget.value)}
                   className="w-full px-3 py-2.5 bg-white border-2 border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin transition-all font-medium text-night-blue"
-                  placeholder="2000"
+                  placeholder="10000"
                   min="0"
                 />
               </div>
@@ -155,7 +157,7 @@ export default function FreelancersCalculator() {
                 <p className="text-xs text-neutral-40 mt-0.5">{results.currentMarginPercent.toFixed(0)}% margin</p>
               </div>
               <div className="text-center">
-                <p className="text-xs text-pumpkin mb-1.5 uppercase tracking-wider font-medium">With Unlimited</p>
+                <p className="text-xs text-pumpkin mb-1.5 uppercase tracking-wider font-medium">With Us</p>
                 <p className="text-3xl font-semibold text-pumpkin tracking-tight">
                   ${results.flatFeeMargin.toLocaleString()}
                 </p>
@@ -171,12 +173,12 @@ export default function FreelancersCalculator() {
                 <div className="text-center py-4">
                   <p className="text-xs text-neutral-50 mb-3 tracking-wider uppercase font-medium">Revenue You're Missing</p>
                   <div className="mb-5">
-                    <p className="text-4xl font-bold text-night-blue tracking-tight leading-none">
+                    <p className="text-4xl font-bold text-pumpkin tracking-tight leading-none">
                       ${results.turnedAwayRevenue.toLocaleString()}
                     </p>
                     <p className="text-sm text-neutral-50 mt-1.5">per month</p>
                   </div>
-                  <div className="bg-neutral-10 rounded-2xl px-5 py-4">
+                  <div className="bg-pumpkin/5 border border-pumpkin/20 rounded-2xl px-5 py-4">
                     <p className="text-2xl font-bold text-night-blue tracking-tight">
                       ${(results.turnedAwayRevenue * 12).toLocaleString()}
                     </p>
