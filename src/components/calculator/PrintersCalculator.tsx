@@ -149,14 +149,14 @@ export default function PrintersCalculator() {
 
             {/* Comparison - Side by Side */}
             <div className="grid grid-cols-2 gap-5 mb-6">
-              <div>
+              <div className="text-center">
                 <p className="text-xs text-neutral-50 mb-1.5 uppercase tracking-wider">Your Cost</p>
                 <p className="text-3xl font-semibold text-night-blue tracking-tight">
                   ${results.totalMonthlyCost.toLocaleString()}
                 </p>
                 <p className="text-xs text-neutral-40 mt-0.5">per month</p>
               </div>
-              <div>
+              <div className="text-center">
                 <p className="text-xs text-pumpkin mb-1.5 uppercase tracking-wider font-medium">Our Price</p>
                 <p className="text-3xl font-semibold text-pumpkin tracking-tight">
                   ${KAPA99_MONTHLY_COST}
