@@ -1,0 +1,148 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+import Title from "@/components/ui/Title.astro";
+import PrintersCalculator from "@/components/calculator/PrintersCalculator";
+---
+
+<BaseLayout>
+	<Divider size="medium" />
+
+	<div class="site-container">
+		<div class="text-center mb-8 md:mb-12">
+			<Title type="h1" class="mb-4">
+				Print Shop Design Cost Calculator
+			</Title>
+			<p class="text-lg md:text-xl text-neutral-60 max-w-3xl mx-auto">
+				Discover how much you're really spending on design work each month — and how much you could save with Kapa99's unlimited design service.
+			</p>
+		</div>
+
+		<PrintersCalculator client:only="preact" />
+	</div>
+
+	<Divider size="large" />
+
+	<!-- Benefits Section -->
+	<div class="bg-neutral-10 py-16">
+		<div class="site-container">
+			<div class="text-center mb-12">
+				<Title type="h2" class="mb-4">
+					Why Print Shops Love Kapa99
+				</Title>
+			</div>
+
+			<div class="grid md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+				<div class="text-center">
+					<div class="w-16 h-16 bg-pumpkin rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">Predictable Pricing</h3>
+					<p class="text-neutral-60">One flat fee. No surprises. Budget with confidence every single month.</p>
+				</div>
+
+				<div class="text-center">
+					<div class="w-16 h-16 bg-pumpkin rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">Lightning Fast Turnaround</h3>
+					<p class="text-neutral-60">Most designs delivered within 24-48 hours. Keep your projects moving forward.</p>
+				</div>
+
+				<div class="text-center">
+					<div class="w-16 h-16 bg-pumpkin rounded-full flex items-center justify-center mx-auto mb-4">
+						<svg class="w-8 h-8 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+						</svg>
+					</div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">Unlimited Revisions</h3>
+					<p class="text-neutral-60">Get every design exactly right. Revise as many times as you need.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<Divider size="large" />
+
+	<!-- How It Works -->
+	<div class="site-container">
+		<div class="text-center mb-12">
+			<Title type="h2" class="mb-4">
+				How Kapa99 Works for Print Shops
+			</Title>
+		</div>
+
+		<div class="max-w-4xl mx-auto space-y-8">
+			<div class="flex gap-6 items-start">
+				<div class="flex-shrink-0 w-12 h-12 bg-pumpkin text-white rounded-full flex items-center justify-center font-bold text-xl">
+					1
+				</div>
+				<div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">Submit Your Design Request</h3>
+					<p class="text-neutral-60">Use our simple project board to submit design briefs. Add as many as you need — there's no limit.</p>
+				</div>
+			</div>
+
+			<div class="flex gap-6 items-start">
+				<div class="flex-shrink-0 w-12 h-12 bg-pumpkin text-white rounded-full flex items-center justify-center font-bold text-xl">
+					2
+				</div>
+				<div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">We Design, You Review</h3>
+					<p class="text-neutral-60">Your dedicated design team gets to work. Receive your first draft within 24-48 hours.</p>
+				</div>
+			</div>
+
+			<div class="flex gap-6 items-start">
+				<div class="flex-shrink-0 w-12 h-12 bg-pumpkin text-white rounded-full flex items-center justify-center font-bold text-xl">
+					3
+				</div>
+				<div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">Revise Until Perfect</h3>
+					<p class="text-neutral-60">Request changes as many times as needed. We'll refine until you're 100% satisfied.</p>
+				</div>
+			</div>
+
+			<div class="flex gap-6 items-start">
+				<div class="flex-shrink-0 w-12 h-12 bg-pumpkin text-white rounded-full flex items-center justify-center font-bold text-xl">
+					4
+				</div>
+				<div>
+					<h3 class="text-xl font-bold text-night-blue mb-2">Download & Print</h3>
+					<p class="text-neutral-60">Get print-ready files in any format you need. Ready to send straight to production.</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<Divider size="large" />
+
+	<!-- Final CTA -->
+	<div class="bg-gradient-to-br from-night-blue to-dark-blue text-white py-16">
+		<div class="site-container text-center">
+			<Title type="h2" class="mb-4 text-white">
+				Ready to See How Much You Can Save?
+			</Title>
+			<p class="text-xl mb-8 opacity-90 max-w-2xl mx-auto">
+				Join hundreds of print shops who've streamlined their design workflow and cut costs with Kapa99.
+			</p>
+			<a
+				href="https://cal.com/agencylinkup/kapa99-15-mins-chat"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="button-primary inline-block px-8 py-4 text-lg"
+			>
+				Schedule Your Free Consultation
+			</a>
+			<p class="text-sm mt-4 opacity-75">
+				15-minute call • No pressure • See if Kapa99 is the right fit
+			</p>
+		</div>
+	</div>
+
+	<Divider size="large" />
+</BaseLayout>
