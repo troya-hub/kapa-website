@@ -211,74 +211,59 @@ export default function PrintersCalculator() {
           </div>
         </div>
 
-        {/* Right: Results (Sticky) */}
-        <div className="lg:sticky lg:top-8 space-y-8">
-          {/* Simple Comparison - No Boxes */}
-          <div className="text-center py-8">
-            <p className="text-sm text-neutral-50 mb-4">Your current monthly cost</p>
-            <p className="text-6xl lg:text-7xl font-bold text-night-blue mb-2">
-              ${results.totalMonthlyCost.toLocaleString()}
-            </p>
-
-            <div className="flex items-center justify-center gap-4 my-8">
-              <div className="h-px bg-neutral-20 flex-1"></div>
-              <span className="text-sm font-medium text-neutral-40 uppercase tracking-widest">vs</span>
-              <div className="h-px bg-neutral-20 flex-1"></div>
+        {/* Right: Clean Results */}
+        <div className="lg:sticky lg:top-8">
+          <div className="bg-white rounded-3xl shadow-xl p-8 lg:p-12">
+            {/* Current Cost */}
+            <div className="text-center mb-12">
+              <p className="text-neutral-60 text-base mb-3">You currently spend</p>
+              <p className="text-6xl font-bold text-neutral-80">
+                ${results.totalMonthlyCost.toLocaleString()}
+              </p>
+              <p className="text-neutral-50 text-sm mt-2">per month</p>
             </div>
 
-            <p className="text-sm text-pumpkin mb-3 uppercase tracking-wide font-semibold">Flat Rate</p>
-            <p className="text-5xl lg:text-6xl font-bold text-night-blue">
-              ${KAPA99_MONTHLY_COST}
-            </p>
-            <p className="text-neutral-50 mt-2">unlimited everything</p>
-          </div>
+            {/* Our Price */}
+            <div className="text-center mb-12 pb-12 border-b-2 border-neutral-10">
+              <p className="text-neutral-60 text-base mb-3">Switch to unlimited for</p>
+              <p className="text-5xl font-bold text-night-blue">
+                ${KAPA99_MONTHLY_COST}
+              </p>
+              <p className="text-neutral-50 text-sm mt-2">per month, unlimited designs</p>
+            </div>
 
-          {/* HERO: Massive Savings */}
-          {results.monthlySavings > 0 && (
-            <div className="relative overflow-hidden">
-              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-10 blur-3xl"></div>
-              <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl p-12 lg:p-16 text-center shadow-2xl">
-                <p className="text-white/80 text-lg mb-6 font-medium">You save</p>
-                <div className="mb-8">
-                  <p className="text-white text-7xl lg:text-8xl font-black mb-2 leading-none">
-                    ${results.monthlySavings.toLocaleString()}
-                  </p>
-                  <p className="text-white/90 text-2xl font-semibold">every month</p>
-                </div>
-                <div className="inline-block bg-white/20 backdrop-blur-sm rounded-2xl px-8 py-6">
-                  <p className="text-white text-5xl lg:text-6xl font-black">
+            {/* Savings - THE HERO */}
+            {results.monthlySavings > 0 ? (
+              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-2xl p-10 text-center mb-8">
+                <p className="text-white text-lg mb-4 opacity-90">You save</p>
+                <p className="text-white text-8xl font-black mb-3 leading-none">
+                  ${results.monthlySavings.toLocaleString()}
+                </p>
+                <p className="text-white text-xl mb-6 opacity-90">every month</p>
+
+                <div className="pt-6 border-t border-white/30">
+                  <p className="text-white text-5xl font-black mb-2">
                     ${results.annualSavings.toLocaleString()}
                   </p>
-                  <p className="text-white/90 text-lg mt-2 font-medium">per year</p>
+                  <p className="text-white opacity-90">per year</p>
                 </div>
               </div>
-            </div>
-          )}
-
-          {/* CTA - Flows Naturally */}
-          <div className="relative">
-            <div className="absolute -inset-1 bg-gradient-to-r from-pumpkin via-yellow-400 to-pumpkin rounded-2xl blur opacity-40 animate-pulse"></div>
-            <div className="relative bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-2xl p-10 lg:p-12 text-center shadow-2xl">
-              <div className="inline-flex items-center gap-2 bg-white text-pumpkin font-bold rounded-full px-5 py-2 mb-6 text-base">
-                <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 20 20">
-                  <path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clip-rule="evenodd" />
-                </svg>
-                <span>Free 15-Day Trial</span>
+            ) : (
+              <div className="bg-neutral-10 rounded-2xl p-10 text-center mb-8">
+                <p className="text-neutral-60 text-lg">Adjust the calculator to see your savings</p>
               </div>
-              <h3 className="text-3xl lg:text-4xl font-bold mb-4 leading-tight">
-                Start Saving Today
-              </h3>
-              <p className="text-lg opacity-95 mb-10 max-w-md mx-auto leading-relaxed">
-                Unlimited design requests. No contracts. Cancel anytime.
-              </p>
-              <a
-                href="/pricing"
-                className="inline-block w-full bg-white text-pumpkin font-bold px-10 py-5 rounded-2xl hover:bg-neutral-10 transition-all transform hover:scale-105 active:scale-95 shadow-2xl text-xl mb-4"
-              >
-                Start Your Free Trial →
-              </a>
-              <p className="text-sm opacity-90">No credit card required • Cancel anytime</p>
-            </div>
+            )}
+
+            {/* CTA */}
+            <a
+              href="/pricing"
+              className="block w-full bg-pumpkin hover:bg-dark-pumpkin text-white text-center font-bold text-xl py-5 rounded-xl transition-all transform hover:scale-105 active:scale-95 shadow-lg mb-3"
+            >
+              Start Your Free Trial →
+            </a>
+            <p className="text-center text-sm text-neutral-50">
+              15-day free trial • No credit card required
+            </p>
           </div>
         </div>
       </div>
