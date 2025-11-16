@@ -148,7 +148,7 @@ export default function FreelancersCalculator() {
           <div className="bg-white rounded-3xl shadow-lg p-6 lg:p-8">
 
             {/* Margin Comparison - Side by Side */}
-            <div className="grid grid-cols-2 gap-5 mb-6">
+            <div className="grid grid-cols-2 gap-5 mb-4">
               <div className="text-center">
                 <p className="text-xs text-neutral-50 mb-1.5 uppercase tracking-wider">Current Margin</p>
                 <p className="text-3xl font-semibold text-night-blue tracking-tight">
@@ -165,49 +165,50 @@ export default function FreelancersCalculator() {
               </div>
             </div>
 
-            {/* Turned Away Revenue */}
-            {results.turnedAwayRevenue > 0 && (
+            {/* Elegant explanation */}
+            <p className="text-center text-xs text-neutral-50 mb-6 italic">
+              With our unlimited designs, agencies typically reduce design costs by ~50%
+            </p>
+
+            {/* Side by Side: Missing Revenue + Profit Increase */}
+            {(results.turnedAwayRevenue > 0 || results.annualProfitDifference > 0) && (
               <>
                 <div className="h-px bg-neutral-10 my-6"></div>
 
-                <div className="text-center py-4">
-                  <p className="text-xs text-neutral-50 mb-3 tracking-wider uppercase font-medium">Revenue You're Missing</p>
-                  <div className="mb-5">
-                    <p className="text-4xl font-bold text-pumpkin tracking-tight leading-none">
-                      ${results.turnedAwayRevenue.toLocaleString()}
-                    </p>
-                    <p className="text-sm text-neutral-50 mt-1.5">per month</p>
-                  </div>
-                  <div className="bg-pumpkin/5 border border-pumpkin/20 rounded-2xl px-5 py-4">
-                    <p className="text-2xl font-bold text-night-blue tracking-tight">
-                      ${(results.turnedAwayRevenue * 12).toLocaleString()}
-                    </p>
-                    <p className="text-xs text-neutral-50 mt-1 uppercase tracking-wider">Annual Missed Revenue</p>
-                  </div>
-                </div>
-              </>
-            )}
+                <div className="grid grid-cols-2 gap-5 mb-6">
+                  {/* Revenue You're Missing */}
+                  {results.turnedAwayRevenue > 0 && (
+                    <div className="text-center">
+                      <p className="text-xs text-neutral-50 mb-3 tracking-wider uppercase font-medium">Revenue Missing</p>
+                      <p className="text-3xl font-bold text-pumpkin tracking-tight leading-none mb-1">
+                        ${results.turnedAwayRevenue.toLocaleString()}
+                      </p>
+                      <p className="text-xs text-neutral-40 mb-4">per month</p>
+                      <div className="bg-pumpkin/5 border border-pumpkin/20 rounded-xl px-4 py-3">
+                        <p className="text-xl font-bold text-night-blue tracking-tight">
+                          ${(results.turnedAwayRevenue * 12).toLocaleString()}
+                        </p>
+                        <p className="text-xs text-neutral-50 mt-0.5">per year</p>
+                      </div>
+                    </div>
+                  )}
 
-            {/* Annual Profit Difference */}
-            {results.annualProfitDifference > 0 && (
-              <>
-                <div className="h-px bg-neutral-10 my-6"></div>
-
-                <div className="text-center py-4">
-                  <p className="text-xs text-neutral-50 mb-3 tracking-wider uppercase font-medium">Profit Increase</p>
-                  <div className="mb-5">
-                    <p className="text-5xl font-bold text-pumpkin tracking-tight leading-none">
-                      ${(results.annualProfitDifference / 12).toLocaleString()}
-                    </p>
-                    <p className="text-sm text-neutral-50 mt-1.5">per month</p>
-                  </div>
-
-                  <div className="bg-pumpkin/5 border border-pumpkin/20 rounded-2xl px-5 py-4">
-                    <p className="text-2xl font-bold text-night-blue tracking-tight">
-                      ${results.annualProfitDifference.toLocaleString()}
-                    </p>
-                    <p className="text-xs text-neutral-50 mt-1 uppercase tracking-wider">Annual Profit Increase</p>
-                  </div>
+                  {/* Profit Increase */}
+                  {results.annualProfitDifference > 0 && (
+                    <div className="text-center">
+                      <p className="text-xs text-neutral-50 mb-3 tracking-wider uppercase font-medium">Profit Increase</p>
+                      <p className="text-3xl font-bold text-pumpkin tracking-tight leading-none mb-1">
+                        ${(results.annualProfitDifference / 12).toLocaleString()}
+                      </p>
+                      <p className="text-xs text-neutral-40 mb-4">per month</p>
+                      <div className="bg-pumpkin/5 border border-pumpkin/20 rounded-xl px-4 py-3">
+                        <p className="text-xl font-bold text-night-blue tracking-tight">
+                          ${results.annualProfitDifference.toLocaleString()}
+                        </p>
+                        <p className="text-xs text-neutral-50 mt-0.5">per year</p>
+                      </div>
+                    </div>
+                  )}
                 </div>
 
                 <div className="h-px bg-neutral-10 my-6"></div>
