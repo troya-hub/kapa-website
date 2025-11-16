@@ -66,79 +66,79 @@ export default function PrintersCalculator() {
           <div className="space-y-5">
             {/* Design Requests */}
             <div>
-              <label className="block text-sm font-medium text-neutral-60 mb-2">
+              <label className="block text-xs font-medium text-neutral-50 mb-2 uppercase tracking-wider">
                 Monthly Design Requests
               </label>
               <input
                 type="number"
                 value={inputs.designRequests}
                 onChange={(e) => handleInputChange("designRequests", e.currentTarget.value)}
-                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
+                className="w-full px-4 py-3 bg-white border-2 border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin transition-all font-medium text-night-blue"
                 placeholder="20"
                 min="0"
               />
             </div>
 
-            {/* Hours per Design */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-60 mb-2">
-                Hours Per Design
-              </label>
-              <input
-                type="number"
-                value={inputs.hoursPerDesign}
-                onChange={(e) => handleInputChange("hoursPerDesign", e.currentTarget.value)}
-                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
-                placeholder="3"
-                min="0"
-                step="0.5"
-              />
+            {/* Hours and Rate - Side by Side */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-medium text-neutral-50 mb-2 uppercase tracking-wider">
+                  Hours/Design
+                </label>
+                <input
+                  type="number"
+                  value={inputs.hoursPerDesign}
+                  onChange={(e) => handleInputChange("hoursPerDesign", e.currentTarget.value)}
+                  className="w-full px-4 py-3 bg-white border-2 border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin transition-all font-medium text-night-blue"
+                  placeholder="3"
+                  min="0"
+                  step="0.5"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-neutral-50 mb-2 uppercase tracking-wider">
+                  Rate/Hour
+                </label>
+                <input
+                  type="number"
+                  value={inputs.designerRate}
+                  onChange={(e) => handleInputChange("designerRate", e.currentTarget.value)}
+                  className="w-full px-4 py-3 bg-white border-2 border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin transition-all font-medium text-night-blue"
+                  placeholder="50"
+                  min="0"
+                />
+              </div>
             </div>
 
-            {/* Designer Rate */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-60 mb-2">
-                Designer Rate ($/hour)
-              </label>
-              <input
-                type="number"
-                value={inputs.designerRate}
-                onChange={(e) => handleInputChange("designerRate", e.currentTarget.value)}
-                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
-                placeholder="50"
-                min="0"
-              />
-            </div>
-
-            {/* Revisions */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-60 mb-2">
-                Revisions Per Project
-              </label>
-              <input
-                type="number"
-                value={inputs.revisionsPerProject}
-                onChange={(e) => handleInputChange("revisionsPerProject", e.currentTarget.value)}
-                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
-                placeholder="2"
-                min="0"
-              />
-            </div>
-
-            {/* Hours per Revision */}
-            <div>
-              <label className="block text-sm font-medium text-neutral-60 mb-2">
-                Hours Per Revision
-              </label>
-              <input
-                type="number"
-                value={inputs.hoursPerRevision}
-                onChange={(e) => handleInputChange("hoursPerRevision", e.currentTarget.value)}
-                className="w-full px-4 py-3 bg-neutral-5 border border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin focus:bg-white transition-all"
-                placeholder="1"
-                min="0"
-                step="0.5"
-              />
+            {/* Revisions - Side by Side */}
+            <div className="grid grid-cols-2 gap-4">
+              <div>
+                <label className="block text-xs font-medium text-neutral-50 mb-2 uppercase tracking-wider">
+                  Revisions/Project
+                </label>
+                <input
+                  type="number"
+                  value={inputs.revisionsPerProject}
+                  onChange={(e) => handleInputChange("revisionsPerProject", e.currentTarget.value)}
+                  className="w-full px-4 py-3 bg-white border-2 border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin transition-all font-medium text-night-blue"
+                  placeholder="2"
+                  min="0"
+                />
+              </div>
+              <div>
+                <label className="block text-xs font-medium text-neutral-50 mb-2 uppercase tracking-wider">
+                  Hours/Revision
+                </label>
+                <input
+                  type="number"
+                  value={inputs.hoursPerRevision}
+                  onChange={(e) => handleInputChange("hoursPerRevision", e.currentTarget.value)}
+                  className="w-full px-4 py-3 bg-white border-2 border-neutral-20 rounded-xl focus:outline-none focus:border-pumpkin transition-all font-medium text-night-blue"
+                  placeholder="1"
+                  min="0"
+                  step="0.5"
+                />
+              </div>
             </div>
           </div>
         </div>
@@ -147,56 +147,57 @@ export default function PrintersCalculator() {
         <div className="lg:sticky lg:top-8">
           <div className="bg-white rounded-3xl shadow-lg p-8 lg:p-10">
 
-            {/* Comparison */}
-            <div className="mb-10">
-              <p className="text-sm text-neutral-50 mb-3 tracking-wide">You currently spend</p>
-              <p className="text-5xl font-semibold text-night-blue tracking-tight mb-1">
-                ${results.totalMonthlyCost.toLocaleString()}
-              </p>
-              <p className="text-sm text-neutral-40">per month</p>
-            </div>
-
-            <div className="h-px bg-neutral-10 my-10"></div>
-
-            <div className="mb-10">
-              <p className="text-sm text-neutral-50 mb-3 tracking-wide">With unlimited designs</p>
-              <p className="text-5xl font-semibold text-night-blue tracking-tight mb-1">
-                ${KAPA99_MONTHLY_COST}
-              </p>
-              <p className="text-sm text-neutral-40">per month</p>
+            {/* Comparison - Side by Side */}
+            <div className="grid grid-cols-2 gap-6 mb-10">
+              <div>
+                <p className="text-xs text-neutral-50 mb-2 uppercase tracking-wider">Your Cost</p>
+                <p className="text-4xl font-semibold text-night-blue tracking-tight">
+                  ${results.totalMonthlyCost.toLocaleString()}
+                </p>
+                <p className="text-xs text-neutral-40 mt-1">per month</p>
+              </div>
+              <div>
+                <p className="text-xs text-pumpkin mb-2 uppercase tracking-wider font-medium">Our Price</p>
+                <p className="text-4xl font-semibold text-pumpkin tracking-tight">
+                  ${KAPA99_MONTHLY_COST}
+                </p>
+                <p className="text-xs text-neutral-40 mt-1">unlimited</p>
+              </div>
             </div>
 
             {/* Savings - Elegant, not screaming */}
             {results.monthlySavings > 0 && (
               <>
-                <div className="h-px bg-neutral-10 my-10"></div>
+                <div className="h-px bg-neutral-10 my-8"></div>
 
-                <div className="text-center py-8">
-                  <p className="text-sm text-neutral-50 mb-6 tracking-wide uppercase">Your Savings</p>
-                  <p className="text-6xl font-semibold text-pumpkin tracking-tight mb-2 leading-none">
-                    ${results.monthlySavings.toLocaleString()}
-                  </p>
-                  <p className="text-base text-neutral-50 mb-10">every month</p>
+                <div className="text-center py-6">
+                  <p className="text-xs text-neutral-50 mb-4 tracking-wider uppercase font-medium">You Save</p>
+                  <div className="mb-6">
+                    <p className="text-6xl font-bold text-pumpkin tracking-tight leading-none">
+                      ${results.monthlySavings.toLocaleString()}
+                    </p>
+                    <p className="text-sm text-neutral-50 mt-2">per month</p>
+                  </div>
 
-                  <div className="bg-neutral-5 rounded-2xl px-8 py-6">
-                    <p className="text-4xl font-semibold text-night-blue tracking-tight mb-1">
+                  <div className="bg-pumpkin/5 border border-pumpkin/20 rounded-2xl px-6 py-5">
+                    <p className="text-3xl font-bold text-night-blue tracking-tight">
                       ${results.annualSavings.toLocaleString()}
                     </p>
-                    <p className="text-sm text-neutral-50">per year</p>
+                    <p className="text-xs text-neutral-50 mt-1 uppercase tracking-wider">Annual Savings</p>
                   </div>
                 </div>
 
-                <div className="h-px bg-neutral-10 my-10"></div>
+                <div className="h-px bg-neutral-10 my-8"></div>
 
                 {/* CTA - Understated */}
                 <div className="text-center">
                   <a
                     href="/pricing"
-                    className="inline-block bg-pumpkin hover:bg-dark-pumpkin text-white font-medium px-8 py-3.5 rounded-full transition-all"
+                    className="inline-block bg-pumpkin hover:bg-dark-pumpkin text-white font-semibold px-10 py-4 rounded-full transition-all shadow-lg shadow-pumpkin/20 hover:shadow-xl hover:shadow-pumpkin/30"
                   >
                     Start 15-day free trial
                   </a>
-                  <p className="text-xs text-neutral-40 mt-4">No credit card required</p>
+                  <p className="text-xs text-neutral-50 mt-4">No credit card required</p>
                 </div>
               </>
             )}
