@@ -212,61 +212,50 @@ export default function PrintersCalculator() {
         </div>
 
         {/* Right: Results (Sticky) */}
-        <div className="lg:sticky lg:top-8">
-          {/* Cost Breakdown */}
-          <div className="bg-white rounded-2xl shadow-sm border border-neutral-20 p-6 lg:p-8 mb-6">
-            <h2 className="text-xl font-semibold text-night-blue mb-6">Monthly Breakdown</h2>
-            <div className="space-y-3 mb-6">
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-neutral-60">Design Work</span>
-                <span className="font-medium text-night-blue">${results.designCosts.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-neutral-60">Revisions</span>
-                <span className="font-medium text-night-blue">${results.revisionCosts.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-neutral-60">Software</span>
-                <span className="font-medium text-night-blue">${results.softwareCosts.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-neutral-60">Overhead</span>
-                <span className="font-medium text-night-blue">${results.overheadCosts.toLocaleString()}</span>
-              </div>
-              <div className="flex justify-between items-center text-sm">
-                <span className="text-neutral-60">Stock Assets</span>
-                <span className="font-medium text-night-blue">${results.stockPhotoCosts.toLocaleString()}</span>
-              </div>
+        <div className="lg:sticky lg:top-8 space-y-8">
+          {/* Simple Comparison - No Boxes */}
+          <div className="text-center py-8">
+            <p className="text-sm text-neutral-50 mb-4">Your current monthly cost</p>
+            <p className="text-6xl lg:text-7xl font-bold text-night-blue mb-2">
+              ${results.totalMonthlyCost.toLocaleString()}
+            </p>
+
+            <div className="flex items-center justify-center gap-4 my-8">
+              <div className="h-px bg-neutral-20 flex-1"></div>
+              <span className="text-sm font-medium text-neutral-40 uppercase tracking-widest">vs</span>
+              <div className="h-px bg-neutral-20 flex-1"></div>
             </div>
 
-            <div className="border-t border-neutral-20 pt-4 mb-6">
-              <div className="flex justify-between items-center">
-                <span className="text-base font-semibold text-night-blue">Your Total</span>
-                <span className="text-3xl font-bold text-night-blue">
-                  ${results.totalMonthlyCost.toLocaleString()}
-                </span>
-              </div>
-              <p className="text-xs text-neutral-50 mt-1 text-right">per month</p>
-            </div>
-
-            <div className="border-t border-neutral-20 pt-4 mb-6 text-center">
-              <p className="text-xs font-medium text-pumpkin mb-2 uppercase tracking-wide">Flat Rate</p>
-              <p className="text-5xl font-bold text-night-blue mb-2">${KAPA99_MONTHLY_COST}</p>
-              <p className="text-sm text-neutral-60">unlimited everything</p>
-            </div>
-
-            {results.monthlySavings > 0 && (
-              <div className="bg-gradient-to-br from-emerald-500 to-emerald-600 text-white rounded-xl p-6 text-center">
-                <p className="text-sm font-medium mb-2 opacity-90">You Save</p>
-                <p className="text-4xl font-bold mb-1">${results.monthlySavings.toLocaleString()}/mo</p>
-                <div className="mt-3 pt-3 border-t border-white/20">
-                  <p className="text-2xl font-bold">${results.annualSavings.toLocaleString()}/year</p>
-                </div>
-              </div>
-            )}
+            <p className="text-sm text-pumpkin mb-3 uppercase tracking-wide font-semibold">Flat Rate</p>
+            <p className="text-5xl lg:text-6xl font-bold text-night-blue">
+              ${KAPA99_MONTHLY_COST}
+            </p>
+            <p className="text-neutral-50 mt-2">unlimited everything</p>
           </div>
 
-          {/* CTA - After Evidence */}
+          {/* HERO: Massive Savings */}
+          {results.monthlySavings > 0 && (
+            <div className="relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-br from-emerald-400 via-emerald-500 to-emerald-600 opacity-10 blur-3xl"></div>
+              <div className="relative bg-gradient-to-br from-emerald-500 to-emerald-600 rounded-3xl p-12 lg:p-16 text-center shadow-2xl">
+                <p className="text-white/80 text-lg mb-6 font-medium">You save</p>
+                <div className="mb-8">
+                  <p className="text-white text-7xl lg:text-8xl font-black mb-2 leading-none">
+                    ${results.monthlySavings.toLocaleString()}
+                  </p>
+                  <p className="text-white/90 text-2xl font-semibold">every month</p>
+                </div>
+                <div className="inline-block bg-white/20 backdrop-blur-sm rounded-2xl px-8 py-6">
+                  <p className="text-white text-5xl lg:text-6xl font-black">
+                    ${results.annualSavings.toLocaleString()}
+                  </p>
+                  <p className="text-white/90 text-lg mt-2 font-medium">per year</p>
+                </div>
+              </div>
+            </div>
+          )}
+
+          {/* CTA - Flows Naturally */}
           <div className="relative">
             <div className="absolute -inset-1 bg-gradient-to-r from-pumpkin via-yellow-400 to-pumpkin rounded-2xl blur opacity-40 animate-pulse"></div>
             <div className="relative bg-gradient-to-br from-pumpkin to-dark-pumpkin text-white rounded-2xl p-10 lg:p-12 text-center shadow-2xl">
