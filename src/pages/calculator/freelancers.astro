@@ -1,0 +1,22 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+import FreelancersCalculator from "@/components/calculator/FreelancersCalculator";
+---
+
+<BaseLayout>
+	<Divider size="small" />
+
+	<div class="site-container">
+		{/* Minimal title */}
+		<div class="text-center mb-8">
+			<h1 class="text-3xl font-semibold text-night-blue tracking-tight">
+				Calculate Your Profit Increase
+			</h1>
+		</div>
+
+		<FreelancersCalculator client:only="preact" />
+	</div>
+
+	<Divider size="large" />
+</BaseLayout>
