@@ -166,7 +166,7 @@ export default function FreelancersCalculator() {
             </div>
 
             {/* Elegant explanation */}
-            <p className="text-center text-xs text-neutral-50 mb-6 italic">
+            <p className="text-center text-sm text-neutral-60 mb-6 italic">
               With our unlimited designs, agencies typically reduce design costs by ~50%
             </p>
 
