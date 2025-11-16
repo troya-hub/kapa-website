@@ -3,6 +3,7 @@ import BaseLayout from "@/layouts/BaseLayout.astro";
 import Divider from "@/components/ui/Divider.astro";
 import Title from "@/components/ui/Title.astro";
 import PrintersCalculator from "@/components/calculator/PrintersCalculator";
+import { PRICING_URL } from "@/constants/app";
 ---
 
 <BaseLayout>
@@ -131,15 +132,13 @@ import PrintersCalculator from "@/components/calculator/PrintersCalculator";
 				Join hundreds of print shops who've streamlined their design workflow and cut costs with Kapa99.
 			</p>
 			<a
-				href="https://cal.com/agencylinkup/kapa99-15-mins-chat"
-				target="_blank"
-				rel="noopener noreferrer"
+				href={PRICING_URL}
 				class="button-primary inline-block px-8 py-4 text-lg"
 			>
-				Schedule Your Free Consultation
+				Start free trial
 			</a>
 			<p class="text-sm mt-4 opacity-75">
-				15-minute call • No pressure • See if Kapa99 is the right fit
+				15-day free trial • No credit card required • Cancel anytime
 			</p>
 		</div>
 	</div>

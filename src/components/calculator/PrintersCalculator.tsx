@@ -331,14 +331,12 @@ export default function PrintersCalculator() {
                   line.
                 </p>
                 <a
-                  href="https://cal.com/agencylinkup/kapa99-15-mins-chat"
-                  target="_blank"
-                  rel="noopener noreferrer"
+                  href="/pricing"
                   className="button-primary inline-block px-8 py-4 text-lg"
                 >
-                  Book a Free 15-Minute Call
+                  Start free trial
                 </a>
-                <p className="text-sm mt-4 opacity-75">No commitment required • See if Kapa99 is right for you</p>
+                <p className="text-sm mt-4 opacity-75">15-day free trial • No credit card required • Cancel anytime</p>
               </div>
             </div>
           )}
