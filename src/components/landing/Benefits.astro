@@ -5,7 +5,6 @@ import Title from "@/components/ui/Title.astro";
 import Divider from "@/components/ui/Divider.astro";
 import BenefitCard from "@/components/ui/BenefitCard.astro";
 import type { IBenefits } from "@/types";
-
 // Light icons
 import TimeIcon from "@/assets/icons/benefits/time.svg";
 import SaveMoneyIcon from "@/assets/icons/benefits/save-money.svg";
@@ -14,7 +13,6 @@ import RiskFreeIcon from "@/assets/icons/benefits/risk-free.svg";
 import ProfessionalIcon from "@/assets/icons/benefits/professional.svg";
 import CancelAnytimeIcon from "@/assets/icons/benefits/cancel-anytime.svg";
 import UnlimitedEditsIcon from "@/assets/icons/benefits/unlimited.svg";
-
 // Dark icons
 import DarkTimeIcon from "@/assets/icons/benefits/dark-save-time.svg";
 import DarkSaveMoneyIcon from "@/assets/icons/benefits/dark-save-money.svg";
@@ -24,72 +22,66 @@ import DarkProfessionalIcon from "@/assets/icons/benefits/dark-professionals.svg
 import DarkCancelAnytimeIcon from "@/assets/icons/benefits/dark-cancel-anytime.svg";
 import DarkUnlimitedEditsIcon from "@/assets/icons/benefits/dark-unlimited.svg";
 import DarkDesignIcon from "@/assets/icons/benefits/dark-industry-experts.svg";
-
 interface Props {
 	theme?: "light" | "dark";
 }
-
 const benefits: IBenefits = [
 	{
-		title: "Save Time",
-		description: "Delegate any design task in 5 minutes and get it back in 12 to 48 hours.",
+		title: "Your Weekends Back",
+		description: "Stop spending nights in Canva. Hand off any task in 5 minutes, get it back in 12-48 hours.",
 		icon: TimeIcon,
 		darkIcon: DarkTimeIcon
 	},
 	{
-		title: "Save Money",
-		description: "Our plans starts at $349/m. No more breaking the bank.",
+		title: "Agency Work, Not Agency Prices",
+		description: "Get the quality you'd expect from a $5k/month agency—starting at $349/m.",
 		icon: SaveMoneyIcon,
 		darkIcon: DarkSaveMoneyIcon
 	},
 	{
-		title: "Get Quality Work",
-		description: "Whether you need a simple logo or a complex illustration, we’ll get it done.",
+		title: "Look Like the Big Brands",
+		description: "From quick social graphics to complex illustrations—everything comes back polished and professional.",
 		icon: QualityWorkIcon,
 		darkIcon: DarkQualityWorkIcon
 	},
 	{
-		title: "Risk-Free",
-		description: "Enjoy a complimentary 15-day trial on us, no strings attached.",
+		title: "Try Before You Commit",
+		description: "Not sure we're the right fit? Test us free for 15 days. No card required, no awkward sales calls.",
 		icon: RiskFreeIcon,
 		darkIcon: DarkRiskFreeIcon
 	},
 	{
-		title: "Work With Professionals",
-		description: "Stop wasting time with freelancers that leave you hanging.",
+		title: "No More Freelancer Roulette",
+		description: "Tired of ghosting, missed deadlines, and "that's not what I asked for"? We show up, every time.",
 		icon: ProfessionalIcon,
 		darkIcon: DarkProfessionalIcon
 	},
 	{
-		title: "Cancel Anytime",
-		description: "No lock-in contracts. Go month-to-month, and cancel whenever you want.",
+		title: "No Contracts, No Guilt",
+		description: "Need to pause? Scale down? Walk away? Month-to-month means you're always in control.",
 		icon: CancelAnytimeIcon,
 		darkIcon: DarkCancelAnytimeIcon
 	},
 	{
-		title: "Unlimited Revisions and Requests",
-		description: "There's no limit to how many open projects you can have at the same time.",
+		title: "Never Hear "That's Extra"",
+		description: "Unlimited requests and revisions. No nickel-and-diming, no surprise invoices.",
 		icon: UnlimitedEditsIcon,
 		darkIcon: DarkUnlimitedEditsIcon
 	},
 	{
-		title: "Industry Experts",
-		description: "Whatever your niche, we have a graphic designer with the expertise to help.",
+		title: "Designers Who Get Your Space",
+		description: "Real estate, SaaS, restaurants, coaching—we've done it. No explaining your industry from scratch.",
 		icon: DesignIcon,
 		darkIcon: DarkDesignIcon
 	}
 ];
-
 const { theme = "light" } = Astro.props;
 ---
-
 <section class="site-container" data-theme={theme}>
 	<Title type="h1" class="lg:w-[70%] dark:text-neutral-100">
 		Benefits of your graphic design subscription
 	</Title>
-
 	<Divider size="large" />
-
 	<div class="grid grid-cols-2 gap-x-14 gap-y-20 md:grid-cols-3 lg:grid-cols-4">
 		{benefits.map((benefit) =>
 			<BenefitCard theme={theme} data={benefit} />)}
