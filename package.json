@@ -17,6 +17,7 @@
     "astro": "^5.10.1",
     "clsx": "^2.1.1",
     "gsap": "^3.13.0",
+    "posthog-js": "^1.347.2",
     "preact": "^10.26.5",
     "preact-swiper": "github:Lizhooh/preact-swiper",
     "swiper": "^11.2.6",
