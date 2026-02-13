@@ -1,0 +1,86 @@
+---
+import ArrowRightUp from "@/assets/icons/arrow-right-up.svg";
+import OurClients from "@/components/landing/OurClients.astro";
+import Divider from "@/components/ui/Divider.astro";
+import { APP_REGISTER_URL } from "@/constants/app";
+---
+
+<section class="site-container text-neutral-10">
+	<Divider size="small" />
+	<div class="mx-auto text-center lg:max-w-[90%]">
+		<div
+			class="hero-badge text-k-sm text-neutral-40 border-blue mb-4 inline-flex items-center gap-x-1 rounded-[100px] border px-4 py-1"
+			style="opacity: 0; transform: translateY(10px);"
+		>
+			12 years helping people like you
+			<ArrowRightUp />
+		</div>
+
+		<div class="mt-6 space-y-4">
+			<h1
+				class="hero-headline text-k-h1-mobile lg:text-k-h1 text-neutral-10 font-semibold"
+				style="opacity: 0;"
+			>
+				<span class="hero-word inline-block" style="opacity: 0; transform: translateY(20px);">A dedicated</span>{" "}
+				<span class="hero-word inline-block" style="opacity: 0; transform: translateY(20px);">design team</span>{" "}
+				<span class="hero-word inline-block" style="opacity: 0; transform: translateY(20px);">for your</span>{" "}
+				<span class="hero-word inline-block" style="opacity: 0; transform: translateY(20px);">business</span>{" "}
+				<span class="hero-word inline-block" style="opacity: 0; transform: translateY(20px);">without the</span>{" "}
+				<span class="hero-word inline-block" style="opacity: 0; transform: translateY(20px);">big price tag</span>
+			</h1>
+
+			<div
+				class="hero-subtitle text-k-lg text-neutral-40 mx-auto lg:max-w-[80%]"
+				style="opacity: 0; transform: translateY(15px);"
+			>
+				Get instant access to a team of professional designers—no hiring or contracts required. Flat
+				monthly fee starting at $349/month.
+			</div>
+
+			<div
+				class="hero-cta mt-6 flex justify-center"
+				style="opacity: 0; transform: translateY(15px);"
+			>
+				<a class="button-primary" href={APP_REGISTER_URL}>Start with a free 15-day trial</a>
+			</div>
+		</div>
+
+		<div class="hero-clients" style="opacity: 0; transform: translateY(10px);">
+			<OurClients />
+		</div>
+	</div>
+</section>
+
+<style>
+	.hero-word,
+	.hero-badge,
+	.hero-subtitle,
+	.hero-cta,
+	.hero-clients {
+		will-change: transform, opacity;
+	}
+</style>
+
+<script>
+	import gsap from "gsap";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const tl = gsap.timeline({ defaults: { ease: "power3.out" } });
+
+		tl.to(".hero-badge", { opacity: 1, y: 0, duration: 0.5 });
+
+		tl.set(".hero-headline", { opacity: 1 });
+		tl.to(".hero-word", {
+			opacity: 1,
+			y: 0,
+			duration: 0.6,
+			stagger: 0.08,
+		}, "-=0.2");
+
+		tl.to(".hero-subtitle", { opacity: 1, y: 0, duration: 0.6 }, "-=0.3");
+
+		tl.to(".hero-cta", { opacity: 1, y: 0, duration: 0.5 }, "-=0.2");
+
+		tl.to(".hero-clients", { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
+	});
+</script>
