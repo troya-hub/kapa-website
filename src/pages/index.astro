@@ -2,14 +2,14 @@
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Divider from "@/components/ui/Divider.astro";
 
-import Hero from "@/components/landing/Hero.astro";
+import Herov2 from "@/components/landing/v2/Herov2.astro";
 import HeroSamples from "@/components/landing/HeroSamples.astro";
-import TrustBadgeds from "@/components/landing/TrustBadgeds.astro";
-import FoundersQuotes from "@/components/landing/FoundersQuote.astro";
+import TrustBadgedsv2 from "@/components/landing/v2/TrustBadgedsv2.astro";
+import FoundersQuotev2 from "@/components/landing/v2/FoundersQuotev2.astro";
 import CarouselServices from "@/components/landing/CarouselServices.astro";
 import WhyUseIt from "@/components/landing/WhyUseIt.astro";
 import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
-import Services from "@/components/landing/Services.astro";
+import Servicesv2 from "@/components/landing/v2/Servicesv2.astro";
 import Benefits from "@/components/landing/Benefits.astro";
 import Reviews from "@/components/landing/Reviews.astro";
 import FAQ from "@/components/landing/FAQ.astro";
@@ -17,26 +17,55 @@ import CallToAction from "@/components/landing/CallToAction.astro";
 ---
 
 <BaseLayout>
-	<Hero />
-	<HeroSamples />
+	<Herov2 />
+	<div data-animate="fade-in">
+		<HeroSamples />
+	</div>
 	<Divider />
-	<TrustBadgeds />
+	<div data-animate="fade-up">
+		<TrustBadgedsv2 />
+	</div>
 	<Divider size="large" />
-	<FoundersQuotes />
+	<FoundersQuotev2 />
 	<Divider size="large" />
-	<CarouselServices />
+	<div data-animate="fade-in">
+		<CarouselServices />
+	</div>
 	<Divider size="large" />
-	<WhyUseIt />
+	<div data-animate="stagger-grid">
+		<WhyUseIt />
+	</div>
 	<Divider size="extra-large" />
-	<HowDoWeDoIt />
+	<div data-animate="stagger-grid">
+		<HowDoWeDoIt />
+	</div>
 	<Divider size="large" />
-	<Services />
+	<Servicesv2 />
 	<Divider size="large" />
-	<Benefits />
+	<div data-animate="pop-grid">
+		<Benefits />
+	</div>
 	<Divider size="super-large" />
-	<Reviews />
+	<div data-animate="focus-reveal">
+		<Reviews />
+	</div>
 	<Divider size="super-large" />
-	<FAQ />
+	<div data-animate="fade-up">
+		<FAQ />
+	</div>
 	<Divider size="large" />
 	<CallToAction />
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>
