@@ -1,0 +1,91 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+
+import Herov2 from "@/components/landing/v2/Herov2.astro";
+import HeroSamples from "@/components/landing/HeroSamples.astro";
+import TrustBadgedsv2 from "@/components/landing/v2/TrustBadgedsv2.astro";
+import FoundersQuotes from "@/components/landing/FoundersQuote.astro";
+import CarouselServices from "@/components/landing/CarouselServices.astro";
+import WhyUseIt from "@/components/landing/WhyUseIt.astro";
+import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
+import Services from "@/components/landing/Services.astro";
+import Benefits from "@/components/landing/Benefits.astro";
+import Reviews from "@/components/landing/Reviews.astro";
+import FAQ from "@/components/landing/FAQ.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
+---
+
+<BaseLayout>
+	<script is:inline>
+		(function () {
+			var pw = prompt("Enter password to view this page:");
+			if (pw !== "kapa2025") {
+				var el = document.getElementById("v2-content");
+				if (el) el.style.display = "none";
+				alert("Incorrect password.");
+				window.location.href = "/";
+			}
+		})();
+	</script>
+
+	<div id="v2-content">
+		<Herov2 />
+		<div data-animate="fade-in">
+			<HeroSamples />
+		</div>
+		<Divider />
+		<div data-animate="fade-up">
+			<TrustBadgedsv2 />
+		</div>
+		<Divider size="large" />
+		<div data-animate="fade-up">
+			<FoundersQuotes />
+		</div>
+		<Divider size="large" />
+		<div data-animate="fade-in">
+			<CarouselServices />
+		</div>
+		<Divider size="large" />
+		<div data-animate="stagger-grid">
+			<WhyUseIt />
+		</div>
+		<Divider size="extra-large" />
+		<div data-animate="stagger-grid">
+			<HowDoWeDoIt />
+		</div>
+		<Divider size="large" />
+		<div data-animate="fade-in">
+			<Services />
+		</div>
+		<Divider size="large" />
+		<div data-animate="stagger-grid">
+			<Benefits />
+		</div>
+		<Divider size="super-large" />
+		<div data-animate="fade-up">
+			<Reviews />
+		</div>
+		<Divider size="super-large" />
+		<div data-animate="fade-up">
+			<FAQ />
+		</div>
+		<Divider size="large" />
+		<div data-animate="scale-in" style="overflow: hidden;">
+			<CallToAction />
+		</div>
+	</div>
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
+</BaseLayout>
+
+<style is:global>
+	#v2-content .button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	#v2-content .button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>
