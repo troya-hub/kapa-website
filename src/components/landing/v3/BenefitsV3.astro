@@ -1,0 +1,76 @@
+---
+import Title from "@/components/ui/Title.astro";
+
+// Dark icons
+import DarkTimeIcon from "@/assets/icons/benefits/dark-save-time.svg";
+import DarkSaveMoneyIcon from "@/assets/icons/benefits/dark-save-money.svg";
+import DarkQualityWorkIcon from "@/assets/icons/benefits/dark-get-quality.svg";
+import DarkRiskFreeIcon from "@/assets/icons/benefits/dark-risk-free.svg";
+import DarkProfessionalIcon from "@/assets/icons/benefits/dark-professionals.svg";
+import DarkCancelAnytimeIcon from "@/assets/icons/benefits/dark-cancel-anytime.svg";
+
+import type { AstroComponentFactory } from "astro";
+
+interface BenefitItem {
+	title: string;
+	description: string;
+	icon: AstroComponentFactory;
+}
+
+const benefits: BenefitItem[] = [
+	{
+		title: "Your weekends back",
+		description: "Stop spending nights in Canva. Hand off any task in 5 minutes, get it back in 12-48 hours.",
+		icon: DarkTimeIcon
+	},
+	{
+		title: "Pro work, fair prices",
+		description: "Get the quality you'd expect from a $5k/month agency—starting at $349/m.",
+		icon: DarkSaveMoneyIcon
+	},
+	{
+		title: "Look like the big brands",
+		description: "From quick social graphics to complex illustrations—everything comes back polished and professional.",
+		icon: DarkQualityWorkIcon
+	},
+	{
+		title: "Try before you commit",
+		description: "Not sure we're the right fit? Test us free for 15 days. No card required, no awkward sales calls.",
+		icon: DarkRiskFreeIcon
+	},
+	{
+		title: "No freelancer roulette",
+		description: "Tired of ghosting, missed deadlines, and 'that's not what I asked for'? We show up, every time.",
+		icon: DarkProfessionalIcon
+	},
+	{
+		title: "No contracts, no guilt",
+		description: "Need to pause? Scale down? Walk away? Month-to-month means you're always in control.",
+		icon: DarkCancelAnytimeIcon
+	},
+];
+---
+
+<section class="bg-night-blue py-20 lg:py-30" data-theme="dark">
+	<div class="site-container">
+		<Title type="h1" class="text-neutral-100!">
+			Built for you
+		</Title>
+		<div class="h-20 lg:h-30"></div>
+		<div class="grid grid-cols-1 gap-x-16 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+			{benefits.map((benefit) => (
+				<div>
+					<div class="flex">
+						<span class="bg-dark-blue border-blue rounded-md border-b border-t-transparent border-r-transparent border-l-transparent p-4 shadow-[0_2px_8px_0px_rgba(11,15,41,0.08)]">
+							<benefit.icon />
+						</span>
+					</div>
+					<div class="mt-6">
+						<h6 class="text-k-h6 text-neutral-100 font-bold">{benefit.title}</h6>
+						<p class="text-k-md text-neutral-80 mt-2">{benefit.description}</p>
+					</div>
+				</div>
+			))}
+		</div>
+	</div>
+</section>

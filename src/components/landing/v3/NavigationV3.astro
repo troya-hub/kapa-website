@@ -1,0 +1,136 @@
+---
+import Logo from "@/assets/icons/logo.svg";
+import ArrowIcon from "@/assets/icons/arrow-icon.svg";
+import { LOGIN_URL, PRICING_URL } from "@/constants/app";
+
+const menuOptions = [
+	{ label: "How it works", href: "/how-it-works" },
+	{ label: "Pricing", href: "/pricing" },
+	{ label: "Why us", href: "/why-us" },
+	{ label: "Samples", href: "/samples" },
+];
+---
+
+<nav class="site-container relative flex w-full items-center justify-between py-6 backdrop-blur-md bg-night-blue/80 text-neutral-80 z-40">
+	<a href="/" class="flex items-center">
+		<Logo class="h-7 text-neutral-100" />
+	</a>
+
+	<!-- Desktop Nav -->
+	<div class="hidden grow items-center justify-center gap-x-7 lg:flex">
+		{
+			menuOptions.map((item) => (
+				<a
+					href={item.href}
+					class="transition-colors duration-300 hover:text-neutral-100"
+					data-href={item.href}
+				>
+					{item.label}
+				</a>
+			))
+		}
+	</div>
+
+	<!-- Desktop Auth -->
+	<div class="hidden items-center gap-4 lg:flex">
+		<a href={LOGIN_URL} class="transition-colors duration-300 hover:text-neutral-100">Login</a>
+		<a href={PRICING_URL} class="group v3-button-secondary flex items-center gap-x-2">
+			<span>Start free trial</span>
+			<ArrowIcon class="h-3 w-3 transition-colors" />
+		</a>
+	</div>
+
+	<!-- Mobile Toggle -->
+	<button
+		id="v3-menu-toggle"
+		class="border-neutral-80/30 relative z-20 rounded border p-2 lg:hidden"
+		aria-label="Toggle menu"
+	>
+		<svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M20 5H22" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"></path>
+			<path d="M2 5H16" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"></path>
+			<path d="M22 12L2 12" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"></path>
+			<path d="M20 19H22" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"></path>
+			<path d="M2 19H16" stroke="currentColor" stroke-width="2" stroke-miterlimit="10" stroke-linecap="round"></path>
+		</svg>
+	</button>
+
+	<!-- Off-Canvas Menu -->
+	<div
+		id="v3-mobile-menu"
+		class="fixed top-0 left-0 z-50 flex h-full w-3/4 max-w-sm -translate-x-full transform flex-col gap-4 bg-night-blue p-6 shadow-md transition-transform duration-300 ease-in-out lg:hidden"
+	>
+		<div class="mb-6 flex items-center justify-between">
+			<a href="/" class="flex items-center">
+				<Logo class="h-6 text-neutral-100" />
+			</a>
+			<button id="v3-menu-close" aria-label="Close menu" class="text-neutral-80">
+				<svg class="h-6 w-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+				</svg>
+			</button>
+		</div>
+
+		{
+			menuOptions.map((item) => (
+				<a
+					href={item.href}
+					class="border-neutral-80/20 flex items-center border-b py-4 text-lg text-neutral-80 transition-colors hover:text-neutral-100"
+					data-href={item.href}
+				>
+					{item.label}
+				</a>
+			))
+		}
+		<a href={LOGIN_URL} class="border-neutral-80/20 flex border-b py-4 text-lg text-neutral-80">
+			Login
+		</a>
+		<a
+			href={PRICING_URL}
+			class="v3-button-secondary mt-4 flex w-full items-center justify-center gap-x-2"
+		>
+			<span>Start free trial</span>
+			<ArrowIcon />
+		</a>
+	</div>
+
+	<!-- Overlay -->
+	<div id="v3-menu-overlay" class="bg-opacity-50 fixed inset-0 z-30 hidden bg-black lg:hidden"></div>
+
+	<!-- Toggle Script -->
+	<script>
+		const toggle = document.getElementById("v3-menu-toggle");
+		const close = document.getElementById("v3-menu-close");
+		const menu = document.getElementById("v3-mobile-menu");
+		const overlay = document.getElementById("v3-menu-overlay");
+
+		const openMenu = () => {
+			menu?.classList.remove("-translate-x-full");
+			overlay?.classList.remove("hidden");
+		};
+
+		const closeMenu = () => {
+			menu?.classList.add("-translate-x-full");
+			overlay?.classList.add("hidden");
+		};
+
+		toggle?.addEventListener("click", openMenu);
+		close?.addEventListener("click", closeMenu);
+		overlay?.addEventListener("click", closeMenu);
+	</script>
+</nav>
+
+<style>
+	.v3-button-secondary {
+		border: 1px solid rgba(184, 189, 204, 0.4);
+		border-radius: 100px;
+		padding: 0.75rem 1.25rem;
+		color: var(--color-neutral-80);
+		transition: all 300ms ease-in-out;
+	}
+
+	.v3-button-secondary:hover {
+		border-color: var(--color-neutral-100);
+		color: var(--color-neutral-100);
+	}
+</style>
