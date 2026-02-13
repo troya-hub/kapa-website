@@ -1,0 +1,24 @@
+---
+import Divider from "@/components/ui/Divider.astro";
+import ServicesCarousel from "@/components/ui/services/ServicesCarousel.tsx";
+
+import BackgroundImage from "@/assets/images/services/background.webp?url";
+---
+
+<section
+	class="bg-night-blue services-v2-section"
+	style={`background-image: url(${BackgroundImage}); background-size: cover; background-position: top right;`}
+	data-animate="depth-parallax"
+>
+	<div class="services-v2-foreground">
+		<ServicesCarousel client:only="preact" />
+	</div>
+
+	<Divider size="large" />
+</section>
+
+<style>
+	.services-v2-foreground {
+		will-change: transform;
+	}
+</style>
