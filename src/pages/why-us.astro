@@ -1,7 +1,7 @@
 ---
 import BaseLayout from "@/layouts/BaseLayout.astro";
 import Divider from "@/components/ui/Divider.astro";
-import FoundersQuote from "@/components/landing/FoundersQuote.astro";
+import FoundersQuotev2 from "@/components/landing/v2/FoundersQuotev2.astro";
 import Hero from "@/components/why-us/Hero.astro";
 import Rates from "@/components/why-us/Rates.astro";
 import OurCoreValues from "@/components/why-us/OurCoreValues.astro";
@@ -13,24 +13,49 @@ import CallToAction from "@/components/landing/CallToAction.astro";
 ---
 
 <BaseLayout>
-	<Hero />
+	<div data-animate="fade-up">
+		<Hero />
+	</div>
 	<Divider size="medium" />
-	<FoundersQuote />
+	<FoundersQuotev2 />
 	<Divider size="medium" />
 	<div class="site-container">
 		<div class="border-neutral-95 border-t"></div>
 		<Divider size="medium" />
-		<Rates />
+		<div data-animate="stagger-grid">
+			<Rates />
+		</div>
 	</div>
 	<div class="bg-night-blue">
-		<OurCoreValues />
+		<div data-animate="pop-grid">
+			<OurCoreValues />
+		</div>
 		<LineDivider />
-		<OurJourney />
+		<div data-animate="fade-up">
+			<OurJourney />
+		</div>
 	</div>
 	<Divider size="large" />
-	<Reviews />
+	<div data-animate="focus-reveal">
+		<Reviews />
+	</div>
 	<Divider size="large" />
-	<FAQ />
+	<div data-animate="fade-up">
+		<FAQ />
+	</div>
 	<Divider size="large" />
 	<CallToAction />
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>

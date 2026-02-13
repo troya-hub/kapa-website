@@ -9,15 +9,36 @@ import ClientTestimonials from "@/components/testimonials/ClientTestimonials.ast
 ---
 
 <BaseLayout>
-	<Hero />
+	<div data-animate="fade-up">
+		<Hero />
+	</div>
 	<Divider size="extra-large" />
-	<Reviews />
+	<div data-animate="focus-reveal">
+		<Reviews />
+	</div>
 	<Divider size="medium" />
-	<PersonalReview />
-	<div class="bg-sky-blue">
-		<Divider size="large" />
-		<ClientTestimonials />
-		<Divider size="extra-large" />
+	<div data-animate="fade-up">
+		<PersonalReview />
+	</div>
+	<div data-animate="fade-in">
+		<div class="bg-sky-blue">
+			<Divider size="large" />
+			<ClientTestimonials />
+			<Divider size="extra-large" />
+		</div>
 	</div>
 	<CallToAction />
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>

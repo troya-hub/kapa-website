@@ -6,7 +6,24 @@ import CaseStudies from "@/components/case-studies/CaseStudies.astro";
 ---
 
 <BaseLayout>
-	<Hero />
+	<div data-animate="fade-up">
+		<Hero />
+	</div>
 	<Divider size="small" />
-	<CaseStudies />
+	<div data-animate="fade-up">
+		<CaseStudies />
+	</div>
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>
