@@ -1,0 +1,160 @@
+---
+import "@/styles/global.css";
+import NavigationV3 from "@/components/landing/v3/NavigationV3.astro";
+import HeroV3 from "@/components/landing/v3/HeroV3.astro";
+import HeroSamples from "@/components/landing/HeroSamples.astro";
+import FoundersQuoteV3 from "@/components/landing/v3/FoundersQuoteV3.astro";
+import WhyUseIt from "@/components/landing/WhyUseIt.astro";
+import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
+import Servicesv2 from "@/components/landing/v2/Servicesv2.astro";
+import BenefitsV3 from "@/components/landing/v3/BenefitsV3.astro";
+import Reviews from "@/components/landing/Reviews.astro";
+import FAQ from "@/components/landing/FAQ.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
+import Footer from "@/components/landing/Footer.astro";
+import Divider from "@/components/ui/Divider.astro";
+import OurClients from "@/components/landing/OurClients.astro";
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Kapa - Unlimited Graphic Design - Free 15-Day Trial</title>
+		<meta name="robots" content="noindex, nofollow" />
+
+		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="shortcut icon" href="/favicon.ico" />
+		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
+		<meta name="apple-mobile-web-app-title" content="Kapa" />
+		<link rel="manifest" href="/site.webmanifest" />
+	</head>
+	<body class="v2-page">
+		<!-- Password Gate -->
+		<script is:inline>
+			(function() {
+				var pw = prompt("Password:");
+				if (pw !== "kapa99v2") {
+					document.body.innerHTML = "";
+					window.location.href = "/";
+				}
+			})();
+		</script>
+
+		<NavigationV3 />
+
+		<!-- Hero: Dark -->
+		<HeroV3 />
+
+		<!-- Work Samples -->
+		<div data-animate="fade-in">
+			<HeroSamples />
+		</div>
+
+		<!-- Client Logos (moved from hero) -->
+		<div data-animate="fade-up" class="site-container">
+			<OurClients />
+		</div>
+
+		<Divider size="large" />
+
+		<!-- Founders Quote: Dark -->
+		<FoundersQuoteV3 />
+
+		<Divider size="large" />
+
+		<!-- Why Use It: Light -->
+		<div data-animate="stagger-grid">
+			<WhyUseIt />
+		</div>
+
+		<Divider size="extra-large" />
+
+		<!-- How Do We Do It: Light -->
+		<div data-animate="stagger-grid">
+			<HowDoWeDoIt />
+		</div>
+
+		<Divider size="large" />
+
+		<!-- Services: Dark (already) -->
+		<Servicesv2 />
+
+		<Divider size="large" />
+
+		<!-- Benefits: Dark, 3-col, 6-card -->
+		<div data-animate="pop-grid">
+			<BenefitsV3 />
+		</div>
+
+		<Divider size="super-large" />
+
+		<!-- Reviews: Light -->
+		<div data-animate="focus-reveal">
+			<Reviews />
+		</div>
+
+		<Divider size="super-large" />
+
+		<!-- FAQ: Light -->
+		<div data-animate="fade-up">
+			<FAQ />
+		</div>
+
+		<Divider size="large" />
+
+		<!-- CTA: Dark (already) -->
+		<CallToAction />
+
+		<!-- Footer -->
+		<Footer />
+
+		<script>
+			import "@/scripts/scroll-animations-v2";
+		</script>
+	</body>
+</html>
+
+<style is:global>
+	/* === V2 Typography Elevation === */
+	.v2-page h1,
+	.v2-page h2,
+	.v2-page h3 {
+		font-weight: 700;
+	}
+
+	.v2-page p {
+		font-weight: 400;
+	}
+
+	/* === V2 Button Refinement === */
+	.v2-page .button-primary {
+		box-shadow: none;
+		padding: 1rem 2rem;
+		transition: all 300ms ease-out;
+	}
+
+	.v2-page .button-primary:hover {
+		transform: none;
+		filter: brightness(1.08);
+	}
+
+	/* === V2 Card Refinement === */
+	.v2-page [data-theme="dark"] .shadow-\[24px_28px_24px_0px_rgba\(11\2c 15\2c 41\2c 0\.06\)\2c 12px_12px_16px_0px_rgba\(11\2c 15\2c 41\2c 0\.08\)\2c 3px_3px_8px_0px_rgba\(11\2c 15\2c 41\2c 0\.08\)\] {
+		box-shadow: 0 2px 8px 0px rgba(11, 15, 41, 0.08);
+	}
+
+	/* === V2 Carousel Refinement === */
+	.v2-page .swiper-slide img {
+		border-radius: 1rem;
+		transition: transform 500ms ease;
+	}
+
+	.v2-page .swiper-slide img:hover {
+		transform: scale(1.03);
+	}
+</style>

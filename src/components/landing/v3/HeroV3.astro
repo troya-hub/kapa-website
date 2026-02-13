@@ -1,0 +1,96 @@
+---
+import { APP_REGISTER_URL } from "@/constants/app";
+---
+
+<section class="bg-night-blue site-container text-neutral-100">
+	<div class="h-10 lg:h-20"></div>
+	<div class="mx-auto text-center lg:max-w-[90%]">
+		<div class="mt-6 space-y-4">
+			<h1
+				class="hero-v3-headline font-bold"
+				style="opacity: 0;"
+			>
+				<span class="hero-v3-word inline-block" style="opacity: 0; transform: translateY(20px);">A dedicated</span>{" "}
+				<span class="hero-v3-word inline-block" style="opacity: 0; transform: translateY(20px);">design team</span>{" "}
+				<span class="hero-v3-word inline-block" style="opacity: 0; transform: translateY(20px);">for your</span>{" "}
+				<span class="hero-v3-word inline-block" style="opacity: 0; transform: translateY(20px);">business</span>{" "}
+				<span class="hero-v3-word inline-block" style="opacity: 0; transform: translateY(20px);">without the</span>{" "}
+				<span class="hero-v3-word inline-block text-pumpkin" style="opacity: 0; transform: translateY(20px);">big price tag</span>
+			</h1>
+
+			<div
+				class="hero-v3-subtitle text-k-lg text-neutral-80 mx-auto lg:max-w-[70%]"
+				style="opacity: 0; transform: translateY(15px);"
+			>
+				Get instant access to a team of professional designers—no hiring or contracts required. Flat
+				monthly fee starting at $349/month.
+			</div>
+
+			<div
+				class="hero-v3-cta mt-8 flex justify-center"
+				style="opacity: 0; transform: translateY(15px);"
+			>
+				<a class="v3-button-primary" href={APP_REGISTER_URL}>Start with a free 15-day trial</a>
+			</div>
+		</div>
+	</div>
+	<div class="h-10 lg:h-20"></div>
+</section>
+
+<style>
+	.hero-v3-headline {
+		font-size: 3rem;
+		line-height: 3.25rem;
+		letter-spacing: -2.5%;
+	}
+
+	@media (min-width: 1024px) {
+		.hero-v3-headline {
+			font-size: 5rem;
+			line-height: 5rem;
+			letter-spacing: -3%;
+		}
+	}
+
+	.hero-v3-word,
+	.hero-v3-subtitle,
+	.hero-v3-cta {
+		will-change: transform, opacity;
+	}
+
+	.v3-button-primary {
+		display: inline-block;
+		background-color: var(--color-pumpkin);
+		border: 1px solid transparent;
+		border-radius: 100px;
+		padding: 1rem 2rem;
+		color: var(--color-neutral-100);
+		font-weight: 550;
+		transition: all 300ms ease-out;
+	}
+
+	.v3-button-primary:hover {
+		background-color: var(--color-dark-pumpkin);
+		filter: brightness(1.08);
+	}
+</style>
+
+<script>
+	import gsap from "gsap";
+
+	document.addEventListener("DOMContentLoaded", () => {
+		const tl = gsap.timeline({ defaults: { ease: "power3.out" }, delay: 0.3 });
+
+		tl.set(".hero-v3-headline", { opacity: 1 });
+		tl.to(".hero-v3-word", {
+			opacity: 1,
+			y: 0,
+			duration: 0.7,
+			stagger: 0.12,
+		});
+
+		tl.to(".hero-v3-subtitle", { opacity: 1, y: 0, duration: 0.7 }, "-=0.3");
+
+		tl.to(".hero-v3-cta", { opacity: 1, y: 0, duration: 0.6 }, "-=0.2");
+	});
+</script>
