@@ -16,7 +16,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 <BaseLayout>
 	<section class="site-container text-neutral-10">
 		<Divider size="small" />
-		<div class="mx-auto text-center lg:max-w-[80%]">
+		<div data-animate="fade-up" class="mx-auto text-center lg:max-w-[80%]">
 			<HeroChip icon="layout" title="Case Study" />
 
 			<div class="mt-6 space-y-4">
@@ -25,7 +25,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 		</div>
 
 		<!--Body of the case study -->
-		<div class="mt-14">
+		<div data-animate="scale-in" class="mt-14">
 			<img
 				src={UpsolarLargeCover}
 				class="mx-auto mt-6 aspect-video rounded-lg object-cover"
@@ -35,7 +35,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 
 		<Divider size="large" />
 
-		<div class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
+		<div data-animate="fade-up" class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
 			<div class="grow lg:min-w-[400px]">
 				<Title type="h3">Meet Michael Cheung...</Title>
 			</div>
@@ -55,24 +55,24 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 
 		<Divider size="large" />
 
-		<div class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
+		<div data-animate="fade-up" class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
 			<div class="grow lg:min-w-[400px]">
 				<Title type="h3">What's Upsolar?</Title>
 			</div>
 			<div class="text-k-lg">
 				"Upsolar is a leading international developer and producer of high-quality solar
-				photovoltaic (PV) modules at competitive prices. Upsolar’s mission is to develop and produce
+				photovoltaic (PV) modules at competitive prices. Upsolar's mission is to develop and produce
 				solar PV modules featuring the best quality-to-cost ratio on the market, ensuring secure
 				long-term investments for our customers around the world. By utilizing top-tier module
-				components and working alongside the industry’s premier providers of balance-of-system
+				components and working alongside the industry's premier providers of balance-of-system
 				solutions, Upsolar is able to stay ahead of the demand curve and offer innovative, tailored
-				PV technologies to meet customers’ varying performance and aesthetic needs."
+				PV technologies to meet customers' varying performance and aesthetic needs."
 			</div>
 		</div>
 
 		<Divider size="large" />
 
-		<div class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
+		<div data-animate="fade-up" class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
 			<div class="grow lg:min-w-[400px]">
 				<Title type="h3">The Challenge</Title>
 			</div>
@@ -81,7 +81,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 					Upsolar used to have an in-house graphic designer. However, the designer left the company.
 					There was no immediate search for a replacement, and nobody in the company was familiar
 					with graphic design tools, like Photoshop or Illustrator. Even finding someone in-house
-					would have taken weeks, but marketing campaigns couldn’t stop.
+					would have taken weeks, but marketing campaigns couldn't stop.
 				</p>
 
 				<p>
@@ -98,7 +98,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 
 		<Divider size="large" />
 
-		<div class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
+		<div data-animate="fade-up" class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
 			<div class="grow lg:min-w-[400px]">
 				<Title type="h3">The Solution</Title>
 			</div>
@@ -125,18 +125,18 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 
 		<Divider size="large" />
 
-		<div class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
+		<div data-animate="fade-up" class="text-neutral-40 flex flex-col gap-x-10 gap-y-6 lg:flex-row lg:gap-y-0">
 			<div class="grow lg:min-w-[400px]">
 				<Title type="h3">The Results</Title>
 			</div>
 			<div class="text-k-lg flex flex-col justify-center gap-y-10">
 				<p>
-					A billboard for Upsolar’s Japan branch and promotional materials for the American branch
+					A billboard for Upsolar's Japan branch and promotional materials for the American branch
 					were all created in the same week and without traveling a single mile!
 				</p>
 
 				<p>
-					"We recently had to work with Upsolar’s Japan team to create a billboard design, and due
+					"We recently had to work with Upsolar's Japan team to create a billboard design, and due
 					to a high standard, there was a lot of communication going back and forth to make sure the
 					final design was perfect. The Trello board allowed clear communication between Upsolar and
 					themselves across different time zones, and in the end, everyone was satisfied with the
@@ -154,7 +154,7 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 					evening to try and get part of the materials finalized. Needless to say, they got it done
 					in the end.
 					<strong
-						>I think any other company wouldn’t go that far, and that is one of the main reasons why
+						>I think any other company wouldn't go that far, and that is one of the main reasons why
 						we stick with Kapa99.</strong>
 				</p>
 
@@ -171,4 +171,17 @@ const caseStudy = caseStudies.find((cs) => cs.slug === "upsolar")!;
 	</section>
 
 	<CallToAction />
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>

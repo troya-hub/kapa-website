@@ -8,9 +8,28 @@ import CallToAction from "@/components/landing/CallToAction.astro";
 ---
 
 <BaseLayout>
-	<Hero />
-	<HeroSamples />
+	<div data-animate="fade-up">
+		<Hero />
+	</div>
+	<div data-animate="fade-in">
+		<HeroSamples />
+	</div>
 	<Divider size="large" />
-	<CategoriesSamples />
+	<div data-animate="fade-in">
+		<CategoriesSamples />
+	</div>
 	<CallToAction />
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>
