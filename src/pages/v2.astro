@@ -4,16 +4,12 @@ import NavigationV3 from "@/components/landing/v3/NavigationV3.astro";
 import HeroV3 from "@/components/landing/v3/HeroV3.astro";
 import HeroSamples from "@/components/landing/HeroSamples.astro";
 import FoundersQuoteV3 from "@/components/landing/v3/FoundersQuoteV3.astro";
-import WhyUseIt from "@/components/landing/WhyUseIt.astro";
-import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
 import Servicesv2 from "@/components/landing/v2/Servicesv2.astro";
 import BenefitsV3 from "@/components/landing/v3/BenefitsV3.astro";
 import Reviews from "@/components/landing/Reviews.astro";
 import FAQ from "@/components/landing/FAQ.astro";
 import CallToAction from "@/components/landing/CallToAction.astro";
 import Footer from "@/components/landing/Footer.astro";
-import Divider from "@/components/ui/Divider.astro";
-import OurClients from "@/components/landing/OurClients.astro";
 ---
 
 <!doctype html>
@@ -27,7 +23,6 @@ import OurClients from "@/components/landing/OurClients.astro";
 		<meta name="robots" content="noindex, nofollow" />
 
 		<link rel="icon" type="image/png" href="/favicon-96x96.png" sizes="96x96" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="shortcut icon" href="/favicon.ico" />
 		<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
 		<meta name="apple-mobile-web-app-title" content="Kapa" />
@@ -47,67 +42,38 @@ import OurClients from "@/components/landing/OurClients.astro";
 
 		<NavigationV3 />
 
-		<!-- Hero: Dark -->
+		<!-- Hero -->
 		<HeroV3 />
 
 		<!-- Work Samples -->
-		<div data-animate="fade-in">
-			<HeroSamples />
+		<div class="v2-samples-section" data-animate="fade-in">
+			<div class="py-12 lg:py-20">
+				<HeroSamples />
+			</div>
 		</div>
 
-		<!-- Client Logos (moved from hero) -->
-		<div data-animate="fade-up" class="site-container">
-			<OurClients />
-		</div>
-
-		<Divider size="large" />
-
-		<!-- Founders Quote: Dark -->
+		<!-- Founders Quote -->
 		<FoundersQuoteV3 />
 
-		<Divider size="large" />
-
-		<!-- Why Use It: Light -->
-		<div data-animate="stagger-grid">
-			<WhyUseIt />
-		</div>
-
-		<Divider size="extra-large" />
-
-		<!-- How Do We Do It: Light -->
-		<div data-animate="stagger-grid">
-			<HowDoWeDoIt />
-		</div>
-
-		<Divider size="large" />
-
-		<!-- Services: Dark (already) -->
+		<!-- Services -->
 		<Servicesv2 />
 
-		<Divider size="large" />
-
-		<!-- Benefits: Dark, 3-col, 6-card -->
+		<!-- Benefits -->
 		<div data-animate="pop-grid">
 			<BenefitsV3 />
 		</div>
 
-		<Divider size="super-large" />
-
-		<!-- Reviews: Light -->
-		<div data-animate="focus-reveal">
+		<!-- Reviews -->
+		<div class="v2-reviews-section py-24 lg:py-32" data-animate="focus-reveal">
 			<Reviews />
 		</div>
 
-		<Divider size="super-large" />
-
-		<!-- FAQ: Light -->
-		<div data-animate="fade-up">
+		<!-- FAQ -->
+		<div class="v2-faq-section py-12 lg:py-20" data-animate="fade-up">
 			<FAQ />
 		</div>
 
-		<Divider size="large" />
-
-		<!-- CTA: Dark (already) -->
+		<!-- CTA -->
 		<CallToAction />
 
 		<!-- Footer -->
@@ -120,7 +86,17 @@ import OurClients from "@/components/landing/OurClients.astro";
 </html>
 
 <style is:global>
-	/* === V2 Typography Elevation === */
+	/* ==========================================================================
+	   V2 PAGE: FULL DARK THEME
+	   Everything lives on a dark canvas. No light sections.
+	   ========================================================================== */
+
+	.v2-page {
+		background-color: #0b0f29;
+		color: #fff;
+	}
+
+	/* ---------- Body-level typography ---------- */
 	.v2-page h1,
 	.v2-page h2,
 	.v2-page h3 {
@@ -131,10 +107,150 @@ import OurClients from "@/components/landing/OurClients.astro";
 		font-weight: 400;
 	}
 
-	/* === V2 Button Refinement === */
-	.v2-page .button-primary {
+	/* ---------- Work Samples Section ---------- */
+	.v2-samples-section {
+		background-color: #080b1e;
+	}
+
+	.v2-page .swiper-slide img {
+		border-radius: 1rem;
+		transition: transform 600ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	.v2-page .swiper-slide img:hover {
+		transform: scale(1.02);
+	}
+
+	/* ---------- Reviews Section (dark override) ---------- */
+	.v2-reviews-section {
+		background-color: #0a0e24;
+		border-top: 1px solid rgba(102, 153, 255, 0.08);
+	}
+
+	/* Section title */
+	.v2-reviews-section .text-neutral-10,
+	.v2-reviews-section h1,
+	.v2-reviews-section h2,
+	.v2-reviews-section h3,
+	.v2-reviews-section h4,
+	.v2-reviews-section h5 {
+		color: #fff !important;
+	}
+
+	/* Testimonial names — active state */
+	.v2-reviews-section h6.text-neutral-10 {
+		color: #fff !important;
+	}
+
+	/* Testimonial names — inactive state */
+	.v2-reviews-section h6.text-neutral-60 {
+		color: rgba(130, 136, 153, 0.7) !important;
+	}
+
+	/* Testimonial job title */
+	.v2-reviews-section .text-neutral-60 {
+		color: rgba(130, 136, 153, 0.7);
+	}
+
+	/* Testimonial description */
+	.v2-reviews-section .text-neutral-40 {
+		color: rgba(184, 189, 204, 0.7);
+	}
+
+	/* Testimonial divider */
+	.v2-reviews-section .border-neutral-95 {
+		border-color: rgba(102, 153, 255, 0.12);
+	}
+
+	/* Testimonial image container */
+	.v2-reviews-section .bg-gray-100 {
+		background-color: rgba(23, 39, 128, 0.2);
+	}
+
+	/* View all testimonials link */
+	.v2-reviews-section .button-link {
+		color: rgba(184, 189, 204, 0.8);
+	}
+
+	.v2-reviews-section .button-link:hover {
+		color: #fff;
+	}
+
+	/* Arrow icon in link */
+	.v2-reviews-section .text-neutral-10 svg,
+	.v2-reviews-section svg.text-neutral-10 {
+		color: #fff;
+	}
+
+	/* ---------- FAQ Section (dark override) ---------- */
+	.v2-faq-section {
+		background-color: #0b0f29;
+		border-top: 1px solid rgba(102, 153, 255, 0.08);
+	}
+
+	/* FAQ title */
+	.v2-faq-section h1,
+	.v2-faq-section h2,
+	.v2-faq-section h3 {
+		color: #fff !important;
+	}
+
+	/* FAQ question titles */
+	.v2-faq-section h6 {
+		color: rgba(255, 255, 255, 0.9) !important;
+	}
+
+	/* FAQ answer text */
+	.v2-faq-section .text-neutral-40 {
+		color: rgba(184, 189, 204, 0.7);
+	}
+
+	/* FAQ answer links */
+	.v2-faq-section .text-blue-700 {
+		color: var(--color-blue);
+	}
+
+	/* FAQ borders */
+	.v2-faq-section .border-neutral-95 {
+		border-color: rgba(102, 153, 255, 0.12);
+	}
+
+	/* FAQ toggle button hover */
+	.v2-faq-section button[data-toggle]:hover {
+		color: var(--color-blue) !important;
+	}
+
+	.v2-faq-section button[data-toggle]:hover h6 {
+		color: var(--color-blue) !important;
+	}
+
+	/* FAQ icons (plus/minus) — make them light */
+	.v2-faq-section .faq-icon svg {
+		color: rgba(184, 189, 204, 0.6);
+	}
+
+	.v2-faq-section .faq-icon svg path,
+	.v2-faq-section .faq-icon svg line,
+	.v2-faq-section .faq-icon svg rect {
+		stroke: rgba(184, 189, 204, 0.6);
+	}
+
+	/* ---------- CTA Section (already dark, minimal touch-ups) ---------- */
+	.v2-page section.bg-night-blue .button-primary {
 		box-shadow: none;
 		padding: 1rem 2rem;
+		transition: all 300ms ease-out;
+	}
+
+	.v2-page section.bg-night-blue .button-primary:hover {
+		transform: none;
+		filter: brightness(1.08);
+		box-shadow: 0 0 40px rgba(245, 105, 15, 0.2);
+	}
+
+	/* ---------- Global button refinement ---------- */
+	.v2-page .button-primary {
+		box-shadow: none;
 		transition: all 300ms ease-out;
 	}
 
@@ -143,18 +259,14 @@ import OurClients from "@/components/landing/OurClients.astro";
 		filter: brightness(1.08);
 	}
 
-	/* === V2 Card Refinement === */
-	.v2-page [data-theme="dark"] .shadow-\[24px_28px_24px_0px_rgba\(11\2c 15\2c 41\2c 0\.06\)\2c 12px_12px_16px_0px_rgba\(11\2c 15\2c 41\2c 0\.08\)\2c 3px_3px_8px_0px_rgba\(11\2c 15\2c 41\2c 0\.08\)\] {
-		box-shadow: 0 2px 8px 0px rgba(11, 15, 41, 0.08);
+	.v2-page .button-secondary {
+		border-color: rgba(184, 189, 204, 0.3);
+		color: rgba(184, 189, 204, 0.8);
 	}
 
-	/* === V2 Carousel Refinement === */
-	.v2-page .swiper-slide img {
-		border-radius: 1rem;
-		transition: transform 500ms ease;
-	}
-
-	.v2-page .swiper-slide img:hover {
-		transform: scale(1.03);
+	.v2-page .button-secondary:hover {
+		border-color: #fff;
+		color: #fff;
+		background-color: transparent;
 	}
 </style>
