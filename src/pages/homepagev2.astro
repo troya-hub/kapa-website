@@ -5,11 +5,11 @@ import Divider from "@/components/ui/Divider.astro";
 import Herov2 from "@/components/landing/v2/Herov2.astro";
 import HeroSamples from "@/components/landing/HeroSamples.astro";
 import TrustBadgedsv2 from "@/components/landing/v2/TrustBadgedsv2.astro";
-import FoundersQuotes from "@/components/landing/FoundersQuote.astro";
+import FoundersQuotev2 from "@/components/landing/v2/FoundersQuotev2.astro";
 import CarouselServices from "@/components/landing/CarouselServices.astro";
 import WhyUseIt from "@/components/landing/WhyUseIt.astro";
-import HowDoWeDoIt from "@/components/landing/HowDoWeDoIt.astro";
-import Services from "@/components/landing/Services.astro";
+import HowDoWeDoItv2 from "@/components/landing/v2/HowDoWeDoItv2.astro";
+import Servicesv2 from "@/components/landing/v2/Servicesv2.astro";
 import Benefits from "@/components/landing/Benefits.astro";
 import Reviews from "@/components/landing/Reviews.astro";
 import FAQ from "@/components/landing/FAQ.astro";
@@ -39,31 +39,25 @@ import CallToAction from "@/components/landing/CallToAction.astro";
 			<TrustBadgedsv2 />
 		</div>
 		<Divider size="large" />
-		<div data-animate="fade-up">
-			<FoundersQuotes />
-		</div>
+		<FoundersQuotev2 />
 		<Divider size="large" />
 		<div data-animate="fade-in">
 			<CarouselServices />
 		</div>
 		<Divider size="large" />
-		<div data-animate="stagger-grid">
+		<div data-animate="pinned-bento">
 			<WhyUseIt />
 		</div>
 		<Divider size="extra-large" />
-		<div data-animate="stagger-grid">
-			<HowDoWeDoIt />
-		</div>
+		<HowDoWeDoItv2 />
 		<Divider size="large" />
-		<div data-animate="fade-in">
-			<Services />
-		</div>
+		<Servicesv2 />
 		<Divider size="large" />
-		<div data-animate="stagger-grid">
+		<div data-animate="pop-grid">
 			<Benefits />
 		</div>
 		<Divider size="super-large" />
-		<div data-animate="fade-up">
+		<div data-animate="focus-reveal">
 			<Reviews />
 		</div>
 		<Divider size="super-large" />
@@ -71,9 +65,7 @@ import CallToAction from "@/components/landing/CallToAction.astro";
 			<FAQ />
 		</div>
 		<Divider size="large" />
-		<div data-animate="scale-in" style="overflow: hidden;">
-			<CallToAction />
-		</div>
+		<CallToAction />
 	</div>
 
 	<script>
