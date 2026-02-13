@@ -1,6 +1,4 @@
 ---
-import Title from "@/components/ui/Title.astro";
-
 // Dark icons
 import DarkTimeIcon from "@/assets/icons/benefits/dark-save-time.svg";
 import DarkSaveMoneyIcon from "@/assets/icons/benefits/dark-save-money.svg";
@@ -51,26 +49,49 @@ const benefits: BenefitItem[] = [
 ];
 ---
 
-<section class="bg-night-blue py-20 lg:py-30" data-theme="dark">
+<section class="v3-benefits-section py-24 lg:py-32">
 	<div class="site-container">
-		<Title type="h1" class="text-neutral-100!">
+		<h2 class="v3-section-title text-k-h2-mobile lg:text-k-h2 font-bold text-neutral-100">
 			Built for you
-		</Title>
-		<div class="h-20 lg:h-30"></div>
-		<div class="grid grid-cols-1 gap-x-16 gap-y-16 md:grid-cols-2 lg:grid-cols-3">
+		</h2>
+		<div class="h-16 lg:h-24"></div>
+		<div class="grid grid-cols-1 gap-x-12 gap-y-14 md:grid-cols-2 lg:grid-cols-3">
 			{benefits.map((benefit) => (
-				<div>
+				<div class="v3-benefit-card">
 					<div class="flex">
-						<span class="bg-dark-blue border-blue rounded-md border-b border-t-transparent border-r-transparent border-l-transparent p-4 shadow-[0_2px_8px_0px_rgba(11,15,41,0.08)]">
+						<span class="v3-benefit-icon">
 							<benefit.icon />
 						</span>
 					</div>
 					<div class="mt-6">
 						<h6 class="text-k-h6 text-neutral-100 font-bold">{benefit.title}</h6>
-						<p class="text-k-md text-neutral-80 mt-2">{benefit.description}</p>
+						<p class="text-k-md mt-3" style="color: rgba(184, 189, 204, 0.7);">{benefit.description}</p>
 					</div>
 				</div>
 			))}
 		</div>
 	</div>
 </section>
+
+<style>
+	.v3-benefits-section {
+		background-color: #0a0e24;
+		border-top: 1px solid rgba(102, 153, 255, 0.08);
+	}
+
+	.v3-benefit-icon {
+		display: inline-flex;
+		padding: 1rem;
+		border-radius: 0.5rem;
+		background-color: rgba(23, 39, 128, 0.4);
+		border-bottom: 1px solid rgba(112, 160, 255, 0.15);
+	}
+
+	.v3-benefit-card {
+		transition: transform 500ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+	}
+
+	.v3-benefit-card:hover {
+		transform: translateY(-4px);
+	}
+</style>

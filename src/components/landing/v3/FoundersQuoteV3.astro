@@ -16,10 +16,10 @@ const founders = [
 ];
 ---
 
-<section class="bg-night-blue py-20 lg:py-30">
+<section class="v3-quote-section py-24 lg:py-36">
 	<div class="site-container">
 		<h4
-			class="text-k-h4-mobile lg:text-k-h4 font-semibold mx-auto text-center lg:w-[80%] text-wipe-text-v3"
+			class="text-k-h4-mobile lg:text-k-h4 font-semibold mx-auto text-center lg:w-[75%] text-wipe-text-v3"
 			data-animate="text-wipe"
 		>
 			Stop wrestling with Canva or overpaying agencies. <br class="hidden xl:inline-block" />
@@ -27,13 +27,13 @@ const founders = [
 			looking better than you imagined.
 		</h4>
 
-		<div class="h-10 lg:h-20"></div>
+		<div class="h-12 lg:h-20"></div>
 
 		<div class="founders-row mx-auto flex justify-center gap-x-4 lg:gap-x-20" style="opacity: 0; transform: translateY(15px);">
 			{
 				founders.map((founder) => (
 					<div class="flex gap-x-4">
-						<img class="w-16" src={founder.image} alt={founder.name} />
+						<img class="w-16 rounded-full" src={founder.image} alt={founder.name} />
 						<div class="flex flex-col justify-center gap-x-4">
 							<span class="text-k-lg text-neutral-100 font-semibold">{founder.name}</span>
 							<span class="text-k-sm text-neutral-60">{founder.job}</span>
@@ -46,13 +46,19 @@ const founders = [
 </section>
 
 <style>
+	.v3-quote-section {
+		background-color: #080b1e;
+		border-top: 1px solid rgba(102, 153, 255, 0.08);
+		border-bottom: 1px solid rgba(102, 153, 255, 0.08);
+	}
+
 	.text-wipe-text-v3 {
 		background: linear-gradient(
 			to right,
-			rgb(255, 255, 255) 0%,
-			rgb(255, 255, 255) 50%,
-			rgb(130, 136, 153) 50%,
-			rgb(130, 136, 153) 100%
+			rgba(255, 255, 255, 0.95) 0%,
+			rgba(255, 255, 255, 0.95) 50%,
+			rgba(130, 136, 153, 0.5) 50%,
+			rgba(130, 136, 153, 0.5) 100%
 		);
 		background-size: 200% 100%;
 		background-position: 100% 0;
