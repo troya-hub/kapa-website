@@ -12,20 +12,45 @@ import LineDivider from "@/components/ui/LineDivider.astro";
 ---
 
 <BaseLayout>
-	<Hero />
+	<div data-animate="fade-up">
+		<Hero />
+	</div>
 	<Divider size="medium" />
-	<Solution />
+	<div data-animate="scale-in">
+		<Solution />
+	</div>
 	<Divider size="medium" />
-	<SolutionDetails />
+	<div data-animate="stagger-grid">
+		<SolutionDetails />
+	</div>
 	<Divider size="large" />
-	<DesignWorkflow />
+	<div data-animate="stagger-grid">
+		<DesignWorkflow />
+	</div>
 	<Divider size="large" />
 	<div class="bg-night-blue relative text-neutral-100">
 		<Divider size="large" />
-		<DesignSteps />
+		<div data-animate="pop-grid">
+			<DesignSteps />
+		</div>
 		<LineDivider />
-		<Benefits theme="dark" />
+		<div data-animate="pop-grid">
+			<Benefits theme="dark" />
+		</div>
 		<Divider size="large" />
 	</div>
 	<CallToAction />
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
 </BaseLayout>
+
+<style is:global>
+	.button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	.button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>
