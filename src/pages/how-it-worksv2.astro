@@ -1,0 +1,70 @@
+---
+import BaseLayout from "@/layouts/BaseLayout.astro";
+import Divider from "@/components/ui/Divider.astro";
+import Hero from "@/components/how-it-works/Hero.astro";
+import Solution from "@/components/how-it-works/Solution.astro";
+import SolutionDetails from "@/components/how-it-works/SolutionDetails.astro";
+import DesignWorkflow from "@/components/how-it-works/DesignWorkflow.astro";
+import DesignSteps from "@/components/how-it-works/DesignSteps.astro";
+import Benefits from "@/components/landing/Benefits.astro";
+import CallToAction from "@/components/landing/CallToAction.astro";
+import LineDivider from "@/components/ui/LineDivider.astro";
+---
+
+<BaseLayout>
+	<script is:inline>
+		(function () {
+			var pw = prompt("Enter password to view this page:");
+			if (pw !== "kapa2025") {
+				var el = document.getElementById("v2-content");
+				if (el) el.style.display = "none";
+				alert("Incorrect password.");
+				window.location.href = "/";
+			}
+		})();
+	</script>
+
+	<div id="v2-content">
+		<div data-animate="fade-up">
+			<Hero />
+		</div>
+		<Divider size="medium" />
+		<div data-animate="scale-in">
+			<Solution />
+		</div>
+		<Divider size="medium" />
+		<div data-animate="stagger-grid">
+			<SolutionDetails />
+		</div>
+		<Divider size="large" />
+		<div data-animate="stagger-grid">
+			<DesignWorkflow />
+		</div>
+		<Divider size="large" />
+		<div class="bg-night-blue relative text-neutral-100">
+			<Divider size="large" />
+			<div data-animate="pop-grid">
+				<DesignSteps />
+			</div>
+			<LineDivider />
+			<div data-animate="pop-grid">
+				<Benefits theme="dark" />
+			</div>
+			<Divider size="large" />
+		</div>
+		<CallToAction />
+	</div>
+
+	<script>
+		import "@/scripts/scroll-animations";
+	</script>
+</BaseLayout>
+
+<style is:global>
+	#v2-content .button-primary {
+		transition: transform 0.2s ease-out;
+	}
+	#v2-content .button-primary:hover {
+		transform: scale(1.03);
+	}
+</style>
